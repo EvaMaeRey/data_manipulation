@@ -4,7 +4,6 @@ author: "Evangeline Reynolds"
 date: "2/16/2019"
 output:
   xaringan::moon_reader:
-    chakra: libs/remark-latest.min.js
     lib_dir: libs
     css: [default, hygge, ninjutsu]
     nature:
