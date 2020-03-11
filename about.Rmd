@@ -69,7 +69,7 @@ The function `summary()` can also be used to request summary statistcs for an en
 
 ## [Data Cleaning](https://evamaerey.github.io/flipbooks/data_cleaning/data_cleaning){target="_blank"}
 
-I personally think of data cleaning as a separate, but related topic to data manipulation - which is the central topic of the present resource.  A separate data cleaning resource can be found [here](https://evamaerey.github.io/flipbooks/data_cleaning/data_cleaning).
+I personally think of data cleaning as a separate, but related topic to data manipulation - which is the central topic of the present resource.  A separate data cleaning resource can be found [here](https://evamaerey.github.io/flipbooks/data_cleaning/data_cleaning). 
 
 - Regular Expressions, character string manipulation with `{stringr}`
 - Unique Identifiers for Countries with `{countrycode}`
