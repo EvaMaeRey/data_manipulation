@@ -1,0 +1,68 @@
+---
+title: "long to wide or wide to long"
+author: "Evangeline Reynolds"
+date: "2/16/2019"
+output:
+  xaringan::moon_reader:
+    chakra: libs/remark-latest.min.js
+    lib_dir: libs
+    css: [default, hygge, ninjutsu]
+    nature:
+      ratio: 16:10
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+
+```{r}
+library(gapminder)
+library(tidyverse)
+library(flipbookr)
+knitr::opts_chunk$set(cache = F, comment = "")
+```
+
+---
+name: longtowideandback
+## Exercise: *spread data, gather data*
+
+Sometimes, we need to transform the shape of our data.  The wide form of data is an efficient way to store data - especially time-series data.  However, we often need data in a long for for data analysis, so shape transformations are important.  
+
+
+
+---
+## Exercise: *long to wide*
+
+---
+
+```{r long_to_wide, include = F}
+gapminder %>% 
+  select(country, continent, 
+         lifeExp, year) %>% 
+  spread(key = year, 
+         value = lifeExp) ->
+gapminder_life_exp_wide 
+```
+
+
+`r chunk_reveal("long_to_wide")`
+
+---
+## Exercise: *wide to long*
+
+---
+
+
+```{r wide_to_long, include = F}
+gapminder_life_exp_wide %>% 
+  gather(key = "year", 
+         value = "lifeExp",
+         -country, -continent) %>% 
+  mutate(year = as.numeric(year)) ->
+  gapminder_life_exp_long 
+```
+
+
+`r chunk_reveal("wide_to_long")`
+
+---

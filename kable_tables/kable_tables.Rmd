@@ -1,0 +1,99 @@
+---
+title: "knitr::kable Tables"
+subtitle: "with kableExtra and formattable"
+author: "Gina Reynolds - ⚔<br/>made with xaringan"
+date: "2019/03/05"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: ["kunoichi", "ninjutsu"]
+    nature:
+      ratio: "16:9"
+      highlightLines: true
+---
+
+```{r}
+
+library(flipbookr)
+```
+
+
+```{r kable, echo = F, eval = F}
+library(tidyverse)
+mtcars[1:5, 1:4] %>%
+  mutate(car = row.names(.)) %>%
+  select(car, everything()) %>% 
+knitr::kable("html", escape = F)
+```
+
+---
+
+
+`r apply_reveal("kable")`
+
+---
+
+```{r kable_extra, echo = F, eval = F}
+# library(kableExtra)
+library(formattable)
+mtcars[1:5, 1:4] %>%
+  mutate(car = row.names(.)) %>%
+  select(car, everything()) %>%
+  mutate(mpg = formattable::color_tile("white", "orange")(mpg)) %>% #REVEAL2
+  mutate(hp = formattable::color_bar("lightgreen")(hp)) %>% #REVEAL3
+  mutate(cyl = kableExtra::cell_spec(x = cyl, #REVEAL4
+                         format = "html", #REVEAL4
+                         angle = (1:5)*90/5, #REVEAL4
+                         background = "red", #REVEAL4
+                         color = "white", #REVEAL4
+                         align = "center")) %>% #REVEAL4
+  mutate(disp = ifelse(disp > 200, #REVEAL5
+                       kableExtra::cell_spec( #REVEAL5
+                         x = disp, #REVEAL5
+                         "html",  #REVEAL5
+                         color = "red",  #REVEAL5
+                         bold = T), #REVEAL5
+                       kableExtra::cell_spec( #REVEAL5
+                         x = disp, #REVEAL5
+                         format = "html",  #REVEAL5
+                         color = "green",  #REVEAL5
+                         italic = T))) %>%  #REVEAL5
+  knitr::kable("html", escape = F) %>%
+  kableExtra::column_spec(column = 2:5, 
+                          width = c("1cm", "1cm","1cm","3cm")
+                                      ) %>%
+  kableExtra::add_header_above(header = 
+                                 c(" ", 
+                                   "Hello" = 2, 
+                                   "World" = 2))
+```
+
+
+
+---
+
+`r flipbookr::apply_reveal_nonsequential("kable_extra")`
+
+
+---
+
+# What's going on under the hood (translation to html and formatting)
+
+---
+
+`r flipbookr::apply_reveal("kable_extra")`
+
+
+---
+
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">You have the second plot and you want the first one? Just use aes(group = variablethatuniquelyidentifiesarow)</p>&mdash; Hadley Wickham (@hadleywickham) <a href="https://twitter.com/hadleywickham/status/1187206912963686400?ref_src=twsrc%5Etfw">October 24, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+
+
+
+```{css, eval = TRUE, echo = F}
+.remark-code{line-height: 1.5; font-size: 60%}
+```
+
