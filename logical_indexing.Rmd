@@ -1,0 +1,70 @@
+---
+title: "the logic of logical indexing and data wrangling with base R"
+author: "Gina Reynolds, September 2019"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: ["kunoichi", "ninjutsu"]
+    nature:
+      ratio: 16:10
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+
+```{r setup, include=F}
+knitr::opts_chunk$set(fig.width = 8, message = F, warning = F, 
+                      comment = "", cache = F)
+library(flipbookr)
+```
+
+
+---
+
+# Data wrangling with dplyr and tidyr
+
+
+```{r}
+library(magrittr)
+library(gapminder)
+```
+
+
+---
+
+```{r load_packages_manipulation, echo = F, eval = F}
+gm_2002 <- gapminder %>% 
+  .[, c("year", "country", 
+        "pop", "gdpPercap")] %>% 
+  .[gapminder$year == 2002, ] %>% 
+  .[, -1]
+
+gm_2002$gdp <- with(gm_2002, pop * gdpPercap)
+```
+
+`r chunk_reveal("load_packages_manipulation", left_assign = T)`
+
+---
+
+
+```{r free_form, echo = F, eval = F}
+my_data <- 18:1 %>% 
+  .[c(1,10,18)] %>% 
+  data.frame(y = rep("hi", 3),
+             q = 1:3,
+             hi = 7:9) %>% 
+  .[2:3, ]
+
+names(my_data)[1] <- "var1"
+```
+
+`r chunk_reveal("free_form", left_assign = T)`
+
+---
+
+```{css, eval = TRUE, echo = F}
+.remark-code{line-height: 1.5; font-size: 60%}
+```
+
+
