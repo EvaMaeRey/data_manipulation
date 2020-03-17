@@ -6,6 +6,15 @@ output: html_document
 ---
 
 
+# The very basics
+
+## [Arithmetic operations and data types and structures](arithmetic_and_data_types.html){target="_blank"}
+
+**values**: numeric,    character,    integer,   date, logical,   factor 
+
+**operators**: `+ `  `-`   `/`   `()` `^ `   
+
+**structures**: scalar, vector, matrix, data frame (with rows and columns)
 
 # Data manipulation with the tidyverse
 

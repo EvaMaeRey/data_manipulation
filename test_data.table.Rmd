@@ -1,0 +1,64 @@
+---
+title: "The fragile and perilous art of flipbooking"
+subtitle: "With flipbookr and xaringan"
+author: "Gina Reynolds, December 2019"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: [default, hygge, ninjutsu]
+    nature:
+      ratio: 16:10
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+```{r, cache = FALSE}
+# library(flipbookr)
+library(data.table)
+
+# this is the old strategy that plays better with data table...  We need to figure out the new source of the problem.  
+source(file = "https://raw.githubusercontent.com/EvaMaeRey/little_flipbooks_library/master/xaringan_reveal_parentheses_balanced.R")
+knitr::opts_chunk$set(warning = F)
+
+```
+
+---
+```{r data_table, eval = T, echo = F}
+data.table(
+  ID = c("b","b","b","a","a","c"),
+  a = 1:6,
+  b = 7:12,
+  c = 13:18,
+  c4 = c(2,2,2,2,3,3)) ->
+dt
+
+#this gives columns not rows
+rws = dt[2:3]
+rws
+
+#this does not work
+rows <- dt[a:c]
+rows
+
+#this does not work -- still does not work... hmm
+#columns <- dt[ID="b"]
+#columns
+
+
+
+```
+
+---
+
+<!-- This is the old name of the function now called chunk_reveal() -->
+
+`r apply_reveal("data_table")`
+
+
+---
+
+
+```{css, eval = TRUE, echo = FALSE}
+.remark-code{line-height: 1.5; font-size: 80%}
+```

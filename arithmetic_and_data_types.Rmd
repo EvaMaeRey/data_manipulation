@@ -1,0 +1,123 @@
+---
+title: "Some data structures and arithmetic operators"
+subtitle: "With flipbookr and xaringan"
+author: "Gina Reynolds, March 2020"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: [default, hygge, ninjutsu]
+    nature:
+      ratio: 16:10
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+
+
+```{r setup, include = F}
+# This is the recommended set up for flipbooks
+# you might think about setting cache to TRUE as you gain practice --- building flipbooks from scracth can be time consuming
+knitr::opts_chunk$set(fig.width = 6, message = FALSE, warning = FALSE, comment = "", cache = FALSE, fig.retina = 3)
+library(flipbookr)
+library(tidyverse)
+```
+
+---
+
+`r chunk_reveal("basic")`
+
+```{r basic, include=F}
+1 + 1
+5 * 8
+(4 + 2)^2
+3 / (3 + 6)
+```
+
+
+---
+
+`r chunk_reveal("vec")`
+
+```{r vec, include=F}
+3:10
+1:6 * 2
+c(1, 2, 6, 10)
+1:4 + 0:3
+TRUE
+c(T, T, F, F)
+"hello world"
+c("hello", "hi", "bye", "bye-bye")
+```
+
+
+---
+
+`r chunk_reveal("str")`
+
+
+```{r str, include=F}
+str(3)
+str("hello")
+str(1.1)
+str(1:8)
+str(2L)
+str(c(1,3))
+str(factor(c("hello", "bye")))
+str(Sys.time())
+str(Sys.Date())
+```
+
+
+
+---
+
+`r chunk_reveal("mat")`
+
+```{r mat, include=F}
+matrix(1:10, nrow = 5)
+
+matrix(1:10, ncol = 3)
+
+
+
+
+
+
+matrix(c(1,2,3,4), 
+       nrow = 2) * 2
+
+
+
+
+( matrix(c(1,2,3,4), 
+        nrow = 2) *
+  matrix(c(1,2,3,4), 
+       nrow = 2) )
+( matrix(c(1,2,3,4), 
+       nrow = 2) %*%
+  matrix(c(1,2,3,4), 
+       nrow = 2) )
+```
+
+
+
+---
+
+`r chunk_reveal("dat", break_type = 1)`
+
+```{r dat, include=F}
+data.frame(id = 1:6, 
+           greet = c("hi", "bye", 
+                     "hello", "chao",
+                     "adios", "tchuss"),
+           nums = c(2.3, 4.1, 3.5, 
+                    3.2, 5.6, 8.9))
+
+```
+
+
+
+```{css, eval = TRUE, echo = FALSE}
+.remark-code{line-height: 1.5; font-size: 80%}
+```

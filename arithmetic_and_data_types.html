@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <title>Some data structures and arithmetic operators</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Gina Reynolds, March 2020" />
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/hygge.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/ninjutsu.css" rel="stylesheet" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Some data structures and arithmetic operators
+## With flipbookr and xaringan
+### Gina Reynolds, March 2020
+
+---
+
+
+
+
+
+
+---
+
+class: split-40
+count: false
+.column[.content[
+
+```r
+*1 + 1
+```
+]]
+.column[.content[
+
+```
+[1] 2
+```
+]]
+---
+class: split-40
+count: false
+.column[.content[
+
+```r
+1 + 1  
+*5 * 8
+```
+]]
+.column[.content[
+
+```
+[1] 2
+```
+
+```
+[1] 40
+```
+]]
+---
+class: split-40
+count: false
+.column[.content[
+
+```r
+1 + 1  
+5 * 8  
+*(4 + 2)^2
+```
+]]
+.column[.content[
+
+```
+[1] 2
+```
+
+```
+[1] 40
+```
+
+```
+[1] 36
+```
+]]
+---
+class: split-40
+count: false
+.column[.content[
+
+```r
+1 + 1  
+5 * 8  
+(4 + 2)^2  
+*3 / (3 + 6)
+```
+]]
+.column[.content[
+
+```
+[1] 2
+```
+
+```
+[1] 40
+```
+
+```
+[1] 36
+```
+
+```
+[1] 0.3333333
+```
+]]
+
+
+
+
+---
+
+class: split-40
+count: false
+.column[.content[
+
+```r
+*3:10
+```
+]]
+.column[.content[
+
+```
+[1]  3  4  5  6  7  8  9 10
+```
+]]
+---
+class: split-40
+count: false
+.column[.content[
+
+```r
+3:10  
+*1:6 * 2
+```
+]]
+.column[.content[
+
+```
+[1]  3  4  5  6  7  8  9 10
+```
+
+```
+[1]  2  4  6  8 10 12
+```
+]]
+---
+class: split-40
+count: false
+.column[.content[
+
+```r
+3:10  
+1:6 * 2  
+*c(1, 2, 6, 10)
+```
+]]
+.column[.content[
+
+```
+[1]  3  4  5  6  7  8  9 10
+```
+
+```
+[1]  2  4  6  8 10 12
+```
+
+```
+[1]  1  2  6 10
+```
+]]
+---
+class: split-40
+count: false
+.column[.content[
+
+```r
+3:10  
+1:6 * 2  
+c(1, 2, 6, 10)  
+*1:4 + 0:3
+```
+]]
+.column[.content[
+
+```
+[1]  3  4  5  6  7  8  9 10
+```
+
+```
+[1]  2  4  6  8 10 12
+```
+
+```
+[1]  1  2  6 10
+```
+
+```
+[1] 1 3 5 7
+```
+]]
+---
+class: split-40
+count: false
+.column[.content[
+
+```r
+3:10  
+1:6 * 2  
+c(1, 2, 6, 10)  
+1:4 + 0:3  
+*TRUE
+```
+]]
+.column[.content[
+
+```
+[1]  3  4  5  6  7  8  9 10
+```
+
+```
+[1]  2  4  6  8 10 12
+```
+
+```
+[1]  1  2  6 10
+```
+
+```
+[1] 1 3 5 7
+```
+
+```
+[1] TRUE
+```
+]]
+---
+class: split-40
+count: false
+.column[.content[
+
+```r
+3:10  
+1:6 * 2  
+c(1, 2, 6, 10)  
+1:4 + 0:3  
+TRUE  
+*c(T, T, F, F)
+```
+]]
+.column[.content[
+
+```
+[1]  3  4  5  6  7  8  9 10
+```
+
+```
+[1]  2  4  6  8 10 12
+```
+
+```
+[1]  1  2  6 10
+```
+
+```
+[1] 1 3 5 7
+```
+
+```
+[1] TRUE
+```
+
+```
+[1]  TRUE  TRUE FALSE FALSE
+```
+]]
+---
+class: split-40
+count: false
+.column[.content[
+
+```r
+3:10  
+1:6 * 2  
+c(1, 2, 6, 10)  
+1:4 + 0:3  
+TRUE  
+c(T, T, F, F)  
+*"hello world"
+```
+]]
+.column[.content[
+
+```
+[1]  3  4  5  6  7  8  9 10
+```
+
+```
+[1]  2  4  6  8 10 12
+```
+
+```
+[1]  1  2  6 10
+```
+
+```
+[1] 1 3 5 7
+```
+
+```
+[1] TRUE
+```
+
+```
+[1]  TRUE  TRUE FALSE FALSE
+```
+
+```
+[1] "hello world"
+```
+]]
+---
+class: split-40
+count: false
+.column[.content[
+
+```r
+3:10  
+1:6 * 2  
+c(1, 2, 6, 10)  
+1:4 + 0:3  
+TRUE  
+c(T, T, F, F)  
+"hello world"  
+*c("hello", "hi", "bye", "bye-bye")
+```
+]]
+.column[.content[
+
+```
+[1]  3  4  5  6  7  8  9 10
+```
+
+```
+[1]  2  4  6  8 10 12
+```
+
+```
+[1]  1  2  6 10
+```
+
+```
+[1] 1 3 5 7
+```
+
+```
+[1] TRUE
+```
+
+```
+[1]  TRUE  TRUE FALSE FALSE
+```
+
+```
+[1] "hello world"
+```
+
+```
+[1] "hello"   "hi"      "bye"     "bye-bye"
+```
+]]
+
+
+
+
+---
+
+class: split-40
+count: false
+.column[.content[
+
+```r
+*str(3)
+```
+]]
+.column[.content[
+
+```
+ num 3
+```
+]]
+---
+class: split-40
+count: false
+.column[.content[
+
+```r
+str(3)  
+*str("hello")
+```
+]]
+.column[.content[
+
+```
+ num 3
+```
+
+```
+ chr "hello"
+```
+]]
+---
+class: split-40
+count: false
+.column[.content[
+
+```r
+str(3)  
+str("hello")  
+*str(1.1)
+```
+]]
+.column[.content[
+
+```
+ num 3
+```
+
+```
+ chr "hello"
+```
+
+```
+ num 1.1
+```
+]]
+---
+class: split-40
+count: false
+.column[.content[
+
+```r
+str(3)  
+str("hello")  
+str(1.1)  
+*str(1:8)
+```
+]]
+.column[.content[
+
+```
+ num 3
+```
+
+```
+ chr "hello"
+```
+
+```
+ num 1.1
+```
+
+```
+ int [1:8] 1 2 3 4 5 6 7 8
+```
+]]
+---
+class: split-40
+count: false
+.column[.content[
+
+```r
+str(3)  
+str("hello")  
+str(1.1)  
+str(1:8)  
+*str(2L)
+```
+]]
+.column[.content[
+
+```
+ num 3
+```
+
+```
+ chr "hello"
+```
+
+```
+ num 1.1
+```
+
+```
+ int [1:8] 1 2 3 4 5 6 7 8
+```
+
+```
+ int 2
+```
+]]
+---
+class: split-40
+count: false
+.column[.content[
+
+```r
+str(3)  
+str("hello")  
+str(1.1)  
+str(1:8)  
+str(2L)  
+*str(c(1,3))
+```
+]]
+.column[.content[
+
+```
+ num 3
+```
+
+```
+ chr "hello"
+```
+
+```
+ num 1.1
+```
+
+```
+ int [1:8] 1 2 3 4 5 6 7 8
+```
+
+```
+ int 2
+```
+
+```
+ num [1:2] 1 3
+```
+]]
+---
+class: split-40
+count: false
+.column[.content[
+
+```r
+str(3)  
+str("hello")  
+str(1.1)  
+str(1:8)  
+str(2L)  
+str(c(1,3))  
+*str(factor(c("hello", "bye")))
+```
+]]
+.column[.content[
+
+```
+ num 3
+```
+
+```
+ chr "hello"
+```
+
+```
+ num 1.1
+```
+
+```
+ int [1:8] 1 2 3 4 5 6 7 8
+```
+
+```
+ int 2
+```
+
+```
+ num [1:2] 1 3
+```
+
+```
+ Factor w/ 2 levels "bye","hello": 2 1
+```
+]]
+---
+class: split-40
+count: false
+.column[.content[
+
+```r
+str(3)  
+str("hello")  
+str(1.1)  
+str(1:8)  
+str(2L)  
+str(c(1,3))  
+str(factor(c("hello", "bye")))  
+*str(Sys.time())
+```
+]]
+.column[.content[
+
+```
+ num 3
+```
+
+```
+ chr "hello"
+```
+
+```
+ num 1.1
+```
+
+```
+ int [1:8] 1 2 3 4 5 6 7 8
+```
+
+```
+ int 2
+```
+
+```
+ num [1:2] 1 3
+```
+
+```
+ Factor w/ 2 levels "bye","hello": 2 1
+```
+
+```
+ POSIXct[1:1], format: "2020-03-16 23:15:41"
+```
+]]
+---
+class: split-40
+count: false
+.column[.content[
+
+```r
+str(3)  
+str("hello")  
+str(1.1)  
+str(1:8)  
+str(2L)  
+str(c(1,3))  
+str(factor(c("hello", "bye")))  
+str(Sys.time())  
+*str(Sys.Date())
+```
+]]
+.column[.content[
+
+```
+ num 3
+```
+
+```
+ chr "hello"
+```
+
+```
+ num 1.1
+```
+
+```
+ int [1:8] 1 2 3 4 5 6 7 8
+```
+
+```
+ int 2
+```
+
+```
+ num [1:2] 1 3
+```
+
+```
+ Factor w/ 2 levels "bye","hello": 2 1
+```
+
+```
+ POSIXct[1:1], format: "2020-03-16 23:15:41"
+```
+
+```
+ Date[1:1], format: "2020-03-16"
+```
+]]
+
+
+
+
+
+
+---
+
+class: split-40
+count: false
+.column[.content[
+
+```r
+*matrix(1:10, nrow = 5)
+```
+]]
+.column[.content[
+
+```
+     [,1] [,2]
+[1,]    1    6
+[2,]    2    7
+[3,]    3    8
+[4,]    4    9
+[5,]    5   10
+```
+]]
+---
+class: split-40
+count: false
+.column[.content[
+
+```r
+matrix(1:10, nrow = 5)  
+*matrix(1:10, ncol = 3)
+```
+]]
+.column[.content[
+
+```
+     [,1] [,2]
+[1,]    1    6
+[2,]    2    7
+[3,]    3    8
+[4,]    4    9
+[5,]    5   10
+```
+
+```
+     [,1] [,2] [,3]
+[1,]    1    5    9
+[2,]    2    6   10
+[3,]    3    7    1
+[4,]    4    8    2
+```
+]]
+---
+class: split-40
+count: false
+.column[.content[
+
+```r
+matrix(1:10, nrow = 5)  
+matrix(1:10, ncol = 3)  
+*matrix(c(1,2,3,4),
+*      nrow = 2) * 2
+```
+]]
+.column[.content[
+
+```
+     [,1] [,2]
+[1,]    1    6
+[2,]    2    7
+[3,]    3    8
+[4,]    4    9
+[5,]    5   10
+```
+
+```
+     [,1] [,2] [,3]
+[1,]    1    5    9
+[2,]    2    6   10
+[3,]    3    7    1
+[4,]    4    8    2
+```
+
+```
+     [,1] [,2]
+[1,]    2    6
+[2,]    4    8
+```
+]]
+---
+class: split-40
+count: false
+.column[.content[
+
+```r
+matrix(1:10, nrow = 5)  
+matrix(1:10, ncol = 3)  
+matrix(c(1,2,3,4),  
+       nrow = 2) * 2  
+*( matrix(c(1,2,3,4),
+*       nrow = 2) *
+* matrix(c(1,2,3,4),
+*      nrow = 2) )
+```
+]]
+.column[.content[
+
+```
+     [,1] [,2]
+[1,]    1    6
+[2,]    2    7
+[3,]    3    8
+[4,]    4    9
+[5,]    5   10
+```
+
+```
+     [,1] [,2] [,3]
+[1,]    1    5    9
+[2,]    2    6   10
+[3,]    3    7    1
+[4,]    4    8    2
+```
+
+```
+     [,1] [,2]
+[1,]    2    6
+[2,]    4    8
+```
+
+```
+     [,1] [,2]
+[1,]    1    9
+[2,]    4   16
+```
+]]
+---
+class: split-40
+count: false
+.column[.content[
+
+```r
+matrix(1:10, nrow = 5)  
+matrix(1:10, ncol = 3)  
+matrix(c(1,2,3,4),  
+       nrow = 2) * 2  
+( matrix(c(1,2,3,4),  
+        nrow = 2) *  
+  matrix(c(1,2,3,4),  
+       nrow = 2) )  
+*( matrix(c(1,2,3,4),
+*      nrow = 2) %*%
+* matrix(c(1,2,3,4),
+*      nrow = 2) )
+```
+]]
+.column[.content[
+
+```
+     [,1] [,2]
+[1,]    1    6
+[2,]    2    7
+[3,]    3    8
+[4,]    4    9
+[5,]    5   10
+```
+
+```
+     [,1] [,2] [,3]
+[1,]    1    5    9
+[2,]    2    6   10
+[3,]    3    7    1
+[4,]    4    8    2
+```
+
+```
+     [,1] [,2]
+[1,]    2    6
+[2,]    4    8
+```
+
+```
+     [,1] [,2]
+[1,]    1    9
+[2,]    4   16
+```
+
+```
+     [,1] [,2]
+[1,]    7   15
+[2,]   10   22
+```
+]]
+
+
+
+
+
+---
+
+class: split-40
+count: false
+.column[.content[
+
+```r
+data.frame(id = 1:6,  
+           greet = c("hi", "bye",  
+                     "hello", "chao",  
+                     "adios", "tchuss"),  
+           nums = c(2.3, 4.1, 3.5,  
+                    3.2, 5.6, 8.9))  
+```
+]]
+.column[.content[
+
+```
+  id  greet nums
+1  1     hi  2.3
+2  2    bye  4.1
+3  3  hello  3.5
+4  4   chao  3.2
+5  5  adios  5.6
+6  6 tchuss  8.9
+```
+]]
+
+
+
+
+
+&lt;style type="text/css"&gt;
+.remark-code{line-height: 1.5; font-size: 80%}
+&lt;/style&gt;
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "16:10",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();</script>
+
+<script>
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
