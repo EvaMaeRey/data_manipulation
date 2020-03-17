@@ -118,6 +118,47 @@ data.frame(id = 1:6,
 
 
 
+
+---
+
+`r chunk_reveal("fun")`
+
+```{r fun, include=F}
+mean(1:5)
+mean(1:100^2)
+sd(1:10)
+```
+
+
+---
+
+`r chunk_reveal("assign")`
+
+```{r assign, include=F}
+1:10 ->
+  x
+
+x * 5
+x^2
+
+rep(3, 10) ->
+  y 
+
+x + y ->
+  z
+```
+
+
+
+
+
+
+
+
+
+
+
+
 ```{css, eval = TRUE, echo = FALSE}
 .remark-code{line-height: 1.5; font-size: 80%}
 ```

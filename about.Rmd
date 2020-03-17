@@ -10,11 +10,15 @@ output: html_document
 
 ## [Arithmetic operations and data types and structures](arithmetic_and_data_types.html){target="_blank"}
 
-**values**: numeric,    character,    integer,   date, logical,   factor 
+**data types**: numeric,    character,    integer,   date, logical,   factor 
 
 **operators**: `+ `  `-`   `/`   `()` `^ `   
 
-**structures**: scalar, vector, matrix, data frame (with rows and columns)
+**data structures**: scalar, vector, matrix, data frame (with rows and columns)
+
+**functions**: `mean()`, `median()`, `mode()`, `log10()`
+
+**objects and assignmnet**: `=` `<-` `->` 
 
 # Data manipulation with the tidyverse
 
@@ -79,11 +83,13 @@ The function `summary()` can also be used to request summary statistcs for an en
 # [Manipulation with data.table (under construction)](data.table.html){target="_blank"}
 
 
+{data.table} is another popular data manipulation package. 
+
 # [Manipulation with base R and logical indexing](logical_indexing.html){target="_blank"}
 
+You can also do a lot of data manipulation without using external packages.
 
-
-# [Real-Life Data Cleaning Examples](https://evamaerey.github.io/data_manipulation/data_cleaning/data_cleaning){target="_blank"}
+# [Data Cleaning Examples & intro to string manipulation, country identifiers, and data manipulation](https://evamaerey.github.io/data_manipulation/data_cleaning/data_cleaning){target="_blank"}
 
 What's the workflow from reading in data to analysis ready.  It really depends!  Data cleaning is chard to teach because data can be messy/untidy in a lot of different ways.  The data cleaning flipbook will walk you through some real-life examples, with special focus on string manipulation, country codes and date manipulation.  
 
