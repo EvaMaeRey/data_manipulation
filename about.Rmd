@@ -18,7 +18,7 @@ output: html_document
 
 **functions**: `mean()`, `median()`, `mode()`, `log10()`
 
-**objects and assignmnet**: `=` `<-` `->` 
+**objects and assignment**: `=` `<-` `->` 
 
 # Data manipulation with the tidyverse
 

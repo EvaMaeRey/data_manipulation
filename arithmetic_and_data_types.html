@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
   <head>
     <title>Some data structures and arithmetic operators</title>
     <meta charset="utf-8" />
@@ -27,6 +27,9 @@ class: center, middle, inverse, title-slide
 
 class: split-40
 count: false
+ 
+
+ 
 .column[.content[
 
 ```r
@@ -42,6 +45,9 @@ count: false
 ---
 class: split-40
 count: false
+ 
+
+ 
 .column[.content[
 
 ```r
@@ -62,6 +68,9 @@ count: false
 ---
 class: split-40
 count: false
+ 
+
+ 
 .column[.content[
 
 ```r
@@ -87,6 +96,9 @@ count: false
 ---
 class: split-40
 count: false
+ 
+
+ 
 .column[.content[
 
 ```r
@@ -122,6 +134,9 @@ count: false
 
 class: split-40
 count: false
+ 
+
+ 
 .column[.content[
 
 ```r
@@ -137,6 +152,9 @@ count: false
 ---
 class: split-40
 count: false
+ 
+
+ 
 .column[.content[
 
 ```r
@@ -157,6 +175,9 @@ count: false
 ---
 class: split-40
 count: false
+ 
+
+ 
 .column[.content[
 
 ```r
@@ -182,6 +203,9 @@ count: false
 ---
 class: split-40
 count: false
+ 
+
+ 
 .column[.content[
 
 ```r
@@ -212,6 +236,9 @@ c(1, 2, 6, 10)
 ---
 class: split-40
 count: false
+ 
+
+ 
 .column[.content[
 
 ```r
@@ -247,6 +274,9 @@ c(1, 2, 6, 10)
 ---
 class: split-40
 count: false
+ 
+
+ 
 .column[.content[
 
 ```r
@@ -287,6 +317,9 @@ TRUE
 ---
 class: split-40
 count: false
+ 
+
+ 
 .column[.content[
 
 ```r
@@ -332,6 +365,9 @@ c(T, T, F, F)
 ---
 class: split-40
 count: false
+ 
+
+ 
 .column[.content[
 
 ```r
@@ -387,6 +423,9 @@ c(T, T, F, F)
 
 class: split-40
 count: false
+ 
+
+ 
 .column[.content[
 
 ```r
@@ -402,6 +441,9 @@ count: false
 ---
 class: split-40
 count: false
+ 
+
+ 
 .column[.content[
 
 ```r
@@ -422,6 +464,9 @@ str(3)
 ---
 class: split-40
 count: false
+ 
+
+ 
 .column[.content[
 
 ```r
@@ -447,6 +492,9 @@ str("hello")
 ---
 class: split-40
 count: false
+ 
+
+ 
 .column[.content[
 
 ```r
@@ -477,6 +525,9 @@ str(1.1)
 ---
 class: split-40
 count: false
+ 
+
+ 
 .column[.content[
 
 ```r
@@ -512,6 +563,9 @@ str(1:8)
 ---
 class: split-40
 count: false
+ 
+
+ 
 .column[.content[
 
 ```r
@@ -552,6 +606,9 @@ str(2L)
 ---
 class: split-40
 count: false
+ 
+
+ 
 .column[.content[
 
 ```r
@@ -597,6 +654,9 @@ str(c(1,3))
 ---
 class: split-40
 count: false
+ 
+
+ 
 .column[.content[
 
 ```r
@@ -641,12 +701,15 @@ str(factor(c("hello", "bye")))
 ```
 
 ```
- POSIXct[1:1], format: "2020-03-16 23:32:07"
+ POSIXct[1:1], format: "2020-03-26 11:32:53"
 ```
 ]]
 ---
 class: split-40
 count: false
+ 
+
+ 
 .column[.content[
 
 ```r
@@ -692,11 +755,11 @@ str(Sys.time())
 ```
 
 ```
- POSIXct[1:1], format: "2020-03-16 23:32:07"
+ POSIXct[1:1], format: "2020-03-26 11:32:53"
 ```
 
 ```
- Date[1:1], format: "2020-03-16"
+ Date[1:1], format: "2020-03-26"
 ```
 ]]
 
@@ -709,6 +772,9 @@ str(Sys.time())
 
 class: split-40
 count: false
+ 
+
+ 
 .column[.content[
 
 ```r
@@ -729,10 +795,14 @@ count: false
 ---
 class: split-40
 count: false
+ 
+
+ 
 .column[.content[
 
 ```r
 matrix(1:10, nrow = 5)  
+
 *matrix(1:10, ncol = 3)
 ```
 ]]
@@ -758,11 +828,21 @@ matrix(1:10, nrow = 5)
 ---
 class: split-40
 count: false
+ 
+
+ 
 .column[.content[
 
 ```r
 matrix(1:10, nrow = 5)  
+
 matrix(1:10, ncol = 3)  
+
+
+
+
+
+
 *matrix(c(1,2,3,4),
 *      nrow = 2) * 2
 ```
@@ -795,16 +875,30 @@ matrix(1:10, ncol = 3)
 ---
 class: split-40
 count: false
+ 
+
+ 
 .column[.content[
 
 ```r
 matrix(1:10, nrow = 5)  
+
 matrix(1:10, ncol = 3)  
+
+
+
+
+
+
 matrix(c(1,2,3,4),  
        nrow = 2) * 2  
-*( matrix(c(1,2,3,4),
+
+
+
+
+*(matrix(c(1,2,3,4),
 *       nrow = 2) *
-* matrix(c(1,2,3,4),
+*   matrix(c(1,2,3,4),
 *      nrow = 2) )
 ```
 ]]
@@ -842,20 +936,34 @@ matrix(c(1,2,3,4),
 ---
 class: split-40
 count: false
+ 
+
+ 
 .column[.content[
 
 ```r
 matrix(1:10, nrow = 5)  
+
 matrix(1:10, ncol = 3)  
+
+
+
+
+
+
 matrix(c(1,2,3,4),  
        nrow = 2) * 2  
-( matrix(c(1,2,3,4),  
+
+
+
+
+(matrix(c(1,2,3,4),  
         nrow = 2) *  
-  matrix(c(1,2,3,4),  
+    matrix(c(1,2,3,4),  
        nrow = 2) )  
-*( matrix(c(1,2,3,4),
+*(matrix(c(1,2,3,4),
 *      nrow = 2) %*%
-* matrix(c(1,2,3,4),
+*   matrix(c(1,2,3,4),
 *      nrow = 2) )
 ```
 ]]
@@ -905,6 +1013,9 @@ matrix(c(1,2,3,4),
 
 class: split-40
 count: false
+ 
+
+ 
 .column[.content[
 
 ```r
@@ -938,6 +1049,9 @@ data.frame(id = 1:6,
 
 class: split-40
 count: false
+ 
+
+ 
 .column[.content[
 
 ```r
@@ -953,6 +1067,9 @@ count: false
 ---
 class: split-40
 count: false
+ 
+
+ 
 .column[.content[
 
 ```r
@@ -973,6 +1090,9 @@ mean(1:5)
 ---
 class: split-40
 count: false
+ 
+
+ 
 .column[.content[
 
 ```r
@@ -1003,6 +1123,9 @@ mean(1:100^2)
 
 class: split-40
 count: false
+ 
+
+ 
 .column[.content[
 
 ```r
@@ -1018,6 +1141,9 @@ count: false
 ---
 class: split-40
 count: false
+ 
+
+ 
 .column[.content[
 
 ```r
@@ -1031,11 +1157,15 @@ count: false
 ---
 class: split-40
 count: false
+ 
+
+ 
 .column[.content[
 
 ```r
 1:10 -&gt;  
   x  
+
 *x * 5
 ```
 ]]
@@ -1048,11 +1178,15 @@ count: false
 ---
 class: split-40
 count: false
+ 
+
+ 
 .column[.content[
 
 ```r
 1:10 -&gt;  
   x  
+
 x * 5  
 *x^2
 ```
@@ -1070,13 +1204,18 @@ x * 5
 ---
 class: split-40
 count: false
+ 
+
+ 
 .column[.content[
 
 ```r
 1:10 -&gt;  
   x  
+
 x * 5  
 x^2  
+
 *rep(3, 10)
 ```
 ]]
@@ -1097,13 +1236,18 @@ x^2
 ---
 class: split-40
 count: false
+ 
+
+ 
 .column[.content[
 
 ```r
 1:10 -&gt;  
   x  
+
 x * 5  
 x^2  
+
 rep(3, 10) -&gt;  
 * y
 ```
@@ -1121,15 +1265,21 @@ rep(3, 10) -&gt;
 ---
 class: split-40
 count: false
+ 
+
+ 
 .column[.content[
 
 ```r
 1:10 -&gt;  
   x  
+
 x * 5  
 x^2  
+
 rep(3, 10) -&gt;  
   y  
+
 *x + y
 ```
 ]]
@@ -1150,15 +1300,21 @@ rep(3, 10) -&gt;
 ---
 class: split-40
 count: false
+ 
+
+ 
 .column[.content[
 
 ```r
 1:10 -&gt;  
   x  
+
 x * 5  
 x^2  
+
 rep(3, 10) -&gt;  
   y  
+
 x + y -&gt;  
 * z
 ```
@@ -1177,8 +1333,591 @@ x + y -&gt;
 
 
 
+---
+
+Some functions all about type...
 
 
+---
+
+
+class: split-40
+count: false
+ 
+
+ 
+.column[.content[
+
+```r
+*is.character("hi")
+```
+]]
+.column[.content[
+
+```
+[1] TRUE
+```
+]]
+---
+class: split-40
+count: false
+ 
+
+ 
+.column[.content[
+
+```r
+is.character("hi")  
+*is.numeric(1)
+```
+]]
+.column[.content[
+
+```
+[1] TRUE
+```
+
+```
+[1] TRUE
+```
+]]
+---
+class: split-40
+count: false
+ 
+
+ 
+.column[.content[
+
+```r
+is.character("hi")  
+is.numeric(1)  
+*is.integer(2.3)
+```
+]]
+.column[.content[
+
+```
+[1] TRUE
+```
+
+```
+[1] TRUE
+```
+
+```
+[1] FALSE
+```
+]]
+---
+class: split-40
+count: false
+ 
+
+ 
+.column[.content[
+
+```r
+is.character("hi")  
+is.numeric(1)  
+is.integer(2.3)  
+*is.double(4L)
+```
+]]
+.column[.content[
+
+```
+[1] TRUE
+```
+
+```
+[1] TRUE
+```
+
+```
+[1] FALSE
+```
+
+```
+[1] FALSE
+```
+]]
+---
+class: split-40
+count: false
+ 
+
+ 
+.column[.content[
+
+```r
+is.character("hi")  
+is.numeric(1)  
+is.integer(2.3)  
+is.double(4L)  
+*is.integer(4)
+```
+]]
+.column[.content[
+
+```
+[1] TRUE
+```
+
+```
+[1] TRUE
+```
+
+```
+[1] FALSE
+```
+
+```
+[1] FALSE
+```
+
+```
+[1] FALSE
+```
+]]
+---
+class: split-40
+count: false
+ 
+
+ 
+.column[.content[
+
+```r
+is.character("hi")  
+is.numeric(1)  
+is.integer(2.3)  
+is.double(4L)  
+is.integer(4)  
+*is.integer(4L)
+```
+]]
+.column[.content[
+
+```
+[1] TRUE
+```
+
+```
+[1] TRUE
+```
+
+```
+[1] FALSE
+```
+
+```
+[1] FALSE
+```
+
+```
+[1] FALSE
+```
+
+```
+[1] TRUE
+```
+]]
+---
+class: split-40
+count: false
+ 
+
+ 
+.column[.content[
+
+```r
+is.character("hi")  
+is.numeric(1)  
+is.integer(2.3)  
+is.double(4L)  
+is.integer(4)  
+is.integer(4L)  
+*is.factor("good")
+```
+]]
+.column[.content[
+
+```
+[1] TRUE
+```
+
+```
+[1] TRUE
+```
+
+```
+[1] FALSE
+```
+
+```
+[1] FALSE
+```
+
+```
+[1] FALSE
+```
+
+```
+[1] TRUE
+```
+
+```
+[1] FALSE
+```
+]]
+
+
+
+---
+
+class: split-40
+count: false
+ 
+
+ 
+.column[.content[
+
+```r
+*as.numeric("hi")
+```
+]]
+.column[.content[
+
+```
+[1] NA
+```
+]]
+---
+class: split-40
+count: false
+ 
+
+ 
+.column[.content[
+
+```r
+as.numeric("hi")  
+*as.integer(1)
+```
+]]
+.column[.content[
+
+```
+[1] NA
+```
+
+```
+[1] 1
+```
+]]
+---
+class: split-40
+count: false
+ 
+
+ 
+.column[.content[
+
+```r
+as.numeric("hi")  
+as.integer(1)  
+*as.character(2.3)
+```
+]]
+.column[.content[
+
+```
+[1] NA
+```
+
+```
+[1] 1
+```
+
+```
+[1] "2.3"
+```
+]]
+---
+class: split-40
+count: false
+ 
+
+ 
+.column[.content[
+
+```r
+as.numeric("hi")  
+as.integer(1)  
+as.character(2.3)  
+*as.double(4L)
+```
+]]
+.column[.content[
+
+```
+[1] NA
+```
+
+```
+[1] 1
+```
+
+```
+[1] "2.3"
+```
+
+```
+[1] 4
+```
+]]
+---
+class: split-40
+count: false
+ 
+
+ 
+.column[.content[
+
+```r
+as.numeric("hi")  
+as.integer(1)  
+as.character(2.3)  
+as.double(4L)  
+*is.integer(4)
+```
+]]
+.column[.content[
+
+```
+[1] NA
+```
+
+```
+[1] 1
+```
+
+```
+[1] "2.3"
+```
+
+```
+[1] 4
+```
+
+```
+[1] FALSE
+```
+]]
+---
+class: split-40
+count: false
+ 
+
+ 
+.column[.content[
+
+```r
+as.numeric("hi")  
+as.integer(1)  
+as.character(2.3)  
+as.double(4L)  
+is.integer(4)  
+*is.integer(4L)
+```
+]]
+.column[.content[
+
+```
+[1] NA
+```
+
+```
+[1] 1
+```
+
+```
+[1] "2.3"
+```
+
+```
+[1] 4
+```
+
+```
+[1] FALSE
+```
+
+```
+[1] TRUE
+```
+]]
+---
+class: split-40
+count: false
+ 
+
+ 
+.column[.content[
+
+```r
+as.numeric("hi")  
+as.integer(1)  
+as.character(2.3)  
+as.double(4L)  
+is.integer(4)  
+is.integer(4L)  
+*as.factor(c("good", "bad"))
+```
+]]
+.column[.content[
+
+```
+[1] NA
+```
+
+```
+[1] 1
+```
+
+```
+[1] "2.3"
+```
+
+```
+[1] 4
+```
+
+```
+[1] FALSE
+```
+
+```
+[1] TRUE
+```
+
+```
+[1] good bad 
+Levels: bad good
+```
+]]
+---
+class: split-40
+count: false
+ 
+
+ 
+.column[.content[
+
+```r
+as.numeric("hi")  
+as.integer(1)  
+as.character(2.3)  
+as.double(4L)  
+is.integer(4)  
+is.integer(4L)  
+as.factor(c("good", "bad"))  
+*matrix(1:4, nrow = 2)
+```
+]]
+.column[.content[
+
+```
+[1] NA
+```
+
+```
+[1] 1
+```
+
+```
+[1] "2.3"
+```
+
+```
+[1] 4
+```
+
+```
+[1] FALSE
+```
+
+```
+[1] TRUE
+```
+
+```
+[1] good bad 
+Levels: bad good
+```
+
+```
+     [,1] [,2]
+[1,]    1    3
+[2,]    2    4
+```
+]]
+---
+class: split-40
+count: false
+ 
+
+ 
+.column[.content[
+
+```r
+as.numeric("hi")  
+as.integer(1)  
+as.character(2.3)  
+as.double(4L)  
+is.integer(4)  
+is.integer(4L)  
+as.factor(c("good", "bad"))  
+matrix(1:4, nrow = 2) %&gt;%  
+* as.vector()
+```
+]]
+.column[.content[
+
+```
+[1] NA
+```
+
+```
+[1] 1
+```
+
+```
+[1] "2.3"
+```
+
+```
+[1] 4
+```
+
+```
+[1] FALSE
+```
+
+```
+[1] TRUE
+```
+
+```
+[1] good bad 
+Levels: bad good
+```
+
+```
+[1] 1 2 3 4
+```
+]]
 
 
 
@@ -1237,9 +1976,35 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     }
     deleted = true;
   });
-})();</script>
-
-<script>
+})();
+(function() {
+  "use strict"
+  /* Replace <script> tags in slides area to make them executable
+   *
+   * Runs after post-processing of markdown source into slides and replaces only
+   * <script>s on the last slide of continued slides using the .has-continuation
+   * class added by xaringan. Finally, any <script>s in the slides area that
+   * aren't executed are commented out.
+   */
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container:not(.has-continuation) script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+  var scriptsNotExecuted = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container.has-continuation script'
+  );
+  if (!scriptsNotExecuted.length) return;
+  for (var i = 0; i < scriptsNotExecuted.length; i++) {
+    var comment = document.createComment(scriptsNotExecuted[i].outerHTML)
+    scriptsNotExecuted[i].parentElement.replaceChild(comment, scriptsNotExecuted[i])
+  }
+})();
 (function() {
   var links = document.getElementsByTagName('a');
   for (var i = 0; i < links.length; i++) {
@@ -1248,7 +2013,23 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     }
   }
 })();
-</script>
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
 
 <script>
 slideshow._releaseMath = function(el) {

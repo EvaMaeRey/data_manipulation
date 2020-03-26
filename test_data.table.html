@@ -22,14 +22,13 @@ class: center, middle, inverse, title-slide
 
 ```r
 # library(flipbookr)
-library(data.table)
 
 # this is the old strategy that plays better with data table...  We need to figure out the new source of the problem.  
 source(file = "https://raw.githubusercontent.com/EvaMaeRey/little_flipbooks_library/master/xaringan_reveal_parentheses_balanced.R")
 ```
 
 ```
-## ── Attaching packages ──────────────────────────────────────────────────── tidyverse 1.3.0 ──
+## ── Attaching packages ──────────────────────────────────────────────────────────────────────────────── tidyverse 1.3.0 ──
 ```
 
 ```
@@ -40,42 +39,41 @@ source(file = "https://raw.githubusercontent.com/EvaMaeRey/little_flipbooks_libr
 ```
 
 ```
-## ── Conflicts ─────────────────────────────────────────────────────── tidyverse_conflicts() ──
-## x dplyr::between()   masks data.table::between()
-## x dplyr::filter()    masks stats::filter()
-## x dplyr::first()     masks data.table::first()
-## x dplyr::lag()       masks stats::lag()
-## x dplyr::last()      masks data.table::last()
-## x purrr::transpose() masks data.table::transpose()
+## ── Conflicts ─────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()
 ```
 
 ```r
 knitr::opts_chunk$set(warning = F)
+# library(flipbookr)
+library(data.table)
+```
+
+```
+## 
+## Attaching package: 'data.table'
+```
+
+```
+## The following objects are masked from 'package:dplyr':
+## 
+##     between, first, last
+```
+
+```
+## The following object is masked from 'package:purrr':
+## 
+##     transpose
 ```
 
 ---
+
 
 ```
 ##    ID a b  c c4
 ## 1:  b 2 8 14  2
 ## 2:  b 3 9 15  2
-```
-
-```
-##       ID  a  b  c c4
-##  1:    b  1  7 13  2
-##  2:    b  2  8 14  2
-##  3:    b  3  9 15  2
-##  4:    a  4 10 16  2
-##  5:    a  5 11 17  3
-##  6:    c  6 12 18  3
-##  7: &lt;NA&gt; NA NA NA NA
-##  8: &lt;NA&gt; NA NA NA NA
-##  9: &lt;NA&gt; NA NA NA NA
-## 10: &lt;NA&gt; NA NA NA NA
-## 11: &lt;NA&gt; NA NA NA NA
-## 12: &lt;NA&gt; NA NA NA NA
-## 13: &lt;NA&gt; NA NA NA NA
 ```
 
 ---
@@ -87,7 +85,7 @@ count: false
 .column[.content[
 
 ```r
-*data.table(
+*data.table::data.table(
 * ID = c("b","b","b","a","a","c"),
 * a = 1:6,
 * b = 7:12,
@@ -113,7 +111,7 @@ count: false
 .column[.content[
 
 ```r
-data.table(  
+data.table::data.table(  
   ID = c("b","b","b","a","a","c"),  
   a = 1:6,  
   b = 7:12,  
@@ -131,7 +129,7 @@ count: false
 .column[.content[
 
 ```r
-data.table(  
+data.table::data.table(  
   ID = c("b","b","b","a","a","c"),  
   a = 1:6,  
   b = 7:12,  
@@ -157,7 +155,7 @@ count: false
 .column[.content[
 
 ```r
-data.table(  
+data.table::data.table(  
   ID = c("b","b","b","a","a","c"),  
   a = 1:6,  
   b = 7:12,  
@@ -167,7 +165,7 @@ dt
   #this gives columns not rows
 rws = dt[2:3]  
 rws  
-* #this does not work
+* #
 ```
 ]]
 .column[.content[
@@ -184,7 +182,7 @@ count: false
 .column[.content[
 
 ```r
-data.table(  
+data.table::data.table(  
   ID = c("b","b","b","a","a","c"),  
   a = 1:6,  
   b = 7:12,  
@@ -194,106 +192,42 @@ dt
   #this gives columns not rows
 rws = dt[2:3]  
 rws  
-  #this does not work
-*rows &lt;- dt[a:c]
-*rows
+  #
+* # #this does not work
+*# rows &lt;- dt[a:c]  # rows &lt;- dt[a:c]
+* # rows
+```
+]]
+.column[.content[
+
+```
+##    ID a b  c c4
+## 1:  b 2 8 14  2
+## 2:  b 3 9 15  2
+```
+]]
+---
+class: split-40
+count: false
+.column[.content[
+
+```r
+data.table::data.table(  
+  ID = c("b","b","b","a","a","c"),  
+  a = 1:6,  
+  b = 7:12,  
+  c = 13:18,  
+  c4 = c(2,2,2,2,3,3)) -&gt;  
+dt  
+  #this gives columns not rows
+rws = dt[2:3]  
+rws  
+  #
+  # #this does not work
+# rows &lt;- dt[a:c]  # rows &lt;- dt[a:c]
+  # rows
 * #this does not work -- still does not work... hmm
-```
-]]
-.column[.content[
-
-```
-##    ID a b  c c4
-## 1:  b 2 8 14  2
-## 2:  b 3 9 15  2
-```
-
-```
-##       ID  a  b  c c4
-##  1:    b  1  7 13  2
-##  2:    b  2  8 14  2
-##  3:    b  3  9 15  2
-##  4:    a  4 10 16  2
-##  5:    a  5 11 17  3
-##  6:    c  6 12 18  3
-##  7: &lt;NA&gt; NA NA NA NA
-##  8: &lt;NA&gt; NA NA NA NA
-##  9: &lt;NA&gt; NA NA NA NA
-## 10: &lt;NA&gt; NA NA NA NA
-## 11: &lt;NA&gt; NA NA NA NA
-## 12: &lt;NA&gt; NA NA NA NA
-## 13: &lt;NA&gt; NA NA NA NA
-```
-]]
----
-class: split-40
-count: false
-.column[.content[
-
-```r
-data.table(  
-  ID = c("b","b","b","a","a","c"),  
-  a = 1:6,  
-  b = 7:12,  
-  c = 13:18,  
-  c4 = c(2,2,2,2,3,3)) -&gt;  
-dt  
-  #this gives columns not rows
-rws = dt[2:3]  
-rws  
-  #this does not work
-rows &lt;- dt[a:c]  
-rows  
-  #this does not work -- still does not work... hmm
 *#columns &lt;- dt[ID="b"]  #columns &lt;- dt[ID="b"]
-```
-]]
-.column[.content[
-
-```
-##    ID a b  c c4
-## 1:  b 2 8 14  2
-## 2:  b 3 9 15  2
-```
-
-```
-##       ID  a  b  c c4
-##  1:    b  1  7 13  2
-##  2:    b  2  8 14  2
-##  3:    b  3  9 15  2
-##  4:    a  4 10 16  2
-##  5:    a  5 11 17  3
-##  6:    c  6 12 18  3
-##  7: &lt;NA&gt; NA NA NA NA
-##  8: &lt;NA&gt; NA NA NA NA
-##  9: &lt;NA&gt; NA NA NA NA
-## 10: &lt;NA&gt; NA NA NA NA
-## 11: &lt;NA&gt; NA NA NA NA
-## 12: &lt;NA&gt; NA NA NA NA
-## 13: &lt;NA&gt; NA NA NA NA
-```
-]]
----
-class: split-40
-count: false
-.column[.content[
-
-```r
-data.table(  
-  ID = c("b","b","b","a","a","c"),  
-  a = 1:6,  
-  b = 7:12,  
-  c = 13:18,  
-  c4 = c(2,2,2,2,3,3)) -&gt;  
-dt  
-  #this gives columns not rows
-rws = dt[2:3]  
-rws  
-  #this does not work
-rows &lt;- dt[a:c]  
-rows  
-  #this does not work -- still does not work... hmm
-#columns &lt;- dt[ID="b"]  #columns &lt;- dt[ID="b"]
 * #columns
 ```
 ]]
@@ -303,23 +237,6 @@ rows
 ##    ID a b  c c4
 ## 1:  b 2 8 14  2
 ## 2:  b 3 9 15  2
-```
-
-```
-##       ID  a  b  c c4
-##  1:    b  1  7 13  2
-##  2:    b  2  8 14  2
-##  3:    b  3  9 15  2
-##  4:    a  4 10 16  2
-##  5:    a  5 11 17  3
-##  6:    c  6 12 18  3
-##  7: &lt;NA&gt; NA NA NA NA
-##  8: &lt;NA&gt; NA NA NA NA
-##  9: &lt;NA&gt; NA NA NA NA
-## 10: &lt;NA&gt; NA NA NA NA
-## 11: &lt;NA&gt; NA NA NA NA
-## 12: &lt;NA&gt; NA NA NA NA
-## 13: &lt;NA&gt; NA NA NA NA
 ```
 ]]
 

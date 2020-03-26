@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
   <head>
     <title>summarize</title>
     <meta charset="utf-8" />
@@ -26,7 +26,7 @@ library(tidyverse)
 ```
 
 ```
-## ── Attaching packages ────────────────────────────── tidyverse 1.3.0 ──
+## ── Attaching packages ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.3.0 ──
 ```
 
 ```
@@ -37,7 +37,7 @@ library(tidyverse)
 ```
 
 ```
-## ── Conflicts ───────────────────────────────── tidyverse_conflicts() ──
+## ── Conflicts ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()
 ```
@@ -51,6 +51,9 @@ knitr::opts_chunk$set(cache = F, comment = "")
 
 class: split-40
 count: false
+ 
+
+ 
 .column[.content[
 
 ```r
@@ -79,6 +82,9 @@ count: false
 ---
 class: split-40
 count: false
+ 
+
+ 
 .column[.content[
 
 ```r
@@ -108,12 +114,15 @@ gapminder %&gt;%
 ---
 class: split-40
 count: false
+ 
+
+ 
 .column[.content[
 
 ```r
 gapminder %&gt;%  
   distinct(country, continent) %&gt;%  
-* # tally and count are the same
+# tally and count are the same
 * count(continent)
 ```
 ]]
@@ -133,12 +142,15 @@ gapminder %&gt;%
 ---
 class: split-40
 count: false
+ 
+
+ 
 .column[.content[
 
 ```r
 gapminder %&gt;%  
   distinct(country, continent) %&gt;%  
-  # tally and count are the same
+# tally and count are the same
   count(continent) %&gt;%  
 * rename(count = n)
 ```
@@ -159,12 +171,15 @@ gapminder %&gt;%
 ---
 class: split-40
 count: false
+ 
+
+ 
 .column[.content[
 
 ```r
 gapminder %&gt;%  
   distinct(country, continent) %&gt;%  
-  # tally and count are the same
+# tally and count are the same
   count(continent) %&gt;%  
   rename(count = n) -&gt;  
 *count_in_continents
@@ -176,16 +191,20 @@ gapminder %&gt;%
 ---
 class: split-40
 count: false
+ 
+
+ 
 .column[.content[
 
 ```r
 gapminder %&gt;%  
   distinct(country, continent) %&gt;%  
-  # tally and count are the same
+# tally and count are the same
   count(continent) %&gt;%  
   rename(count = n) -&gt;  
 count_in_continents  
-* # another pipeline
+
+# another pipeline
 *gapminder
 ```
 ]]
@@ -211,17 +230,62 @@ count_in_continents
 ---
 class: split-40
 count: false
+ 
+
+ 
 .column[.content[
 
 ```r
 gapminder %&gt;%  
   distinct(country, continent) %&gt;%  
-  # tally and count are the same
+# tally and count are the same
   count(continent) %&gt;%  
   rename(count = n) -&gt;  
 count_in_continents  
-  # another pipeline
+
+# another pipeline
 gapminder %&gt;%  
+* filter(year == 2002)
+```
+]]
+.column[.content[
+
+```
+# A tibble: 142 x 6
+   country     continent  year lifeExp       pop gdpPercap
+   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;     &lt;int&gt;     &lt;dbl&gt;
+ 1 Afghanistan Asia       2002    42.1  25268405      727.
+ 2 Albania     Europe     2002    75.7   3508512     4604.
+ 3 Algeria     Africa     2002    71.0  31287142     5288.
+ 4 Angola      Africa     2002    41.0  10866106     2773.
+ 5 Argentina   Americas   2002    74.3  38331121     8798.
+ 6 Australia   Oceania    2002    80.4  19546792    30688.
+ 7 Austria     Europe     2002    79.0   8148312    32418.
+ 8 Bahrain     Asia       2002    74.8    656397    23404.
+ 9 Bangladesh  Asia       2002    62.0 135656790     1136.
+10 Belgium     Europe     2002    78.3  10311970    30486.
+# … with 132 more rows
+```
+]]
+---
+class: split-40
+count: false
+ 
+
+ 
+.column[.content[
+
+```r
+gapminder %&gt;%  
+  distinct(country, continent) %&gt;%  
+# tally and count are the same
+  count(continent) %&gt;%  
+  rename(count = n) -&gt;  
+count_in_continents  
+
+# another pipeline
+gapminder %&gt;%  
+  filter(year == 2002) %&gt;%  
 * summarize(mean_life_exp = mean(lifeExp),
 *           median_life_exp = median(lifeExp))
 ```
@@ -232,26 +296,31 @@ gapminder %&gt;%
 # A tibble: 1 x 2
   mean_life_exp median_life_exp
           &lt;dbl&gt;           &lt;dbl&gt;
-1          59.5            60.7
+1          65.7            70.8
 ```
 ]]
 ---
 class: split-40
 count: false
+ 
+
+ 
 .column[.content[
 
 ```r
 gapminder %&gt;%  
   distinct(country, continent) %&gt;%  
-  # tally and count are the same
+# tally and count are the same
   count(continent) %&gt;%  
   rename(count = n) -&gt;  
 count_in_continents  
-  # another pipeline
+
+# another pipeline
 gapminder %&gt;%  
+  filter(year == 2002) %&gt;%  
   summarize(mean_life_exp = mean(lifeExp),  
             median_life_exp = median(lifeExp)) -&gt;  
-*overall_summaries
+*overall_summaries_2002
 ```
 ]]
 .column[.content[
@@ -260,21 +329,27 @@ gapminder %&gt;%
 ---
 class: split-40
 count: false
+ 
+
+ 
 .column[.content[
 
 ```r
 gapminder %&gt;%  
   distinct(country, continent) %&gt;%  
-  # tally and count are the same
+# tally and count are the same
   count(continent) %&gt;%  
   rename(count = n) -&gt;  
 count_in_continents  
-  # another pipeline
+
+# another pipeline
 gapminder %&gt;%  
+  filter(year == 2002) %&gt;%  
   summarize(mean_life_exp = mean(lifeExp),  
             median_life_exp = median(lifeExp)) -&gt;  
-overall_summaries  
-* # another
+overall_summaries_2002  
+
+# another
 *gapminder
 ```
 ]]
@@ -300,64 +375,125 @@ overall_summaries
 ---
 class: split-40
 count: false
+ 
+
+ 
 .column[.content[
 
 ```r
 gapminder %&gt;%  
   distinct(country, continent) %&gt;%  
-  # tally and count are the same
+# tally and count are the same
   count(continent) %&gt;%  
   rename(count = n) -&gt;  
 count_in_continents  
-  # another pipeline
+
+# another pipeline
 gapminder %&gt;%  
+  filter(year == 2002) %&gt;%  
   summarize(mean_life_exp = mean(lifeExp),  
             median_life_exp = median(lifeExp)) -&gt;  
-overall_summaries  
-  # another
+overall_summaries_2002  
+
+# another
 gapminder %&gt;%  
+* filter(year == 2002)
+```
+]]
+.column[.content[
+
+```
+# A tibble: 142 x 6
+   country     continent  year lifeExp       pop gdpPercap
+   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;     &lt;int&gt;     &lt;dbl&gt;
+ 1 Afghanistan Asia       2002    42.1  25268405      727.
+ 2 Albania     Europe     2002    75.7   3508512     4604.
+ 3 Algeria     Africa     2002    71.0  31287142     5288.
+ 4 Angola      Africa     2002    41.0  10866106     2773.
+ 5 Argentina   Americas   2002    74.3  38331121     8798.
+ 6 Australia   Oceania    2002    80.4  19546792    30688.
+ 7 Austria     Europe     2002    79.0   8148312    32418.
+ 8 Bahrain     Asia       2002    74.8    656397    23404.
+ 9 Bangladesh  Asia       2002    62.0 135656790     1136.
+10 Belgium     Europe     2002    78.3  10311970    30486.
+# … with 132 more rows
+```
+]]
+---
+class: split-40
+count: false
+ 
+
+ 
+.column[.content[
+
+```r
+gapminder %&gt;%  
+  distinct(country, continent) %&gt;%  
+# tally and count are the same
+  count(continent) %&gt;%  
+  rename(count = n) -&gt;  
+count_in_continents  
+
+# another pipeline
+gapminder %&gt;%  
+  filter(year == 2002) %&gt;%  
+  summarize(mean_life_exp = mean(lifeExp),  
+            median_life_exp = median(lifeExp)) -&gt;  
+overall_summaries_2002  
+
+# another
+gapminder %&gt;%  
+  filter(year == 2002) %&gt;%  
 * group_by(continent)
 ```
 ]]
 .column[.content[
 
 ```
-# A tibble: 1,704 x 6
+# A tibble: 142 x 6
 # Groups:   continent [5]
-   country     continent  year lifeExp      pop gdpPercap
-   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
- 1 Afghanistan Asia       1952    28.8  8425333      779.
- 2 Afghanistan Asia       1957    30.3  9240934      821.
- 3 Afghanistan Asia       1962    32.0 10267083      853.
- 4 Afghanistan Asia       1967    34.0 11537966      836.
- 5 Afghanistan Asia       1972    36.1 13079460      740.
- 6 Afghanistan Asia       1977    38.4 14880372      786.
- 7 Afghanistan Asia       1982    39.9 12881816      978.
- 8 Afghanistan Asia       1987    40.8 13867957      852.
- 9 Afghanistan Asia       1992    41.7 16317921      649.
-10 Afghanistan Asia       1997    41.8 22227415      635.
-# … with 1,694 more rows
+   country     continent  year lifeExp       pop gdpPercap
+   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;     &lt;int&gt;     &lt;dbl&gt;
+ 1 Afghanistan Asia       2002    42.1  25268405      727.
+ 2 Albania     Europe     2002    75.7   3508512     4604.
+ 3 Algeria     Africa     2002    71.0  31287142     5288.
+ 4 Angola      Africa     2002    41.0  10866106     2773.
+ 5 Argentina   Americas   2002    74.3  38331121     8798.
+ 6 Australia   Oceania    2002    80.4  19546792    30688.
+ 7 Austria     Europe     2002    79.0   8148312    32418.
+ 8 Bahrain     Asia       2002    74.8    656397    23404.
+ 9 Bangladesh  Asia       2002    62.0 135656790     1136.
+10 Belgium     Europe     2002    78.3  10311970    30486.
+# … with 132 more rows
 ```
 ]]
 ---
 class: split-40
 count: false
+ 
+
+ 
 .column[.content[
 
 ```r
 gapminder %&gt;%  
   distinct(country, continent) %&gt;%  
-  # tally and count are the same
+# tally and count are the same
   count(continent) %&gt;%  
   rename(count = n) -&gt;  
 count_in_continents  
-  # another pipeline
+
+# another pipeline
 gapminder %&gt;%  
+  filter(year == 2002) %&gt;%  
   summarize(mean_life_exp = mean(lifeExp),  
             median_life_exp = median(lifeExp)) -&gt;  
-overall_summaries  
-  # another
+overall_summaries_2002  
+
+# another
 gapminder %&gt;%  
+  filter(year == 2002) %&gt;%  
   group_by(continent) %&gt;%  
 * summarize(mean_life_exp = mean(lifeExp),
 *           median_life_exp = median(lifeExp))
@@ -369,36 +505,122 @@ gapminder %&gt;%
 # A tibble: 5 x 3
   continent mean_life_exp median_life_exp
   &lt;fct&gt;             &lt;dbl&gt;           &lt;dbl&gt;
-1 Africa             48.9            47.8
-2 Americas           64.7            67.0
-3 Asia               60.1            61.8
-4 Europe             71.9            72.2
-5 Oceania            74.3            73.7
+1 Africa             53.3            51.2
+2 Americas           72.4            72.0
+3 Asia               69.2            71.0
+4 Europe             76.7            77.5
+5 Oceania            79.7            79.7
 ```
 ]]
 ---
 class: split-40
 count: false
+ 
+
+ 
 .column[.content[
 
 ```r
 gapminder %&gt;%  
   distinct(country, continent) %&gt;%  
-  # tally and count are the same
+# tally and count are the same
   count(continent) %&gt;%  
   rename(count = n) -&gt;  
 count_in_continents  
-  # another pipeline
+
+# another pipeline
 gapminder %&gt;%  
+  filter(year == 2002) %&gt;%  
   summarize(mean_life_exp = mean(lifeExp),  
             median_life_exp = median(lifeExp)) -&gt;  
-overall_summaries  
-  # another
+overall_summaries_2002  
+
+# another
 gapminder %&gt;%  
+  filter(year == 2002) %&gt;%  
   group_by(continent) %&gt;%  
   summarize(mean_life_exp = mean(lifeExp),  
             median_life_exp = median(lifeExp)) -&gt;  
-*summaries_by_continent
+*summaries_by_continent_2002
+```
+]]
+.column[.content[
+
+]]
+---
+class: split-40
+count: false
+ 
+
+ 
+.column[.content[
+
+```r
+gapminder %&gt;%  
+  distinct(country, continent) %&gt;%  
+# tally and count are the same
+  count(continent) %&gt;%  
+  rename(count = n) -&gt;  
+count_in_continents  
+
+# another pipeline
+gapminder %&gt;%  
+  filter(year == 2002) %&gt;%  
+  summarize(mean_life_exp = mean(lifeExp),  
+            median_life_exp = median(lifeExp)) -&gt;  
+overall_summaries_2002  
+
+# another
+gapminder %&gt;%  
+  filter(year == 2002) %&gt;%  
+  group_by(continent) %&gt;%  
+  summarize(mean_life_exp = mean(lifeExp),  
+            median_life_exp = median(lifeExp)) -&gt;  
+summaries_by_continent_2002  
+
+# coming soon in a new version of dplyr
+# gapminder %&gt;%
+*#   group_by(continent)   #   group_by(continent) %&gt;%
+```
+]]
+.column[.content[
+
+]]
+---
+class: split-40
+count: false
+ 
+
+ 
+.column[.content[
+
+```r
+gapminder %&gt;%  
+  distinct(country, continent) %&gt;%  
+# tally and count are the same
+  count(continent) %&gt;%  
+  rename(count = n) -&gt;  
+count_in_continents  
+
+# another pipeline
+gapminder %&gt;%  
+  filter(year == 2002) %&gt;%  
+  summarize(mean_life_exp = mean(lifeExp),  
+            median_life_exp = median(lifeExp)) -&gt;  
+overall_summaries_2002  
+
+# another
+gapminder %&gt;%  
+  filter(year == 2002) %&gt;%  
+  group_by(continent) %&gt;%  
+  summarize(mean_life_exp = mean(lifeExp),  
+            median_life_exp = median(lifeExp)) -&gt;  
+summaries_by_continent_2002  
+
+# coming soon in a new version of dplyr
+# gapminder %&gt;%
+#   group_by(continent) %&gt;%  #   group_by(continent) %&gt;%
+*#   summarize(across(lifeExp:pop, mean))  #   summarize(across(lifeExp:pop, mean))
 ```
 ]]
 .column[.content[
@@ -459,9 +681,35 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     }
     deleted = true;
   });
-})();</script>
-
-<script>
+})();
+(function() {
+  "use strict"
+  /* Replace <script> tags in slides area to make them executable
+   *
+   * Runs after post-processing of markdown source into slides and replaces only
+   * <script>s on the last slide of continued slides using the .has-continuation
+   * class added by xaringan. Finally, any <script>s in the slides area that
+   * aren't executed are commented out.
+   */
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container:not(.has-continuation) script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+  var scriptsNotExecuted = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container.has-continuation script'
+  );
+  if (!scriptsNotExecuted.length) return;
+  for (var i = 0; i < scriptsNotExecuted.length; i++) {
+    var comment = document.createComment(scriptsNotExecuted[i].outerHTML)
+    scriptsNotExecuted[i].parentElement.replaceChild(comment, scriptsNotExecuted[i])
+  }
+})();
 (function() {
   var links = document.getElementsByTagName('a');
   for (var i = 0; i < links.length; i++) {
@@ -470,7 +718,23 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     }
   }
 })();
-</script>
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
 
 <script>
 slideshow._releaseMath = function(el) {

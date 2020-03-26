@@ -15,17 +15,18 @@ output:
 
 ```{r, cache = FALSE}
 # library(flipbookr)
-library(data.table)
 
 # this is the old strategy that plays better with data table...  We need to figure out the new source of the problem.  
 source(file = "https://raw.githubusercontent.com/EvaMaeRey/little_flipbooks_library/master/xaringan_reveal_parentheses_balanced.R")
 knitr::opts_chunk$set(warning = F)
-
+# library(flipbookr)
+library(data.table)
 ```
 
 ---
+
 ```{r data_table, eval = T, echo = F}
-data.table(
+data.table::data.table(
   ID = c("b","b","b","a","a","c"),
   a = 1:6,
   b = 7:12,
@@ -36,10 +37,10 @@ dt
 #this gives columns not rows
 rws = dt[2:3]
 rws
-
-#this does not work
-rows <- dt[a:c]
-rows
+# 
+# #this does not work
+# rows <- dt[a:c]
+# rows
 
 #this does not work -- still does not work... hmm
 #columns <- dt[ID="b"]

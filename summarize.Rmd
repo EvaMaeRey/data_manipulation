@@ -31,17 +31,26 @@ gapminder %>%
   count(continent) %>% 
   rename(count = n) ->
 count_in_continents
+
 # another pipeline
 gapminder %>%
+  filter(year == 2002) %>% 
   summarize(mean_life_exp = mean(lifeExp),
             median_life_exp = median(lifeExp)) ->
-overall_summaries
+overall_summaries_2002
+
 # another
 gapminder %>%
+  filter(year == 2002) %>% 
   group_by(continent) %>% 
   summarize(mean_life_exp = mean(lifeExp),
             median_life_exp = median(lifeExp)) ->
-summaries_by_continent
+summaries_by_continent_2002
+
+# coming soon in a new version of dplyr
+# gapminder %>% 
+#   group_by(continent) %>% 
+#   summarize(across(lifeExp:pop, mean))
 ```
 
 

@@ -90,13 +90,13 @@ matrix(c(1,2,3,4),
 
 
 
-( matrix(c(1,2,3,4), 
+(matrix(c(1,2,3,4), 
         nrow = 2) *
-  matrix(c(1,2,3,4), 
+    matrix(c(1,2,3,4), 
        nrow = 2) )
-( matrix(c(1,2,3,4), 
+(matrix(c(1,2,3,4), 
        nrow = 2) %*%
-  matrix(c(1,2,3,4), 
+    matrix(c(1,2,3,4), 
        nrow = 2) )
 ```
 
@@ -149,10 +149,41 @@ x + y ->
 ```
 
 
+---
+
+Some functions all about type...
 
 
+---
 
 
+`r chunk_reveal("is_type")`
+
+```{r is_type, include=F}
+is.character("hi")
+is.numeric(1)
+is.integer(2.3)
+is.double(4L)
+is.integer(4)
+is.integer(4L)
+is.factor("good")
+```
+
+---
+
+`r chunk_reveal("as_type")`
+
+```{r as_type, include=F}
+as.numeric("hi")
+as.integer(1)
+as.character(2.3)
+as.double(4L)
+is.integer(4)
+is.integer(4L)
+as.factor(c("good", "bad"))
+matrix(1:4, nrow = 2) %>% 
+  as.vector()
+```
 
 
 
