@@ -26,7 +26,7 @@ library(tidyverse)
 ```
 
 ```
-## ── Attaching packages ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.3.0 ──
+## ── Attaching packages ────────────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.3.0 ──
 ```
 
 ```
@@ -37,7 +37,7 @@ library(tidyverse)
 ```
 
 ```
-## ── Conflicts ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+## ── Conflicts ───────────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()
 ```
@@ -57,6 +57,8 @@ count: false
 .column[.content[
 
 ```r
+# a pipeline to count the number
+# of observations by group
 *gapminder
 ```
 ]]
@@ -88,6 +90,8 @@ count: false
 .column[.content[
 
 ```r
+# a pipeline to count the number
+# of observations by group
 gapminder %&gt;%  
 * distinct(country, continent)
 ```
@@ -120,6 +124,8 @@ count: false
 .column[.content[
 
 ```r
+# a pipeline to count the number
+# of observations by group
 gapminder %&gt;%  
   distinct(country, continent) %&gt;%  
 # tally and count are the same
@@ -148,6 +154,8 @@ count: false
 .column[.content[
 
 ```r
+# a pipeline to count the number
+# of observations by group
 gapminder %&gt;%  
   distinct(country, continent) %&gt;%  
 # tally and count are the same
@@ -177,6 +185,8 @@ count: false
 .column[.content[
 
 ```r
+# a pipeline to count the number
+# of observations by group
 gapminder %&gt;%  
   distinct(country, continent) %&gt;%  
 # tally and count are the same
@@ -197,6 +207,8 @@ count: false
 .column[.content[
 
 ```r
+# a pipeline to count the number
+# of observations by group
 gapminder %&gt;%  
   distinct(country, continent) %&gt;%  
 # tally and count are the same
@@ -204,7 +216,8 @@ gapminder %&gt;%
   rename(count = n) -&gt;  
 count_in_continents  
 
-# another pipeline
+# a pipeline to create overall
+# variable summaries
 *gapminder
 ```
 ]]
@@ -236,6 +249,8 @@ count: false
 .column[.content[
 
 ```r
+# a pipeline to count the number
+# of observations by group
 gapminder %&gt;%  
   distinct(country, continent) %&gt;%  
 # tally and count are the same
@@ -243,7 +258,8 @@ gapminder %&gt;%
   rename(count = n) -&gt;  
 count_in_continents  
 
-# another pipeline
+# a pipeline to create overall
+# variable summaries
 gapminder %&gt;%  
 * filter(year == 2002)
 ```
@@ -276,6 +292,8 @@ count: false
 .column[.content[
 
 ```r
+# a pipeline to count the number
+# of observations by group
 gapminder %&gt;%  
   distinct(country, continent) %&gt;%  
 # tally and count are the same
@@ -283,7 +301,8 @@ gapminder %&gt;%
   rename(count = n) -&gt;  
 count_in_continents  
 
-# another pipeline
+# a pipeline to create overall
+# variable summaries
 gapminder %&gt;%  
   filter(year == 2002) %&gt;%  
 * summarize(mean_life_exp = mean(lifeExp),
@@ -308,6 +327,8 @@ count: false
 .column[.content[
 
 ```r
+# a pipeline to count the number
+# of observations by group
 gapminder %&gt;%  
   distinct(country, continent) %&gt;%  
 # tally and count are the same
@@ -315,7 +336,8 @@ gapminder %&gt;%
   rename(count = n) -&gt;  
 count_in_continents  
 
-# another pipeline
+# a pipeline to create overall
+# variable summaries
 gapminder %&gt;%  
   filter(year == 2002) %&gt;%  
   summarize(mean_life_exp = mean(lifeExp),  
@@ -335,6 +357,8 @@ count: false
 .column[.content[
 
 ```r
+# a pipeline to count the number
+# of observations by group
 gapminder %&gt;%  
   distinct(country, continent) %&gt;%  
 # tally and count are the same
@@ -342,14 +366,16 @@ gapminder %&gt;%
   rename(count = n) -&gt;  
 count_in_continents  
 
-# another pipeline
+# a pipeline to create overall
+# variable summaries
 gapminder %&gt;%  
   filter(year == 2002) %&gt;%  
   summarize(mean_life_exp = mean(lifeExp),  
             median_life_exp = median(lifeExp)) -&gt;  
 overall_summaries_2002  
 
-# another
+# a pipeline to create groupwise
+# variable summaries
 *gapminder
 ```
 ]]
@@ -381,6 +407,8 @@ count: false
 .column[.content[
 
 ```r
+# a pipeline to count the number
+# of observations by group
 gapminder %&gt;%  
   distinct(country, continent) %&gt;%  
 # tally and count are the same
@@ -388,14 +416,16 @@ gapminder %&gt;%
   rename(count = n) -&gt;  
 count_in_continents  
 
-# another pipeline
+# a pipeline to create overall
+# variable summaries
 gapminder %&gt;%  
   filter(year == 2002) %&gt;%  
   summarize(mean_life_exp = mean(lifeExp),  
             median_life_exp = median(lifeExp)) -&gt;  
 overall_summaries_2002  
 
-# another
+# a pipeline to create groupwise
+# variable summaries
 gapminder %&gt;%  
 * filter(year == 2002)
 ```
@@ -428,6 +458,8 @@ count: false
 .column[.content[
 
 ```r
+# a pipeline to count the number
+# of observations by group
 gapminder %&gt;%  
   distinct(country, continent) %&gt;%  
 # tally and count are the same
@@ -435,14 +467,16 @@ gapminder %&gt;%
   rename(count = n) -&gt;  
 count_in_continents  
 
-# another pipeline
+# a pipeline to create overall
+# variable summaries
 gapminder %&gt;%  
   filter(year == 2002) %&gt;%  
   summarize(mean_life_exp = mean(lifeExp),  
             median_life_exp = median(lifeExp)) -&gt;  
 overall_summaries_2002  
 
-# another
+# a pipeline to create groupwise
+# variable summaries
 gapminder %&gt;%  
   filter(year == 2002) %&gt;%  
 * group_by(continent)
@@ -477,6 +511,8 @@ count: false
 .column[.content[
 
 ```r
+# a pipeline to count the number
+# of observations by group
 gapminder %&gt;%  
   distinct(country, continent) %&gt;%  
 # tally and count are the same
@@ -484,14 +520,16 @@ gapminder %&gt;%
   rename(count = n) -&gt;  
 count_in_continents  
 
-# another pipeline
+# a pipeline to create overall
+# variable summaries
 gapminder %&gt;%  
   filter(year == 2002) %&gt;%  
   summarize(mean_life_exp = mean(lifeExp),  
             median_life_exp = median(lifeExp)) -&gt;  
 overall_summaries_2002  
 
-# another
+# a pipeline to create groupwise
+# variable summaries
 gapminder %&gt;%  
   filter(year == 2002) %&gt;%  
   group_by(continent) %&gt;%  
@@ -521,6 +559,8 @@ count: false
 .column[.content[
 
 ```r
+# a pipeline to count the number
+# of observations by group
 gapminder %&gt;%  
   distinct(country, continent) %&gt;%  
 # tally and count are the same
@@ -528,14 +568,16 @@ gapminder %&gt;%
   rename(count = n) -&gt;  
 count_in_continents  
 
-# another pipeline
+# a pipeline to create overall
+# variable summaries
 gapminder %&gt;%  
   filter(year == 2002) %&gt;%  
   summarize(mean_life_exp = mean(lifeExp),  
             median_life_exp = median(lifeExp)) -&gt;  
 overall_summaries_2002  
 
-# another
+# a pipeline to create groupwise
+# variable summaries
 gapminder %&gt;%  
   filter(year == 2002) %&gt;%  
   group_by(continent) %&gt;%  
@@ -556,6 +598,8 @@ count: false
 .column[.content[
 
 ```r
+# a pipeline to count the number
+# of observations by group
 gapminder %&gt;%  
   distinct(country, continent) %&gt;%  
 # tally and count are the same
@@ -563,14 +607,16 @@ gapminder %&gt;%
   rename(count = n) -&gt;  
 count_in_continents  
 
-# another pipeline
+# a pipeline to create overall
+# variable summaries
 gapminder %&gt;%  
   filter(year == 2002) %&gt;%  
   summarize(mean_life_exp = mean(lifeExp),  
             median_life_exp = median(lifeExp)) -&gt;  
 overall_summaries_2002  
 
-# another
+# a pipeline to create groupwise
+# variable summaries
 gapminder %&gt;%  
   filter(year == 2002) %&gt;%  
   group_by(continent) %&gt;%  
@@ -595,6 +641,8 @@ count: false
 .column[.content[
 
 ```r
+# a pipeline to count the number
+# of observations by group
 gapminder %&gt;%  
   distinct(country, continent) %&gt;%  
 # tally and count are the same
@@ -602,14 +650,16 @@ gapminder %&gt;%
   rename(count = n) -&gt;  
 count_in_continents  
 
-# another pipeline
+# a pipeline to create overall
+# variable summaries
 gapminder %&gt;%  
   filter(year == 2002) %&gt;%  
   summarize(mean_life_exp = mean(lifeExp),  
             median_life_exp = median(lifeExp)) -&gt;  
 overall_summaries_2002  
 
-# another
+# a pipeline to create groupwise
+# variable summaries
 gapminder %&gt;%  
   filter(year == 2002) %&gt;%  
   group_by(continent) %&gt;%  

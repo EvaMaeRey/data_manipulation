@@ -25,6 +25,8 @@ knitr::opts_chunk$set(cache = F, comment = "")
 `r flipbookr::chunk_reveal("a_few_more")`
 
 ```{r a_few_more, include = F}
+# a pipeline to count the number 
+# of observations by group
 gapminder %>%
   distinct(country, continent) %>% 
   # tally and count are the same
@@ -32,14 +34,16 @@ gapminder %>%
   rename(count = n) ->
 count_in_continents
 
-# another pipeline
+# a pipeline to create overall 
+# variable summaries
 gapminder %>%
   filter(year == 2002) %>% 
   summarize(mean_life_exp = mean(lifeExp),
             median_life_exp = median(lifeExp)) ->
 overall_summaries_2002
 
-# another
+# a pipeline to create groupwise
+# variable summaries
 gapminder %>%
   filter(year == 2002) %>% 
   group_by(continent) %>% 
