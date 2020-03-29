@@ -2,29 +2,34 @@
 title: "Data Manipulation"
 author: "Evangeline Reynolds"
 date: "February 2020"
-output: html_document
+output: 
+  html_document:
+    theme: yeti
+    highlight: monochrome
 ---
 
 
 # The very basics
 
-## [Arithmetic operations and data types and structures](arithmetic_and_data_types.html){target="_blank"}
+### [Arithmetic operations, value types, and data structures](arithmetic_and_data_types.html){target="_blank"}
 
-**data types**: numeric,    character,    integer,   date, logical,   factor 
+This section cover some very basics including:
 
-**operators**: `+ `  `-`   `/`   `()` `^ `   
+- *value types*: numeric,    character,    integer,   date, logical,   factor 
 
-**data structures**: scalar, vector, matrix, data frame (with rows and columns)
+- *arithmetic operators*: `+ `  `-`   `/`   `()` `^ `   
 
-**functions**: `mean()`, `median()`, `mode()`, `log10()`
+- *data structures*: scalar, vector, matrix, data frame (with rows and columns)
 
-**objects and assignment**: `=` `<-` `->` 
+- *functions*: `mean()`, `median()`, `mode()`, `log10()`
+
+- *objects and assignment*: `=` `<-` `->` 
 
 # Data manipulation with the tidyverse
 
 The `{tidyverse}`  data manipulation functions have been a boon to analysts' productivity. This resource is built with the idea that we sometimes just need to see how functions work in action to understand them; just link the materials for each section to see the functions "in-action". The materials here can be used as an introduction or for reference. The `{tidyverse}` is an open source project in R lead by Hadley Wickham; the `{tidyverse}` itself contains several packages designed to work together in a consistent, logical, and human-friendly fashion.
 
-## [One-stream data manipulation](one_stream_wrangle.html#3){target="_blank"}
+### [One-stream data manipulation](one_stream_wrangle.html#3){target="_blank"}
 
 |function |action |
 | :--- | ---: |
@@ -37,12 +42,14 @@ The `{tidyverse}`  data manipulation functions have been a boon to analysts' pro
 | slice()     | *keep or drop rows based on row number |
 
 
-### [Logical operators](booleans.html#3){target="_blank"}
+#### [Logical operators](booleans.html#3){target="_blank"}
 
 Especially in filtering, you are likely to use Boolean operatores `==`, `!=`, `>`, `<`, `>=`, `<=`, which make a comparison and return `TRUE` or `FALSE`.  These can also be combine with `&` (both conditions must be met), `|` (either condition may be met), or `%in%` (if the left hand side element is found *among* the right hand side elements, `TRUE` is returned).
 
 
-## [Summarizing](summarize.html#3){target="_blank"}
+### [Summarizing](summarize.html#3){target="_blank"}
+
+You may be interested in summaries of variables in your data --- or perhaps knowing the summaries for variables within different groups. 
 
 |function |action |
 | :--- | ---: |
@@ -56,15 +63,15 @@ Base-R functions that you are might use in summarizing include `mean()`, `median
 
 The function `summary()` can also be used to request summary statistcs for an entire data set. 
 
-## [Shape transformation (wide <---> long)](long_to_wide_and_back.html#3){target="_blank"}
+### [Shape transformation (wide <---> long)](long_to_wide_and_back.html#3){target="_blank"}
 
 |function |action |
 | :--- | ---: |
-| gather() or pivot_longer() | *from wide to long*|
-| spread() or pivot_wider() | *from long to wide*|
+| gather() *or* pivot_longer() | *from wide to long*|
+| spread() *or* pivot_wider() | *from long to wide*|
 
 
-## [Bringing streams together: Joins and Binds](joining_data.html){target="_blank"}
+### [Bringing streams together: Joins and Binds](joining_data.html){target="_blank"}
 
 |function |action |
 | :--- | ---: |
@@ -80,44 +87,24 @@ The function `summary()` can also be used to request summary statistcs for an en
 
 
 
-# [Manipulation with data.table (under construction)](data.table.html){target="_blank"}
+## [Manipulation with data.table](data.table.html){target="_blank"}
 
 
-{data.table} is another popular data manipulation package. 
+{data.table} is data manipulation package.  It's "blazing fast" and very popular; but this section is under construction --- so limited in its examples. 
 
-# [Manipulation with base R and logical indexing](logical_indexing.html){target="_blank"}
+## [Manipulation with base R and logical indexing](logical_indexing.html){target="_blank"}
 
-You can also do a lot of data manipulation without using external packages.
+You can also do a lot of data manipulation without any external packages at all.
 
-# [Data Cleaning Examples & intro to string manipulation, country identifiers, and data manipulation](https://evamaerey.github.io/data_manipulation/data_cleaning/data_cleaning){target="_blank"}
+## [Data Cleaning Examples & Intro to String Manipulation, Country Identifiers, and Date Manipulation](https://evamaerey.github.io/data_manipulation/data_cleaning/data_cleaning){target="_blank"}
 
 What's the workflow from reading in data to analysis ready.  It really depends!  Data cleaning is chard to teach because data can be messy/untidy in a lot of different ways.  The data cleaning flipbook will walk you through some real-life examples, with special focus on string manipulation, country codes and date manipulation.  
 
-- Regular Expressions, character string manipulation with `{stringr}`
-- Unique Identifiers for Countries with `{countrycode}`
-- Date Manipulation `{lubridate}`
+- Regular expressions, character string manipulation with `{stringr}`
+- Unique identifiers for countries with `{countrycode}`
+- Date manipulation with `{lubridate}`
 
 
-
-
-# Beyond data manipulation
+## [Back to "The R Flipbook Textbook" Table of Contents](https://evamaerey.github.io/flipbooks/textbook)
 
 You might also be interested related tools for data visualization and statistical analysis. 
-
-```{css, echo = F}
-.button {
-  background-color: #4682b4; /* Blue */
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-}
-```
-
-
-<a href="https://evamaerey.github.io/ggplot2_grammar_guide/about" class="button">Data Visualization with ggplot2</a>
-<a href="https://evamaerey.github.io/statistics/about" class="button">Statistical Analysis</a>
-
