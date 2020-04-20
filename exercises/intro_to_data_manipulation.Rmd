@@ -1,0 +1,286 @@
+---
+title: "Introduction to Data Wrangling"
+author: "Evangeline Reynolds"
+date: "4/19/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+```
+
+# Answer the following questions
+
+### Q1
+
+Execute the code and answer the questions.  Try to make a guess about the answer before you excute the code
+
+
+```{r}
+1:10 == 4
+```
+
+How many TRUEs are returned above?
+
+> your answer
+
+
+### Q2
+
+```{r}
+1:10 != 4
+```
+
+How many TRUEs are returned above?
+
+> your answer
+
+
+
+
+### Q3
+
+```{r}
+cars %>% 
+  slice(1:5)
+```
+
+How many rows of data are returned above?
+
+> your answer
+
+
+
+
+### Q4
+
+```{r}
+cars %>% 
+  slice(2:10)
+```
+
+*How many rows* of data are returned above?
+
+> your answer
+
+
+
+### Q5
+
+```{r}
+cars %>% 
+  filter(dist < 5)
+```
+
+
+*List the values* in the column distance returned above?
+
+> your answer
+
+
+
+
+### Q6
+
+```{r}
+library(gapminder)
+gapminder %>% 
+  filter(country == "Peru")
+```
+
+
+*How many rows* are returned upon executing the above code?
+
+> your answer
+
+
+
+
+### Q7
+
+```{r}
+gapminder %>% 
+  filter(country == "Peru") %>% 
+  filter(year == 1992)
+```
+
+
+*How many rows* are returned upon executing the above code?
+
+> your answer
+
+
+
+
+
+### Q8
+
+```{r}
+gapminder %>% 
+  select(country, year, lifeExp) 
+```
+
+
+*How many columns* are returned upon executing the above code?
+
+> your answer
+
+
+
+
+
+### Q9
+
+```{r}
+gapminder %>% 
+  select(1:4) 
+```
+
+
+*How many columns* are returned upon executing the above code?
+
+> your answer
+
+
+
+
+
+### Q10
+
+```{r}
+gapminder %>% 
+  select(country, year, lifeExp) %>% 
+  rename(life_exp = lifeExp)
+```
+
+
+*What are the names of the columns* returned upon executing the above code?
+
+> your answer
+
+
+
+
+
+### Q11
+
+
+```{r}
+gapminder %>% 
+  select(country, year, gdpPercap, pop) %>% 
+  mutate(my_new_var = gdpPercap * pop)
+```
+
+
+*What are the names of the columns* returned upon executing the above code?
+
+> your answer
+
+*What might be a better name for my_new_var?*
+
+> your answer
+
+
+
+
+
+
+### Q12
+
+```{r}
+gapminder %>% 
+  arrange(lifeExp)
+```
+
+
+*What is the first value in the column lifeExp* in the returned data frame upon executing the above code? *Which country is this associated with? In what year?*
+
+> your answer
+
+
+
+
+
+
+### Q13
+
+```{r}
+gapminder %>% 
+  arrange(-lifeExp)
+```
+
+
+*What is the first value in the column lifeExp* in the returned data frame upon executing the above code? *Which country is this associated with? In what year?*
+
+> your answer
+
+
+
+
+
+### Q14
+
+```{r}
+gapminder %>% 
+  distinct(continent)
+```
+
+*How many rows are there* in the returned data frame upon executing the above code?
+
+> your answer
+
+
+
+
+
+
+### Q15
+
+
+```{r}
+gapminder %>% 
+  summarize(mean_life_exp = mean(lifeExp))
+```
+
+*How many means are reported* in the returned data frame upon executing the above code?
+
+> your answer
+
+
+
+
+
+
+### Q16
+
+```{r}
+gapminder %>% 
+  group_by(continent) %>% 
+  summarize(mean_life_exp = mean(lifeExp))
+```
+
+*How many means are reported* in the returned data frame upon executing the above code?
+
+> your answer
+
+
+
+
+
+
+### Q17
+
+```{r}
+gapminder %>% 
+  filter(year == 2007) %>% 
+  select(-year) %>% 
+  mutate(europe = continent == "Europe") %>% 
+  mutate(europe_category =
+           case_when(europe == T ~ "Europe",
+                     europe == F ~ "Not Europe")) 
+```
+
+What are the values you observe in the columns named europe and europe_cat?
+
+> your answer
+

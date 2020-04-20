@@ -105,6 +105,10 @@ What's the workflow from reading in data to analysis ready.  It really depends! 
 - Date manipulation with `{lubridate}`
 
 
+# Formatting tables
+
+- [gt: grammar of tables](gt.html){target="_blank"}
+
 ## [Back to "The R Flipbook Textbook" Table of Contents](https://evamaerey.github.io/flipbooks/textbook)
 
 You might also be interested related tools for data visualization and statistical analysis. 
