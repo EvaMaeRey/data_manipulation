@@ -1,0 +1,83 @@
+---
+title: "Data Manipulation"
+subtitle: "Week 4 DS4IR"
+author: "Gina Reynolds, April 2020"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: [default, hygge, ninjutsu]
+    nature:
+      beforeInit: "https://platform.twitter.com/widgets.js"
+      ratio: 16:10
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+
+
+```{r setup, include = F}
+# This is the recommended set up for flipbooks
+# you might think about setting cache to TRUE as you gain practice --- building flipbooks from scracth can be time consuming
+knitr::opts_chunk$set(fig.width = 6, message = FALSE, warning = FALSE, comment = "", cache = FALSE, fig.retina = 3)
+library(flipbookr)
+library(tidyverse)
+```
+
+
+---
+
+# Agenda
+
+- a little review - sequential workflow w/ pipe operator, booleans, dplyr
+
+[dplyr](https://dplyr.tidyverse.org/)
+![](http://hexb.in/hexagons/magrittr.png)
+![](https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/dplyr.png)
+![](https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/ggplot2.png)
+
+
+
+- Combining booleans
+- Summarizing
+- Special topics - regex, dates, country codes
+- homework/practice
+
+- Remember - final project proposal due tomorrow...
+
+---
+
+
+
+
+---
+
+
+> Happy families are all alike; every unhappy family is unhappy in its own way. –– Leo Tolstoy
+> Tidy datasets are all alike, but every messy dataset is messy in its own way. –– Hadley Wickham
+
+---
+
+# Data Wrangling
+
+> Wrangle. “From Middle English wranglen, from Low German wrangeln (“to wrangle”), frequentative form of Low German wrangen (“to struggle, make an uproar”) and German rangeln (“to wrestle”).
+
+
+---
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">You&#39;re doing it right if you get frustrated: if you&#39;re not frustrated, you&#39;re (probably) not stretching yourself mentally</p>&mdash; Hadley Wickham (@hadleywickham) <a href="https://twitter.com/hadleywickham/status/565516733516349441?ref_src=twsrc%5Etfw">February 11, 2015</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+---
+
+"80% of my time is spent on cleaning the data"
+
+--
+
+"18% of my time is running summary statistics"
+
+---
+
+
+```{css, eval = TRUE, echo = FALSE}
+.remark-code{line-height: 1.5; font-size: 80%}
+```

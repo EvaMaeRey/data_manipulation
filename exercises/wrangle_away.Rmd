@@ -1,0 +1,536 @@
+---
+title: "Data manipulation practice"
+author: "Evangeline Reynolds"
+date: ""
+output:
+  xaringan::moon_reader:
+    seal: false
+    lib_dir: libs
+    css: [default, hygge, ninjutsu]
+    nature:
+      ratio: 16:10
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+
+
+class: left, bottom, inverse
+background-image: url(https://images.unsplash.com/photo-1533179856364-b2a4a66fa83e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80)
+background-size: 87%
+background-position: 40% 40%
+
+# .column.Large[Wrangle]
+## April 23, 2020
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+
+#### .column[Gina Reynolds<br>  Photo Credit: Joshua Coleman]
+
+
+```{r include = F}
+knitr::opts_chunk$set(echo = F, cache = T, message = F, warning = F, comment = "")
+i = 1
+library(flipbookr)
+```
+
+---
+class: inverse, middle center
+
+# Set up
+
+---
+
+The following exercises are designed to help you practice your data wrangling "vocabulary". In the exercises, you'll always start from the full gapminder data and wrangle to a target using functions fromm {dplyr} (one of the packages made available in the tidyverse).
+
+--
+
+Load the following packages:
+
+```{r, echo = T}
+library(gapminder)
+library(tidyverse)
+```
+
+--
+
+
+Make sure to that the number of observations and columns in your result match the target outcome.  Let's recall the full dimensions of the gapminder data: 
+
+```{r, echo = T}
+# dim gives number of rows, then nubmer of columns
+dim(gapminder)
+```
+
+--
+
+Some other features to have in mind:
+
+- {gapminder} only reports data every 5 years, from 1952 to 2007
+- only {142} countries are included in the data
+
+
+---
+class: center, inverse, middle
+
+# Wrangle to it. #`r i`
+
+
+---
+
+## Target #`r i` `r i <- i+1`
+
+```{r, echo = F, eval = T, code = knitr::knit_code$get("selection")}
+```
+
+---
+class: center, middle
+
+### Walk through
+
+---
+
+`r chunk_reveal("selection", display_type = "output")`
+
+```{r selection, include = F}
+gapminder %>% 
+  select(country, year, lifeExp)
+```
+
+---
+class: center, inverse, middle
+
+# Wrangle to it. #`r i`
+
+
+---
+
+## Target #`r i` `r i <- i+1`
+
+
+```{r, echo = F, eval = T, code = knitr::knit_code$get("filter")}
+```
+
+---
+class: center, middle
+
+### Walk through
+
+---
+
+`r chunk_reveal("filter", display_type = "output")`
+
+```{r filter, include = F}
+gapminder %>% 
+  filter(year == 2002)
+```
+
+---
+class: center, inverse, middle
+
+# Wrangle to it. #`r i`
+
+
+---
+
+## Target #`r i` `r i <- i+1`
+
+
+```{r, echo = F, eval = T, code = knitr::knit_code$get("filterselect")}
+```
+
+---
+class: center, middle
+
+### Walk through
+
+---
+
+`r chunk_reveal("filterselect", display_type = "output")`
+
+```{r filterselect, include = F}
+gapminder  %>% 
+  filter(country == "Belgium")
+```
+
+
+---
+class: center, inverse, middle
+
+# Wrangle to it. #`r i`
+
+
+---
+
+## Target #`r i` `r i <- i+1`
+
+
+```{r, echo = F, eval = T, code = knitr::knit_code$get("filterarrselect")}
+```
+
+---
+class: center, middle
+
+### Walk through
+
+---
+
+`r chunk_reveal("filterarrselect", display_type = "output")`
+
+```{r filterarrselect, include = F}
+gapminder %>% 
+  select(country, year, pop) %>% 
+  filter(pop > 1000000000) %>% 
+  arrange(-pop) 
+```
+
+
+---
+class: center, inverse, middle
+
+# Wrangle to it. #`r i`
+
+
+---
+
+## Target #`r i` `r i <- i+1`
+
+
+```{r, echo = F, eval = T, code = knitr::knit_code$get("filterage")}
+```
+
+---
+class: center, middle
+
+### Walk through
+
+---
+
+`r chunk_reveal("filterage", display_type = "output")`
+
+```{r filterage, include = F}
+gapminder %>% 
+  select(country, lifeExp, year) %>% 
+  filter(lifeExp > 81) %>% 
+  arrange(-lifeExp)
+```
+
+
+
+
+---
+class: center, inverse, middle
+
+# Wrangle to it. #`r i`
+
+
+---
+
+## Target #`r i` `r i <- i+1`
+
+
+```{r, echo = F, eval = T, code = knitr::knit_code$get("foursteps")}
+```
+
+---
+class: center, middle
+
+### Walk through
+
+---
+
+`r chunk_reveal("foursteps", display_type = "output")`
+
+```{r foursteps, include = F}
+gapminder %>% 
+  mutate(gdp = pop * gdpPercap) %>% 
+  filter(year == 1952) %>% 
+  filter(continent == "Oceania") %>% 
+  select(country, gdp, year)
+```
+
+
+---
+class: center, inverse, middle
+
+# Wrangle to it. #`r i`
+
+
+---
+
+## Target #`r i` `r i <- i+1`
+
+
+```{r, echo = F, eval = T, code = knitr::knit_code$get("indicator")}
+```
+
+---
+class: center, middle
+
+### Walk through
+
+---
+
+`r chunk_reveal("indicator", display_type = "output")`
+
+```{r indicator, include = F}
+gapminder %>% 
+  mutate(asia = continent == "Asia")
+```
+
+
+
+
+---
+class: center, inverse, middle
+
+# Summarizing (collapsing across rows)
+
+
+
+
+---
+class: center, inverse, middle
+
+# Wrangle to it. #`r i`
+---
+
+## Target #`r i` `r i <- i+1`
+
+```{r, echo = F, eval = T, code = knitr::knit_code$get("collapse")}
+```
+
+---
+class: center, middle
+
+### Walk through
+
+---
+
+`r chunk_reveal("collapse", display_type = "output")`
+
+```{r collapse, include = F}
+gapminder %>% 
+  distinct(continent)
+```
+
+
+
+
+
+---
+class: center, inverse, middle
+
+# Wrangle to it. #`r i`
+---
+
+## Target #`r i` `r i <- i+1`
+
+```{r, echo = F, eval = T, code = knitr::knit_code$get("count")}
+```
+
+---
+class: center, middle
+
+### Walk through
+
+---
+
+`r chunk_reveal("count", display_type = "output")`
+
+```{r count, include = F}
+gapminder %>% 
+  filter(year == 2002) %>% 
+  count(continent)
+```
+
+
+
+
+
+---
+class: center, inverse, middle
+
+# Wrangle to it. #`r i`
+---
+
+## Target #`r i` `r i <- i+1`
+
+```{r, echo = F, eval = T, code = knitr::knit_code$get("distinctyear")}
+```
+
+---
+class: center, middle
+
+### Walk through
+
+---
+
+`r chunk_reveal("distinctyear", display_type = "output")`
+
+```{r distinctyear, include = F}
+gapminder %>% 
+  distinct(year)
+```
+
+
+
+
+
+---
+class: center, inverse, middle
+
+# Wrangle to it. #`r i`
+---
+
+## Target #`r i` `r i <- i+1`
+
+```{r, echo = F, eval = T, code = knitr::knit_code$get("mean")}
+```
+
+---
+class: center, middle
+
+### Walk through
+
+---
+
+`r chunk_reveal("mean", display_type = "output")`
+
+```{r mean, include = F}
+gapminder %>% 
+  group_by(continent, year) %>% 
+  summarise(mean_life_exp = mean(lifeExp))
+```
+
+
+
+
+---
+class: center, inverse, middle
+
+# Wrangle to it. #`r i`
+---
+
+## Target #`r i` `r i <- i+1`
+
+```{r, echo = F, eval = T, code = knitr::knit_code$get("countries")}
+```
+
+---
+class: center, middle
+
+### Walk through
+
+---
+
+`r chunk_reveal("countries", display_type = "output")`
+
+```{r countries, include = F}
+gapminder %>% 
+  distinct(country)
+```
+
+
+
+
+---
+class: center, inverse, middle
+
+# Wrangle to it. #`r i`
+---
+
+## Target #`r i` `r i <- i+1`
+
+```{r, echo = F, eval = T, code = knitr::knit_code$get("median")}
+```
+
+---
+class: center, middle
+
+### Walk through
+
+---
+
+`r chunk_reveal("median", display_type = "output")`
+
+```{r median, include = F}
+gapminder %>% 
+  group_by(continent, year) %>% 
+  summarise(median_life_exp = median(lifeExp))
+```
+
+
+
+
+---
+class: center, inverse, middle
+
+# Wrangle to it. #`r i`
+---
+
+## Target #`r i` `r i <- i+1`
+
+```{r, echo = F, eval = T, code = knitr::knit_code$get("twosummaries")}
+```
+
+---
+class: center, middle
+
+### Walk through
+
+---
+
+`r chunk_reveal("twosummaries", display_type = "output")`
+
+```{r twosummaries, include = F}
+gapminder %>% 
+  filter(year == 2002) %>% 
+  group_by(continent) %>% 
+  summarise(median_life_exp = median(lifeExp),
+            mean_life_exp = mean(lifeExp))
+```
+
+
+
+
+---
+class: center, inverse, middle
+
+# Wrangle to it. #`r i`
+---
+
+## Target #`r i` `r i <- i+1`
+
+```{r, echo = F, eval = T, code = knitr::knit_code$get("overall")}
+```
+
+---
+class: center, middle
+
+### Walk through
+
+---
+
+`r chunk_reveal("overall", display_type = "output")`
+
+```{r overall, include = F}
+gapminder %>% 
+  filter(year == 2002) %>% 
+  summarise(median_life_exp = median(lifeExp),
+            mean_life_exp = mean(lifeExp))
+```

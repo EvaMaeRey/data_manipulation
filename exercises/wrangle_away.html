@@ -1,0 +1,1527 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Data manipulation practice</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Evangeline Reynolds" />
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/hygge.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/ninjutsu.css" rel="stylesheet" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+class: left, bottom, inverse
+background-image: url(https://images.unsplash.com/photo-1533179856364-b2a4a66fa83e?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1267&amp;q=80)
+background-size: 87%
+background-position: 40% 40%
+
+# .column.Large[Wrangle]
+## April 23, 2020
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+
+
+#### .column[Gina Reynolds&lt;br&gt;  Photo Credit: Joshua Coleman]
+
+
+
+
+---
+class: inverse, middle center
+
+# Set up
+
+---
+
+The following exercises are designed to help you practice your data wrangling "vocabulary". In the exercises, you'll always start from the full gapminder data and wrangle to a target using functions fromm {dplyr} (one of the packages made available in the tidyverse).
+
+--
+
+Load the following packages:
+
+
+```r
+library(gapminder)
+library(tidyverse)
+```
+
+--
+
+
+Make sure to that the number of observations and columns in your result match the target outcome.  Let's recall the full dimensions of the gapminder data: 
+
+
+```r
+# dim gives number of rows, then nubmer of columns
+dim(gapminder)
+```
+
+```
+[1] 1704    6
+```
+
+--
+
+Some other features to have in mind:
+
+- {gapminder} only reports data every 5 years, from 1952 to 2007
+- only {142} countries are included in the data
+
+
+---
+class: center, inverse, middle
+
+# Wrangle to it. #1
+
+
+---
+
+## Target #1 
+
+
+```
+# A tibble: 1,704 x 3
+   country      year lifeExp
+   &lt;fct&gt;       &lt;int&gt;   &lt;dbl&gt;
+ 1 Afghanistan  1952    28.8
+ 2 Afghanistan  1957    30.3
+ 3 Afghanistan  1962    32.0
+ 4 Afghanistan  1967    34.0
+ 5 Afghanistan  1972    36.1
+ 6 Afghanistan  1977    38.4
+ 7 Afghanistan  1982    39.9
+ 8 Afghanistan  1987    40.8
+ 9 Afghanistan  1992    41.7
+10 Afghanistan  1997    41.8
+# … with 1,694 more rows
+```
+
+---
+class: center, middle
+
+### Walk through
+
+---
+
+count: false
+
+```
+# A tibble: 1,704 x 6
+   country     continent  year lifeExp      pop gdpPercap
+   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
+ 1 Afghanistan Asia       1952    28.8  8425333      779.
+ 2 Afghanistan Asia       1957    30.3  9240934      821.
+ 3 Afghanistan Asia       1962    32.0 10267083      853.
+ 4 Afghanistan Asia       1967    34.0 11537966      836.
+ 5 Afghanistan Asia       1972    36.1 13079460      740.
+ 6 Afghanistan Asia       1977    38.4 14880372      786.
+ 7 Afghanistan Asia       1982    39.9 12881816      978.
+ 8 Afghanistan Asia       1987    40.8 13867957      852.
+ 9 Afghanistan Asia       1992    41.7 16317921      649.
+10 Afghanistan Asia       1997    41.8 22227415      635.
+# … with 1,694 more rows
+```
+---
+count: false
+
+```
+# A tibble: 1,704 x 3
+   country      year lifeExp
+   &lt;fct&gt;       &lt;int&gt;   &lt;dbl&gt;
+ 1 Afghanistan  1952    28.8
+ 2 Afghanistan  1957    30.3
+ 3 Afghanistan  1962    32.0
+ 4 Afghanistan  1967    34.0
+ 5 Afghanistan  1972    36.1
+ 6 Afghanistan  1977    38.4
+ 7 Afghanistan  1982    39.9
+ 8 Afghanistan  1987    40.8
+ 9 Afghanistan  1992    41.7
+10 Afghanistan  1997    41.8
+# … with 1,694 more rows
+```
+
+
+
+---
+class: center, inverse, middle
+
+# Wrangle to it. #2
+
+
+---
+
+## Target #2 
+
+
+
+```
+# A tibble: 142 x 6
+   country     continent  year lifeExp       pop gdpPercap
+   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;     &lt;int&gt;     &lt;dbl&gt;
+ 1 Afghanistan Asia       2002    42.1  25268405      727.
+ 2 Albania     Europe     2002    75.7   3508512     4604.
+ 3 Algeria     Africa     2002    71.0  31287142     5288.
+ 4 Angola      Africa     2002    41.0  10866106     2773.
+ 5 Argentina   Americas   2002    74.3  38331121     8798.
+ 6 Australia   Oceania    2002    80.4  19546792    30688.
+ 7 Austria     Europe     2002    79.0   8148312    32418.
+ 8 Bahrain     Asia       2002    74.8    656397    23404.
+ 9 Bangladesh  Asia       2002    62.0 135656790     1136.
+10 Belgium     Europe     2002    78.3  10311970    30486.
+# … with 132 more rows
+```
+
+---
+class: center, middle
+
+### Walk through
+
+---
+
+count: false
+
+```
+# A tibble: 1,704 x 6
+   country     continent  year lifeExp      pop gdpPercap
+   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
+ 1 Afghanistan Asia       1952    28.8  8425333      779.
+ 2 Afghanistan Asia       1957    30.3  9240934      821.
+ 3 Afghanistan Asia       1962    32.0 10267083      853.
+ 4 Afghanistan Asia       1967    34.0 11537966      836.
+ 5 Afghanistan Asia       1972    36.1 13079460      740.
+ 6 Afghanistan Asia       1977    38.4 14880372      786.
+ 7 Afghanistan Asia       1982    39.9 12881816      978.
+ 8 Afghanistan Asia       1987    40.8 13867957      852.
+ 9 Afghanistan Asia       1992    41.7 16317921      649.
+10 Afghanistan Asia       1997    41.8 22227415      635.
+# … with 1,694 more rows
+```
+---
+count: false
+
+```
+# A tibble: 142 x 6
+   country     continent  year lifeExp       pop gdpPercap
+   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;     &lt;int&gt;     &lt;dbl&gt;
+ 1 Afghanistan Asia       2002    42.1  25268405      727.
+ 2 Albania     Europe     2002    75.7   3508512     4604.
+ 3 Algeria     Africa     2002    71.0  31287142     5288.
+ 4 Angola      Africa     2002    41.0  10866106     2773.
+ 5 Argentina   Americas   2002    74.3  38331121     8798.
+ 6 Australia   Oceania    2002    80.4  19546792    30688.
+ 7 Austria     Europe     2002    79.0   8148312    32418.
+ 8 Bahrain     Asia       2002    74.8    656397    23404.
+ 9 Bangladesh  Asia       2002    62.0 135656790     1136.
+10 Belgium     Europe     2002    78.3  10311970    30486.
+# … with 132 more rows
+```
+
+
+
+---
+class: center, inverse, middle
+
+# Wrangle to it. #3
+
+
+---
+
+## Target #3 
+
+
+
+```
+# A tibble: 12 x 6
+   country continent  year lifeExp      pop gdpPercap
+   &lt;fct&gt;   &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
+ 1 Belgium Europe     1952    68    8730405     8343.
+ 2 Belgium Europe     1957    69.2  8989111     9715.
+ 3 Belgium Europe     1962    70.2  9218400    10991.
+ 4 Belgium Europe     1967    70.9  9556500    13149.
+ 5 Belgium Europe     1972    71.4  9709100    16672.
+ 6 Belgium Europe     1977    72.8  9821800    19118.
+ 7 Belgium Europe     1982    73.9  9856303    20980.
+ 8 Belgium Europe     1987    75.4  9870200    22526.
+ 9 Belgium Europe     1992    76.5 10045622    25576.
+10 Belgium Europe     1997    77.5 10199787    27561.
+11 Belgium Europe     2002    78.3 10311970    30486.
+12 Belgium Europe     2007    79.4 10392226    33693.
+```
+
+---
+class: center, middle
+
+### Walk through
+
+---
+
+count: false
+
+```
+# A tibble: 1,704 x 6
+   country     continent  year lifeExp      pop gdpPercap
+   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
+ 1 Afghanistan Asia       1952    28.8  8425333      779.
+ 2 Afghanistan Asia       1957    30.3  9240934      821.
+ 3 Afghanistan Asia       1962    32.0 10267083      853.
+ 4 Afghanistan Asia       1967    34.0 11537966      836.
+ 5 Afghanistan Asia       1972    36.1 13079460      740.
+ 6 Afghanistan Asia       1977    38.4 14880372      786.
+ 7 Afghanistan Asia       1982    39.9 12881816      978.
+ 8 Afghanistan Asia       1987    40.8 13867957      852.
+ 9 Afghanistan Asia       1992    41.7 16317921      649.
+10 Afghanistan Asia       1997    41.8 22227415      635.
+# … with 1,694 more rows
+```
+---
+count: false
+
+```
+# A tibble: 12 x 6
+   country continent  year lifeExp      pop gdpPercap
+   &lt;fct&gt;   &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
+ 1 Belgium Europe     1952    68    8730405     8343.
+ 2 Belgium Europe     1957    69.2  8989111     9715.
+ 3 Belgium Europe     1962    70.2  9218400    10991.
+ 4 Belgium Europe     1967    70.9  9556500    13149.
+ 5 Belgium Europe     1972    71.4  9709100    16672.
+ 6 Belgium Europe     1977    72.8  9821800    19118.
+ 7 Belgium Europe     1982    73.9  9856303    20980.
+ 8 Belgium Europe     1987    75.4  9870200    22526.
+ 9 Belgium Europe     1992    76.5 10045622    25576.
+10 Belgium Europe     1997    77.5 10199787    27561.
+11 Belgium Europe     2002    78.3 10311970    30486.
+12 Belgium Europe     2007    79.4 10392226    33693.
+```
+
+
+
+
+---
+class: center, inverse, middle
+
+# Wrangle to it. #4
+
+
+---
+
+## Target #4 
+
+
+
+```
+# A tibble: 8 x 3
+  country  year        pop
+  &lt;fct&gt;   &lt;int&gt;      &lt;int&gt;
+1 China    2007 1318683096
+2 China    2002 1280400000
+3 China    1997 1230075000
+4 China    1992 1164970000
+5 India    2007 1110396331
+6 China    1987 1084035000
+7 India    2002 1034172547
+8 China    1982 1000281000
+```
+
+---
+class: center, middle
+
+### Walk through
+
+---
+
+count: false
+
+```
+# A tibble: 1,704 x 6
+   country     continent  year lifeExp      pop gdpPercap
+   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
+ 1 Afghanistan Asia       1952    28.8  8425333      779.
+ 2 Afghanistan Asia       1957    30.3  9240934      821.
+ 3 Afghanistan Asia       1962    32.0 10267083      853.
+ 4 Afghanistan Asia       1967    34.0 11537966      836.
+ 5 Afghanistan Asia       1972    36.1 13079460      740.
+ 6 Afghanistan Asia       1977    38.4 14880372      786.
+ 7 Afghanistan Asia       1982    39.9 12881816      978.
+ 8 Afghanistan Asia       1987    40.8 13867957      852.
+ 9 Afghanistan Asia       1992    41.7 16317921      649.
+10 Afghanistan Asia       1997    41.8 22227415      635.
+# … with 1,694 more rows
+```
+---
+count: false
+
+```
+# A tibble: 1,704 x 3
+   country      year      pop
+   &lt;fct&gt;       &lt;int&gt;    &lt;int&gt;
+ 1 Afghanistan  1952  8425333
+ 2 Afghanistan  1957  9240934
+ 3 Afghanistan  1962 10267083
+ 4 Afghanistan  1967 11537966
+ 5 Afghanistan  1972 13079460
+ 6 Afghanistan  1977 14880372
+ 7 Afghanistan  1982 12881816
+ 8 Afghanistan  1987 13867957
+ 9 Afghanistan  1992 16317921
+10 Afghanistan  1997 22227415
+# … with 1,694 more rows
+```
+---
+count: false
+
+```
+# A tibble: 8 x 3
+  country  year        pop
+  &lt;fct&gt;   &lt;int&gt;      &lt;int&gt;
+1 China    1982 1000281000
+2 China    1987 1084035000
+3 China    1992 1164970000
+4 China    1997 1230075000
+5 China    2002 1280400000
+6 China    2007 1318683096
+7 India    2002 1034172547
+8 India    2007 1110396331
+```
+---
+count: false
+
+```
+# A tibble: 8 x 3
+  country  year        pop
+  &lt;fct&gt;   &lt;int&gt;      &lt;int&gt;
+1 China    2007 1318683096
+2 China    2002 1280400000
+3 China    1997 1230075000
+4 China    1992 1164970000
+5 India    2007 1110396331
+6 China    1987 1084035000
+7 India    2002 1034172547
+8 China    1982 1000281000
+```
+
+
+
+
+---
+class: center, inverse, middle
+
+# Wrangle to it. #5
+
+
+---
+
+## Target #5 
+
+
+
+```
+# A tibble: 7 x 3
+  country          lifeExp  year
+  &lt;fct&gt;              &lt;dbl&gt; &lt;int&gt;
+1 Japan               82.6  2007
+2 Hong Kong, China    82.2  2007
+3 Japan               82    2002
+4 Iceland             81.8  2007
+5 Switzerland         81.7  2007
+6 Hong Kong, China    81.5  2002
+7 Australia           81.2  2007
+```
+
+---
+class: center, middle
+
+### Walk through
+
+---
+
+count: false
+
+```
+# A tibble: 1,704 x 6
+   country     continent  year lifeExp      pop gdpPercap
+   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
+ 1 Afghanistan Asia       1952    28.8  8425333      779.
+ 2 Afghanistan Asia       1957    30.3  9240934      821.
+ 3 Afghanistan Asia       1962    32.0 10267083      853.
+ 4 Afghanistan Asia       1967    34.0 11537966      836.
+ 5 Afghanistan Asia       1972    36.1 13079460      740.
+ 6 Afghanistan Asia       1977    38.4 14880372      786.
+ 7 Afghanistan Asia       1982    39.9 12881816      978.
+ 8 Afghanistan Asia       1987    40.8 13867957      852.
+ 9 Afghanistan Asia       1992    41.7 16317921      649.
+10 Afghanistan Asia       1997    41.8 22227415      635.
+# … with 1,694 more rows
+```
+---
+count: false
+
+```
+# A tibble: 1,704 x 3
+   country     lifeExp  year
+   &lt;fct&gt;         &lt;dbl&gt; &lt;int&gt;
+ 1 Afghanistan    28.8  1952
+ 2 Afghanistan    30.3  1957
+ 3 Afghanistan    32.0  1962
+ 4 Afghanistan    34.0  1967
+ 5 Afghanistan    36.1  1972
+ 6 Afghanistan    38.4  1977
+ 7 Afghanistan    39.9  1982
+ 8 Afghanistan    40.8  1987
+ 9 Afghanistan    41.7  1992
+10 Afghanistan    41.8  1997
+# … with 1,694 more rows
+```
+---
+count: false
+
+```
+# A tibble: 7 x 3
+  country          lifeExp  year
+  &lt;fct&gt;              &lt;dbl&gt; &lt;int&gt;
+1 Australia           81.2  2007
+2 Hong Kong, China    81.5  2002
+3 Hong Kong, China    82.2  2007
+4 Iceland             81.8  2007
+5 Japan               82    2002
+6 Japan               82.6  2007
+7 Switzerland         81.7  2007
+```
+---
+count: false
+
+```
+# A tibble: 7 x 3
+  country          lifeExp  year
+  &lt;fct&gt;              &lt;dbl&gt; &lt;int&gt;
+1 Japan               82.6  2007
+2 Hong Kong, China    82.2  2007
+3 Japan               82    2002
+4 Iceland             81.8  2007
+5 Switzerland         81.7  2007
+6 Hong Kong, China    81.5  2002
+7 Australia           81.2  2007
+```
+
+
+
+
+
+
+---
+class: center, inverse, middle
+
+# Wrangle to it. #6
+
+
+---
+
+## Target #6 
+
+
+
+```
+# A tibble: 2 x 3
+  country              gdp  year
+  &lt;fct&gt;              &lt;dbl&gt; &lt;int&gt;
+1 Australia   87256254102.  1952
+2 New Zealand 21058193787.  1952
+```
+
+---
+class: center, middle
+
+### Walk through
+
+---
+
+count: false
+
+```
+# A tibble: 1,704 x 6
+   country     continent  year lifeExp      pop gdpPercap
+   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
+ 1 Afghanistan Asia       1952    28.8  8425333      779.
+ 2 Afghanistan Asia       1957    30.3  9240934      821.
+ 3 Afghanistan Asia       1962    32.0 10267083      853.
+ 4 Afghanistan Asia       1967    34.0 11537966      836.
+ 5 Afghanistan Asia       1972    36.1 13079460      740.
+ 6 Afghanistan Asia       1977    38.4 14880372      786.
+ 7 Afghanistan Asia       1982    39.9 12881816      978.
+ 8 Afghanistan Asia       1987    40.8 13867957      852.
+ 9 Afghanistan Asia       1992    41.7 16317921      649.
+10 Afghanistan Asia       1997    41.8 22227415      635.
+# … with 1,694 more rows
+```
+---
+count: false
+
+```
+# A tibble: 1,704 x 7
+   country     continent  year lifeExp      pop gdpPercap          gdp
+   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;        &lt;dbl&gt;
+ 1 Afghanistan Asia       1952    28.8  8425333      779.  6567086330.
+ 2 Afghanistan Asia       1957    30.3  9240934      821.  7585448670.
+ 3 Afghanistan Asia       1962    32.0 10267083      853.  8758855797.
+ 4 Afghanistan Asia       1967    34.0 11537966      836.  9648014150.
+ 5 Afghanistan Asia       1972    36.1 13079460      740.  9678553274.
+ 6 Afghanistan Asia       1977    38.4 14880372      786. 11697659231.
+ 7 Afghanistan Asia       1982    39.9 12881816      978. 12598563401.
+ 8 Afghanistan Asia       1987    40.8 13867957      852. 11820990309.
+ 9 Afghanistan Asia       1992    41.7 16317921      649. 10595901589.
+10 Afghanistan Asia       1997    41.8 22227415      635. 14121995875.
+# … with 1,694 more rows
+```
+---
+count: false
+
+```
+# A tibble: 142 x 7
+   country     continent  year lifeExp      pop gdpPercap           gdp
+   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;         &lt;dbl&gt;
+ 1 Afghanistan Asia       1952    28.8  8425333      779.   6567086330.
+ 2 Albania     Europe     1952    55.2  1282697     1601.   2053669902.
+ 3 Algeria     Africa     1952    43.1  9279525     2449.  22725632678.
+ 4 Angola      Africa     1952    30.0  4232095     3521.  14899557133.
+ 5 Argentina   Americas   1952    62.5 17876956     5911. 105676319105.
+ 6 Australia   Oceania    1952    69.1  8691212    10040.  87256254102.
+ 7 Austria     Europe     1952    66.8  6927772     6137.  42516266683.
+ 8 Bahrain     Asia       1952    50.9   120447     9867.   1188460759.
+ 9 Bangladesh  Asia       1952    37.5 46886859      684.  32082059995.
+10 Belgium     Europe     1952    68    8730405     8343.  72838686716.
+# … with 132 more rows
+```
+---
+count: false
+
+```
+# A tibble: 2 x 7
+  country     continent  year lifeExp     pop gdpPercap          gdp
+  &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;   &lt;int&gt;     &lt;dbl&gt;        &lt;dbl&gt;
+1 Australia   Oceania    1952    69.1 8691212    10040. 87256254102.
+2 New Zealand Oceania    1952    69.4 1994794    10557. 21058193787.
+```
+---
+count: false
+
+```
+# A tibble: 2 x 3
+  country              gdp  year
+  &lt;fct&gt;              &lt;dbl&gt; &lt;int&gt;
+1 Australia   87256254102.  1952
+2 New Zealand 21058193787.  1952
+```
+
+
+
+
+---
+class: center, inverse, middle
+
+# Wrangle to it. #7
+
+
+---
+
+## Target #7 
+
+
+
+```
+# A tibble: 1,704 x 7
+   country     continent  year lifeExp      pop gdpPercap asia 
+   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt; &lt;lgl&gt;
+ 1 Afghanistan Asia       1952    28.8  8425333      779. TRUE 
+ 2 Afghanistan Asia       1957    30.3  9240934      821. TRUE 
+ 3 Afghanistan Asia       1962    32.0 10267083      853. TRUE 
+ 4 Afghanistan Asia       1967    34.0 11537966      836. TRUE 
+ 5 Afghanistan Asia       1972    36.1 13079460      740. TRUE 
+ 6 Afghanistan Asia       1977    38.4 14880372      786. TRUE 
+ 7 Afghanistan Asia       1982    39.9 12881816      978. TRUE 
+ 8 Afghanistan Asia       1987    40.8 13867957      852. TRUE 
+ 9 Afghanistan Asia       1992    41.7 16317921      649. TRUE 
+10 Afghanistan Asia       1997    41.8 22227415      635. TRUE 
+# … with 1,694 more rows
+```
+
+---
+class: center, middle
+
+### Walk through
+
+---
+
+count: false
+
+```
+# A tibble: 1,704 x 6
+   country     continent  year lifeExp      pop gdpPercap
+   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
+ 1 Afghanistan Asia       1952    28.8  8425333      779.
+ 2 Afghanistan Asia       1957    30.3  9240934      821.
+ 3 Afghanistan Asia       1962    32.0 10267083      853.
+ 4 Afghanistan Asia       1967    34.0 11537966      836.
+ 5 Afghanistan Asia       1972    36.1 13079460      740.
+ 6 Afghanistan Asia       1977    38.4 14880372      786.
+ 7 Afghanistan Asia       1982    39.9 12881816      978.
+ 8 Afghanistan Asia       1987    40.8 13867957      852.
+ 9 Afghanistan Asia       1992    41.7 16317921      649.
+10 Afghanistan Asia       1997    41.8 22227415      635.
+# … with 1,694 more rows
+```
+---
+count: false
+
+```
+# A tibble: 1,704 x 7
+   country     continent  year lifeExp      pop gdpPercap asia 
+   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt; &lt;lgl&gt;
+ 1 Afghanistan Asia       1952    28.8  8425333      779. TRUE 
+ 2 Afghanistan Asia       1957    30.3  9240934      821. TRUE 
+ 3 Afghanistan Asia       1962    32.0 10267083      853. TRUE 
+ 4 Afghanistan Asia       1967    34.0 11537966      836. TRUE 
+ 5 Afghanistan Asia       1972    36.1 13079460      740. TRUE 
+ 6 Afghanistan Asia       1977    38.4 14880372      786. TRUE 
+ 7 Afghanistan Asia       1982    39.9 12881816      978. TRUE 
+ 8 Afghanistan Asia       1987    40.8 13867957      852. TRUE 
+ 9 Afghanistan Asia       1992    41.7 16317921      649. TRUE 
+10 Afghanistan Asia       1997    41.8 22227415      635. TRUE 
+# … with 1,694 more rows
+```
+
+
+
+
+
+
+---
+class: center, inverse, middle
+
+# Summarizing (collapsing across rows)
+
+
+
+
+---
+class: center, inverse, middle
+
+# Wrangle to it. #8
+---
+
+## Target #8 
+
+
+```
+# A tibble: 5 x 1
+  continent
+  &lt;fct&gt;    
+1 Asia     
+2 Europe   
+3 Africa   
+4 Americas 
+5 Oceania  
+```
+
+---
+class: center, middle
+
+### Walk through
+
+---
+
+count: false
+
+```
+# A tibble: 1,704 x 6
+   country     continent  year lifeExp      pop gdpPercap
+   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
+ 1 Afghanistan Asia       1952    28.8  8425333      779.
+ 2 Afghanistan Asia       1957    30.3  9240934      821.
+ 3 Afghanistan Asia       1962    32.0 10267083      853.
+ 4 Afghanistan Asia       1967    34.0 11537966      836.
+ 5 Afghanistan Asia       1972    36.1 13079460      740.
+ 6 Afghanistan Asia       1977    38.4 14880372      786.
+ 7 Afghanistan Asia       1982    39.9 12881816      978.
+ 8 Afghanistan Asia       1987    40.8 13867957      852.
+ 9 Afghanistan Asia       1992    41.7 16317921      649.
+10 Afghanistan Asia       1997    41.8 22227415      635.
+# … with 1,694 more rows
+```
+---
+count: false
+
+```
+# A tibble: 5 x 1
+  continent
+  &lt;fct&gt;    
+1 Asia     
+2 Europe   
+3 Africa   
+4 Americas 
+5 Oceania  
+```
+
+
+
+
+
+
+
+---
+class: center, inverse, middle
+
+# Wrangle to it. #9
+---
+
+## Target #9 
+
+
+```
+# A tibble: 5 x 2
+  continent     n
+  &lt;fct&gt;     &lt;int&gt;
+1 Africa       52
+2 Americas     25
+3 Asia         33
+4 Europe       30
+5 Oceania       2
+```
+
+---
+class: center, middle
+
+### Walk through
+
+---
+
+count: false
+
+```
+# A tibble: 1,704 x 6
+   country     continent  year lifeExp      pop gdpPercap
+   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
+ 1 Afghanistan Asia       1952    28.8  8425333      779.
+ 2 Afghanistan Asia       1957    30.3  9240934      821.
+ 3 Afghanistan Asia       1962    32.0 10267083      853.
+ 4 Afghanistan Asia       1967    34.0 11537966      836.
+ 5 Afghanistan Asia       1972    36.1 13079460      740.
+ 6 Afghanistan Asia       1977    38.4 14880372      786.
+ 7 Afghanistan Asia       1982    39.9 12881816      978.
+ 8 Afghanistan Asia       1987    40.8 13867957      852.
+ 9 Afghanistan Asia       1992    41.7 16317921      649.
+10 Afghanistan Asia       1997    41.8 22227415      635.
+# … with 1,694 more rows
+```
+---
+count: false
+
+```
+# A tibble: 142 x 6
+   country     continent  year lifeExp       pop gdpPercap
+   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;     &lt;int&gt;     &lt;dbl&gt;
+ 1 Afghanistan Asia       2002    42.1  25268405      727.
+ 2 Albania     Europe     2002    75.7   3508512     4604.
+ 3 Algeria     Africa     2002    71.0  31287142     5288.
+ 4 Angola      Africa     2002    41.0  10866106     2773.
+ 5 Argentina   Americas   2002    74.3  38331121     8798.
+ 6 Australia   Oceania    2002    80.4  19546792    30688.
+ 7 Austria     Europe     2002    79.0   8148312    32418.
+ 8 Bahrain     Asia       2002    74.8    656397    23404.
+ 9 Bangladesh  Asia       2002    62.0 135656790     1136.
+10 Belgium     Europe     2002    78.3  10311970    30486.
+# … with 132 more rows
+```
+---
+count: false
+
+```
+# A tibble: 5 x 2
+  continent     n
+  &lt;fct&gt;     &lt;int&gt;
+1 Africa       52
+2 Americas     25
+3 Asia         33
+4 Europe       30
+5 Oceania       2
+```
+
+
+
+
+
+
+
+---
+class: center, inverse, middle
+
+# Wrangle to it. #10
+---
+
+## Target #10 
+
+
+```
+# A tibble: 12 x 1
+    year
+   &lt;int&gt;
+ 1  1952
+ 2  1957
+ 3  1962
+ 4  1967
+ 5  1972
+ 6  1977
+ 7  1982
+ 8  1987
+ 9  1992
+10  1997
+11  2002
+12  2007
+```
+
+---
+class: center, middle
+
+### Walk through
+
+---
+
+count: false
+
+```
+# A tibble: 1,704 x 6
+   country     continent  year lifeExp      pop gdpPercap
+   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
+ 1 Afghanistan Asia       1952    28.8  8425333      779.
+ 2 Afghanistan Asia       1957    30.3  9240934      821.
+ 3 Afghanistan Asia       1962    32.0 10267083      853.
+ 4 Afghanistan Asia       1967    34.0 11537966      836.
+ 5 Afghanistan Asia       1972    36.1 13079460      740.
+ 6 Afghanistan Asia       1977    38.4 14880372      786.
+ 7 Afghanistan Asia       1982    39.9 12881816      978.
+ 8 Afghanistan Asia       1987    40.8 13867957      852.
+ 9 Afghanistan Asia       1992    41.7 16317921      649.
+10 Afghanistan Asia       1997    41.8 22227415      635.
+# … with 1,694 more rows
+```
+---
+count: false
+
+```
+# A tibble: 12 x 1
+    year
+   &lt;int&gt;
+ 1  1952
+ 2  1957
+ 3  1962
+ 4  1967
+ 5  1972
+ 6  1977
+ 7  1982
+ 8  1987
+ 9  1992
+10  1997
+11  2002
+12  2007
+```
+
+
+
+
+
+
+
+---
+class: center, inverse, middle
+
+# Wrangle to it. #11
+---
+
+## Target #11 
+
+
+```
+# A tibble: 60 x 3
+# Groups:   continent [5]
+   continent  year mean_life_exp
+   &lt;fct&gt;     &lt;int&gt;         &lt;dbl&gt;
+ 1 Africa     1952          39.1
+ 2 Africa     1957          41.3
+ 3 Africa     1962          43.3
+ 4 Africa     1967          45.3
+ 5 Africa     1972          47.5
+ 6 Africa     1977          49.6
+ 7 Africa     1982          51.6
+ 8 Africa     1987          53.3
+ 9 Africa     1992          53.6
+10 Africa     1997          53.6
+# … with 50 more rows
+```
+
+---
+class: center, middle
+
+### Walk through
+
+---
+
+count: false
+
+```
+# A tibble: 1,704 x 6
+   country     continent  year lifeExp      pop gdpPercap
+   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
+ 1 Afghanistan Asia       1952    28.8  8425333      779.
+ 2 Afghanistan Asia       1957    30.3  9240934      821.
+ 3 Afghanistan Asia       1962    32.0 10267083      853.
+ 4 Afghanistan Asia       1967    34.0 11537966      836.
+ 5 Afghanistan Asia       1972    36.1 13079460      740.
+ 6 Afghanistan Asia       1977    38.4 14880372      786.
+ 7 Afghanistan Asia       1982    39.9 12881816      978.
+ 8 Afghanistan Asia       1987    40.8 13867957      852.
+ 9 Afghanistan Asia       1992    41.7 16317921      649.
+10 Afghanistan Asia       1997    41.8 22227415      635.
+# … with 1,694 more rows
+```
+---
+count: false
+
+```
+# A tibble: 1,704 x 6
+# Groups:   continent, year [60]
+   country     continent  year lifeExp      pop gdpPercap
+   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
+ 1 Afghanistan Asia       1952    28.8  8425333      779.
+ 2 Afghanistan Asia       1957    30.3  9240934      821.
+ 3 Afghanistan Asia       1962    32.0 10267083      853.
+ 4 Afghanistan Asia       1967    34.0 11537966      836.
+ 5 Afghanistan Asia       1972    36.1 13079460      740.
+ 6 Afghanistan Asia       1977    38.4 14880372      786.
+ 7 Afghanistan Asia       1982    39.9 12881816      978.
+ 8 Afghanistan Asia       1987    40.8 13867957      852.
+ 9 Afghanistan Asia       1992    41.7 16317921      649.
+10 Afghanistan Asia       1997    41.8 22227415      635.
+# … with 1,694 more rows
+```
+---
+count: false
+
+```
+# A tibble: 60 x 3
+# Groups:   continent [5]
+   continent  year mean_life_exp
+   &lt;fct&gt;     &lt;int&gt;         &lt;dbl&gt;
+ 1 Africa     1952          39.1
+ 2 Africa     1957          41.3
+ 3 Africa     1962          43.3
+ 4 Africa     1967          45.3
+ 5 Africa     1972          47.5
+ 6 Africa     1977          49.6
+ 7 Africa     1982          51.6
+ 8 Africa     1987          53.3
+ 9 Africa     1992          53.6
+10 Africa     1997          53.6
+# … with 50 more rows
+```
+
+
+
+
+
+
+---
+class: center, inverse, middle
+
+# Wrangle to it. #12
+---
+
+## Target #12 
+
+
+```
+# A tibble: 142 x 1
+   country    
+   &lt;fct&gt;      
+ 1 Afghanistan
+ 2 Albania    
+ 3 Algeria    
+ 4 Angola     
+ 5 Argentina  
+ 6 Australia  
+ 7 Austria    
+ 8 Bahrain    
+ 9 Bangladesh 
+10 Belgium    
+# … with 132 more rows
+```
+
+---
+class: center, middle
+
+### Walk through
+
+---
+
+count: false
+
+```
+# A tibble: 1,704 x 6
+   country     continent  year lifeExp      pop gdpPercap
+   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
+ 1 Afghanistan Asia       1952    28.8  8425333      779.
+ 2 Afghanistan Asia       1957    30.3  9240934      821.
+ 3 Afghanistan Asia       1962    32.0 10267083      853.
+ 4 Afghanistan Asia       1967    34.0 11537966      836.
+ 5 Afghanistan Asia       1972    36.1 13079460      740.
+ 6 Afghanistan Asia       1977    38.4 14880372      786.
+ 7 Afghanistan Asia       1982    39.9 12881816      978.
+ 8 Afghanistan Asia       1987    40.8 13867957      852.
+ 9 Afghanistan Asia       1992    41.7 16317921      649.
+10 Afghanistan Asia       1997    41.8 22227415      635.
+# … with 1,694 more rows
+```
+---
+count: false
+
+```
+# A tibble: 142 x 1
+   country    
+   &lt;fct&gt;      
+ 1 Afghanistan
+ 2 Albania    
+ 3 Algeria    
+ 4 Angola     
+ 5 Argentina  
+ 6 Australia  
+ 7 Austria    
+ 8 Bahrain    
+ 9 Bangladesh 
+10 Belgium    
+# … with 132 more rows
+```
+
+
+
+
+
+
+---
+class: center, inverse, middle
+
+# Wrangle to it. #13
+---
+
+## Target #13 
+
+
+```
+# A tibble: 60 x 3
+# Groups:   continent [5]
+   continent  year median_life_exp
+   &lt;fct&gt;     &lt;int&gt;           &lt;dbl&gt;
+ 1 Africa     1952            38.8
+ 2 Africa     1957            40.6
+ 3 Africa     1962            42.6
+ 4 Africa     1967            44.7
+ 5 Africa     1972            47.0
+ 6 Africa     1977            49.3
+ 7 Africa     1982            50.8
+ 8 Africa     1987            51.6
+ 9 Africa     1992            52.4
+10 Africa     1997            52.8
+# … with 50 more rows
+```
+
+---
+class: center, middle
+
+### Walk through
+
+---
+
+count: false
+
+```
+# A tibble: 1,704 x 6
+   country     continent  year lifeExp      pop gdpPercap
+   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
+ 1 Afghanistan Asia       1952    28.8  8425333      779.
+ 2 Afghanistan Asia       1957    30.3  9240934      821.
+ 3 Afghanistan Asia       1962    32.0 10267083      853.
+ 4 Afghanistan Asia       1967    34.0 11537966      836.
+ 5 Afghanistan Asia       1972    36.1 13079460      740.
+ 6 Afghanistan Asia       1977    38.4 14880372      786.
+ 7 Afghanistan Asia       1982    39.9 12881816      978.
+ 8 Afghanistan Asia       1987    40.8 13867957      852.
+ 9 Afghanistan Asia       1992    41.7 16317921      649.
+10 Afghanistan Asia       1997    41.8 22227415      635.
+# … with 1,694 more rows
+```
+---
+count: false
+
+```
+# A tibble: 1,704 x 6
+# Groups:   continent, year [60]
+   country     continent  year lifeExp      pop gdpPercap
+   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
+ 1 Afghanistan Asia       1952    28.8  8425333      779.
+ 2 Afghanistan Asia       1957    30.3  9240934      821.
+ 3 Afghanistan Asia       1962    32.0 10267083      853.
+ 4 Afghanistan Asia       1967    34.0 11537966      836.
+ 5 Afghanistan Asia       1972    36.1 13079460      740.
+ 6 Afghanistan Asia       1977    38.4 14880372      786.
+ 7 Afghanistan Asia       1982    39.9 12881816      978.
+ 8 Afghanistan Asia       1987    40.8 13867957      852.
+ 9 Afghanistan Asia       1992    41.7 16317921      649.
+10 Afghanistan Asia       1997    41.8 22227415      635.
+# … with 1,694 more rows
+```
+---
+count: false
+
+```
+# A tibble: 60 x 3
+# Groups:   continent [5]
+   continent  year median_life_exp
+   &lt;fct&gt;     &lt;int&gt;           &lt;dbl&gt;
+ 1 Africa     1952            38.8
+ 2 Africa     1957            40.6
+ 3 Africa     1962            42.6
+ 4 Africa     1967            44.7
+ 5 Africa     1972            47.0
+ 6 Africa     1977            49.3
+ 7 Africa     1982            50.8
+ 8 Africa     1987            51.6
+ 9 Africa     1992            52.4
+10 Africa     1997            52.8
+# … with 50 more rows
+```
+
+
+
+
+
+
+---
+class: center, inverse, middle
+
+# Wrangle to it. #14
+---
+
+## Target #14 
+
+
+```
+# A tibble: 5 x 3
+  continent median_life_exp mean_life_exp
+  &lt;fct&gt;               &lt;dbl&gt;         &lt;dbl&gt;
+1 Africa               51.2          53.3
+2 Americas             72.0          72.4
+3 Asia                 71.0          69.2
+4 Europe               77.5          76.7
+5 Oceania              79.7          79.7
+```
+
+---
+class: center, middle
+
+### Walk through
+
+---
+
+count: false
+
+```
+# A tibble: 1,704 x 6
+   country     continent  year lifeExp      pop gdpPercap
+   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
+ 1 Afghanistan Asia       1952    28.8  8425333      779.
+ 2 Afghanistan Asia       1957    30.3  9240934      821.
+ 3 Afghanistan Asia       1962    32.0 10267083      853.
+ 4 Afghanistan Asia       1967    34.0 11537966      836.
+ 5 Afghanistan Asia       1972    36.1 13079460      740.
+ 6 Afghanistan Asia       1977    38.4 14880372      786.
+ 7 Afghanistan Asia       1982    39.9 12881816      978.
+ 8 Afghanistan Asia       1987    40.8 13867957      852.
+ 9 Afghanistan Asia       1992    41.7 16317921      649.
+10 Afghanistan Asia       1997    41.8 22227415      635.
+# … with 1,694 more rows
+```
+---
+count: false
+
+```
+# A tibble: 142 x 6
+   country     continent  year lifeExp       pop gdpPercap
+   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;     &lt;int&gt;     &lt;dbl&gt;
+ 1 Afghanistan Asia       2002    42.1  25268405      727.
+ 2 Albania     Europe     2002    75.7   3508512     4604.
+ 3 Algeria     Africa     2002    71.0  31287142     5288.
+ 4 Angola      Africa     2002    41.0  10866106     2773.
+ 5 Argentina   Americas   2002    74.3  38331121     8798.
+ 6 Australia   Oceania    2002    80.4  19546792    30688.
+ 7 Austria     Europe     2002    79.0   8148312    32418.
+ 8 Bahrain     Asia       2002    74.8    656397    23404.
+ 9 Bangladesh  Asia       2002    62.0 135656790     1136.
+10 Belgium     Europe     2002    78.3  10311970    30486.
+# … with 132 more rows
+```
+---
+count: false
+
+```
+# A tibble: 142 x 6
+# Groups:   continent [5]
+   country     continent  year lifeExp       pop gdpPercap
+   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;     &lt;int&gt;     &lt;dbl&gt;
+ 1 Afghanistan Asia       2002    42.1  25268405      727.
+ 2 Albania     Europe     2002    75.7   3508512     4604.
+ 3 Algeria     Africa     2002    71.0  31287142     5288.
+ 4 Angola      Africa     2002    41.0  10866106     2773.
+ 5 Argentina   Americas   2002    74.3  38331121     8798.
+ 6 Australia   Oceania    2002    80.4  19546792    30688.
+ 7 Austria     Europe     2002    79.0   8148312    32418.
+ 8 Bahrain     Asia       2002    74.8    656397    23404.
+ 9 Bangladesh  Asia       2002    62.0 135656790     1136.
+10 Belgium     Europe     2002    78.3  10311970    30486.
+# … with 132 more rows
+```
+---
+count: false
+
+```
+# A tibble: 5 x 3
+  continent median_life_exp mean_life_exp
+  &lt;fct&gt;               &lt;dbl&gt;         &lt;dbl&gt;
+1 Africa               51.2          53.3
+2 Americas             72.0          72.4
+3 Asia                 71.0          69.2
+4 Europe               77.5          76.7
+5 Oceania              79.7          79.7
+```
+
+
+
+
+
+
+---
+class: center, inverse, middle
+
+# Wrangle to it. #15
+---
+
+## Target #15 
+
+
+```
+# A tibble: 1 x 2
+  median_life_exp mean_life_exp
+            &lt;dbl&gt;         &lt;dbl&gt;
+1            70.8          65.7
+```
+
+---
+class: center, middle
+
+### Walk through
+
+---
+
+count: false
+
+```
+# A tibble: 1,704 x 6
+   country     continent  year lifeExp      pop gdpPercap
+   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
+ 1 Afghanistan Asia       1952    28.8  8425333      779.
+ 2 Afghanistan Asia       1957    30.3  9240934      821.
+ 3 Afghanistan Asia       1962    32.0 10267083      853.
+ 4 Afghanistan Asia       1967    34.0 11537966      836.
+ 5 Afghanistan Asia       1972    36.1 13079460      740.
+ 6 Afghanistan Asia       1977    38.4 14880372      786.
+ 7 Afghanistan Asia       1982    39.9 12881816      978.
+ 8 Afghanistan Asia       1987    40.8 13867957      852.
+ 9 Afghanistan Asia       1992    41.7 16317921      649.
+10 Afghanistan Asia       1997    41.8 22227415      635.
+# … with 1,694 more rows
+```
+---
+count: false
+
+```
+# A tibble: 142 x 6
+   country     continent  year lifeExp       pop gdpPercap
+   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;     &lt;int&gt;     &lt;dbl&gt;
+ 1 Afghanistan Asia       2002    42.1  25268405      727.
+ 2 Albania     Europe     2002    75.7   3508512     4604.
+ 3 Algeria     Africa     2002    71.0  31287142     5288.
+ 4 Angola      Africa     2002    41.0  10866106     2773.
+ 5 Argentina   Americas   2002    74.3  38331121     8798.
+ 6 Australia   Oceania    2002    80.4  19546792    30688.
+ 7 Austria     Europe     2002    79.0   8148312    32418.
+ 8 Bahrain     Asia       2002    74.8    656397    23404.
+ 9 Bangladesh  Asia       2002    62.0 135656790     1136.
+10 Belgium     Europe     2002    78.3  10311970    30486.
+# … with 132 more rows
+```
+---
+count: false
+
+```
+# A tibble: 1 x 2
+  median_life_exp mean_life_exp
+            &lt;dbl&gt;         &lt;dbl&gt;
+1            70.8          65.7
+```
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "16:10",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  /* Replace <script> tags in slides area to make them executable
+   *
+   * Runs after post-processing of markdown source into slides and replaces only
+   * <script>s on the last slide of continued slides using the .has-continuation
+   * class added by xaringan. Finally, any <script>s in the slides area that
+   * aren't executed are commented out.
+   */
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container:not(.has-continuation) script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+  var scriptsNotExecuted = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container.has-continuation script'
+  );
+  if (!scriptsNotExecuted.length) return;
+  for (var i = 0; i < scriptsNotExecuted.length; i++) {
+    var comment = document.createComment(scriptsNotExecuted[i].outerHTML)
+    scriptsNotExecuted[i].parentElement.replaceChild(comment, scriptsNotExecuted[i])
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
