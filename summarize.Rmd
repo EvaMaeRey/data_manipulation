@@ -13,10 +13,18 @@ output:
       countIncrementalSlides: false
 ---
 
+
+
+```{r, include = F}
+knitr::opts_chunk$set(cache = F, comment = "")
+```
+
+
+---
+
 ```{r}
 library(gapminder)
 library(tidyverse)
-knitr::opts_chunk$set(cache = F, comment = "")
 ```
 
 
@@ -31,9 +39,24 @@ gapminder %>%
   distinct(country, continent) %>% 
   # tally and count are the same
   count(continent) %>% 
-  rename(count = n) ->
+  rename(num_countries = n) ->
 count_in_continents
 
+# alternatively use n function
+gapminder %>% 
+  distinct(country, continent) %>% 
+  # tally and count are the same
+  group_by(continent) %>% 
+  summarise(num_countries = n()) ->
+count_in_continents
+```  
+
+---
+
+
+`r flipbookr::chunk_reveal("more")`
+
+```{r more, include = F}
 # a pipeline to create overall 
 # variable summaries
 gapminder %>%

@@ -1,0 +1,218 @@
+---
+title: "wbstats"
+author: "YOUR NAME HERE"
+output: html_document
+---
+
+
+# Introduction
+
+A package for accessing data via the World Bank's *API* (application programming interface) is [wbstats](https://cran.r-project.org/web/packages/wbstats/wbstats.pdf).  
+
+This can actually give you cleaner data faster; the alternative is downloading indicators one by one and then cleaning and merging all the indicator data.  With the wbstats package you can request a number of indicators at once, and also ask for rather detailed description about the source of the indicator. 
+
+The result below shows the result of requesting several indicators.  This returns a dataframe with rows defined by country and year, with three variables that are WB indicators.  Moreover, the package allows you to access fairly detailed information about the source for each indicator. 
+
+Note: Another API to the World Bank website is WDI.
+
+---
+
+```{r setup, echo = F, message = F, warning = F}
+knitr::opts_chunk$set(cache = T, message = F, warning = F)
+library(gganimate)
+library(gifski)
+```
+
+
+---
+
+# We load wbstats and the tidyverse
+
+```{r}
+library(wbstats)
+library(tidyverse)
+```
+
+---
+
+# Go to data.worldbank.org for indicators of interest  
+
+Once you navigate to an indicator of interest, you will see its ID code in the web address (URL).
+
+An example is **AG.LND.AGRI.ZS**.  It is very specific, but also difficult for a human to just understand.  Search google for this indicator ID.  What does the indicator capture?
+
+> your answer
+
+---
+
+# Requesting data
+
+We'll use the function wb() to request the indicators.
+
+First, we create an object that contains the all the names of the indicators of interest (the indicator codes).
+
+---
+# return point...
+
+```{r indicators, eval = T, echo = F}
+my_indicators <- c("SP.POP.GROW", 
+                   "NY.GDP.PCAP.PP.CD", 
+                   "AG.LND.AGRI.ZS")
+```
+
+Search google for the other two indicators - what do they capture?
+
+> 
+
+
+Now we can use a call to the wbstats package, `wb`.  We are making a request to the World Bank API. Making this request might take a little time.  
+
+```{r request_data, eval = T, echo = F}
+wbstats::wb(country = "countries_only", # not regional aggregates
+   # using the vector you just created set to indicator
+   indicator = my_indicators,  
+   mrv = 30, # 30 most recent values (mrv)
+   return_wide = TRUE) ->
+wb_data_raw
+```
+
+How many columns of data are there? How many rows?  Just highlight `wb_data_raw` and execute to inspect the object you've created.
+
+> your answer
+
+---
+
+The column names are a bit uninformative, so we'll use rename to address this.
+
+```{r clean_data, eval = T, echo = F}
+wb_data_raw %>% 
+  # just using as_tibble to clean up the look of the data
+  as_tibble() %>%    
+  # replace current names to something more intelligable
+  rename(pop_grow = SP.POP.GROW) %>% 
+  rename(gdp_per_capita = NY.GDP.PCAP.PP.CD) %>% 
+  rename(percent_ag_land = AG.LND.AGRI.ZS) %>% 
+  mutate(date = as.numeric(date)) ->
+wb_data
+```
+
+
+
+---
+
+# Searching indicators
+
+Another way of searching for indicators is using the wbsearch() `function`. 
+
+
+```{r, eval = F}
+wbsearch("population growth") 
+wbsearch("food") 
+```
+How many items are returned in the search for "Population growth"
+
+>
+
+How many for "food"?
+
+>
+
+---
+
+# We can get detailed information about our indicators with the `wbindicators` function.
+
+
+```{r get_meta}
+# requesting data on all the indicators, in English
+wbindicators(lang = "en") %>% 
+  # narrow to only cases where indicatorID 
+  # is among (%in%) my_indicators 
+  filter(indicatorID %in% my_indicators) ->
+meta_data_wb_indicators
+```
+
+
+---
+
+# Indicator short description
+
+We can "pull" the short description for the indicators. Just execute the code below. 
+
+
+```{r short}
+# short description.
+meta_data_wb_indicators %>% 
+  pull(indicator)
+```
+
+What are the three short names?
+
+>  
+
+
+---
+
+# More complete description
+
+Or we can "pull" the full description.
+
+```{r complete, return = "asis"}
+# long description
+meta_data_wb_indicators %>% 
+  pull(indicatorDesc)
+```
+
+
+
+---
+
+# inspired wbstats
+
+Well just getting the data is a little uninspiring.  Let's look at an example where we actually do something fun with them --- like create the "Hans Rosling Gapminder animation".  https://www.youtube.com/watch?v=jbkSRLYSojo
+
+You may have used the gapminder package.  The gapminder dataset in that package only contains every 5th year, but if you prefer to have data for every year, using the wbstats package is a good option.   
+
+
+---
+
+# change over time and animation
+
+First, let's just use the gapminder data.  Look at the following plot.  It shows a picture of evolution, but it is not animated.  
+
+
+```{r}
+library(gganimate)
+library(gapminder)
+
+ggplot(gapminder) +
+  aes(x = gdpPercap) +
+  aes(y = lifeExp) + 
+  aes(size = pop) +
+  aes(colour = continent) +
+  geom_point(alpha = 0.7) +
+  scale_x_log10() +
+  facet_wrap(~year)
+```
+
+
+Now, use the plot above as a basis.  *Delete the facet_wrap() statement*, and instead try your hand at animation. Work with your group. What statements need to be added? https://gganimate.com/
+
+```{r}
+
+```
+
+
+
+---
+
+Next, can you create an animation with the `wb_data` (we requested wb_data_raw, then did cleaning).
+
+
+
+
+
+
+```{css, eval = TRUE, echo = F}
+.remark-code{line-height: 1.5; font-size: 50%}
+```
+

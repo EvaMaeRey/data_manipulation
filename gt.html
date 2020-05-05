@@ -4248,7 +4248,7 @@ example %&gt;%
   tab_source_note(source_note =  
                     md("More information is available at `?exibble`.")) %&gt;%  
 * tab_spanner(label = "Dates and Times",
-*             columns = matches("date|time"))
+*             columns = matches("schedule|appointment"))
 ```
 ]]
 .column[.content[
@@ -4597,10 +4597,15 @@ example %&gt;%
   </thead>
   <thead class="gt_col_headings">
     <tr>
-      <th class="gt_col_heading gt_center gt_columns_bottom_border" rowspan="2" colspan="1">schedule</th>
-      <th class="gt_col_heading gt_center gt_columns_bottom_border" rowspan="2" colspan="1">appointment</th>
+      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="2">
+        <span class="gt_column_spanner">Dates and Times</span>
+      </th>
       <th class="gt_col_heading gt_center gt_columns_bottom_border" rowspan="2" colspan="1">price</th>
       <th class="gt_col_heading gt_center gt_columns_bottom_border" rowspan="2" colspan="1">id</th>
+    </tr>
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1">schedule</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1">appointment</th>
     </tr>
   </thead>
   <tbody class="gt_table_body">

@@ -1,0 +1,138 @@
+---
+title: "Untitled"
+author: "Evangeline Reynolds"
+date: "4/23/2020"
+output: html_document
+---
+
+```{r}
+library(tidyverse)
+library(gapminder)
+
+
+TRUE & TRUE
+TRUE & FALSE
+TRUE | FALSE
+
+countries <- c("USA", "Japan", "Brazil", "Germany")
+
+countries == "USA" | countries == "Brazil"
+
+
+1:10 > 8 | 1:10 < 4
+# 1:10 > 8 & 1:10 < 4
+
+1:10 < 8 & 1:10 > 4
+# 1:10 < 8 | 1:10 > 4
+
+countries %in% c("Japan", "USA")
+
+gapminder %>% tail()
+```
+
+```{r}
+gapminder %>% 
+  distinct(country)
+
+gapminder %>% 
+  distinct(country, continent)
+
+gapminder %>% 
+  distinct(continent)
+
+gapminder %>% 
+  count(continent)
+
+
+gapminder %>% 
+  filter(year == 2002) %>% 
+  count(continent) %>% 
+  rename(num_of_countries = n)
+
+
+gapminder %>% 
+  summarize(mean_life_exp = mean(lifeExp))
+
+
+gapminder %>% 
+  group_by(year) %>%  
+  summarize(mean_life_exp = mean(lifeExp))
+
+
+gapminder %>% 
+  group_by(year, continent) %>%  
+  summarize(mean_life_exp = mean(lifeExp))
+
+
+gapminder %>% 
+  filter(year == 2002) %>% 
+  group_by(continent) %>% 
+  summarize(mean_life_exp = mean(lifeExp),
+            median_life_exp = median(lifeExp)) 
+
+```
+
+
+# Task 1
+
+```{r}
+gapminder %>% 
+  filter(year == 2002)
+```
+
+
+# Task2 
+
+
+```{r}
+gapminder %>% 
+  filter(country == "Chile")
+```
+
+
+
+# Task 1
+
+```{r}
+gapminder %>% 
+  select(country, year, lifeExp)
+```
+
+
+# Task 2 
+
+```{r}
+gapminder %>% 
+  filter(year == 2002)
+```
+
+
+
+```{r}
+library(gapminder)
+
+filter(.data = gapminder, year == 2002)
+
+gapminder %>% 
+  filter(.data = ., year == 2002)
+
+
+
+
+gapminder %>% 
+  filter(year == 2002) %>% 
+  select(.data = ., continent, year, country, lifeExp)
+  
+
+gapminder %>% 
+  filter(year == 2002) %>% 
+  select(continent, year, country, lifeExp)
+
+
+select(.data = 
+         filter(.data = gapminder, year == 2002), 
+       continent, year, country, lifeExp)
+
+
+```
+

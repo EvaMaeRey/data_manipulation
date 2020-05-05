@@ -97,7 +97,7 @@ example %>%
   tab_source_note(source_note = 
                     md("More information is available at `?exibble`.")) %>% 
   tab_spanner(label = "Dates and Times", 
-              columns = matches("date|time"))
+              columns = matches("schedule|appointment"))
 ```
 
 ---

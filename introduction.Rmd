@@ -1,17 +1,8 @@
 ---
-title: "Data Manipulation"
+title: "Intro to Data Manipulation"
 subtitle: "Week 4 DS4IR"
 author: "Gina Reynolds, April 2020"
-output:
-  xaringan::moon_reader:
-    lib_dir: libs
-    css: [default, hygge, ninjutsu]
-    nature:
-      beforeInit: "https://platform.twitter.com/widgets.js"
-      ratio: 16:10
-      highlightStyle: github
-      highlightLines: true
-      countIncrementalSlides: false
+output: html_document
 ---
 
 
@@ -25,16 +16,32 @@ library(tidyverse)
 ```
 
 
+
+
+
+> Wrangle. “From Middle English wranglen, from Low German wrangeln (“to wrangle”), frequentative form of Low German wrangen (“to struggle, make an uproar”) and German rangeln (“to wrestle”).
+
+
+
 ---
 
-# Agenda
+# Tidy data
+
+> Happy families are all alike; every unhappy family is unhappy in its own way. –– Leo Tolstoy
+> Tidy datasets are all alike, but every messy dataset is messy in its own way. –– Hadley Wickham
+
+
+---
 
 - a little review - sequential workflow w/ pipe operator, booleans, dplyr
 
+![The Treachery of Images, *La Trahison des images*, painter René Magritte](https://upload.wikimedia.org/wikipedia/en/b/b9/MagrittePipe.jpg)
+
 [dplyr](https://dplyr.tidyverse.org/)
-![](http://hexb.in/hexagons/magrittr.png)
-![](https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/dplyr.png)
-![](https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/ggplot2.png)
+
+![](http://hexb.in/hexagons/magrittr.png){width=25%}
+![](https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/dplyr.png){width=25%}
+![](https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/ggplot2.png){width=25%}
 
 
 
@@ -45,22 +52,9 @@ library(tidyverse)
 
 - Remember - final project proposal due tomorrow...
 
----
 
 
 
-
----
-
-
-> Happy families are all alike; every unhappy family is unhappy in its own way. –– Leo Tolstoy
-> Tidy datasets are all alike, but every messy dataset is messy in its own way. –– Hadley Wickham
-
----
-
-# Data Wrangling
-
-> Wrangle. “From Middle English wranglen, from Low German wrangeln (“to wrangle”), frequentative form of Low German wrangen (“to struggle, make an uproar”) and German rangeln (“to wrestle”).
 
 
 ---
@@ -76,6 +70,16 @@ library(tidyverse)
 "18% of my time is running summary statistics"
 
 ---
+
+
+Projects
+
+
+---
+
+
+
+
 
 
 ```{css, eval = TRUE, echo = FALSE}
