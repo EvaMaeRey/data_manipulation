@@ -33,6 +33,10 @@ library(tidyverse)
 `r flipbookr::chunk_reveal("a_few_more")`
 
 ```{r a_few_more, include = F}
+gapminder %>% 
+  mutate(num_rows = n()) ->
+gap_n
+
 # a pipeline to count the number 
 # of observations by group
 gapminder %>%

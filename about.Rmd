@@ -53,6 +53,7 @@ You may be interested in summaries of variables in your data --- or perhaps know
 
 |function |action |
 | :--- | ---: |
+| n() | *return number of rows* |
 | summarize() | *summarize the data, by groups if they have been declared*|
 | group_by()  | *declare subsets in data*|
 | distinct()  | *returns only rows that are unique*| 

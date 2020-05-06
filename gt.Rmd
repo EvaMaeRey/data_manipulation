@@ -175,152 +175,14 @@ example %>%
   gt() %>%  
   fmt_currency(columns = vars(price), currency = "AED") %>% # United Arab Emirates dirham  #ROTATE
   fmt_currency(columns = vars(price), currency = "AFN") %>% # Afghan afghani  #ROTATE
-  fmt_currency(columns = vars(price), currency = "ALL") %>% # Albanian lek  #ROTATE
-  fmt_currency(columns = vars(price), currency = "AMD") %>% # Armenian dram  #ROTATE
-  fmt_currency(columns = vars(price), currency = "ANG") %>% # Netherlands Antillean guilder  #ROTATE
-  fmt_currency(columns = vars(price), currency = "AOA") %>% # Angolan kwanza  #ROTATE
-  fmt_currency(columns = vars(price), currency = "ARS") %>% # Argentine peso  #ROTATE
-  fmt_currency(columns = vars(price), currency = "AUD") %>% # Australian dollar  #ROTATE
-  fmt_currency(columns = vars(price), currency = "AWG") %>% # Aruban florin  #ROTATE
-  fmt_currency(columns = vars(price), currency = "AZN") %>% # Azerbaijani manat  #ROTATE
   fmt_currency(columns = vars(price), currency = "BAM") %>% # Bosnia and Herzegovina convertible mark  #ROTATE
   fmt_currency(columns = vars(price), currency = "BBD") %>% # Barbados dollar  #ROTATE
   fmt_currency(columns = vars(price), currency = "BDT") %>% # Bangladeshi taka  #ROTATE
   fmt_currency(columns = vars(price), currency = "BGN") %>% # Bulgarian lev  #ROTATE
   fmt_currency(columns = vars(price), currency = "BHD") %>% # Bahraini dinar  #ROTATE
-  fmt_currency(columns = vars(price), currency = "BIF") %>% # Burundian franc  #ROTATE
-  fmt_currency(columns = vars(price), currency = "BMD") %>% # Bermudian dollar  #ROTATE
-  fmt_currency(columns = vars(price), currency = "BND") %>% # Brunei dollar  #ROTATE
-  fmt_currency(columns = vars(price), currency = "BOB") %>% # Boliviano  #ROTATE
-  fmt_currency(columns = vars(price), currency = "BOV") %>% # Bolivian Mvdol  #ROTATE
-  fmt_currency(columns = vars(price), currency = "BRL") %>% # Brazilian real  #ROTATE
-  fmt_currency(columns = vars(price), currency = "BSD") %>% # Bahamian dollar  #ROTATE
-  fmt_currency(columns = vars(price), currency = "BTN") %>% # Bhutanese ngultrum  #ROTATE
-  fmt_currency(columns = vars(price), currency = "BWP") %>% # Botswana pula  #ROTATE
-  fmt_currency(columns = vars(price), currency = "BYR") %>% # Belarusian ruble  #ROTATE
-  fmt_currency(columns = vars(price), currency = "BZD") %>% # Belize dollar  #ROTATE
-  fmt_currency(columns = vars(price), currency = "CAD") %>% # Canadian dollar  #ROTATE
-  fmt_currency(columns = vars(price), currency = "CDF") %>% # Congolese franc  #ROTATE
-  fmt_currency(columns = vars(price), currency = "CHE") %>% # WIR Bank  #ROTATE
-  fmt_currency(columns = vars(price), currency = "CHF") %>% # Swiss franc  #ROTATE
-  fmt_currency(columns = vars(price), currency = "CHW") %>% # WIR Bank  #ROTATE
-  fmt_currency(columns = vars(price), currency = "CLF") %>% # Unidad de Fomento  #ROTATE
-  fmt_currency(columns = vars(price), currency = "CLP") %>% # Chilean peso  #ROTATE
-  fmt_currency(columns = vars(price), currency = "CNY") %>% # Renminbi  #ROTATE
-  fmt_currency(columns = vars(price), currency = "COP") %>% # Colombian peso  #ROTATE
-  fmt_currency(columns = vars(price), currency = "COU") %>% # Unidad de Valor Real  #ROTATE
-  fmt_currency(columns = vars(price), currency = "CRC") %>% # Costa Rican colon  #ROTATE
-  fmt_currency(columns = vars(price), currency = "CUC") %>% # Cuban convertible peso  #ROTATE
-  fmt_currency(columns = vars(price), currency = "CUP") %>% # Cuban peso  #ROTATE
-  fmt_currency(columns = vars(price), currency = "CVE") %>% # Cape Verde escudo  #ROTATE
-  fmt_currency(columns = vars(price), currency = "CZK") %>% # Czech koruna  #ROTATE
-  fmt_currency(columns = vars(price), currency = "DJF") %>% # Djiboutian franc  #ROTATE
-  fmt_currency(columns = vars(price), currency = "DKK") %>% # Danish krone  #ROTATE
-  fmt_currency(columns = vars(price), currency = "DOP") %>% # Dominican peso  #ROTATE
-  fmt_currency(columns = vars(price), currency = "DZD") %>% # Algerian dinar  #ROTATE
-  fmt_currency(columns = vars(price), currency = "EGP") %>% # Egyptian pound  #ROTATE
-  fmt_currency(columns = vars(price), currency = "ERN") %>% # Eritrean nakfa  #ROTATE
-  fmt_currency(columns = vars(price), currency = "ETB") %>% # Ethiopian birr  #ROTATE
-  fmt_currency(columns = vars(price), currency = "EUR") %>% # Euro  #ROTATE
-  fmt_currency(columns = vars(price), currency = "FJD") %>% # Fiji dollar  #ROTATE
-  fmt_currency(columns = vars(price), currency = "FKP") %>% # Falkland Islands pound  #ROTATE
-  fmt_currency(columns = vars(price), currency = "GBP") %>% # Pound sterling  #ROTATE
-  fmt_currency(columns = vars(price), currency = "GEL") %>% # Georgian lari  #ROTATE
-  fmt_currency(columns = vars(price), currency = "GHS") %>% # Ghanaian cedi  #ROTATE
-  fmt_currency(columns = vars(price), currency = "GIP") %>% # Gibraltar pound  #ROTATE
-  fmt_currency(columns = vars(price), currency = "GMD") %>% # Gambian dalasi  #ROTATE
-  fmt_currency(columns = vars(price), currency = "GNF") %>% # Guinean franc  #ROTATE
-  fmt_currency(columns = vars(price), currency = "GTQ") %>% # Guatemalan quetzal  #ROTATE
-  fmt_currency(columns = vars(price), currency = "GYD") %>% # Guyana dollar  #ROTATE
-  fmt_currency(columns = vars(price), currency = "HKD") %>% # Hong Kong dollar  #ROTATE
-  fmt_currency(columns = vars(price), currency = "HNL") %>% # Honduran lempira  #ROTATE
-  fmt_currency(columns = vars(price), currency = "HRK") %>% # Croatian kuna  #ROTATE
-  fmt_currency(columns = vars(price), currency = "HTG") %>% # Haitian gourde  #ROTATE
-  fmt_currency(columns = vars(price), currency = "HUF") %>% # Hungarian forint  #ROTATE
-  fmt_currency(columns = vars(price), currency = "IDR") %>% # Indonesian rupiah  #ROTATE
-  fmt_currency(columns = vars(price), currency = "ILS") %>% # Israeli new shekel  #ROTATE
-  fmt_currency(columns = vars(price), currency = "IMP") %>% # Isle of Man pound  #ROTATE
-  fmt_currency(columns = vars(price), currency = "INR") %>% # Indian rupee  #ROTATE
-  fmt_currency(columns = vars(price), currency = "IQD") %>% # Iraqi dinar  #ROTATE
-  fmt_currency(columns = vars(price), currency = "IRR") %>% # Iranian rial  #ROTATE
-  fmt_currency(columns = vars(price), currency = "ISK") %>% # Icelandic krona  #ROTATE
-  fmt_currency(columns = vars(price), currency = "JMD") %>% # Jamaican dollar  #ROTATE
-  fmt_currency(columns = vars(price), currency = "JOD") %>% # Jordanian dinar  #ROTATE
-  fmt_currency(columns = vars(price), currency = "JPY") %>% # Japanese yen  #ROTATE
-  fmt_currency(columns = vars(price), currency = "KES") %>% # Kenyan shilling  #ROTATE
-  fmt_currency(columns = vars(price), currency = "KGS") %>% # Kyrgyzstani som  #ROTATE
-  fmt_currency(columns = vars(price), currency = "KHR") %>% # Cambodian riel  #ROTATE
-  fmt_currency(columns = vars(price), currency = "KMF") %>% # Comoro franc  #ROTATE
-  fmt_currency(columns = vars(price), currency = "KPW") %>% # North Korean won  #ROTATE
-  fmt_currency(columns = vars(price), currency = "KRW") %>% # South Korean won  #ROTATE
-  fmt_currency(columns = vars(price), currency = "KWD") %>% # Kuwaiti dinar  #ROTATE
-  fmt_currency(columns = vars(price), currency = "KYD") %>% # Cayman Islands dollar  #ROTATE
-  fmt_currency(columns = vars(price), currency = "KZT") %>% # Kazakhstani tenge  #ROTATE
-  fmt_currency(columns = vars(price), currency = "LAK") %>% # Lao kip  #ROTATE
-  fmt_currency(columns = vars(price), currency = "LBP") %>% # Lebanese pound  #ROTATE
-  fmt_currency(columns = vars(price), currency = "LKR") %>% # Sri Lankan rupee  #ROTATE
-  fmt_currency(columns = vars(price), currency = "LRD") %>% # Liberian dollar  #ROTATE
-  fmt_currency(columns = vars(price), currency = "LSL") %>% # Lesotho loti  #ROTATE
-  fmt_currency(columns = vars(price), currency = "LYD") %>% # Libyan dinar  #ROTATE
-  fmt_currency(columns = vars(price), currency = "MAD") %>% # Moroccan dirham  #ROTATE
-  fmt_currency(columns = vars(price), currency = "MDL") %>% # Moldovan leu  #ROTATE
-  fmt_currency(columns = vars(price), currency = "MGA") %>% # Malagasy ariary  #ROTATE
-  fmt_currency(columns = vars(price), currency = "MKD") %>% # Macedonian denar  #ROTATE
-  fmt_currency(columns = vars(price), currency = "MMK") %>% # Myanmar kyat  #ROTATE
-  fmt_currency(columns = vars(price), currency = "MNT") %>% # Mongolian togrog  #ROTATE
-  fmt_currency(columns = vars(price), currency = "MOP") %>% # Macanese pataca  #ROTATE
-  fmt_currency(columns = vars(price), currency = "MRO") %>% # Mauritanian ouguiya  #ROTATE
-  fmt_currency(columns = vars(price), currency = "MUR") %>% # Mauritian rupee  #ROTATE
-  fmt_currency(columns = vars(price), currency = "MVR") %>% # Maldivian rufiyaa  #ROTATE
-  fmt_currency(columns = vars(price), currency = "MWK") %>% # Malawian kwacha  #ROTATE
-  fmt_currency(columns = vars(price), currency = "MXN") %>% # Mexican peso  #ROTATE
-  fmt_currency(columns = vars(price), currency = "MXV") %>% # Mexican Unidad de Inversion  #ROTATE
-  fmt_currency(columns = vars(price), currency = "MYR") %>% # Malaysian ringgit  #ROTATE
-  fmt_currency(columns = vars(price), currency = "MZN") %>% # Mozambican metical  #ROTATE
-  fmt_currency(columns = vars(price), currency = "NAD") %>% # Namibian dollar  #ROTATE
-  fmt_currency(columns = vars(price), currency = "NGN") %>% # Nigerian naira  #ROTATE
-  fmt_currency(columns = vars(price), currency = "NIO") %>% # Nicaraguan cordoba  #ROTATE
-  fmt_currency(columns = vars(price), currency = "NOK") %>% # Norwegian krone  #ROTATE
-  fmt_currency(columns = vars(price), currency = "NPR") %>% # Nepalese rupee  #ROTATE
-  fmt_currency(columns = vars(price), currency = "NZD") %>% # New Zealand dollar  #ROTATE
-  fmt_currency(columns = vars(price), currency = "OMR") %>% # Omani rial  #ROTATE
-  fmt_currency(columns = vars(price), currency = "PAB") %>% # Panamanian balboa  #ROTATE
-  fmt_currency(columns = vars(price), currency = "PEN") %>% # Peruvian Sol  #ROTATE
-  fmt_currency(columns = vars(price), currency = "PGK") %>% # Papua New Guinean kina  #ROTATE
-  fmt_currency(columns = vars(price), currency = "PHP") %>% # Philippine peso  #ROTATE
-  fmt_currency(columns = vars(price), currency = "PKR") %>% # Pakistani rupee  #ROTATE
-  fmt_currency(columns = vars(price), currency = "PLN") %>% # Polish zloty  #ROTATE
-  fmt_currency(columns = vars(price), currency = "PYG") %>% # Paraguayan guarani  #ROTATE
-  fmt_currency(columns = vars(price), currency = "QAR") %>% # Qatari riyal  #ROTATE
-  fmt_currency(columns = vars(price), currency = "RON") %>% # Romanian Leu  #ROTATE
-  fmt_currency(columns = vars(price), currency = "RSD") %>% # Serbian dinar  #ROTATE
-  fmt_currency(columns = vars(price), currency = "RUB") %>% # Russian ruble  #ROTATE
-  fmt_currency(columns = vars(price), currency = "RWF") %>% # Rwandan franc  #ROTATE
-  fmt_currency(columns = vars(price), currency = "SAR") %>% # Saudi riyal  #ROTATE
-  fmt_currency(columns = vars(price), currency = "SBD") %>% # Solomon Islands dollar  #ROTATE
-  fmt_currency(columns = vars(price), currency = "SCR") %>% # Seychelles rupee  #ROTATE
-  fmt_currency(columns = vars(price), currency = "SDG") %>% # Sudanese pound  #ROTATE
-  fmt_currency(columns = vars(price), currency = "SEK") %>% # Swedish krona  #ROTATE
-  fmt_currency(columns = vars(price), currency = "SGD") %>% # Singapore dollar  #ROTATE
-  fmt_currency(columns = vars(price), currency = "SHP") %>% # Saint Helena pound  #ROTATE
-  fmt_currency(columns = vars(price), currency = "SLL") %>% # Sierra Leonean leone  #ROTATE
-  fmt_currency(columns = vars(price), currency = "SOS") %>% # Somali shilling  #ROTATE
-  fmt_currency(columns = vars(price), currency = "SRD") %>% # Surinamese dollar  #ROTATE
-  fmt_currency(columns = vars(price), currency = "SSP") %>% # South Sudanese pound  #ROTATE
-  fmt_currency(columns = vars(price), currency = "STD") %>% # Ṣo Tom̩ and Principe dobra  #ROTATE
-  fmt_currency(columns = vars(price), currency = "SYP") %>% # Syrian pound  #ROTATE
-  fmt_currency(columns = vars(price), currency = "SZL") %>% # Swazi lilangeni  #ROTATE
-  fmt_currency(columns = vars(price), currency = "THB") %>% # Thai baht  #ROTATE
-  fmt_currency(columns = vars(price), currency = "TJS") %>% # Tajikistani somoni  #ROTATE
   fmt_currency(columns = vars(price), currency = "TMT") %>% # Turkmenistani manat  #ROTATE
   fmt_currency(columns = vars(price), currency = "TND") %>% # Tunisian dinar  #ROTATE
   fmt_currency(columns = vars(price), currency = "TOP") %>% # Tongan pa'anga  #ROTATE
-  fmt_currency(columns = vars(price), currency = "TRY") %>% # Turkish lira  #ROTATE
-  fmt_currency(columns = vars(price), currency = "TTD") %>% # Trinidad and Tobago dollar  #ROTATE
-  fmt_currency(columns = vars(price), currency = "TWD") %>% # New Taiwan dollar  #ROTATE
-  fmt_currency(columns = vars(price), currency = "TZS") %>% # Tanzanian shilling  #ROTATE
-  fmt_currency(columns = vars(price), currency = "UAH") %>% # Ukrainian hryvnia  #ROTATE
-  fmt_currency(columns = vars(price), currency = "UGX") %>% # Ugandan shilling  #ROTATE
   fmt_currency(columns = vars(price), currency = "USD") %>% # United States dollar  #ROTATE
   fmt_currency(columns = vars(price), currency = "USN") %>% # United States dollar  #ROTATE
   fmt_currency(columns = vars(price), currency = "USS") %>% # United States dollar  #ROTATE
@@ -330,13 +192,6 @@ example %>%
   fmt_currency(columns = vars(price), currency = "VEF") %>% # Venezuelan bolivar  #ROTATE
   fmt_currency(columns = vars(price), currency = "VND") %>% # Vietnamese dong  #ROTATE
   fmt_currency(columns = vars(price), currency = "VUV") %>% # Vanuatu vatu  #ROTATE
-  fmt_currency(columns = vars(price), currency = "WST") %>% # Samoan tala  #ROTATE
-  fmt_currency(columns = vars(price), currency = "XAF") %>% # Central African CFA franc  #ROTATE
-  fmt_currency(columns = vars(price), currency = "XAG") %>% # Silver  #ROTATE
-  fmt_currency(columns = vars(price), currency = "XAU") %>% # Gold  #ROTATE
-  fmt_currency(columns = vars(price), currency = "XCD") %>% # East Caribbean dollar  #ROTATE
-  fmt_currency(columns = vars(price), currency = "XDR") %>% # Special drawing rights  #ROTATE
-  fmt_currency(columns = vars(price), currency = "XOF") %>% # West African CFA franc  #ROTATE
   fmt_currency(columns = vars(price), currency = "XPD") %>% # Palladium  #ROTATE
   fmt_currency(columns = vars(price), currency = "XPF") %>% # CFP franc  #ROTATE
   fmt_currency(columns = vars(price), currency = "XPT") %>% # Platinum  #ROTATE
