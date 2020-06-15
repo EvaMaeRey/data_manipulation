@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
   <head>
     <title>one-stream wrangle</title>
     <meta charset="utf-8" />
-    <meta name="author" content="Gina Reynolds, January 2020" />
+    <meta name="author" content="Gina Reynolds" />
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="libs/remark-css-0.0.1/hygge.css" rel="stylesheet" />
     <link href="libs/remark-css-0.0.1/ninjutsu.css" rel="stylesheet" />
@@ -14,7 +14,7 @@ class: center, middle, inverse, title-slide
 
 # one-stream wrangle
 ## made with flipbookr and xaringan
-### Gina Reynolds, January 2020
+### Gina Reynolds
 
 ---
 
@@ -26,37 +26,44 @@ library(tidyverse)
 ```
 
 ```
-## ── Attaching packages ────────────────────────────── tidyverse 1.3.0 ──
+## ── Attaching packages ───────────────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.3.0 ──
 ```
 
 ```
-## ✓ ggplot2 3.3.0.9000     ✓ purrr   0.3.3     
-## ✓ tibble  2.1.3          ✓ dplyr   0.8.4     
-## ✓ tidyr   1.0.2          ✓ stringr 1.4.0     
-## ✓ readr   1.3.1          ✓ forcats 0.4.0
+## ✓ ggplot2 3.3.0     ✓ purrr   0.3.3
+## ✓ tibble  3.0.0     ✓ dplyr   0.8.5
+## ✓ tidyr   1.0.2     ✓ stringr 1.4.0
+## ✓ readr   1.3.1     ✓ forcats 0.5.0
 ```
 
 ```
-## ── Conflicts ───────────────────────────────── tidyverse_conflicts() ──
+## Warning: package 'tibble' was built under R version 3.6.2
+```
+
+```
+## ── Conflicts ──────────────────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()
 ```
 
 ```r
-knitr::opts_chunk$set(cache = F, comment = "")
+knitr::opts_chunk$set(cache = F, comment = "", warning = F)
 ```
 
 ---
 
 class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-mini-auto[
 
 ```r
 *gapminder
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-mini-auto[
 
 ```
 # A tibble: 1,704 x 6
@@ -74,18 +81,22 @@ count: false
 10 Afghanistan Asia       1997    41.8 22227415      635.
 # … with 1,694 more rows
 ```
-]]
+]
+
 ---
 class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-mini-auto[
 
 ```r
 gapminder %&gt;%  
 * filter(year == 2002)
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-mini-auto[
 
 ```
 # A tibble: 142 x 6
@@ -103,19 +114,23 @@ gapminder %&gt;%
 10 Belgium     Europe     2002    78.3  10311970    30486.
 # … with 132 more rows
 ```
-]]
+]
+
 ---
 class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-mini-auto[
 
 ```r
 gapminder %&gt;%  
   filter(year == 2002) %&gt;%  
 * select(-lifeExp)
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-mini-auto[
 
 ```
 # A tibble: 142 x 5
@@ -133,11 +148,14 @@ gapminder %&gt;%
 10 Belgium     Europe     2002  10311970    30486.
 # … with 132 more rows
 ```
-]]
+]
+
 ---
 class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-mini-auto[
 
 ```r
 gapminder %&gt;%  
@@ -145,8 +163,9 @@ gapminder %&gt;%
   select(-lifeExp) %&gt;%  
 * rename(gdp_per_cap = gdpPercap)
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-mini-auto[
 
 ```
 # A tibble: 142 x 5
@@ -164,11 +183,14 @@ gapminder %&gt;%
 10 Belgium     Europe     2002  10311970      30486.
 # … with 132 more rows
 ```
-]]
+]
+
 ---
 class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-mini-auto[
 
 ```r
 gapminder %&gt;%  
@@ -177,8 +199,9 @@ gapminder %&gt;%
   rename(gdp_per_cap = gdpPercap) %&gt;%  
 * mutate(gdp = gdp_per_cap * pop)
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-mini-auto[
 
 ```
 # A tibble: 142 x 6
@@ -196,11 +219,14 @@ gapminder %&gt;%
 10 Belgium     Europe     2002  10311970      30486. 314369518653.
 # … with 132 more rows
 ```
-]]
+]
+
 ---
 class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-mini-auto[
 
 ```r
 gapminder %&gt;%  
@@ -208,32 +234,36 @@ gapminder %&gt;%
   select(-lifeExp) %&gt;%  
   rename(gdp_per_cap = gdpPercap) %&gt;%  
   mutate(gdp = gdp_per_cap * pop) %&gt;%  
-* mutate(europe = continent == "Europe")
+* mutate(percent_gdp = 100 * gdp / sum(gdp))
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-mini-auto[
 
 ```
 # A tibble: 142 x 7
-   country     continent  year       pop gdp_per_cap           gdp europe
-   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;     &lt;int&gt;       &lt;dbl&gt;         &lt;dbl&gt; &lt;lgl&gt; 
- 1 Afghanistan Asia       2002  25268405        727.  18363410424. FALSE 
- 2 Albania     Europe     2002   3508512       4604.  16153932130. TRUE  
- 3 Algeria     Africa     2002  31287142       5288. 165447670333. FALSE 
- 4 Angola      Africa     2002  10866106       2773.  30134833901. FALSE 
- 5 Argentina   Americas   2002  38331121       8798. 337223430800. FALSE 
- 6 Australia   Oceania    2002  19546792      30688. 599847158654. FALSE 
- 7 Austria     Europe     2002   8148312      32418. 264148781752. TRUE  
- 8 Bahrain     Asia       2002    656397      23404.  15362026094. FALSE 
- 9 Bangladesh  Asia       2002 135656790       1136. 154159077921. FALSE 
-10 Belgium     Europe     2002  10311970      30486. 314369518653. TRUE  
+   country     continent  year       pop gdp_per_cap           gdp percent_gdp
+   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;     &lt;int&gt;       &lt;dbl&gt;         &lt;dbl&gt;       &lt;dbl&gt;
+ 1 Afghanistan Asia       2002  25268405        727.  18363410424.      0.0389
+ 2 Albania     Europe     2002   3508512       4604.  16153932130.      0.0342
+ 3 Algeria     Africa     2002  31287142       5288. 165447670333.      0.350 
+ 4 Angola      Africa     2002  10866106       2773.  30134833901.      0.0638
+ 5 Argentina   Americas   2002  38331121       8798. 337223430800.      0.713 
+ 6 Australia   Oceania    2002  19546792      30688. 599847158654.      1.27  
+ 7 Austria     Europe     2002   8148312      32418. 264148781752.      0.559 
+ 8 Bahrain     Asia       2002    656397      23404.  15362026094.      0.0325
+ 9 Bangladesh  Asia       2002 135656790       1136. 154159077921.      0.326 
+10 Belgium     Europe     2002  10311970      30486. 314369518653.      0.665 
 # … with 132 more rows
 ```
-]]
+]
+
 ---
 class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-mini-auto[
 
 ```r
 gapminder %&gt;%  
@@ -241,11 +271,51 @@ gapminder %&gt;%
   select(-lifeExp) %&gt;%  
   rename(gdp_per_cap = gdpPercap) %&gt;%  
   mutate(gdp = gdp_per_cap * pop) %&gt;%  
+  mutate(percent_gdp = 100 * gdp / sum(gdp)) %&gt;%  
+* mutate(europe = continent == "Europe")
+```
+]
+ 
+.right-panel-mini-auto[
+
+```
+# A tibble: 142 x 8
+   country    continent  year      pop gdp_per_cap        gdp percent_gdp europe
+   &lt;fct&gt;      &lt;fct&gt;     &lt;int&gt;    &lt;int&gt;       &lt;dbl&gt;      &lt;dbl&gt;       &lt;dbl&gt; &lt;lgl&gt; 
+ 1 Afghanist… Asia       2002   2.53e7        727.    1.84e10      0.0389 FALSE 
+ 2 Albania    Europe     2002   3.51e6       4604.    1.62e10      0.0342 TRUE  
+ 3 Algeria    Africa     2002   3.13e7       5288.    1.65e11      0.350  FALSE 
+ 4 Angola     Africa     2002   1.09e7       2773.    3.01e10      0.0638 FALSE 
+ 5 Argentina  Americas   2002   3.83e7       8798.    3.37e11      0.713  FALSE 
+ 6 Australia  Oceania    2002   1.95e7      30688.    6.00e11      1.27   FALSE 
+ 7 Austria    Europe     2002   8.15e6      32418.    2.64e11      0.559  TRUE  
+ 8 Bahrain    Asia       2002   6.56e5      23404.    1.54e10      0.0325 FALSE 
+ 9 Bangladesh Asia       2002   1.36e8       1136.    1.54e11      0.326  FALSE 
+10 Belgium    Europe     2002   1.03e7      30486.    3.14e11      0.665  TRUE  
+# … with 132 more rows
+```
+]
+
+---
+class: split-40
+count: false
+ 
+
+.left-panel-mini-auto[
+
+```r
+gapminder %&gt;%  
+  filter(year == 2002) %&gt;%  
+  select(-lifeExp) %&gt;%  
+  rename(gdp_per_cap = gdpPercap) %&gt;%  
+  mutate(gdp = gdp_per_cap * pop) %&gt;%  
+  mutate(percent_gdp = 100 * gdp / sum(gdp)) %&gt;%  
   mutate(europe = continent == "Europe") %&gt;%  
 * select(country, year, gdp, europe, pop)
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-mini-auto[
 
 ```
 # A tibble: 142 x 5
@@ -263,11 +333,14 @@ gapminder %&gt;%
 10 Belgium      2002 314369518653. TRUE    10311970
 # … with 132 more rows
 ```
-]]
+]
+
 ---
 class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-mini-auto[
 
 ```r
 gapminder %&gt;%  
@@ -275,14 +348,16 @@ gapminder %&gt;%
   select(-lifeExp) %&gt;%  
   rename(gdp_per_cap = gdpPercap) %&gt;%  
   mutate(gdp = gdp_per_cap * pop) %&gt;%  
+  mutate(percent_gdp = 100 * gdp / sum(gdp)) %&gt;%  
   mutate(europe = continent == "Europe") %&gt;%  
   select(country, year, gdp, europe, pop) %&gt;%  
 * mutate(europe_category =
 *          case_when(europe == T ~ "Europe",
 *                    europe == F ~ "Not Europe"))
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-mini-auto[
 
 ```
 # A tibble: 142 x 6
@@ -300,11 +375,14 @@ gapminder %&gt;%
 10 Belgium      2002 314369518653. TRUE    10311970 Europe         
 # … with 132 more rows
 ```
-]]
+]
+
 ---
 class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-mini-auto[
 
 ```r
 gapminder %&gt;%  
@@ -312,6 +390,7 @@ gapminder %&gt;%
   select(-lifeExp) %&gt;%  
   rename(gdp_per_cap = gdpPercap) %&gt;%  
   mutate(gdp = gdp_per_cap * pop) %&gt;%  
+  mutate(percent_gdp = 100 * gdp / sum(gdp)) %&gt;%  
   mutate(europe = continent == "Europe") %&gt;%  
   select(country, year, gdp, europe, pop) %&gt;%  
   mutate(europe_category =  
@@ -319,8 +398,9 @@ gapminder %&gt;%
                      europe == F ~ "Not Europe")) %&gt;%  
 * arrange(-gdp)
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-mini-auto[
 
 ```
 # A tibble: 142 x 6
@@ -338,11 +418,14 @@ gapminder %&gt;%
 10 Mexico          2002 1.10e12 FALSE   102479927 Not Europe     
 # … with 132 more rows
 ```
-]]
+]
+
 ---
 class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-mini-auto[
 
 ```r
 gapminder %&gt;%  
@@ -350,6 +433,7 @@ gapminder %&gt;%
   select(-lifeExp) %&gt;%  
   rename(gdp_per_cap = gdpPercap) %&gt;%  
   mutate(gdp = gdp_per_cap * pop) %&gt;%  
+  mutate(percent_gdp = 100 * gdp / sum(gdp)) %&gt;%  
   mutate(europe = continent == "Europe") %&gt;%  
   select(country, year, gdp, europe, pop) %&gt;%  
   mutate(europe_category =  
@@ -358,8 +442,9 @@ gapminder %&gt;%
   arrange(-gdp) %&gt;%  
 * mutate(gdp_billions = gdp/1000000000)
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-mini-auto[
 
 ```
 # A tibble: 142 x 7
@@ -377,11 +462,14 @@ gapminder %&gt;%
 10 Mexico          2002 1.10e12 FALSE   102479927 Not Europe             1101.
 # … with 132 more rows
 ```
-]]
+]
+
 ---
 class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-mini-auto[
 
 ```r
 gapminder %&gt;%  
@@ -389,6 +477,7 @@ gapminder %&gt;%
   select(-lifeExp) %&gt;%  
   rename(gdp_per_cap = gdpPercap) %&gt;%  
   mutate(gdp = gdp_per_cap * pop) %&gt;%  
+  mutate(percent_gdp = 100 * gdp / sum(gdp)) %&gt;%  
   mutate(europe = continent == "Europe") %&gt;%  
   select(country, year, gdp, europe, pop) %&gt;%  
   mutate(europe_category =  
@@ -398,8 +487,9 @@ gapminder %&gt;%
   mutate(gdp_billions = gdp/1000000000) %&gt;%  
 * slice(1:8)
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-mini-auto[
 
 ```
 # A tibble: 8 x 7
@@ -414,11 +504,14 @@ gapminder %&gt;%
 7 France          2002 1.73e12 TRUE     59925035 Europe                 1733.
 8 Italy           2002 1.62e12 TRUE     57926999 Europe                 1620.
 ```
-]]
+]
+
 ---
 class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-mini-auto[
 
 ```r
 gapminder %&gt;%  
@@ -426,6 +519,7 @@ gapminder %&gt;%
   select(-lifeExp) %&gt;%  
   rename(gdp_per_cap = gdpPercap) %&gt;%  
   mutate(gdp = gdp_per_cap * pop) %&gt;%  
+  mutate(percent_gdp = 100 * gdp / sum(gdp)) %&gt;%  
   mutate(europe = continent == "Europe") %&gt;%  
   select(country, year, gdp, europe, pop) %&gt;%  
   mutate(europe_category =  
@@ -436,14 +530,18 @@ gapminder %&gt;%
   slice(1:8) -&gt;  
 *europe_or_not_2002
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-mini-auto[
 
-]]
+]
+
 ---
 class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-mini-auto[
 
 ```r
 gapminder %&gt;%  
@@ -451,6 +549,7 @@ gapminder %&gt;%
   select(-lifeExp) %&gt;%  
   rename(gdp_per_cap = gdpPercap) %&gt;%  
   mutate(gdp = gdp_per_cap * pop) %&gt;%  
+  mutate(percent_gdp = 100 * gdp / sum(gdp)) %&gt;%  
   mutate(europe = continent == "Europe") %&gt;%  
   select(country, year, gdp, europe, pop) %&gt;%  
   mutate(europe_category =  
@@ -460,45 +559,21 @@ gapminder %&gt;%
   mutate(gdp_billions = gdp/1000000000) %&gt;%  
   slice(1:8) -&gt;  
 europe_or_not_2002  
-* # plot
+
 *ggplot(data = europe_or_not_2002)
 ```
-]]
-.column[.content[
-![](one_stream_wrangle_files/figure-html/mini_auto_13_output-1.png)&lt;!-- --&gt;
-]]
----
-class: split-40
-count: false
-.column[.content[
-
-```r
-gapminder %&gt;%  
-  filter(year == 2002) %&gt;%  
-  select(-lifeExp) %&gt;%  
-  rename(gdp_per_cap = gdpPercap) %&gt;%  
-  mutate(gdp = gdp_per_cap * pop) %&gt;%  
-  mutate(europe = continent == "Europe") %&gt;%  
-  select(country, year, gdp, europe, pop) %&gt;%  
-  mutate(europe_category =  
-           case_when(europe == T ~ "Europe",  
-                     europe == F ~ "Not Europe")) %&gt;%  
-  arrange(-gdp) %&gt;%  
-  mutate(gdp_billions = gdp/1000000000) %&gt;%  
-  slice(1:8) -&gt;  
-europe_or_not_2002  
-  # plot
-ggplot(data = europe_or_not_2002) +  
-* aes(x = reorder(country, gdp_billions))
-```
-]]
-.column[.content[
+]
+ 
+.right-panel-mini-auto[
 ![](one_stream_wrangle_files/figure-html/mini_auto_14_output-1.png)&lt;!-- --&gt;
-]]
+]
+
 ---
 class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-mini-auto[
 
 ```r
 gapminder %&gt;%  
@@ -506,6 +581,7 @@ gapminder %&gt;%
   select(-lifeExp) %&gt;%  
   rename(gdp_per_cap = gdpPercap) %&gt;%  
   mutate(gdp = gdp_per_cap * pop) %&gt;%  
+  mutate(percent_gdp = 100 * gdp / sum(gdp)) %&gt;%  
   mutate(europe = continent == "Europe") %&gt;%  
   select(country, year, gdp, europe, pop) %&gt;%  
   mutate(europe_category =  
@@ -515,19 +591,22 @@ gapminder %&gt;%
   mutate(gdp_billions = gdp/1000000000) %&gt;%  
   slice(1:8) -&gt;  
 europe_or_not_2002  
-  # plot
+
 ggplot(data = europe_or_not_2002) +  
-  aes(x = reorder(country, gdp_billions)) +  
-* aes(y = gdp_billions)
+* aes(y = fct_reorder(country, gdp_billions))
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-mini-auto[
 ![](one_stream_wrangle_files/figure-html/mini_auto_15_output-1.png)&lt;!-- --&gt;
-]]
+]
+
 ---
 class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-mini-auto[
 
 ```r
 gapminder %&gt;%  
@@ -535,6 +614,7 @@ gapminder %&gt;%
   select(-lifeExp) %&gt;%  
   rename(gdp_per_cap = gdpPercap) %&gt;%  
   mutate(gdp = gdp_per_cap * pop) %&gt;%  
+  mutate(percent_gdp = 100 * gdp / sum(gdp)) %&gt;%  
   mutate(europe = continent == "Europe") %&gt;%  
   select(country, year, gdp, europe, pop) %&gt;%  
   mutate(europe_category =  
@@ -544,20 +624,58 @@ gapminder %&gt;%
   mutate(gdp_billions = gdp/1000000000) %&gt;%  
   slice(1:8) -&gt;  
 europe_or_not_2002  
-  # plot
+
 ggplot(data = europe_or_not_2002) +  
-  aes(x = reorder(country, gdp_billions)) +  
-  aes(y = gdp_billions) +  
+  aes(y = fct_reorder(country, gdp_billions)) +  
+* aes(x = gdp_billions)
+```
+]
+ 
+.right-panel-mini-auto[
+![](one_stream_wrangle_files/figure-html/mini_auto_16_output-1.png)&lt;!-- --&gt;
+]
+
+---
+class: split-40
+count: false
+ 
+
+.left-panel-mini-auto[
+
+```r
+gapminder %&gt;%  
+  filter(year == 2002) %&gt;%  
+  select(-lifeExp) %&gt;%  
+  rename(gdp_per_cap = gdpPercap) %&gt;%  
+  mutate(gdp = gdp_per_cap * pop) %&gt;%  
+  mutate(percent_gdp = 100 * gdp / sum(gdp)) %&gt;%  
+  mutate(europe = continent == "Europe") %&gt;%  
+  select(country, year, gdp, europe, pop) %&gt;%  
+  mutate(europe_category =  
+           case_when(europe == T ~ "Europe",  
+                     europe == F ~ "Not Europe")) %&gt;%  
+  arrange(-gdp) %&gt;%  
+  mutate(gdp_billions = gdp/1000000000) %&gt;%  
+  slice(1:8) -&gt;  
+europe_or_not_2002  
+
+ggplot(data = europe_or_not_2002) +  
+  aes(y = fct_reorder(country, gdp_billions)) +  
+  aes(x = gdp_billions) +  
 * geom_col()
 ```
-]]
-.column[.content[
-![](one_stream_wrangle_files/figure-html/mini_auto_16_output-1.png)&lt;!-- --&gt;
-]]
+]
+ 
+.right-panel-mini-auto[
+![](one_stream_wrangle_files/figure-html/mini_auto_17_output-1.png)&lt;!-- --&gt;
+]
+
 ---
 class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-mini-auto[
 
 ```r
 gapminder %&gt;%  
@@ -565,6 +683,7 @@ gapminder %&gt;%
   select(-lifeExp) %&gt;%  
   rename(gdp_per_cap = gdpPercap) %&gt;%  
   mutate(gdp = gdp_per_cap * pop) %&gt;%  
+  mutate(percent_gdp = 100 * gdp / sum(gdp)) %&gt;%  
   mutate(europe = continent == "Europe") %&gt;%  
   select(country, year, gdp, europe, pop) %&gt;%  
   mutate(europe_category =  
@@ -574,53 +693,25 @@ gapminder %&gt;%
   mutate(gdp_billions = gdp/1000000000) %&gt;%  
   slice(1:8) -&gt;  
 europe_or_not_2002  
-  # plot
+
 ggplot(data = europe_or_not_2002) +  
-  aes(x = reorder(country, gdp_billions)) +  
-  aes(y = gdp_billions) +  
+  aes(y = fct_reorder(country, gdp_billions)) +  
+  aes(x = gdp_billions) +  
   geom_col() +  
 * aes(fill = europe_category)
 ```
-]]
-.column[.content[
-![](one_stream_wrangle_files/figure-html/mini_auto_17_output-1.png)&lt;!-- --&gt;
-]]
----
-class: split-40
-count: false
-.column[.content[
-
-```r
-gapminder %&gt;%  
-  filter(year == 2002) %&gt;%  
-  select(-lifeExp) %&gt;%  
-  rename(gdp_per_cap = gdpPercap) %&gt;%  
-  mutate(gdp = gdp_per_cap * pop) %&gt;%  
-  mutate(europe = continent == "Europe") %&gt;%  
-  select(country, year, gdp, europe, pop) %&gt;%  
-  mutate(europe_category =  
-           case_when(europe == T ~ "Europe",  
-                     europe == F ~ "Not Europe")) %&gt;%  
-  arrange(-gdp) %&gt;%  
-  mutate(gdp_billions = gdp/1000000000) %&gt;%  
-  slice(1:8) -&gt;  
-europe_or_not_2002  
-  # plot
-ggplot(data = europe_or_not_2002) +  
-  aes(x = reorder(country, gdp_billions)) +  
-  aes(y = gdp_billions) +  
-  geom_col() +  
-  aes(fill = europe_category) +  
-* scale_y_log10()
-```
-]]
-.column[.content[
+]
+ 
+.right-panel-mini-auto[
 ![](one_stream_wrangle_files/figure-html/mini_auto_18_output-1.png)&lt;!-- --&gt;
-]]
+]
+
 ---
 class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-mini-auto[
 
 ```r
 gapminder %&gt;%  
@@ -628,6 +719,7 @@ gapminder %&gt;%
   select(-lifeExp) %&gt;%  
   rename(gdp_per_cap = gdpPercap) %&gt;%  
   mutate(gdp = gdp_per_cap * pop) %&gt;%  
+  mutate(percent_gdp = 100 * gdp / sum(gdp)) %&gt;%  
   mutate(europe = continent == "Europe") %&gt;%  
   select(country, year, gdp, europe, pop) %&gt;%  
   mutate(europe_category =  
@@ -637,23 +729,26 @@ gapminder %&gt;%
   mutate(gdp_billions = gdp/1000000000) %&gt;%  
   slice(1:8) -&gt;  
 europe_or_not_2002  
-  # plot
+
 ggplot(data = europe_or_not_2002) +  
-  aes(x = reorder(country, gdp_billions)) +  
-  aes(y = gdp_billions) +  
+  aes(y = fct_reorder(country, gdp_billions)) +  
+  aes(x = gdp_billions) +  
   geom_col() +  
   aes(fill = europe_category) +  
-  scale_y_log10() +  
-* coord_flip()
+* scale_x_log10()
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-mini-auto[
 ![](one_stream_wrangle_files/figure-html/mini_auto_19_output-1.png)&lt;!-- --&gt;
-]]
+]
+
 ---
 class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-mini-auto[
 
 ```r
 gapminder %&gt;%  
@@ -661,6 +756,7 @@ gapminder %&gt;%
   select(-lifeExp) %&gt;%  
   rename(gdp_per_cap = gdpPercap) %&gt;%  
   mutate(gdp = gdp_per_cap * pop) %&gt;%  
+  mutate(percent_gdp = 100 * gdp / sum(gdp)) %&gt;%  
   mutate(europe = continent == "Europe") %&gt;%  
   select(country, year, gdp, europe, pop) %&gt;%  
   mutate(europe_category =  
@@ -670,21 +766,448 @@ gapminder %&gt;%
   mutate(gdp_billions = gdp/1000000000) %&gt;%  
   slice(1:8) -&gt;  
 europe_or_not_2002  
-  # plot
+
 ggplot(data = europe_or_not_2002) +  
-  aes(x = reorder(country, gdp_billions)) +  
-  aes(y = gdp_billions) +  
+  aes(y = fct_reorder(country, gdp_billions)) +  
+  aes(x = gdp_billions) +  
   geom_col() +  
   aes(fill = europe_category) +  
-  scale_y_log10() +  
-  coord_flip() +  
+  scale_x_log10() +  
 * labs(title = "Eight largest economies, 2002")
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-mini-auto[
 ![](one_stream_wrangle_files/figure-html/mini_auto_20_output-1.png)&lt;!-- --&gt;
-]]
+]
 
+&lt;style&gt;
+.left-panel-mini-auto {
+  color: #777;
+  width: 38%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-mini-auto {
+  width: 60%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-mini-auto {
+  width: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+
+
+
+---
+
+
+class: split-40
+count: false
+ 
+
+.left-panel-factor_relevel-auto[
+
+```r
+*my_countries &lt;- c("Brazil", "France", "Russia",
+*       "United Kingdom", "United States",
+*       "China", "India", "Japan")
+```
+]
+ 
+.right-panel-factor_relevel-auto[
+
+]
+
+---
+class: split-40
+count: false
+ 
+
+.left-panel-factor_relevel-auto[
+
+```r
+my_countries &lt;- c("Brazil", "France", "Russia",  
+        "United Kingdom", "United States",  
+        "China", "India", "Japan")  
+
+*gapminder
+```
+]
+ 
+.right-panel-factor_relevel-auto[
+
+```
+# A tibble: 1,704 x 6
+   country     continent  year lifeExp      pop gdpPercap
+   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
+ 1 Afghanistan Asia       1952    28.8  8425333      779.
+ 2 Afghanistan Asia       1957    30.3  9240934      821.
+ 3 Afghanistan Asia       1962    32.0 10267083      853.
+ 4 Afghanistan Asia       1967    34.0 11537966      836.
+ 5 Afghanistan Asia       1972    36.1 13079460      740.
+ 6 Afghanistan Asia       1977    38.4 14880372      786.
+ 7 Afghanistan Asia       1982    39.9 12881816      978.
+ 8 Afghanistan Asia       1987    40.8 13867957      852.
+ 9 Afghanistan Asia       1992    41.7 16317921      649.
+10 Afghanistan Asia       1997    41.8 22227415      635.
+# … with 1,694 more rows
+```
+]
+
+---
+class: split-40
+count: false
+ 
+
+.left-panel-factor_relevel-auto[
+
+```r
+my_countries &lt;- c("Brazil", "France", "Russia",  
+        "United Kingdom", "United States",  
+        "China", "India", "Japan")  
+
+gapminder %&gt;%  
+* filter(year == 2002)
+```
+]
+ 
+.right-panel-factor_relevel-auto[
+
+```
+# A tibble: 142 x 6
+   country     continent  year lifeExp       pop gdpPercap
+   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;     &lt;int&gt;     &lt;dbl&gt;
+ 1 Afghanistan Asia       2002    42.1  25268405      727.
+ 2 Albania     Europe     2002    75.7   3508512     4604.
+ 3 Algeria     Africa     2002    71.0  31287142     5288.
+ 4 Angola      Africa     2002    41.0  10866106     2773.
+ 5 Argentina   Americas   2002    74.3  38331121     8798.
+ 6 Australia   Oceania    2002    80.4  19546792    30688.
+ 7 Austria     Europe     2002    79.0   8148312    32418.
+ 8 Bahrain     Asia       2002    74.8    656397    23404.
+ 9 Bangladesh  Asia       2002    62.0 135656790     1136.
+10 Belgium     Europe     2002    78.3  10311970    30486.
+# … with 132 more rows
+```
+]
+
+---
+class: split-40
+count: false
+ 
+
+.left-panel-factor_relevel-auto[
+
+```r
+my_countries &lt;- c("Brazil", "France", "Russia",  
+        "United Kingdom", "United States",  
+        "China", "India", "Japan")  
+
+gapminder %&gt;%  
+  filter(year == 2002) %&gt;%  
+* filter(country %in% my_countries)
+```
+]
+ 
+.right-panel-factor_relevel-auto[
+
+```
+# A tibble: 7 x 6
+  country        continent  year lifeExp        pop gdpPercap
+  &lt;fct&gt;          &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;      &lt;int&gt;     &lt;dbl&gt;
+1 Brazil         Americas   2002    71.0  179914212     8131.
+2 China          Asia       2002    72.0 1280400000     3119.
+3 France         Europe     2002    79.6   59925035    28926.
+4 India          Asia       2002    62.9 1034172547     1747.
+5 Japan          Asia       2002    82    127065841    28605.
+6 United Kingdom Europe     2002    78.5   59912431    29479.
+7 United States  Americas   2002    77.3  287675526    39097.
+```
+]
+
+---
+class: split-40
+count: false
+ 
+
+.left-panel-factor_relevel-auto[
+
+```r
+my_countries &lt;- c("Brazil", "France", "Russia",  
+        "United Kingdom", "United States",  
+        "China", "India", "Japan")  
+
+gapminder %&gt;%  
+  filter(year == 2002) %&gt;%  
+  filter(country %in% my_countries) %&gt;%  
+* mutate(pop_category =
+*          case_when(pop &gt;= 1000000000 ~ "billions",
+*                    pop &gt;=  100000000 ~ "hundred millions",
+*                    pop &lt;  100000000 ~ "fewer than hundred million"))
+```
+]
+ 
+.right-panel-factor_relevel-auto[
+
+```
+# A tibble: 7 x 7
+  country      continent  year lifeExp       pop gdpPercap pop_category         
+  &lt;fct&gt;        &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;     &lt;int&gt;     &lt;dbl&gt; &lt;chr&gt;                
+1 Brazil       Americas   2002    71.0    1.80e8     8131. hundred millions     
+2 China        Asia       2002    72.0    1.28e9     3119. billions             
+3 France       Europe     2002    79.6    5.99e7    28926. fewer than hundred m…
+4 India        Asia       2002    62.9    1.03e9     1747. billions             
+5 Japan        Asia       2002    82      1.27e8    28605. hundred millions     
+6 United King… Europe     2002    78.5    5.99e7    29479. fewer than hundred m…
+7 United Stat… Americas   2002    77.3    2.88e8    39097. hundred millions     
+```
+]
+
+---
+class: split-40
+count: false
+ 
+
+.left-panel-factor_relevel-auto[
+
+```r
+my_countries &lt;- c("Brazil", "France", "Russia",  
+        "United Kingdom", "United States",  
+        "China", "India", "Japan")  
+
+gapminder %&gt;%  
+  filter(year == 2002) %&gt;%  
+  filter(country %in% my_countries) %&gt;%  
+  mutate(pop_category =  
+           case_when(pop &gt;= 1000000000 ~ "billions",  
+                     pop &gt;=  100000000 ~ "hundred millions",  
+                     pop &lt;  100000000 ~ "fewer than hundred million")) %&gt;%  
+* mutate(pop_category = fct_relevel(pop_category,
+*                      level = c("fewer than hundred million",
+*                                "hundred millions",
+*                                "billions")))
+```
+]
+ 
+.right-panel-factor_relevel-auto[
+
+```
+# A tibble: 7 x 7
+  country      continent  year lifeExp       pop gdpPercap pop_category         
+  &lt;fct&gt;        &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;     &lt;int&gt;     &lt;dbl&gt; &lt;fct&gt;                
+1 Brazil       Americas   2002    71.0    1.80e8     8131. hundred millions     
+2 China        Asia       2002    72.0    1.28e9     3119. billions             
+3 France       Europe     2002    79.6    5.99e7    28926. fewer than hundred m…
+4 India        Asia       2002    62.9    1.03e9     1747. billions             
+5 Japan        Asia       2002    82      1.27e8    28605. hundred millions     
+6 United King… Europe     2002    78.5    5.99e7    29479. fewer than hundred m…
+7 United Stat… Americas   2002    77.3    2.88e8    39097. hundred millions     
+```
+]
+
+---
+class: split-40
+count: false
+ 
+
+.left-panel-factor_relevel-auto[
+
+```r
+my_countries &lt;- c("Brazil", "France", "Russia",  
+        "United Kingdom", "United States",  
+        "China", "India", "Japan")  
+
+gapminder %&gt;%  
+  filter(year == 2002) %&gt;%  
+  filter(country %in% my_countries) %&gt;%  
+  mutate(pop_category =  
+           case_when(pop &gt;= 1000000000 ~ "billions",  
+                     pop &gt;=  100000000 ~ "hundred millions",  
+                     pop &lt;  100000000 ~ "fewer than hundred million")) %&gt;%  
+  mutate(pop_category = fct_relevel(pop_category,  
+                       level = c("fewer than hundred million",  
+                                 "hundred millions",  
+                                 "billions"))) %&gt;%  
+* ggplot()
+```
+]
+ 
+.right-panel-factor_relevel-auto[
+![](one_stream_wrangle_files/figure-html/factor_relevel_auto_7_output-1.png)&lt;!-- --&gt;
+]
+
+---
+class: split-40
+count: false
+ 
+
+.left-panel-factor_relevel-auto[
+
+```r
+my_countries &lt;- c("Brazil", "France", "Russia",  
+        "United Kingdom", "United States",  
+        "China", "India", "Japan")  
+
+gapminder %&gt;%  
+  filter(year == 2002) %&gt;%  
+  filter(country %in% my_countries) %&gt;%  
+  mutate(pop_category =  
+           case_when(pop &gt;= 1000000000 ~ "billions",  
+                     pop &gt;=  100000000 ~ "hundred millions",  
+                     pop &lt;  100000000 ~ "fewer than hundred million")) %&gt;%  
+  mutate(pop_category = fct_relevel(pop_category,  
+                       level = c("fewer than hundred million",  
+                                 "hundred millions",  
+                                 "billions"))) %&gt;%  
+  ggplot() +  
+* aes(y = pop_category)
+```
+]
+ 
+.right-panel-factor_relevel-auto[
+![](one_stream_wrangle_files/figure-html/factor_relevel_auto_8_output-1.png)&lt;!-- --&gt;
+]
+
+---
+class: split-40
+count: false
+ 
+
+.left-panel-factor_relevel-auto[
+
+```r
+my_countries &lt;- c("Brazil", "France", "Russia",  
+        "United Kingdom", "United States",  
+        "China", "India", "Japan")  
+
+gapminder %&gt;%  
+  filter(year == 2002) %&gt;%  
+  filter(country %in% my_countries) %&gt;%  
+  mutate(pop_category =  
+           case_when(pop &gt;= 1000000000 ~ "billions",  
+                     pop &gt;=  100000000 ~ "hundred millions",  
+                     pop &lt;  100000000 ~ "fewer than hundred million")) %&gt;%  
+  mutate(pop_category = fct_relevel(pop_category,  
+                       level = c("fewer than hundred million",  
+                                 "hundred millions",  
+                                 "billions"))) %&gt;%  
+  ggplot() +  
+  aes(y = pop_category) +  
+* aes(x = gdpPercap)
+```
+]
+ 
+.right-panel-factor_relevel-auto[
+![](one_stream_wrangle_files/figure-html/factor_relevel_auto_9_output-1.png)&lt;!-- --&gt;
+]
+
+---
+class: split-40
+count: false
+ 
+
+.left-panel-factor_relevel-auto[
+
+```r
+my_countries &lt;- c("Brazil", "France", "Russia",  
+        "United Kingdom", "United States",  
+        "China", "India", "Japan")  
+
+gapminder %&gt;%  
+  filter(year == 2002) %&gt;%  
+  filter(country %in% my_countries) %&gt;%  
+  mutate(pop_category =  
+           case_when(pop &gt;= 1000000000 ~ "billions",  
+                     pop &gt;=  100000000 ~ "hundred millions",  
+                     pop &lt;  100000000 ~ "fewer than hundred million")) %&gt;%  
+  mutate(pop_category = fct_relevel(pop_category,  
+                       level = c("fewer than hundred million",  
+                                 "hundred millions",  
+                                 "billions"))) %&gt;%  
+  ggplot() +  
+  aes(y = pop_category) +  
+  aes(x = gdpPercap) +  
+* geom_point()
+```
+]
+ 
+.right-panel-factor_relevel-auto[
+![](one_stream_wrangle_files/figure-html/factor_relevel_auto_10_output-1.png)&lt;!-- --&gt;
+]
+
+---
+class: split-40
+count: false
+ 
+
+.left-panel-factor_relevel-auto[
+
+```r
+my_countries &lt;- c("Brazil", "France", "Russia",  
+        "United Kingdom", "United States",  
+        "China", "India", "Japan")  
+
+gapminder %&gt;%  
+  filter(year == 2002) %&gt;%  
+  filter(country %in% my_countries) %&gt;%  
+  mutate(pop_category =  
+           case_when(pop &gt;= 1000000000 ~ "billions",  
+                     pop &gt;=  100000000 ~ "hundred millions",  
+                     pop &lt;  100000000 ~ "fewer than hundred million")) %&gt;%  
+  mutate(pop_category = fct_relevel(pop_category,  
+                       level = c("fewer than hundred million",  
+                                 "hundred millions",  
+                                 "billions"))) %&gt;%  
+  ggplot() +  
+  aes(y = pop_category) +  
+  aes(x = gdpPercap) +  
+  geom_point() +  
+* ggrepel::geom_text_repel(aes(label = country))
+```
+]
+ 
+.right-panel-factor_relevel-auto[
+![](one_stream_wrangle_files/figure-html/factor_relevel_auto_11_output-1.png)&lt;!-- --&gt;
+]
+
+&lt;style&gt;
+.left-panel-factor_relevel-auto {
+  color: #777;
+  width: 38%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-factor_relevel-auto {
+  width: 60%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-factor_relevel-auto {
+  width: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+---
+
+
+&lt;!-- r flipbookr::chunk_reveal("factor_relevel", break_type = "user")` --&gt;
 
 
 
@@ -693,7 +1216,7 @@ ggplot(data = europe_or_not_2002) +
 
 
 &lt;style type="text/css"&gt;
-.remark-code{line-height: 1.5; font-size: 70%}
+.remark-code{line-height: 1.5; font-size: 60%}
 &lt;/style&gt;
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
@@ -742,9 +1265,25 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     }
     deleted = true;
   });
-})();</script>
-
-<script>
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
 (function() {
   var links = document.getElementsByTagName('a');
   for (var i = 0; i < links.length; i++) {
@@ -753,7 +1292,23 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     }
   }
 })();
-</script>
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
 
 <script>
 slideshow._releaseMath = function(el) {

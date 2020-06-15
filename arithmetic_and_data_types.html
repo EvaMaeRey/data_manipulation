@@ -29,33 +29,35 @@ class: split-40
 count: false
  
 
- 
-.column[.content[
+.left-panel-basic-auto[
 
 ```r
 *1 + 1
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-basic-auto[
 
 ```
 [1] 2
 ```
-]]
+]
+
 ---
 class: split-40
 count: false
  
 
- 
-.column[.content[
+.left-panel-basic-auto[
 
 ```r
 1 + 1  
+
 *5 * 8
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-basic-auto[
 
 ```
 [1] 2
@@ -64,22 +66,25 @@ count: false
 ```
 [1] 40
 ```
-]]
+]
+
 ---
 class: split-40
 count: false
  
 
- 
-.column[.content[
+.left-panel-basic-auto[
 
 ```r
 1 + 1  
+
 5 * 8  
+
 *(4 + 2)^2
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-basic-auto[
 
 ```
 [1] 2
@@ -92,23 +97,27 @@ count: false
 ```
 [1] 36
 ```
-]]
+]
+
 ---
 class: split-40
 count: false
  
 
- 
-.column[.content[
+.left-panel-basic-auto[
 
 ```r
 1 + 1  
+
 5 * 8  
+
 (4 + 2)^2  
+
 *3 / (3 + 6)
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-basic-auto[
 
 ```
 [1] 2
@@ -125,7 +134,31 @@ count: false
 ```
 [1] 0.3333333
 ```
-]]
+]
+
+&lt;style&gt;
+.left-panel-basic-auto {
+  color: #777;
+  width: 38%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-basic-auto {
+  width: 60%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-basic-auto {
+  width: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
 
 
 
@@ -136,33 +169,35 @@ class: split-40
 count: false
  
 
- 
-.column[.content[
+.left-panel-vec-auto[
 
 ```r
 *3:10
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-vec-auto[
 
 ```
 [1]  3  4  5  6  7  8  9 10
 ```
-]]
+]
+
 ---
 class: split-40
 count: false
  
 
- 
-.column[.content[
+.left-panel-vec-auto[
 
 ```r
 3:10  
+
 *1:6 * 2
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-vec-auto[
 
 ```
 [1]  3  4  5  6  7  8  9 10
@@ -171,22 +206,25 @@ count: false
 ```
 [1]  2  4  6  8 10 12
 ```
-]]
+]
+
 ---
 class: split-40
 count: false
  
 
- 
-.column[.content[
+.left-panel-vec-auto[
 
 ```r
 3:10  
+
 1:6 * 2  
+
 *c(1, 2, 6, 10)
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-vec-auto[
 
 ```
 [1]  3  4  5  6  7  8  9 10
@@ -199,23 +237,27 @@ count: false
 ```
 [1]  1  2  6 10
 ```
-]]
+]
+
 ---
 class: split-40
 count: false
  
 
- 
-.column[.content[
+.left-panel-vec-auto[
 
 ```r
 3:10  
+
 1:6 * 2  
+
 c(1, 2, 6, 10)  
+
 *1:4 + 0:3
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-vec-auto[
 
 ```
 [1]  3  4  5  6  7  8  9 10
@@ -232,24 +274,29 @@ c(1, 2, 6, 10)
 ```
 [1] 1 3 5 7
 ```
-]]
+]
+
 ---
 class: split-40
 count: false
  
 
- 
-.column[.content[
+.left-panel-vec-auto[
 
 ```r
 3:10  
+
 1:6 * 2  
+
 c(1, 2, 6, 10)  
+
 1:4 + 0:3  
+
 *TRUE
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-vec-auto[
 
 ```
 [1]  3  4  5  6  7  8  9 10
@@ -270,25 +317,31 @@ c(1, 2, 6, 10)
 ```
 [1] TRUE
 ```
-]]
+]
+
 ---
 class: split-40
 count: false
  
 
- 
-.column[.content[
+.left-panel-vec-auto[
 
 ```r
 3:10  
+
 1:6 * 2  
+
 c(1, 2, 6, 10)  
+
 1:4 + 0:3  
+
 TRUE  
+
 *c(T, T, F, F)
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-vec-auto[
 
 ```
 [1]  3  4  5  6  7  8  9 10
@@ -313,26 +366,33 @@ TRUE
 ```
 [1]  TRUE  TRUE FALSE FALSE
 ```
-]]
+]
+
 ---
 class: split-40
 count: false
  
 
- 
-.column[.content[
+.left-panel-vec-auto[
 
 ```r
 3:10  
+
 1:6 * 2  
+
 c(1, 2, 6, 10)  
+
 1:4 + 0:3  
+
 TRUE  
+
 c(T, T, F, F)  
+
 *"hello world"
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-vec-auto[
 
 ```
 [1]  3  4  5  6  7  8  9 10
@@ -361,27 +421,35 @@ c(T, T, F, F)
 ```
 [1] "hello world"
 ```
-]]
+]
+
 ---
 class: split-40
 count: false
  
 
- 
-.column[.content[
+.left-panel-vec-auto[
 
 ```r
 3:10  
+
 1:6 * 2  
+
 c(1, 2, 6, 10)  
+
 1:4 + 0:3  
+
 TRUE  
+
 c(T, T, F, F)  
+
 "hello world"  
+
 *c("hello", "hi", "bye", "bye-bye")
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-vec-auto[
 
 ```
 [1]  3  4  5  6  7  8  9 10
@@ -414,7 +482,254 @@ c(T, T, F, F)
 ```
 [1] "hello"   "hi"      "bye"     "bye-bye"
 ```
-]]
+]
+
+---
+class: split-40
+count: false
+ 
+
+.left-panel-vec-auto[
+
+```r
+3:10  
+
+1:6 * 2  
+
+c(1, 2, 6, 10)  
+
+1:4 + 0:3  
+
+TRUE  
+
+c(T, T, F, F)  
+
+"hello world"  
+
+c("hello", "hi", "bye", "bye-bye")  
+
+*NULL
+```
+]
+ 
+.right-panel-vec-auto[
+
+```
+[1]  3  4  5  6  7  8  9 10
+```
+
+```
+[1]  2  4  6  8 10 12
+```
+
+```
+[1]  1  2  6 10
+```
+
+```
+[1] 1 3 5 7
+```
+
+```
+[1] TRUE
+```
+
+```
+[1]  TRUE  TRUE FALSE FALSE
+```
+
+```
+[1] "hello world"
+```
+
+```
+[1] "hello"   "hi"      "bye"     "bye-bye"
+```
+
+```
+NULL
+```
+]
+
+---
+class: split-40
+count: false
+ 
+
+.left-panel-vec-auto[
+
+```r
+3:10  
+
+1:6 * 2  
+
+c(1, 2, 6, 10)  
+
+1:4 + 0:3  
+
+TRUE  
+
+c(T, T, F, F)  
+
+"hello world"  
+
+c("hello", "hi", "bye", "bye-bye")  
+
+NULL  
+
+*factor(c("hello", "hi", "bye", "bye"))
+```
+]
+ 
+.right-panel-vec-auto[
+
+```
+[1]  3  4  5  6  7  8  9 10
+```
+
+```
+[1]  2  4  6  8 10 12
+```
+
+```
+[1]  1  2  6 10
+```
+
+```
+[1] 1 3 5 7
+```
+
+```
+[1] TRUE
+```
+
+```
+[1]  TRUE  TRUE FALSE FALSE
+```
+
+```
+[1] "hello world"
+```
+
+```
+[1] "hello"   "hi"      "bye"     "bye-bye"
+```
+
+```
+NULL
+```
+
+```
+[1] hello hi    bye   bye  
+Levels: bye hello hi
+```
+]
+
+---
+class: split-40
+count: false
+ 
+
+.left-panel-vec-auto[
+
+```r
+3:10  
+
+1:6 * 2  
+
+c(1, 2, 6, 10)  
+
+1:4 + 0:3  
+
+TRUE  
+
+c(T, T, F, F)  
+
+"hello world"  
+
+c("hello", "hi", "bye", "bye-bye")  
+
+NULL  
+
+factor(c("hello", "hi", "bye", "bye"))  
+
+*factor(c("hello", "hi", "bye", "bye"),
+*      levels = c("hi", "hello", "bye", "bye-bye"))
+```
+]
+ 
+.right-panel-vec-auto[
+
+```
+[1]  3  4  5  6  7  8  9 10
+```
+
+```
+[1]  2  4  6  8 10 12
+```
+
+```
+[1]  1  2  6 10
+```
+
+```
+[1] 1 3 5 7
+```
+
+```
+[1] TRUE
+```
+
+```
+[1]  TRUE  TRUE FALSE FALSE
+```
+
+```
+[1] "hello world"
+```
+
+```
+[1] "hello"   "hi"      "bye"     "bye-bye"
+```
+
+```
+NULL
+```
+
+```
+[1] hello hi    bye   bye  
+Levels: bye hello hi
+```
+
+```
+[1] hello hi    bye   bye  
+Levels: hi hello bye bye-bye
+```
+]
+
+&lt;style&gt;
+.left-panel-vec-auto {
+  color: #777;
+  width: 38%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-vec-auto {
+  width: 60%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-vec-auto {
+  width: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
 
 
 
@@ -425,33 +740,35 @@ class: split-40
 count: false
  
 
- 
-.column[.content[
+.left-panel-str-auto[
 
 ```r
 *str(3)
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-str-auto[
 
 ```
  num 3
 ```
-]]
+]
+
 ---
 class: split-40
 count: false
  
 
- 
-.column[.content[
+.left-panel-str-auto[
 
 ```r
 str(3)  
+
 *str("hello")
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-str-auto[
 
 ```
  num 3
@@ -460,22 +777,25 @@ str(3)
 ```
  chr "hello"
 ```
-]]
+]
+
 ---
 class: split-40
 count: false
  
 
- 
-.column[.content[
+.left-panel-str-auto[
 
 ```r
 str(3)  
+
 str("hello")  
+
 *str(1.1)
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-str-auto[
 
 ```
  num 3
@@ -488,23 +808,27 @@ str("hello")
 ```
  num 1.1
 ```
-]]
+]
+
 ---
 class: split-40
 count: false
  
 
- 
-.column[.content[
+.left-panel-str-auto[
 
 ```r
 str(3)  
+
 str("hello")  
+
 str(1.1)  
+
 *str(1:8)
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-str-auto[
 
 ```
  num 3
@@ -521,24 +845,29 @@ str(1.1)
 ```
  int [1:8] 1 2 3 4 5 6 7 8
 ```
-]]
+]
+
 ---
 class: split-40
 count: false
  
 
- 
-.column[.content[
+.left-panel-str-auto[
 
 ```r
 str(3)  
+
 str("hello")  
+
 str(1.1)  
+
 str(1:8)  
+
 *str(2L)
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-str-auto[
 
 ```
  num 3
@@ -559,25 +888,139 @@ str(1:8)
 ```
  int 2
 ```
-]]
+]
+
 ---
 class: split-40
 count: false
  
 
- 
-.column[.content[
+.left-panel-str-auto[
 
 ```r
 str(3)  
+
 str("hello")  
+
 str(1.1)  
+
 str(1:8)  
+
 str(2L)  
+
+*str(c(2, 5, 8))
+```
+]
+ 
+.right-panel-str-auto[
+
+```
+ num 3
+```
+
+```
+ chr "hello"
+```
+
+```
+ num 1.1
+```
+
+```
+ int [1:8] 1 2 3 4 5 6 7 8
+```
+
+```
+ int 2
+```
+
+```
+ num [1:3] 2 5 8
+```
+]
+
+---
+class: split-40
+count: false
+ 
+
+.left-panel-str-auto[
+
+```r
+str(3)  
+
+str("hello")  
+
+str(1.1)  
+
+str(1:8)  
+
+str(2L)  
+
+str(c(2, 5, 8))  
+
+*str(c(2L, 5L, 8L))
+```
+]
+ 
+.right-panel-str-auto[
+
+```
+ num 3
+```
+
+```
+ chr "hello"
+```
+
+```
+ num 1.1
+```
+
+```
+ int [1:8] 1 2 3 4 5 6 7 8
+```
+
+```
+ int 2
+```
+
+```
+ num [1:3] 2 5 8
+```
+
+```
+ int [1:3] 2 5 8
+```
+]
+
+---
+class: split-40
+count: false
+ 
+
+.left-panel-str-auto[
+
+```r
+str(3)  
+
+str("hello")  
+
+str(1.1)  
+
+str(1:8)  
+
+str(2L)  
+
+str(c(2, 5, 8))  
+
+str(c(2L, 5L, 8L))  
+
 *str(c(1,3))
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-str-auto[
 
 ```
  num 3
@@ -600,28 +1043,47 @@ str(2L)
 ```
 
 ```
+ num [1:3] 2 5 8
+```
+
+```
+ int [1:3] 2 5 8
+```
+
+```
  num [1:2] 1 3
 ```
-]]
+]
+
 ---
 class: split-40
 count: false
  
 
- 
-.column[.content[
+.left-panel-str-auto[
 
 ```r
 str(3)  
+
 str("hello")  
+
 str(1.1)  
+
 str(1:8)  
+
 str(2L)  
+
+str(c(2, 5, 8))  
+
+str(c(2L, 5L, 8L))  
+
 str(c(1,3))  
+
 *str(factor(c("hello", "bye")))
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-str-auto[
 
 ```
  num 3
@@ -644,33 +1106,130 @@ str(c(1,3))
 ```
 
 ```
+ num [1:3] 2 5 8
+```
+
+```
+ int [1:3] 2 5 8
+```
+
+```
  num [1:2] 1 3
 ```
 
 ```
  Factor w/ 2 levels "bye","hello": 2 1
 ```
-]]
+]
+
 ---
 class: split-40
 count: false
  
 
- 
-.column[.content[
+.left-panel-str-auto[
 
 ```r
 str(3)  
+
 str("hello")  
+
 str(1.1)  
+
 str(1:8)  
+
 str(2L)  
+
+str(c(2, 5, 8))  
+
+str(c(2L, 5L, 8L))  
+
 str(c(1,3))  
+
 str(factor(c("hello", "bye")))  
+
+*str(factor(c("hello", "bye"),
+*          levels = c("hi", "hello", "bye")))
+```
+]
+ 
+.right-panel-str-auto[
+
+```
+ num 3
+```
+
+```
+ chr "hello"
+```
+
+```
+ num 1.1
+```
+
+```
+ int [1:8] 1 2 3 4 5 6 7 8
+```
+
+```
+ int 2
+```
+
+```
+ num [1:3] 2 5 8
+```
+
+```
+ int [1:3] 2 5 8
+```
+
+```
+ num [1:2] 1 3
+```
+
+```
+ Factor w/ 2 levels "bye","hello": 2 1
+```
+
+```
+ Factor w/ 3 levels "hi","hello","bye": 2 3
+```
+]
+
+---
+class: split-40
+count: false
+ 
+
+.left-panel-str-auto[
+
+```r
+str(3)  
+
+str("hello")  
+
+str(1.1)  
+
+str(1:8)  
+
+str(2L)  
+
+str(c(2, 5, 8))  
+
+str(c(2L, 5L, 8L))  
+
+str(c(1,3))  
+
+str(factor(c("hello", "bye")))  
+
+str(factor(c("hello", "bye"),  
+           levels = c("hi", "hello", "bye")))  
+
 *str(Sys.time())
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-str-auto[
 
 ```
  num 3
@@ -693,6 +1252,14 @@ str(factor(c("hello", "bye")))
 ```
 
 ```
+ num [1:3] 2 5 8
+```
+
+```
+ int [1:3] 2 5 8
+```
+
+```
  num [1:2] 1 3
 ```
 
@@ -701,30 +1268,50 @@ str(factor(c("hello", "bye")))
 ```
 
 ```
- POSIXct[1:1], format: "2020-03-26 11:32:53"
+ Factor w/ 3 levels "hi","hello","bye": 2 3
 ```
-]]
+
+```
+ POSIXct[1:1], format: "2020-06-14 20:38:39"
+```
+]
+
 ---
 class: split-40
 count: false
  
 
- 
-.column[.content[
+.left-panel-str-auto[
 
 ```r
 str(3)  
+
 str("hello")  
+
 str(1.1)  
+
 str(1:8)  
+
 str(2L)  
+
+str(c(2, 5, 8))  
+
+str(c(2L, 5L, 8L))  
+
 str(c(1,3))  
+
 str(factor(c("hello", "bye")))  
+
+str(factor(c("hello", "bye"),  
+           levels = c("hi", "hello", "bye")))  
+
 str(Sys.time())  
+
 *str(Sys.Date())
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-str-auto[
 
 ```
  num 3
@@ -747,6 +1334,14 @@ str(Sys.time())
 ```
 
 ```
+ num [1:3] 2 5 8
+```
+
+```
+ int [1:3] 2 5 8
+```
+
+```
  num [1:2] 1 3
 ```
 
@@ -755,13 +1350,41 @@ str(Sys.time())
 ```
 
 ```
- POSIXct[1:1], format: "2020-03-26 11:32:53"
+ Factor w/ 3 levels "hi","hello","bye": 2 3
 ```
 
 ```
- Date[1:1], format: "2020-03-26"
+ POSIXct[1:1], format: "2020-06-14 20:38:39"
 ```
-]]
+
+```
+ Date[1:1], format: "2020-06-14"
+```
+]
+
+&lt;style&gt;
+.left-panel-str-auto {
+  color: #777;
+  width: 38%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-str-auto {
+  width: 60%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-str-auto {
+  width: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
 
 
 
@@ -774,14 +1397,14 @@ class: split-40
 count: false
  
 
- 
-.column[.content[
+.left-panel-mat-auto[
 
 ```r
 *matrix(1:10, nrow = 5)
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-mat-auto[
 
 ```
      [,1] [,2]
@@ -791,22 +1414,23 @@ count: false
 [4,]    4    9
 [5,]    5   10
 ```
-]]
+]
+
 ---
 class: split-40
 count: false
  
 
- 
-.column[.content[
+.left-panel-mat-auto[
 
 ```r
 matrix(1:10, nrow = 5)  
 
 *matrix(1:10, ncol = 3)
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-mat-auto[
 
 ```
      [,1] [,2]
@@ -824,14 +1448,14 @@ matrix(1:10, nrow = 5)
 [3,]    3    7    1
 [4,]    4    8    2
 ```
-]]
+]
+
 ---
 class: split-40
 count: false
  
 
- 
-.column[.content[
+.left-panel-mat-auto[
 
 ```r
 matrix(1:10, nrow = 5)  
@@ -846,8 +1470,9 @@ matrix(1:10, ncol = 3)
 *matrix(c(1,2,3,4),
 *      nrow = 2) * 2
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-mat-auto[
 
 ```
      [,1] [,2]
@@ -871,14 +1496,14 @@ matrix(1:10, ncol = 3)
 [1,]    2    6
 [2,]    4    8
 ```
-]]
+]
+
 ---
 class: split-40
 count: false
  
 
- 
-.column[.content[
+.left-panel-mat-auto[
 
 ```r
 matrix(1:10, nrow = 5)  
@@ -901,8 +1526,9 @@ matrix(c(1,2,3,4),
 *   matrix(c(1,2,3,4),
 *      nrow = 2) )
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-mat-auto[
 
 ```
      [,1] [,2]
@@ -932,14 +1558,14 @@ matrix(c(1,2,3,4),
 [1,]    1    9
 [2,]    4   16
 ```
-]]
+]
+
 ---
 class: split-40
 count: false
  
 
- 
-.column[.content[
+.left-panel-mat-auto[
 
 ```r
 matrix(1:10, nrow = 5)  
@@ -966,8 +1592,9 @@ matrix(c(1,2,3,4),
 *   matrix(c(1,2,3,4),
 *      nrow = 2) )
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-mat-auto[
 
 ```
      [,1] [,2]
@@ -1003,7 +1630,29 @@ matrix(c(1,2,3,4),
 [1,]    7   15
 [2,]   10   22
 ```
-]]
+]
+
+&lt;style&gt;
+.left-panel-mat-auto {
+  color: #777;
+  width: 38%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-mat-auto {
+  width: 60%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-mat-auto {
+  width: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
 
 
 
@@ -1011,23 +1660,27 @@ matrix(c(1,2,3,4),
 
 ---
 
+# constructing data in r
+
+---
+
 class: split-40
 count: false
  
 
- 
-.column[.content[
+.left-panel-dat-auto[
 
 ```r
-data.frame(id = 1:6,  
-           greet = c("hi", "bye",  
-                     "hello", "chao",  
-                     "adios", "tchuss"),  
-           nums = c(2.3, 4.1, 3.5,  
-                    3.2, 5.6, 8.9))  
+*data.frame(id = 1:6,
+*          greet = c("hi", "bye",
+*                    "hello", "chao",
+*                    "adios", "tchuss"),
+*          nums = c(2.3, 4.1, 3.5,
+*                   3.2, 5.6, 8.9))
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-dat-auto[
 
 ```
   id  greet nums
@@ -1038,7 +1691,111 @@ data.frame(id = 1:6,
 5  5  adios  5.6
 6  6 tchuss  8.9
 ```
-]]
+]
+
+---
+class: split-40
+count: false
+ 
+
+.left-panel-dat-auto[
+
+```r
+data.frame(id = 1:6,  
+           greet = c("hi", "bye",  
+                     "hello", "chao",  
+                     "adios", "tchuss"),  
+           nums = c(2.3, 4.1, 3.5,  
+                    3.2, 5.6, 8.9))  
+
+*library(tibble)  # also a part of the tidyverse
+```
+]
+ 
+.right-panel-dat-auto[
+
+```
+  id  greet nums
+1  1     hi  2.3
+2  2    bye  4.1
+3  3  hello  3.5
+4  4   chao  3.2
+5  5  adios  5.6
+6  6 tchuss  8.9
+```
+]
+
+---
+class: split-40
+count: false
+ 
+
+.left-panel-dat-auto[
+
+```r
+data.frame(id = 1:6,  
+           greet = c("hi", "bye",  
+                     "hello", "chao",  
+                     "adios", "tchuss"),  
+           nums = c(2.3, 4.1, 3.5,  
+                    3.2, 5.6, 8.9))  
+
+library(tibble)  # also a part of the tidyverse
+# tribble helps build small data sets
+*tribble(
+* ~"id", ~"greet", ~"nums",  # column heads
+* 1,        "hi",       2.3,
+* 2,        "bye",      3.5,
+* 3,        "adios",    4.2
+* )
+```
+]
+ 
+.right-panel-dat-auto[
+
+```
+  id  greet nums
+1  1     hi  2.3
+2  2    bye  4.1
+3  3  hello  3.5
+4  4   chao  3.2
+5  5  adios  5.6
+6  6 tchuss  8.9
+```
+
+```
+# A tibble: 3 x 3
+     id greet  nums
+  &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt;
+1     1 hi      2.3
+2     2 bye     3.5
+3     3 adios   4.2
+```
+]
+
+&lt;style&gt;
+.left-panel-dat-auto {
+  color: #777;
+  width: 38%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-dat-auto {
+  width: 60%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-dat-auto {
+  width: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
 
 
 
@@ -1051,33 +1808,35 @@ class: split-40
 count: false
  
 
- 
-.column[.content[
+.left-panel-fun-auto[
 
 ```r
 *mean(1:5)
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-fun-auto[
 
 ```
 [1] 3
 ```
-]]
+]
+
 ---
 class: split-40
 count: false
  
 
- 
-.column[.content[
+.left-panel-fun-auto[
 
 ```r
 mean(1:5)  
+
 *mean(1:100^2)
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-fun-auto[
 
 ```
 [1] 3
@@ -1086,22 +1845,25 @@ mean(1:5)
 ```
 [1] 5000.5
 ```
-]]
+]
+
 ---
 class: split-40
 count: false
  
 
- 
-.column[.content[
+.left-panel-fun-auto[
 
 ```r
 mean(1:5)  
+
 mean(1:100^2)  
+
 *sd(1:10)
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-fun-auto[
 
 ```
 [1] 3
@@ -1114,7 +1876,276 @@ mean(1:100^2)
 ```
 [1] 3.02765
 ```
-]]
+]
+
+---
+class: split-40
+count: false
+ 
+
+.left-panel-fun-auto[
+
+```r
+mean(1:5)  
+
+mean(1:100^2)  
+
+sd(1:10)  
+
+*mean(c(1, 4, 6, 7))
+```
+]
+ 
+.right-panel-fun-auto[
+
+```
+[1] 3
+```
+
+```
+[1] 5000.5
+```
+
+```
+[1] 3.02765
+```
+
+```
+[1] 4.5
+```
+]
+
+---
+class: split-40
+count: false
+ 
+
+.left-panel-fun-auto[
+
+```r
+mean(1:5)  
+
+mean(1:100^2)  
+
+sd(1:10)  
+
+mean(c(1, 4, 6, 7))  
+
+*mean(c(1, 4, 6, 7, NA))
+```
+]
+ 
+.right-panel-fun-auto[
+
+```
+[1] 3
+```
+
+```
+[1] 5000.5
+```
+
+```
+[1] 3.02765
+```
+
+```
+[1] 4.5
+```
+
+```
+[1] NA
+```
+]
+
+---
+class: split-40
+count: false
+ 
+
+.left-panel-fun-auto[
+
+```r
+mean(1:5)  
+
+mean(1:100^2)  
+
+sd(1:10)  
+
+mean(c(1, 4, 6, 7))  
+
+mean(c(1, 4, 6, 7, NA))  
+
+*mean(c(1, 4, 6, 7, NA), na.rm = T)
+```
+]
+ 
+.right-panel-fun-auto[
+
+```
+[1] 3
+```
+
+```
+[1] 5000.5
+```
+
+```
+[1] 3.02765
+```
+
+```
+[1] 4.5
+```
+
+```
+[1] NA
+```
+
+```
+[1] 4.5
+```
+]
+
+---
+class: split-40
+count: false
+ 
+
+.left-panel-fun-auto[
+
+```r
+mean(1:5)  
+
+mean(1:100^2)  
+
+sd(1:10)  
+
+mean(c(1, 4, 6, 7))  
+
+mean(c(1, 4, 6, 7, NA))  
+
+mean(c(1, 4, 6, 7, NA), na.rm = T)  
+
+*sd(c(1:10, NA))
+```
+]
+ 
+.right-panel-fun-auto[
+
+```
+[1] 3
+```
+
+```
+[1] 5000.5
+```
+
+```
+[1] 3.02765
+```
+
+```
+[1] 4.5
+```
+
+```
+[1] NA
+```
+
+```
+[1] 4.5
+```
+
+```
+[1] NA
+```
+]
+
+---
+class: split-40
+count: false
+ 
+
+.left-panel-fun-auto[
+
+```r
+mean(1:5)  
+
+mean(1:100^2)  
+
+sd(1:10)  
+
+mean(c(1, 4, 6, 7))  
+
+mean(c(1, 4, 6, 7, NA))  
+
+mean(c(1, 4, 6, 7, NA), na.rm = T)  
+
+sd(c(1:10, NA))  
+
+*sd(c(1:10, NA), na.rm = T)
+```
+]
+ 
+.right-panel-fun-auto[
+
+```
+[1] 3
+```
+
+```
+[1] 5000.5
+```
+
+```
+[1] 3.02765
+```
+
+```
+[1] 4.5
+```
+
+```
+[1] NA
+```
+
+```
+[1] 4.5
+```
+
+```
+[1] NA
+```
+
+```
+[1] 3.02765
+```
+]
+
+&lt;style&gt;
+.left-panel-fun-auto {
+  color: #777;
+  width: 38%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-fun-auto {
+  width: 60%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-fun-auto {
+  width: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
 
 
 
@@ -1125,42 +2156,43 @@ class: split-40
 count: false
  
 
- 
-.column[.content[
+.left-panel-assign-auto[
 
 ```r
 *1:10
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-assign-auto[
 
 ```
  [1]  1  2  3  4  5  6  7  8  9 10
 ```
-]]
+]
+
 ---
 class: split-40
 count: false
  
 
- 
-.column[.content[
+.left-panel-assign-auto[
 
 ```r
 1:10 -&gt;  
 * x
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-assign-auto[
 
-]]
+]
+
 ---
 class: split-40
 count: false
  
 
- 
-.column[.content[
+.left-panel-assign-auto[
 
 ```r
 1:10 -&gt;  
@@ -1168,20 +2200,21 @@ count: false
 
 *x * 5
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-assign-auto[
 
 ```
  [1]  5 10 15 20 25 30 35 40 45 50
 ```
-]]
+]
+
 ---
 class: split-40
 count: false
  
 
- 
-.column[.content[
+.left-panel-assign-auto[
 
 ```r
 1:10 -&gt;  
@@ -1190,8 +2223,9 @@ count: false
 x * 5  
 *x^2
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-assign-auto[
 
 ```
  [1]  5 10 15 20 25 30 35 40 45 50
@@ -1200,14 +2234,14 @@ x * 5
 ```
  [1]   1   4   9  16  25  36  49  64  81 100
 ```
-]]
+]
+
 ---
 class: split-40
 count: false
  
 
- 
-.column[.content[
+.left-panel-assign-auto[
 
 ```r
 1:10 -&gt;  
@@ -1218,8 +2252,9 @@ x^2
 
 *rep(3, 10)
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-assign-auto[
 
 ```
  [1]  5 10 15 20 25 30 35 40 45 50
@@ -1232,14 +2267,14 @@ x^2
 ```
  [1] 3 3 3 3 3 3 3 3 3 3
 ```
-]]
+]
+
 ---
 class: split-40
 count: false
  
 
- 
-.column[.content[
+.left-panel-assign-auto[
 
 ```r
 1:10 -&gt;  
@@ -1251,8 +2286,9 @@ x^2
 rep(3, 10) -&gt;  
 * y
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-assign-auto[
 
 ```
  [1]  5 10 15 20 25 30 35 40 45 50
@@ -1261,14 +2297,14 @@ rep(3, 10) -&gt;
 ```
  [1]   1   4   9  16  25  36  49  64  81 100
 ```
-]]
+]
+
 ---
 class: split-40
 count: false
  
 
- 
-.column[.content[
+.left-panel-assign-auto[
 
 ```r
 1:10 -&gt;  
@@ -1282,8 +2318,9 @@ rep(3, 10) -&gt;
 
 *x + y
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-assign-auto[
 
 ```
  [1]  5 10 15 20 25 30 35 40 45 50
@@ -1296,14 +2333,14 @@ rep(3, 10) -&gt;
 ```
  [1]  4  5  6  7  8  9 10 11 12 13
 ```
-]]
+]
+
 ---
 class: split-40
 count: false
  
 
- 
-.column[.content[
+.left-panel-assign-auto[
 
 ```r
 1:10 -&gt;  
@@ -1318,8 +2355,9 @@ rep(3, 10) -&gt;
 x + y -&gt;  
 * z
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-assign-auto[
 
 ```
  [1]  5 10 15 20 25 30 35 40 45 50
@@ -1328,7 +2366,326 @@ x + y -&gt;
 ```
  [1]   1   4   9  16  25  36  49  64  81 100
 ```
-]]
+]
+
+---
+class: split-40
+count: false
+ 
+
+.left-panel-assign-auto[
+
+```r
+1:10 -&gt;  
+  x  
+
+x * 5  
+x^2  
+
+rep(3, 10) -&gt;  
+  y  
+
+x + y -&gt;  
+  z  
+
+*5 
+```
+]
+ 
+.right-panel-assign-auto[
+
+```
+ [1]  5 10 15 20 25 30 35 40 45 50
+```
+
+```
+ [1]   1   4   9  16  25  36  49  64  81 100
+```
+
+```
+[1] 5
+```
+]
+
+---
+class: split-40
+count: false
+ 
+
+.left-panel-assign-auto[
+
+```r
+1:10 -&gt;  
+  x  
+
+x * 5  
+x^2  
+
+rep(3, 10) -&gt;  
+  y  
+
+x + y -&gt;  
+  z  
+
+5 -&gt;  
+* x
+```
+]
+ 
+.right-panel-assign-auto[
+
+```
+ [1]  5 10 15 20 25 30 35 40 45 50
+```
+
+```
+ [1]   1   4   9  16  25  36  49  64  81 100
+```
+]
+
+---
+class: split-40
+count: false
+ 
+
+.left-panel-assign-auto[
+
+```r
+1:10 -&gt;  
+  x  
+
+x * 5  
+x^2  
+
+rep(3, 10) -&gt;  
+  y  
+
+x + y -&gt;  
+  z  
+
+5 -&gt;  
+  x  
+
+*4 
+```
+]
+ 
+.right-panel-assign-auto[
+
+```
+ [1]  5 10 15 20 25 30 35 40 45 50
+```
+
+```
+ [1]   1   4   9  16  25  36  49  64  81 100
+```
+
+```
+[1] 4
+```
+]
+
+---
+class: split-40
+count: false
+ 
+
+.left-panel-assign-auto[
+
+```r
+1:10 -&gt;  
+  x  
+
+x * 5  
+x^2  
+
+rep(3, 10) -&gt;  
+  y  
+
+x + y -&gt;  
+  z  
+
+5 -&gt;  
+  x  
+
+4 -&gt;  
+* y
+```
+]
+ 
+.right-panel-assign-auto[
+
+```
+ [1]  5 10 15 20 25 30 35 40 45 50
+```
+
+```
+ [1]   1   4   9  16  25  36  49  64  81 100
+```
+]
+
+---
+class: split-40
+count: false
+ 
+
+.left-panel-assign-auto[
+
+```r
+1:10 -&gt;  
+  x  
+
+x * 5  
+x^2  
+
+rep(3, 10) -&gt;  
+  y  
+
+x + y -&gt;  
+  z  
+
+5 -&gt;  
+  x  
+
+4 -&gt;  
+  y  
+
+*x + y
+```
+]
+ 
+.right-panel-assign-auto[
+
+```
+ [1]  5 10 15 20 25 30 35 40 45 50
+```
+
+```
+ [1]   1   4   9  16  25  36  49  64  81 100
+```
+
+```
+[1] 9
+```
+]
+
+---
+class: split-40
+count: false
+ 
+
+.left-panel-assign-auto[
+
+```r
+1:10 -&gt;  
+  x  
+
+x * 5  
+x^2  
+
+rep(3, 10) -&gt;  
+  y  
+
+x + y -&gt;  
+  z  
+
+5 -&gt;  
+  x  
+
+4 -&gt;  
+  y  
+
+x + y -&gt;  
+* z_1
+```
+]
+ 
+.right-panel-assign-auto[
+
+```
+ [1]  5 10 15 20 25 30 35 40 45 50
+```
+
+```
+ [1]   1   4   9  16  25  36  49  64  81 100
+```
+]
+
+---
+class: split-40
+count: false
+ 
+
+.left-panel-assign-auto[
+
+```r
+1:10 -&gt;  
+  x  
+
+x * 5  
+x^2  
+
+rep(3, 10) -&gt;  
+  y  
+
+x + y -&gt;  
+  z  
+
+5 -&gt;  
+  x  
+
+4 -&gt;  
+  y  
+
+x + y -&gt;  
+  z_1  
+
+*z; z_1  # print both objects z and z_1
+```
+]
+ 
+.right-panel-assign-auto[
+
+```
+ [1]  5 10 15 20 25 30 35 40 45 50
+```
+
+```
+ [1]   1   4   9  16  25  36  49  64  81 100
+```
+
+```
+ [1]  4  5  6  7  8  9 10 11 12 13
+```
+
+```
+[1] 9
+```
+]
+
+&lt;style&gt;
+.left-panel-assign-auto {
+  color: #777;
+  width: 38%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-assign-auto {
+  width: 60%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-assign-auto {
+  width: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
 
 
 
@@ -1345,33 +2702,35 @@ class: split-40
 count: false
  
 
- 
-.column[.content[
+.left-panel-is_type-auto[
 
 ```r
 *is.character("hi")
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-is_type-auto[
 
 ```
 [1] TRUE
 ```
-]]
+]
+
 ---
 class: split-40
 count: false
  
 
- 
-.column[.content[
+.left-panel-is_type-auto[
 
 ```r
 is.character("hi")  
+
 *is.numeric(1)
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-is_type-auto[
 
 ```
 [1] TRUE
@@ -1380,22 +2739,25 @@ is.character("hi")
 ```
 [1] TRUE
 ```
-]]
+]
+
 ---
 class: split-40
 count: false
  
 
- 
-.column[.content[
+.left-panel-is_type-auto[
 
 ```r
 is.character("hi")  
+
 is.numeric(1)  
+
 *is.integer(2.3)
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-is_type-auto[
 
 ```
 [1] TRUE
@@ -1408,23 +2770,27 @@ is.numeric(1)
 ```
 [1] FALSE
 ```
-]]
+]
+
 ---
 class: split-40
 count: false
  
 
- 
-.column[.content[
+.left-panel-is_type-auto[
 
 ```r
 is.character("hi")  
+
 is.numeric(1)  
+
 is.integer(2.3)  
+
 *is.double(4L)
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-is_type-auto[
 
 ```
 [1] TRUE
@@ -1441,24 +2807,29 @@ is.integer(2.3)
 ```
 [1] FALSE
 ```
-]]
+]
+
 ---
 class: split-40
 count: false
  
 
- 
-.column[.content[
+.left-panel-is_type-auto[
 
 ```r
 is.character("hi")  
+
 is.numeric(1)  
+
 is.integer(2.3)  
+
 is.double(4L)  
+
 *is.integer(4)
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-is_type-auto[
 
 ```
 [1] TRUE
@@ -1479,25 +2850,31 @@ is.double(4L)
 ```
 [1] FALSE
 ```
-]]
+]
+
 ---
 class: split-40
 count: false
  
 
- 
-.column[.content[
+.left-panel-is_type-auto[
 
 ```r
 is.character("hi")  
+
 is.numeric(1)  
+
 is.integer(2.3)  
+
 is.double(4L)  
+
 is.integer(4)  
+
 *is.integer(4L)
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-is_type-auto[
 
 ```
 [1] TRUE
@@ -1522,26 +2899,33 @@ is.integer(4)
 ```
 [1] TRUE
 ```
-]]
+]
+
 ---
 class: split-40
 count: false
  
 
- 
-.column[.content[
+.left-panel-is_type-auto[
 
 ```r
 is.character("hi")  
+
 is.numeric(1)  
+
 is.integer(2.3)  
+
 is.double(4L)  
+
 is.integer(4)  
+
 is.integer(4L)  
+
 *is.factor("good")
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-is_type-auto[
 
 ```
 [1] TRUE
@@ -1570,7 +2954,31 @@ is.integer(4L)
 ```
 [1] FALSE
 ```
-]]
+]
+
+&lt;style&gt;
+.left-panel-is_type-auto {
+  color: #777;
+  width: 38%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-is_type-auto {
+  width: 60%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-is_type-auto {
+  width: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
 
 
 
@@ -1580,33 +2988,35 @@ class: split-40
 count: false
  
 
- 
-.column[.content[
+.left-panel-as_type-auto[
 
 ```r
 *as.numeric("hi")
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-as_type-auto[
 
 ```
 [1] NA
 ```
-]]
+]
+
 ---
 class: split-40
 count: false
  
 
- 
-.column[.content[
+.left-panel-as_type-auto[
 
 ```r
 as.numeric("hi")  
+
 *as.integer(1)
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-as_type-auto[
 
 ```
 [1] NA
@@ -1615,22 +3025,25 @@ as.numeric("hi")
 ```
 [1] 1
 ```
-]]
+]
+
 ---
 class: split-40
 count: false
  
 
- 
-.column[.content[
+.left-panel-as_type-auto[
 
 ```r
 as.numeric("hi")  
+
 as.integer(1)  
+
 *as.character(2.3)
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-as_type-auto[
 
 ```
 [1] NA
@@ -1643,23 +3056,27 @@ as.integer(1)
 ```
 [1] "2.3"
 ```
-]]
+]
+
 ---
 class: split-40
 count: false
  
 
- 
-.column[.content[
+.left-panel-as_type-auto[
 
 ```r
 as.numeric("hi")  
+
 as.integer(1)  
+
 as.character(2.3)  
+
 *as.double(4L)
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-as_type-auto[
 
 ```
 [1] NA
@@ -1676,24 +3093,29 @@ as.character(2.3)
 ```
 [1] 4
 ```
-]]
+]
+
 ---
 class: split-40
 count: false
  
 
- 
-.column[.content[
+.left-panel-as_type-auto[
 
 ```r
 as.numeric("hi")  
+
 as.integer(1)  
+
 as.character(2.3)  
+
 as.double(4L)  
+
 *is.integer(4)
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-as_type-auto[
 
 ```
 [1] NA
@@ -1714,25 +3136,31 @@ as.double(4L)
 ```
 [1] FALSE
 ```
-]]
+]
+
 ---
 class: split-40
 count: false
  
 
- 
-.column[.content[
+.left-panel-as_type-auto[
 
 ```r
 as.numeric("hi")  
+
 as.integer(1)  
+
 as.character(2.3)  
+
 as.double(4L)  
+
 is.integer(4)  
+
 *is.integer(4L)
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-as_type-auto[
 
 ```
 [1] NA
@@ -1757,26 +3185,33 @@ is.integer(4)
 ```
 [1] TRUE
 ```
-]]
+]
+
 ---
 class: split-40
 count: false
  
 
- 
-.column[.content[
+.left-panel-as_type-auto[
 
 ```r
 as.numeric("hi")  
+
 as.integer(1)  
+
 as.character(2.3)  
+
 as.double(4L)  
+
 is.integer(4)  
+
 is.integer(4L)  
+
 *as.factor(c("good", "bad"))
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-as_type-auto[
 
 ```
 [1] NA
@@ -1806,27 +3241,35 @@ is.integer(4L)
 [1] good bad 
 Levels: bad good
 ```
-]]
+]
+
 ---
 class: split-40
 count: false
  
 
- 
-.column[.content[
+.left-panel-as_type-auto[
 
 ```r
 as.numeric("hi")  
+
 as.integer(1)  
+
 as.character(2.3)  
+
 as.double(4L)  
+
 is.integer(4)  
+
 is.integer(4L)  
+
 as.factor(c("good", "bad"))  
-*matrix(1:4, nrow = 2)
+
+*matrix(1:4, nrow = 2)   # this is a pipe operator
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-as_type-auto[
 
 ```
 [1] NA
@@ -1862,28 +3305,37 @@ Levels: bad good
 [1,]    1    3
 [2,]    2    4
 ```
-]]
+]
+
 ---
 class: split-40
 count: false
  
 
- 
-.column[.content[
+.left-panel-as_type-auto[
 
 ```r
 as.numeric("hi")  
+
 as.integer(1)  
+
 as.character(2.3)  
+
 as.double(4L)  
+
 is.integer(4)  
+
 is.integer(4L)  
+
 as.factor(c("good", "bad"))  
-matrix(1:4, nrow = 2) %&gt;%  
+
+matrix(1:4, nrow = 2) %&gt;%  # this is a pipe operator
+# passes all of what procedes to function that follows
 * as.vector()
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-as_type-auto[
 
 ```
 [1] NA
@@ -1917,8 +3369,233 @@ Levels: bad good
 ```
 [1] 1 2 3 4
 ```
-]]
+]
 
+&lt;style&gt;
+.left-panel-as_type-auto {
+  color: #777;
+  width: 38%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-as_type-auto {
+  width: 60%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-as_type-auto {
+  width: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+
+
+
+---
+
+class: split-40
+count: false
+ 
+
+.left-panel-factors-auto[
+
+```r
+*c("50", "80")
+```
+]
+ 
+.right-panel-factors-auto[
+
+```
+[1] "50" "80"
+```
+]
+
+---
+class: split-40
+count: false
+ 
+
+.left-panel-factors-auto[
+
+```r
+c("50", "80") %&gt;%  
+* as.factor()
+```
+]
+ 
+.right-panel-factors-auto[
+
+```
+[1] 50 80
+Levels: 50 80
+```
+]
+
+---
+class: split-40
+count: false
+ 
+
+.left-panel-factors-auto[
+
+```r
+c("50", "80") %&gt;%  
+  as.factor() %&gt;%  
+* as.numeric()  # maybe surprising
+```
+]
+ 
+.right-panel-factors-auto[
+
+```
+[1] 1 2
+```
+]
+
+---
+class: split-40
+count: false
+ 
+
+.left-panel-factors-auto[
+
+```r
+c("50", "80") %&gt;%  
+  as.factor() %&gt;%  
+  as.numeric()  # maybe surprising
+
+*c("50", "80")
+```
+]
+ 
+.right-panel-factors-auto[
+
+```
+[1] 1 2
+```
+
+```
+[1] "50" "80"
+```
+]
+
+---
+class: split-40
+count: false
+ 
+
+.left-panel-factors-auto[
+
+```r
+c("50", "80") %&gt;%  
+  as.factor() %&gt;%  
+  as.numeric()  # maybe surprising
+
+c("50", "80") %&gt;%  
+* as.factor()
+```
+]
+ 
+.right-panel-factors-auto[
+
+```
+[1] 1 2
+```
+
+```
+[1] 50 80
+Levels: 50 80
+```
+]
+
+---
+class: split-40
+count: false
+ 
+
+.left-panel-factors-auto[
+
+```r
+c("50", "80") %&gt;%  
+  as.factor() %&gt;%  
+  as.numeric()  # maybe surprising
+
+c("50", "80") %&gt;%  
+  as.factor() %&gt;%  
+* as.character()
+```
+]
+ 
+.right-panel-factors-auto[
+
+```
+[1] 1 2
+```
+
+```
+[1] "50" "80"
+```
+]
+
+---
+class: split-40
+count: false
+ 
+
+.left-panel-factors-auto[
+
+```r
+c("50", "80") %&gt;%  
+  as.factor() %&gt;%  
+  as.numeric()  # maybe surprising
+
+c("50", "80") %&gt;%  
+  as.factor() %&gt;%  
+  as.character() %&gt;%  
+* as.numeric()  # less surprising
+```
+]
+ 
+.right-panel-factors-auto[
+
+```
+[1] 1 2
+```
+
+```
+[1] 50 80
+```
+]
+
+&lt;style&gt;
+.left-panel-factors-auto {
+  color: #777;
+  width: 38%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-factors-auto {
+  width: 60%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-factors-auto {
+  width: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
 
 
 
@@ -1979,30 +3656,20 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
 })();
 (function() {
   "use strict"
-  /* Replace <script> tags in slides area to make them executable
-   *
-   * Runs after post-processing of markdown source into slides and replaces only
-   * <script>s on the last slide of continued slides using the .has-continuation
-   * class added by xaringan. Finally, any <script>s in the slides area that
-   * aren't executed are commented out.
-   */
+  // Replace <script> tags in slides area to make them executable
   var scripts = document.querySelectorAll(
-    '.remark-slides-area .remark-slide-container:not(.has-continuation) script'
+    '.remark-slides-area .remark-slide-container script'
   );
   if (!scripts.length) return;
   for (var i = 0; i < scripts.length; i++) {
     var s = document.createElement('script');
     var code = document.createTextNode(scripts[i].textContent);
     s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
     scripts[i].parentElement.replaceChild(s, scripts[i]);
-  }
-  var scriptsNotExecuted = document.querySelectorAll(
-    '.remark-slides-area .remark-slide-container.has-continuation script'
-  );
-  if (!scriptsNotExecuted.length) return;
-  for (var i = 0; i < scriptsNotExecuted.length; i++) {
-    var comment = document.createComment(scriptsNotExecuted[i].outerHTML)
-    scriptsNotExecuted[i].parentElement.replaceChild(comment, scriptsNotExecuted[i])
   }
 })();
 (function() {

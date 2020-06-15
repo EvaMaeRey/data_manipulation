@@ -29,8 +29,11 @@ library(tidyverse)
 
 ```{r basic, include=F}
 1 + 1
+
 5 * 8
+
 (4 + 2)^2
+
 3 / (3 + 6)
 ```
 
@@ -41,13 +44,27 @@ library(tidyverse)
 
 ```{r vec, include=F}
 3:10
+
 1:6 * 2
+
 c(1, 2, 6, 10)
+
 1:4 + 0:3
+
 TRUE
+
 c(T, T, F, F)
+
 "hello world"
+
 c("hello", "hi", "bye", "bye-bye")
+
+NULL
+
+factor(c("hello", "hi", "bye", "bye"))
+
+factor(c("hello", "hi", "bye", "bye"), 
+       levels = c("hi", "hello", "bye", "bye-bye"))
 ```
 
 
@@ -58,13 +75,28 @@ c("hello", "hi", "bye", "bye-bye")
 
 ```{r str, include=F}
 str(3)
+
 str("hello")
+
 str(1.1)
+
 str(1:8)
+
 str(2L)
+
+str(c(2, 5, 8))
+
+str(c(2L, 5L, 8L))
+
 str(c(1,3))
+
 str(factor(c("hello", "bye")))
+
+str(factor(c("hello", "bye"), 
+           levels = c("hi", "hello", "bye")))
+
 str(Sys.time())
+
 str(Sys.Date())
 ```
 
@@ -100,11 +132,13 @@ matrix(c(1,2,3,4),
        nrow = 2) )
 ```
 
+---
 
+# constructing data in r
 
 ---
 
-`r chunk_reveal("dat", break_type = 1)`
+`r chunk_reveal("dat")`
 
 ```{r dat, include=F}
 data.frame(id = 1:6, 
@@ -114,6 +148,14 @@ data.frame(id = 1:6,
            nums = c(2.3, 4.1, 3.5, 
                     3.2, 5.6, 8.9))
 
+library(tibble) # also a part of the tidyverse
+# tribble helps build small data sets
+tribble(
+  ~"id", ~"greet", ~"nums", # column heads
+  1,        "hi",       2.3, 
+  2,        "bye",      3.5,
+  3,        "adios",    4.2
+  )
 ```
 
 
@@ -125,8 +167,20 @@ data.frame(id = 1:6,
 
 ```{r fun, include=F}
 mean(1:5)
+
 mean(1:100^2)
+
 sd(1:10)
+
+mean(c(1, 4, 6, 7))
+
+mean(c(1, 4, 6, 7, NA))
+
+mean(c(1, 4, 6, 7, NA), na.rm = T)
+
+sd(c(1:10, NA))
+
+sd(c(1:10, NA), na.rm = T)
 ```
 
 
@@ -146,6 +200,17 @@ rep(3, 10) ->
 
 x + y ->
   z
+
+5 -> 
+  x
+
+4 ->
+  y
+
+x + y ->
+  z_1
+
+z; z_1 # print both objects z and z_1
 ```
 
 
@@ -161,11 +226,17 @@ Some functions all about type...
 
 ```{r is_type, include=F}
 is.character("hi")
+
 is.numeric(1)
+
 is.integer(2.3)
+
 is.double(4L)
+
 is.integer(4)
+
 is.integer(4L)
+
 is.factor("good")
 ```
 
@@ -175,18 +246,39 @@ is.factor("good")
 
 ```{r as_type, include=F}
 as.numeric("hi")
+
 as.integer(1)
+
 as.character(2.3)
+
 as.double(4L)
+
 is.integer(4)
+
 is.integer(4L)
+
 as.factor(c("good", "bad"))
-matrix(1:4, nrow = 2) %>% 
+
+matrix(1:4, nrow = 2) %>% # this is a pipe operator
+ # passes all of what procedes to function that follows
   as.vector()
 ```
 
 
+---
 
+`r chunk_reveal("factors")`
+
+```{r factors, include=F}
+c("50", "80") %>% 
+  as.factor() %>% 
+  as.numeric() # maybe surprising
+
+c("50", "80") %>% 
+  as.factor() %>% 
+  as.character() %>% 
+  as.numeric() # less surprising
+```
 
 
 

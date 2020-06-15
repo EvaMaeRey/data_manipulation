@@ -38,13 +38,13 @@ Sometimes, we need to transform the shape of our data.  The wide form of data is
 gapminder %>% 
   select(country, continent, 
          lifeExp, year) %>% 
-  spread(key = year, 
-         value = lifeExp) ->
+  pivot_wider(names_from = year, 
+              values_from = lifeExp) ->
 gapminder_life_exp_wide 
 ```
 
 
-`r chunk_reveal("long_to_wide")`
+`r chunk_reveal("long_to_wide", width_left = "49%", width_right = "50%")`
 
 ---
 ## Exercise: *wide to long*
@@ -54,14 +54,22 @@ gapminder_life_exp_wide
 
 ```{r wide_to_long, include = F}
 gapminder_life_exp_wide %>% 
-  gather(key = "year", 
-         value = "lifeExp",
-         -country, -continent) %>% 
+  pivot_longer(`1952`:`2007`, # backticks needed because numeric
+               # column names look like number values without them
+               names_to = "year", 
+               values_to = "lifeExp") %>% 
   mutate(year = as.numeric(year)) ->
   gapminder_life_exp_long 
 ```
 
 
-`r chunk_reveal("wide_to_long")`
+`r chunk_reveal("wide_to_long", width_left = "49%", width_right = "50%")`
 
 ---
+
+
+
+
+
+
+

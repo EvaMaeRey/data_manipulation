@@ -53,11 +53,12 @@ You may be interested in summaries of variables in your data --- or perhaps know
 
 |function |action |
 | :--- | ---: |
-| n() | *return number of rows* |
 | summarize() | *summarize the data, by groups if they have been declared*|
 | group_by()  | *declare subsets in data*|
 | distinct()  | *returns only rows that are unique*| 
 | tally() & count()     | *counting (by groups if group_by() applied)*|
+| n() | *return number of rows* |
+| across() | *summarize a number of variables*|
 
 
 Base-R functions that you are might use in summarizing include `mean()`, `median()`, `sd()`, `IQR()`, `min()`, `max()` etc.
@@ -68,8 +69,8 @@ The function `summary()` can also be used to request summary statistcs for an en
 
 |function |action |
 | :--- | ---: |
-| gather() *or* pivot_longer() | *from wide to long*|
-| spread() *or* pivot_wider() | *from long to wide*|
+| pivot_longer() | *from wide to long*|
+| pivot_wider() | *from long to wide*|
 
 
 ### [Bringing streams together: Joins and Binds](joining_data.html){target="_blank"}
@@ -105,6 +106,7 @@ What's the workflow from reading in data to analysis ready.  It really depends! 
 - Unique identifiers for countries with `{countrycode}`
 - Date manipulation with `{lubridate}`
 
+- [glue, paste, paste0, cat](glue.html){target="_blank"}
 
 # Formatting tables
 

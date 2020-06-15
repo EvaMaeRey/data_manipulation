@@ -1,7 +1,7 @@
 ---
 title: "one-stream wrangle"
 subtitle: "made with flipbookr and xaringan"
-author: "Gina Reynolds, January 2020"
+author: "Gina Reynolds"
 output:
   xaringan::moon_reader:
     lib_dir: libs
@@ -16,7 +16,7 @@ output:
 ```{r}
 library(gapminder)
 library(tidyverse)
-knitr::opts_chunk$set(cache = F, comment = "")
+knitr::opts_chunk$set(cache = F, comment = "", warning = F)
 ```
 
 ---
@@ -30,6 +30,7 @@ gapminder %>%
   select(-lifeExp) %>% 
   rename(gdp_per_cap = gdpPercap) %>% 
   mutate(gdp = gdp_per_cap * pop) %>% 
+  mutate(percent_gdp = 100 * gdp / sum(gdp)) %>% 
   mutate(europe = continent == "Europe") %>% 
   select(country, year, gdp, europe, pop) %>% 
   mutate(europe_category =
@@ -39,21 +40,53 @@ gapminder %>%
   mutate(gdp_billions = gdp/1000000000) %>% 
   slice(1:8) ->
 europe_or_not_2002
-# plot
+
 ggplot(data = europe_or_not_2002) +
-  aes(x = reorder(country, gdp_billions)) +
-  aes(y = gdp_billions) +
+  aes(y = fct_reorder(country, gdp_billions)) +
+  aes(x = gdp_billions) +
   geom_col() + 
   aes(fill = europe_category) +
-  scale_y_log10() +
-  coord_flip() +
+  scale_x_log10() +
   labs(title = "Eight largest economies, 2002")
+```
+
+---
+
+
+`r flipbookr::chunk_reveal("factor_relevel")`
+
+---
+
+
+<!-- r flipbookr::chunk_reveal("factor_relevel", break_type = "user")` -->
+
+
+```{r factor_relevel, include = F}
+my_countries <- c("Brazil", "France", "Russia",   
+        "United Kingdom", "United States", 
+        "China", "India", "Japan")
+
+gapminder %>% 
+  filter(year == 2002) %>% 
+  filter(country %in% my_countries) %>% 
+  mutate(pop_category =
+           case_when(pop >= 1000000000 ~ "billions",
+                     pop >=  100000000 ~ "hundred millions",
+                     pop <  100000000 ~ "fewer than hundred million")) %>% 
+  mutate(pop_category = fct_relevel(pop_category, #BREAK2
+                       level = c("fewer than hundred million",  #BREAK2
+                                 "hundred millions", #BREAK2
+                                 "billions"))) %>% #BREAK2
+  ggplot() +
+  aes(y = pop_category) +
+  aes(x = gdpPercap) +
+  geom_point() +
+  ggrepel::geom_text_repel(aes(label = country))
 ```
 
 
 
 
-
 ```{css, eval = TRUE, echo = FALSE}
-.remark-code{line-height: 1.5; font-size: 70%}
+.remark-code{line-height: 1.5; font-size: 60%}
 ```

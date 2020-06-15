@@ -1,0 +1,128 @@
+---
+title: "{glue}, paste, paste0, cat"
+subtitle: "With flipbookr and xaringan"
+author: "Gina Reynolds, May 2020"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: [default, hygge, ninjutsu]
+    nature:
+      ratio: 16:10
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+
+
+```{r setup, include = F}
+# This is the recommended set up for flipbooks
+# you might think about setting cache to TRUE as you gain practice --- building flipbooks from scracth can be time consuming
+knitr::opts_chunk$set(fig.width = 6, message = FALSE, warning = FALSE, comment = "", cache = FALSE, fig.retina = 3)
+library(flipbookr)
+library(tidyverse)
+```
+
+
+---
+
+
+`r chunk_reveal("pastes")`
+
+```{r pastes, include=F}
+library(magrittr)
+
+paste("hi", "bye")
+paste0("hi", "bye")
+
+library(gapminder)
+gapminder %>% 
+  pull(country) %>% 
+  unique() %>% 
+  paste(collapse = " ") ->
+collapsed
+  
+gapminder %>% 
+  filter(year == 2002) %>% 
+  select(continent, country) %>% 
+  mutate(both = 
+           paste(continent, 
+                 country, 
+                 sep = ": ")) ->
+both
+
+"Hello there!" %>% 
+  cat()
+
+```
+
+
+
+
+
+---
+
+Just using [examples](https://github.com/tidyverse/glue) from the documentation.
+
+
+---
+
+`r chunk_reveal("glue1")`
+
+```{r glue1, include=F}
+library(glue)
+name <- "Fred"
+glue('My name is {name}.')
+```
+
+---
+
+
+`r chunk_reveal("glue2")`
+
+```{r glue2, include=F}
+library(glue)
+
+name <- "Fred"
+age <- 50
+anniversary <- as.Date("1991-10-12")
+
+glue('My name is {name},',
+  ' my age next year is {age + 1},',
+  ' my anniversary is {format(anniversary, "%A, %B %d, %Y")}.')
+
+glue('My name is {name},',
+  ' my age next year is {age + 1},',
+  ' my anniversary is {format(anniversary, "%A, %B %d, %Y")}.',
+  name = "Joe",
+  age = 40,
+  anniversary = as.Date("2001-10-12"))
+
+`%>%` <- magrittr::`%>%`
+
+mtcars %>% 
+  glue_data("{rownames(.)} has {hp} hp")
+```
+
+---
+
+
+`r chunk_reveal("glue3")`
+
+```{r glue3, include=F}
+library(dplyr)
+head(iris) %>%
+ mutate(description = 
+  glue("This {Species} has a petal length of {Petal.Length}"))
+```
+
+
+
+
+---
+
+
+
+```{css, eval = TRUE, echo = FALSE}
+.remark-code{line-height: 1.5; font-size: 80%}
+```
