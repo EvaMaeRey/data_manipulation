@@ -4,6 +4,7 @@ subtitle: "With flipbookr and xaringan"
 author: "Gina Reynolds, March 2020"
 output:
   xaringan::moon_reader:
+    chakra: libs/remark-latest.min.js
     lib_dir: libs
     css: [default, hygge, ninjutsu]
     nature:

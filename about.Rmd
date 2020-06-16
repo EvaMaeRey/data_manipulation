@@ -73,12 +73,37 @@ The function `summary()` can also be used to request summary statistcs for an en
 | pivot_wider() | *from long to wide*|
 
 
+```{css, echo = F}
+.static {
+  position:absolute;
+  background: white;
+}
+
+.static:hover {
+  opacity:0;
+}
+```
+
+```{r, eval = T, echo = F}
+library(viztoc)
+```
+
+`r flipbook_webshots_build_and_use_gif(dir = "hi/",num_pages = 4,pattern = "", base_url = "https://evamaerey.github.io/tidyverse_in_action/one_stream_wrangle.html", width = 400, height = 300, cached_gif = T, delay = .5)`
+
+
+
+
+
+
+
+
+
 ### [Bringing streams together: Joins and Binds](joining_data.html){target="_blank"}
 
 |function |action |
 | :--- | ---: |
 | full_join() | *keeps all rows*|
-| inner_join()  | *keeps overlapping rows*|
+| inner_join()  | *keeps common id rows*|
 | left_join()  | *keeps all left-hand side rows*| 
 | right_join()     | *keeps all right-hand side rows*|
 | anti_join()     | *removes rows if there is a match on right-hand side*|
