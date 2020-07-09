@@ -92,7 +92,7 @@ count: false
 .left-panel-simple_vector-auto[
 
 ```r
-*c(1, 4, 2, 6)   # is the concatinate function
+*c(1, 4, 2, 6)   # is the concatenate function
 ```
 ]
  
@@ -110,7 +110,7 @@ count: false
 .left-panel-simple_vector-auto[
 
 ```r
-c(1, 4, 2, 6) -&gt;  # is the concatinate function
+c(1, 4, 2, 6) -&gt;  # is the concatenate function
 * my_vector  # Now we've done the assignment
 ```
 ]
@@ -126,28 +126,10 @@ count: false
 .left-panel-simple_vector-auto[
 
 ```r
-c(1, 4, 2, 6) -&gt;  # is the concatinate function
+c(1, 4, 2, 6) -&gt;  # is the concatenate function
   my_vector  # Now we've done the assignment
-# we can pull out element 3
-*# of a vector using my_vector[3]  # of a vector using my_vector[3]
-```
-]
- 
-.right-panel-simple_vector-auto[
 
-]
-
----
-count: false
- 
-
-.left-panel-simple_vector-auto[
-
-```r
-c(1, 4, 2, 6) -&gt;  # is the concatinate function
-  my_vector  # Now we've done the assignment
-# we can pull out element 3
-# of a vector using my_vector[3]  # of a vector using my_vector[3]
+# we can pull out element 3 using brackets
 *my_vector
 ```
 ]
@@ -166,16 +148,46 @@ count: false
 .left-panel-simple_vector-auto[
 
 ```r
-c(1, 4, 2, 6) -&gt;  # is the concatinate function
+c(1, 4, 2, 6) -&gt;  # is the concatenate function
   my_vector  # Now we've done the assignment
-# we can pull out element 3
-# of a vector using my_vector[3]  # of a vector using my_vector[3]
+
+# we can pull out element 3 using brackets
 my_vector %&gt;%  
 * .[3]
 ```
 ]
  
 .right-panel-simple_vector-auto[
+
+```
+  [1] 2
+```
+]
+
+---
+count: false
+ 
+
+.left-panel-simple_vector-auto[
+
+```r
+c(1, 4, 2, 6) -&gt;  # is the concatenate function
+  my_vector  # Now we've done the assignment
+
+# we can pull out element 3 using brackets
+my_vector %&gt;%  
+  .[3]  
+
+# The above is a line by line version of the following
+*my_vector[3]
+```
+]
+ 
+.right-panel-simple_vector-auto[
+
+```
+  [1] 2
+```
 
 ```
   [1] 2
@@ -217,7 +229,7 @@ count: false
 .left-panel-simple_vector-auto[
 
 ```r
-*c(1, 4, 2, 6)   # is the concatinate function
+*c(1, 4, 2, 6)   # is the concatenate function
 ```
 ]
  
@@ -235,7 +247,7 @@ count: false
 .left-panel-simple_vector-auto[
 
 ```r
-c(1, 4, 2, 6) -&gt;  # is the concatinate function
+c(1, 4, 2, 6) -&gt;  # is the concatenate function
 * my_vector  # Now we've done the assignment
 ```
 ]
@@ -251,28 +263,10 @@ count: false
 .left-panel-simple_vector-auto[
 
 ```r
-c(1, 4, 2, 6) -&gt;  # is the concatinate function
+c(1, 4, 2, 6) -&gt;  # is the concatenate function
   my_vector  # Now we've done the assignment
-# we can pull out element 3
-*# of a vector using my_vector[3]  # of a vector using my_vector[3]
-```
-]
- 
-.right-panel-simple_vector-auto[
 
-]
-
----
-count: false
- 
-
-.left-panel-simple_vector-auto[
-
-```r
-c(1, 4, 2, 6) -&gt;  # is the concatinate function
-  my_vector  # Now we've done the assignment
-# we can pull out element 3
-# of a vector using my_vector[3]  # of a vector using my_vector[3]
+# we can pull out element 3 using brackets
 *my_vector
 ```
 ]
@@ -291,16 +285,46 @@ count: false
 .left-panel-simple_vector-auto[
 
 ```r
-c(1, 4, 2, 6) -&gt;  # is the concatinate function
+c(1, 4, 2, 6) -&gt;  # is the concatenate function
   my_vector  # Now we've done the assignment
-# we can pull out element 3
-# of a vector using my_vector[3]  # of a vector using my_vector[3]
+
+# we can pull out element 3 using brackets
 my_vector %&gt;%  
 * .[3]
 ```
 ]
  
 .right-panel-simple_vector-auto[
+
+```
+  [1] 2
+```
+]
+
+---
+count: false
+ 
+
+.left-panel-simple_vector-auto[
+
+```r
+c(1, 4, 2, 6) -&gt;  # is the concatenate function
+  my_vector  # Now we've done the assignment
+
+# we can pull out element 3 using brackets
+my_vector %&gt;%  
+  .[3]  
+
+# The above is a line by line version of the following
+*my_vector[3]
+```
+]
+ 
+.right-panel-simple_vector-auto[
+
+```
+  [1] 2
+```
 
 ```
   [1] 2
@@ -389,11 +413,41 @@ count: false
 matrix(1:15, nrow = 3) %&gt;%  
 # specify which row and which columns
   .[2, 3:4] %&gt;%  
+# just one input indicates which column
 * .[2]
 ```
 ]
  
 .right-panel-simple_matrix-auto[
+
+```
+  [1] 11
+```
+]
+
+---
+count: false
+ 
+
+.left-panel-simple_matrix-auto[
+
+```r
+matrix(1:15, nrow = 3) %&gt;%  
+# specify which row and which columns
+  .[2, 3:4] %&gt;%  
+# just one input indicates which column
+  .[2]  
+
+# You can do this in one line
+*matrix(1:15, nrow = 3)[2, 3:4][2]
+```
+]
+ 
+.right-panel-simple_matrix-auto[
+
+```
+  [1] 11
+```
 
 ```
   [1] 11
@@ -426,6 +480,11 @@ matrix(1:15, nrow = 3) %&gt;%
 
 ---
 
+## Lists
+
+lists are flexible data structures, but this might make them feel trickier.
+
+---
 
 
 
@@ -480,11 +539,41 @@ count: false
 matrix(1:15, nrow = 3) %&gt;%  
 # specify which row and which columns
   .[2, 3:4] %&gt;%  
+# just one input indicates which column
 * .[2]
 ```
 ]
  
 .right-panel-simple_matrix-auto[
+
+```
+  [1] 11
+```
+]
+
+---
+count: false
+ 
+
+.left-panel-simple_matrix-auto[
+
+```r
+matrix(1:15, nrow = 3) %&gt;%  
+# specify which row and which columns
+  .[2, 3:4] %&gt;%  
+# just one input indicates which column
+  .[2]  
+
+# You can do this in one line
+*matrix(1:15, nrow = 3)[2, 3:4][2]
+```
+]
+ 
+.right-panel-simple_matrix-auto[
+
+```
+  [1] 11
+```
 
 ```
   [1] 11

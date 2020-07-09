@@ -82,12 +82,15 @@ library(tidyverse)
 ---
 
 ```{r simple_vector, eval = F, echo = F}
-c(1, 4, 2, 6) -> # is the concatinate function
+c(1, 4, 2, 6) -> # is the concatenate function
   my_vector # Now we've done the assignment
-# we can pull out element 3 
-# of a vector using my_vector[3]
+
+# we can pull out element 3 using brackets
 my_vector %>% 
   .[3]
+
+# The above is a line by line version of the following
+my_vector[3]
 ```
 
 `r chunk_reveal("simple_vector", widths = c(59,40))`
@@ -97,7 +100,12 @@ my_vector %>%
 ```{r counting_numbers_vector, eval = F, echo = F}
 5:12 ->
   integer_sequence
-#############
+
+# pull out elements one and three
+integer_sequence %>% 
+  .[c(1,3)]
+
+# the above is the line by line version
 integer_sequence[c(1,3)]
 ```
 
@@ -109,28 +117,50 @@ integer_sequence[c(1,3)]
 ## Matrix
 
 ---
+`r chunk_reveal("simple_matrix", widths = c(59,40))`
 
 ```{r simple_matrix, eval = F, echo = F}
 matrix(1:15, nrow = 3) %>% 
   # specify which row and which columns
   .[2, 3:4] %>% 
+  # just one input indicates which column
   .[2] 
+
+# You can do this in one line
+matrix(1:15, nrow = 3)[2, 3:4][2] 
 ```
 
-`r chunk_reveal("simple_matrix", widths = c(59,40))`
 
 ---
 
+## Lists
+
+lists are flexible data structures, but this might make them feel trickier.
+
+---
 
 ```{r simple_list, eval = F, echo = F}
 list("apple", 2:5) ->
-  a_list_i_made
-#############
-a_list_i_made %>% 
+  my_list
+
+# elements of a list using double brackets
+my_list %>% 
   .[[1]] # access elements with double brackets
-a_list_i_made %>% 
+
+# you can use double and single brackets together
+my_list %>% 
   .[[2]] %>% # access elements with double brackets
   .[2]
+
+# behavior of length
+length(my_list)
+length("apple")
+length(2:5)
+
+# some map function from purrr
+# try to describe the behavior of each
+purrr::map(my_list, length)
+purrr::map_int(my_list, length)
 ```
 
 
@@ -396,9 +426,6 @@ mod_fun <- function(df) lm(Sepal.Length ~ ., data = df)
 m_iris <- n_iris %>%
   mutate(model = map(data, mod_fun))
 ```
-
-
-
 
 
 ---
