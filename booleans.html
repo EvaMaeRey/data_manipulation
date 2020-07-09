@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
   <head>
     <title>Booleans</title>
     <meta charset="utf-8" />
@@ -26,18 +26,26 @@ library(tidyverse)
 ```
 
 ```
-## ── Attaching packages ────────────────────────────── tidyverse 1.3.0 ──
+## ── Attaching packages ─────────────────────────────────────────── tidyverse 1.3.0 ──
 ```
 
 ```
-## ✓ ggplot2 3.3.0.9000     ✓ purrr   0.3.3     
-## ✓ tibble  2.1.3          ✓ dplyr   0.8.4     
-## ✓ tidyr   1.0.2          ✓ stringr 1.4.0     
-## ✓ readr   1.3.1          ✓ forcats 0.4.0
+## ✓ ggplot2 3.3.2     ✓ purrr   0.3.3
+## ✓ tibble  3.0.0     ✓ dplyr   0.8.5
+## ✓ tidyr   1.0.2     ✓ stringr 1.4.0
+## ✓ readr   1.3.1     ✓ forcats 0.5.0
 ```
 
 ```
-## ── Conflicts ───────────────────────────────── tidyverse_conflicts() ──
+## Warning: package 'ggplot2' was built under R version 3.6.2
+```
+
+```
+## Warning: package 'tibble' was built under R version 3.6.2
+```
+
+```
+## ── Conflicts ────────────────────────────────────────────── tidyverse_conflicts() ──
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()
 ```
@@ -49,31 +57,36 @@ knitr::opts_chunk$set(cache = F, comment = "")
 
 ---
 
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-simple_comparisons-auto[
 
 ```r
 *5 == 5
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-simple_comparisons-auto[
 
 ```
 [1] TRUE
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-simple_comparisons-auto[
 
 ```r
 5 == 5  
 *5 != 5
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-simple_comparisons-auto[
 
 ```
 [1] TRUE
@@ -82,19 +95,22 @@ count: false
 ```
 [1] FALSE
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-simple_comparisons-auto[
 
 ```r
 5 == 5  
 5 != 5  
 *5 != 9
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-simple_comparisons-auto[
 
 ```
 [1] TRUE
@@ -107,11 +123,13 @@ count: false
 ```
 [1] TRUE
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-simple_comparisons-auto[
 
 ```r
 5 == 5  
@@ -119,8 +137,9 @@ count: false
 5 != 9  
 *"blue" == "blue"
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-simple_comparisons-auto[
 
 ```
 [1] TRUE
@@ -137,11 +156,13 @@ count: false
 ```
 [1] TRUE
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-simple_comparisons-auto[
 
 ```r
 5 == 5  
@@ -150,8 +171,9 @@ count: false
 "blue" == "blue"  
 *"red" == "blue"
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-simple_comparisons-auto[
 
 ```
 [1] TRUE
@@ -172,11 +194,13 @@ count: false
 ```
 [1] FALSE
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-simple_comparisons-auto[
 
 ```r
 5 == 5  
@@ -186,8 +210,9 @@ count: false
 "red" == "blue"  
 *"Blue" == "blue"
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-simple_comparisons-auto[
 
 ```
 [1] TRUE
@@ -212,11 +237,13 @@ count: false
 ```
 [1] FALSE
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-simple_comparisons-auto[
 
 ```r
 5 == 5  
@@ -227,8 +254,9 @@ count: false
 "Blue" == "blue"  
 *"Blue" != "blue"
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-simple_comparisons-auto[
 
 ```
 [1] TRUE
@@ -257,11 +285,13 @@ count: false
 ```
 [1] TRUE
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-simple_comparisons-auto[
 
 ```r
 5 == 5  
@@ -273,8 +303,9 @@ count: false
 "Blue" != "blue"  
 *5 &gt; 3
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-simple_comparisons-auto[
 
 ```
 [1] TRUE
@@ -307,11 +338,13 @@ count: false
 ```
 [1] TRUE
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-simple_comparisons-auto[
 
 ```r
 5 == 5  
@@ -324,8 +357,9 @@ count: false
 5 &gt; 3  
 *5 &gt;= 5
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-simple_comparisons-auto[
 
 ```
 [1] TRUE
@@ -362,11 +396,13 @@ count: false
 ```
 [1] TRUE
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-simple_comparisons-auto[
 
 ```r
 5 == 5  
@@ -380,8 +416,9 @@ count: false
 5 &gt;= 5  
 *5 &lt; 3
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-simple_comparisons-auto[
 
 ```
 [1] TRUE
@@ -422,11 +459,13 @@ count: false
 ```
 [1] FALSE
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-simple_comparisons-auto[
 
 ```r
 5 == 5  
@@ -441,8 +480,9 @@ count: false
 5 &lt; 3  
 *5 &lt;= 3
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-simple_comparisons-auto[
 
 ```
 [1] TRUE
@@ -487,7 +527,31 @@ count: false
 ```
 [1] FALSE
 ```
-]]
+]
+
+&lt;style&gt;
+.left-panel-simple_comparisons-auto {
+  color: #777;
+  width: 38.6138613861386%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-simple_comparisons-auto {
+  width: 59.4059405940594%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-simple_comparisons-auto {
+  width: 0%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
 
 
 
@@ -495,31 +559,36 @@ count: false
 ---
 
 
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-combining_logicals-auto[
 
 ```r
 *TRUE &amp; TRUE
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-combining_logicals-auto[
 
 ```
 [1] TRUE
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-combining_logicals-auto[
 
 ```r
 TRUE &amp; TRUE  
 *FALSE &amp; TRUE
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-combining_logicals-auto[
 
 ```
 [1] TRUE
@@ -528,19 +597,22 @@ TRUE &amp; TRUE
 ```
 [1] FALSE
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-combining_logicals-auto[
 
 ```r
 TRUE &amp; TRUE  
 FALSE &amp; TRUE  
 *TRUE | FALSE
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-combining_logicals-auto[
 
 ```
 [1] TRUE
@@ -553,11 +625,13 @@ FALSE &amp; TRUE
 ```
 [1] TRUE
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-combining_logicals-auto[
 
 ```r
 TRUE &amp; TRUE  
@@ -565,8 +639,9 @@ FALSE &amp; TRUE
 TRUE | FALSE  
 *FALSE | FALSE
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-combining_logicals-auto[
 
 ```
 [1] TRUE
@@ -583,11 +658,13 @@ TRUE | FALSE
 ```
 [1] FALSE
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-combining_logicals-auto[
 
 ```r
 TRUE &amp; TRUE  
@@ -596,8 +673,9 @@ TRUE | FALSE
 FALSE | FALSE  
 *5 %in% c(1, 5, 8, 9)
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-combining_logicals-auto[
 
 ```
 [1] TRUE
@@ -618,11 +696,13 @@ FALSE | FALSE
 ```
 [1] TRUE
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-combining_logicals-auto[
 
 ```r
 TRUE &amp; TRUE  
@@ -632,8 +712,9 @@ FALSE | FALSE
 5 %in% c(1, 5, 8, 9)  
 *2 %in% c(1, 5, 8, 9)
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-combining_logicals-auto[
 
 ```
 [1] TRUE
@@ -658,11 +739,13 @@ FALSE | FALSE
 ```
 [1] FALSE
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-combining_logicals-auto[
 
 ```r
 TRUE &amp; TRUE  
@@ -673,8 +756,9 @@ FALSE | FALSE
 2 %in% c(1, 5, 8, 9)  
 *c(2, 5) %in% c(1, 5, 8, 9)
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-combining_logicals-auto[
 
 ```
 [1] TRUE
@@ -703,11 +787,13 @@ FALSE | FALSE
 ```
 [1] FALSE  TRUE
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-combining_logicals-auto[
 
 ```r
 TRUE &amp; TRUE  
@@ -719,8 +805,9 @@ FALSE | FALSE
 c(2, 5) %in% c(1, 5, 8, 9)  
 *c(1, 5, 8, 9) %in% 5
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-combining_logicals-auto[
 
 ```
 [1] TRUE
@@ -753,22 +840,48 @@ c(2, 5) %in% c(1, 5, 8, 9)
 ```
 [1] FALSE  TRUE FALSE FALSE
 ```
-]]
+]
+
+&lt;style&gt;
+.left-panel-combining_logicals-auto {
+  color: #777;
+  width: 38.6138613861386%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-combining_logicals-auto {
+  width: 59.4059405940594%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-combining_logicals-auto {
+  width: 0%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
 
 
 
 
 ---
 
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-in_a_pipeline-auto[
 
 ```r
 *gapminder
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-in_a_pipeline-auto[
 
 ```
 # A tibble: 1,704 x 6
@@ -786,19 +899,22 @@ count: false
 10 Afghanistan Asia       1997    41.8 22227415      635.
 # … with 1,694 more rows
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-in_a_pipeline-auto[
 
 ```r
 gapminder %&gt;%  
 * filter(pop &gt; 100000000 &amp;
 *        gdpPercap &gt; 5000)
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-in_a_pipeline-auto[
 
 ```
 # A tibble: 30 x 6
@@ -816,11 +932,13 @@ gapminder %&gt;%
 10 Japan   Asia       1977    75.4 113872473    16610.
 # … with 20 more rows
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-in_a_pipeline-auto[
 
 ```r
 gapminder %&gt;%  
@@ -828,8 +946,9 @@ gapminder %&gt;%
          gdpPercap &gt; 5000) %&gt;%  
 * filter(year &gt; 1995)
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-in_a_pipeline-auto[
 
 ```
 # A tibble: 11 x 6
@@ -847,11 +966,13 @@ gapminder %&gt;%
 10 United States Americas   2002    77.3 287675526    39097.
 11 United States Americas   2007    78.2 301139947    42952.
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-in_a_pipeline-auto[
 
 ```r
 gapminder %&gt;%  
@@ -862,8 +983,9 @@ gapminder %&gt;%
 *        country == "Mexico" |
 *        country == "United States")
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-in_a_pipeline-auto[
 
 ```
 # A tibble: 8 x 6
@@ -878,11 +1000,13 @@ gapminder %&gt;%
 7 United States Americas   2002    77.3 287675526    39097.
 8 United States Americas   2007    78.2 301139947    42952.
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-in_a_pipeline-auto[
 
 ```r
 gapminder %&gt;%  
@@ -894,8 +1018,9 @@ gapminder %&gt;%
          country == "United States") %&gt;%  
 * filter(country %in% c("United States", "Mexico"))
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-in_a_pipeline-auto[
 
 ```
 # A tibble: 5 x 6
@@ -907,7 +1032,31 @@ gapminder %&gt;%
 4 United States Americas   2002    77.3 287675526    39097.
 5 United States Americas   2007    78.2 301139947    42952.
 ```
-]]
+]
+
+&lt;style&gt;
+.left-panel-in_a_pipeline-auto {
+  color: #777;
+  width: 38.6138613861386%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-in_a_pipeline-auto {
+  width: 59.4059405940594%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-in_a_pipeline-auto {
+  width: 0%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
 
 
 
@@ -918,6 +1067,12 @@ gapminder %&gt;%
 
 &lt;style type="text/css"&gt;
 .remark-code{line-height: 1.5; font-size: 70%}
+
+@media print {
+  .has-continuation {
+    display: block;
+  }
+}
 &lt;/style&gt;
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
@@ -966,9 +1121,25 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     }
     deleted = true;
   });
-})();</script>
-
-<script>
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
 (function() {
   var links = document.getElementsByTagName('a');
   for (var i = 0; i < links.length; i++) {
@@ -977,7 +1148,23 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     }
   }
 })();
-</script>
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
 
 <script>
 slideshow._releaseMath = function(el) {

@@ -61,10 +61,16 @@ names(my_data)[1] <- "var1"
 
 `r chunk_reveal("free_form", left_assign = T)`
 
----
+
 
 ```{css, eval = TRUE, echo = F}
 .remark-code{line-height: 1.5; font-size: 60%}
+
+@media print {
+  .has-continuation {
+    display: block;
+  }
+}
 ```
 
 

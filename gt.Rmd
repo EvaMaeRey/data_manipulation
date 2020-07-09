@@ -339,4 +339,13 @@ pizza_tab
   float: right;
   padding-left: 1%;
 }
+
+
+@media print {
+  .has-continuation {
+    display: block;
+  }
+}
+```
+
 ```

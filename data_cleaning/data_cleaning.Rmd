@@ -583,11 +583,7 @@ tibble(text = unsc_members_raw) %>%
 
 ---
 
----
 
-```{r eval = F}
-citation("lubridate")
-```
 
 Sam Firke (2019). janitor: Simple Tools for Examining and
   Cleaning Dirty Data. R package version 1.2.0.
@@ -611,12 +607,21 @@ Garrett Grolemund, Hadley Wickham (2011). Dates
   Statistical Software, 40(3), 1-25. URL
   http://www.jstatsoft.org/v40/i03/.
 
----
+
 
 
 
 ```{css, eval = TRUE, echo = F}
 .remark-code{line-height: 1.5; font-size: 65%}
+
+
+@media print {
+  .has-continuation {
+    display: block;
+  }
+}
+
+
 ```
 
 

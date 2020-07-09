@@ -17,7 +17,7 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 knitr::opts_chunk$set(fig.height = 6, out.width = "100%", comment = " ", cache = T, warning = F)
 
-source("../xaringan_reveal_parentheses_balanced.R")
+library(flipbookr)
 ```
 
 
@@ -90,7 +90,7 @@ my_vector %>%
   .[3]
 ```
 
-`r apply_reveal("simple_vector")`
+`r chunk_reveal("simple_vector", widths = c(59,40))`
 
 ---
 
@@ -102,7 +102,7 @@ integer_sequence[c(1,3)]
 ```
 
 
-`r apply_reveal("simple_vector")`
+`r chunk_reveal("simple_vector", widths = c(59,40))`
 
 ---
 
@@ -117,7 +117,7 @@ matrix(1:15, nrow = 3) %>%
   .[2] 
 ```
 
-`r apply_reveal("simple_matrix")`
+`r chunk_reveal("simple_matrix", widths = c(59,40))`
 
 ---
 
@@ -134,7 +134,7 @@ a_list_i_made %>%
 ```
 
 
-`r apply_reveal("simple_matrix")`
+`r chunk_reveal("simple_matrix", widths = c(59,40))`
 
 
 ---
@@ -145,11 +145,14 @@ a_list_i_made %>%
 list(thing_1 = "a", 
      thing_2 = matrix(data = 1:5, nrow = 2)) ->
   my_named_list
-#############
+
 my_named_list %>% 
-  .$thing_1 # access via dollarsign
+  .$thing_1 -> # access via dollar sign
+grabbed_thing_1
+
 my_named_list %>% 
-  .[[1]] # access via dollarsign
+  .[[1]] -> # access via brackets
+grabbed_thing_1
 ```
 
 
@@ -157,7 +160,7 @@ my_named_list %>%
 
 
 
-`r apply_reveal("named_lists")`
+`r chunk_reveal("named_lists", widths = c(59,40))`
 
 
 
@@ -169,13 +172,17 @@ my_named_list %>%
 ```{r lists_of_lists, eval = F, echo = F}
 list(thing_1 = "a", 
      thing_2 = matrix(data = 1:5, nrow = 2)) ->
-  my_named_list
-list("a", 
-     1:5, 
-     my_named_list) %>%
-  .[[3]] %>%
-  .$thing_2 %>%
-  .[3]
+my_named_list
+
+list(
+  "a",  # scalar
+  1:5,  # vector
+  my_named_list  # list
+     ) %>%
+  .[[3]] %>%  # drilling down w brackets
+  .$thing_2 %>%  # with dollar sign and name
+  .[3] ->  # with single brackets element in vector
+lists_within_lists
 ```
 
 
@@ -183,25 +190,31 @@ list("a",
 
 ---
 
-`r apply_reveal("lists_of_lists")`
+`r chunk_reveal("lists_of_lists", widths = c(59,40))`
 
 
 ---
 
 ```{r statistical_function_returns, eval = F, echo = F}
+set.seed(87463) 
 corr <- cor.test(rnorm(50), rnorm(50))
+
 corr %>% 
   str()
-# drilling down with dollar sign notation
+
+# drilling down with dollar sign and name
 corr %>% 
   .$estimate %>% 
-  .[[1]]
+  .[[1]] ->
+extracted_estimate
+
 # drilling down with brackets
-corr[[2]] %>% 
-  .[[1]]
+corr %>% 
+  .[[3]] ->
+extracted_pvalue
 ```
 
-`r apply_reveal("statistical_function_returns")`
+`r chunk_reveal("statistical_function_returns", widths = c(59,40))`
 
 ---
 
@@ -211,30 +224,53 @@ corr[[2]] %>%
 
 ---
 
+
+`r chunk_reveal("compare", widths = c(59,40))`
+
 ```{r compare, eval = F, echo = F}
+# order matters
 list(
   c("mac", "granny"), 
   c("naval", "blood") 
   ) %>% 
   .[2] %>% 
   .[[1]]
+
+
+# compare with above result
 list(
   c("mac", "granny"), 
   c("naval", "blood") 
   ) %>% 
   .[[2]] %>% 
-  .[1]
+  .[1] 
 ```
 
-`r apply_reveal("compare")`
 
 
 
-```{r}
-list(apples = c("mac", "granny"), 
-     oranges = c("naval", "blood")) %>% 
-  .$oranges
+
+---
+
+`r chunk_reveal("example", break_type = "rotate")`
+
+```{r example, eval = F, echo = F}
+tibble(x = c(1,2,3,4,6), 
+       y = 1:5, 
+       z = list(1:2, 4:5, 8, NA, c(1,7,9,0))) %>% 
+  tibble() # does not do anything #ROTATE
+  mutate(the_length = map(z, length)) %>% #general #ROTATE
+  mutate(the_length = map_int(z, length)) %>% #scalar integer #ROTATE
+  mutate(the_length = map_dbl(z, length)) %>% #scalar numeric #ROTATE
+  mutate(the_length = map_chr(z, length)) #scalar character #ROTATE
 ```
+
+
+
+---
+
+
+
 
 
 ---
@@ -266,7 +302,7 @@ iris_mods
 
 ---
 
-`r apply_reveal("list_column_workflow")`
+`r chunk_reveal("list_column_workflow", widths = c(59,40))`
 
 
 ---
@@ -368,41 +404,41 @@ m_iris <- n_iris %>%
 ---
 
 
-purrr::map(.x, .f, ...)
-Apply .f element-wise to .x as .f(.x) 
+<!-- purrr::map(.x, .f, ...) -->
+<!-- Apply .f element-wise to .x as .f(.x)  -->
 
 ```{r wwlc1, echo= F, eval = F}
 n_iris %>% 
   mutate(n = map(data, dim))
 ```
 
-`r apply_reveal("wwlc1")`
+`r chunk_reveal("wwlc1", widths = c(59,40))`
 
 ---
 
-purrr::map2(.x, .y, .f, ...)
-Apply .f element-wise to .x and .y as .f(.x, .y) 
+<!-- purrr::map2(.x, .y, .f, ...) -->
+<!-- Apply .f element-wise to .x and .y as .f(.x, .y)  -->
 
 ```{r wwlc2, echo= F, eval = F}
 m_iris %>% 
   mutate(n = map2(data, model, list))
 ```
 
-`r apply_reveal("wwlc2")`
+`r chunk_reveal("wwlc2", widths = c(59,40))`
 
 
 ---
 
 
-purrr::pmap(.l, .f, ...)
-Apply .f element-wise to vectors saved in .l 
+<!-- purrr::pmap(.l, .f, ...) -->
+<!-- Apply .f element-wise to vectors saved in .l  -->
 
 ```{r wwlc3, echo= F, eval = F}
 m_iris %>%
   mutate(n = pmap(list(data, model, data), list))
 ```  
 
-`r apply_reveal("wwlc3")`
+`r chunk_reveal("wwlc3", widths = c(59,40))`
 
 
 ---
@@ -414,49 +450,49 @@ Use the purrr functions map_lgl(), map_int(), map_dbl(), map_chr(), as well as t
 
 ---
 
-purrr::map_lgl(.x, .f, ...)
-Apply .f element-wise to .x, return a logical vector 
+<!-- purrr::map_lgl(.x, .f, ...) -->
+<!-- Apply .f element-wise to .x, return a logical vector  -->
 
 ```{r slc1, echo = F, eval = F}
 n_iris %>% 
   transmute(n = map_lgl(data, is.matrix))
 ```
 
-`r apply_reveal("slc1")`
+`r chunk_reveal("slc1", widths = c(59,40))`
 
 
 ---
 
-purrr::map_int(.x, .f, ...)
-Apply .f element-wise to .x, return an integer vector 
+<!-- purrr::map_int(.x, .f, ...) -->
+<!-- Apply .f element-wise to .x, return an integer vector  -->
 
 ```{r slc2, echo = F, eval = F}
 n_iris %>% 
   transmute(n = map_int(data, nrow))
 ```
 
-`r apply_reveal("slc2")`
+`r chunk_reveal("slc2", widths = c(59,40))`
 
 
 ---
 
-purrr::map_dbl(.x, .f, ...)
-Apply .f element-wise to .x, return a double vector
+<!-- purrr::map_dbl(.x, .f, ...) -->
+<!-- Apply .f element-wise to .x, return a double vector -->
 
 ```{r slc3, echo = F, eval = F}
 n_iris %>% 
   transmute(n = map_dbl(data, nrow))
 ```
 
-`r apply_reveal("slc3")`
+`r chunk_reveal("slc3", widths = c(59,40))`
 
 
 ---
 
 
 
-purrr::map_chr(.x, .f, ...)
-Apply .f element-wise to .x, return a character vector 
+<!-- purrr::map_chr(.x, .f, ...) -->
+<!-- Apply .f element-wise to .x, return a character vector  -->
 
 
 ```{r slc4, echo = F, eval = F}
@@ -464,7 +500,7 @@ n_iris %>%
   transmute(n = map_chr(data, nrow))
 ```
 
-`r apply_reveal("slc4")`
+`r chunk_reveal("slc4", widths = c(59,40))`
 
 
 ---
@@ -537,7 +573,7 @@ more_manipulations$n
 
 
 ```{css, eval = TRUE, echo = F}
-.remark-code{line-height: 1.5; font-size: 60%}
+.remark-code{line-height: 1.5; font-size: 90%}
 ```
 
 

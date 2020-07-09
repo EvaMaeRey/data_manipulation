@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
   <head>
     <title>purrr flipbook</title>
     <meta charset="utf-8" />
@@ -86,174 +86,250 @@ library(tidyverse)
 
 
 
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-simple_vector-auto[
 
 ```r
 *c(1, 4, 2, 6)   # is the concatinate function
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-simple_vector-auto[
 
 ```
   [1] 1 4 2 6
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-simple_vector-auto[
 
 ```r
 c(1, 4, 2, 6) -&gt;  # is the concatinate function
 * my_vector  # Now we've done the assignment
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-simple_vector-auto[
 
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-simple_vector-auto[
 
 ```r
 c(1, 4, 2, 6) -&gt;  # is the concatinate function
   my_vector  # Now we've done the assignment
-* # we can pull out element 3
+# we can pull out element 3
 *# of a vector using my_vector[3]  # of a vector using my_vector[3]
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-simple_vector-auto[
 
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-simple_vector-auto[
 
 ```r
 c(1, 4, 2, 6) -&gt;  # is the concatinate function
   my_vector  # Now we've done the assignment
-  # we can pull out element 3
+# we can pull out element 3
 # of a vector using my_vector[3]  # of a vector using my_vector[3]
 *my_vector
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-simple_vector-auto[
 
 ```
   [1] 1 4 2 6
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-simple_vector-auto[
 
 ```r
 c(1, 4, 2, 6) -&gt;  # is the concatinate function
   my_vector  # Now we've done the assignment
-  # we can pull out element 3
+# we can pull out element 3
 # of a vector using my_vector[3]  # of a vector using my_vector[3]
 my_vector %&gt;%  
 * .[3]
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-simple_vector-auto[
 
 ```
   [1] 2
 ```
-]]
+]
+
+&lt;style&gt;
+.left-panel-simple_vector-auto {
+  color: #777;
+  width: 59%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-simple_vector-auto {
+  width: 40%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-simple_vector-auto {
+  width: NA%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
 
 ---
 
 
 
 
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-simple_vector-auto[
 
 ```r
 *c(1, 4, 2, 6)   # is the concatinate function
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-simple_vector-auto[
 
 ```
   [1] 1 4 2 6
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-simple_vector-auto[
 
 ```r
 c(1, 4, 2, 6) -&gt;  # is the concatinate function
 * my_vector  # Now we've done the assignment
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-simple_vector-auto[
 
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-simple_vector-auto[
 
 ```r
 c(1, 4, 2, 6) -&gt;  # is the concatinate function
   my_vector  # Now we've done the assignment
-* # we can pull out element 3
+# we can pull out element 3
 *# of a vector using my_vector[3]  # of a vector using my_vector[3]
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-simple_vector-auto[
 
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-simple_vector-auto[
 
 ```r
 c(1, 4, 2, 6) -&gt;  # is the concatinate function
   my_vector  # Now we've done the assignment
-  # we can pull out element 3
+# we can pull out element 3
 # of a vector using my_vector[3]  # of a vector using my_vector[3]
 *my_vector
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-simple_vector-auto[
 
 ```
   [1] 1 4 2 6
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-simple_vector-auto[
 
 ```r
 c(1, 4, 2, 6) -&gt;  # is the concatinate function
   my_vector  # Now we've done the assignment
-  # we can pull out element 3
+# we can pull out element 3
 # of a vector using my_vector[3]  # of a vector using my_vector[3]
 my_vector %&gt;%  
 * .[3]
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-simple_vector-auto[
 
 ```
   [1] 2
 ```
-]]
+]
+
+&lt;style&gt;
+.left-panel-simple_vector-auto {
+  color: #777;
+  width: 59%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-simple_vector-auto {
+  width: 40%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-simple_vector-auto {
+  width: NA%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
 
 ---
 
@@ -263,15 +339,17 @@ my_vector %&gt;%
 
 
 
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-simple_matrix-auto[
 
 ```r
 *matrix(1:15, nrow = 3)
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-simple_matrix-auto[
 
 ```
        [,1] [,2] [,3] [,4] [,5]
@@ -279,42 +357,72 @@ count: false
   [2,]    2    5    8   11   14
   [3,]    3    6    9   12   15
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-simple_matrix-auto[
 
 ```r
 matrix(1:15, nrow = 3) %&gt;%  
-* # specify which row and which columns
+# specify which row and which columns
 * .[2, 3:4]
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-simple_matrix-auto[
 
 ```
   [1]  8 11
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-simple_matrix-auto[
 
 ```r
 matrix(1:15, nrow = 3) %&gt;%  
-  # specify which row and which columns
+# specify which row and which columns
   .[2, 3:4] %&gt;%  
 * .[2]
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-simple_matrix-auto[
 
 ```
   [1] 11
 ```
-]]
+]
+
+&lt;style&gt;
+.left-panel-simple_matrix-auto {
+  color: #777;
+  width: 59%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-simple_matrix-auto {
+  width: 40%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-simple_matrix-auto {
+  width: NA%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
 
 ---
 
@@ -322,15 +430,17 @@ matrix(1:15, nrow = 3) %&gt;%
 
 
 
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-simple_matrix-auto[
 
 ```r
 *matrix(1:15, nrow = 3)
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-simple_matrix-auto[
 
 ```
        [,1] [,2] [,3] [,4] [,5]
@@ -338,42 +448,72 @@ count: false
   [2,]    2    5    8   11   14
   [3,]    3    6    9   12   15
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-simple_matrix-auto[
 
 ```r
 matrix(1:15, nrow = 3) %&gt;%  
-* # specify which row and which columns
+# specify which row and which columns
 * .[2, 3:4]
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-simple_matrix-auto[
 
 ```
   [1]  8 11
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-simple_matrix-auto[
 
 ```r
 matrix(1:15, nrow = 3) %&gt;%  
-  # specify which row and which columns
+# specify which row and which columns
   .[2, 3:4] %&gt;%  
 * .[2]
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-simple_matrix-auto[
 
 ```
   [1] 11
 ```
-]]
+]
+
+&lt;style&gt;
+.left-panel-simple_matrix-auto {
+  color: #777;
+  width: 59%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-simple_matrix-auto {
+  width: 40%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-simple_matrix-auto {
+  width: NA%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
 
 
 ---
@@ -387,16 +527,18 @@ matrix(1:15, nrow = 3) %&gt;%
 
 
 
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-named_lists-auto[
 
 ```r
 *list(thing_1 = "a",
 *    thing_2 = matrix(data = 1:5, nrow = 2))
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-named_lists-auto[
 
 ```
   $thing_1
@@ -407,35 +549,41 @@ count: false
   [1,]    1    3    5
   [2,]    2    4    1
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-named_lists-auto[
 
 ```r
 list(thing_1 = "a",  
      thing_2 = matrix(data = 1:5, nrow = 2)) -&gt;  
 * my_named_list
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-named_lists-auto[
 
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-named_lists-auto[
 
 ```r
 list(thing_1 = "a",  
      thing_2 = matrix(data = 1:5, nrow = 2)) -&gt;  
   my_named_list  
-* #############
+
 *my_named_list
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-named_lists-auto[
 
 ```
   $thing_1
@@ -446,47 +594,72 @@ list(thing_1 = "a",
   [1,]    1    3    5
   [2,]    2    4    1
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-named_lists-auto[
 
 ```r
 list(thing_1 = "a",  
      thing_2 = matrix(data = 1:5, nrow = 2)) -&gt;  
   my_named_list  
-  #############
+
 my_named_list %&gt;%  
-* .$thing_1  # access via dollarsign
+* .$thing_1   # access via dollar sign
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-named_lists-auto[
 
 ```
   [1] "a"
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-named_lists-auto[
 
 ```r
 list(thing_1 = "a",  
      thing_2 = matrix(data = 1:5, nrow = 2)) -&gt;  
   my_named_list  
-  #############
+
 my_named_list %&gt;%  
-  .$thing_1  # access via dollarsign
+  .$thing_1 -&gt;  # access via dollar sign
+*grabbed_thing_1
+```
+]
+ 
+.right-panel-named_lists-auto[
+
+]
+
+---
+count: false
+ 
+
+.left-panel-named_lists-auto[
+
+```r
+list(thing_1 = "a",  
+     thing_2 = matrix(data = 1:5, nrow = 2)) -&gt;  
+  my_named_list  
+
+my_named_list %&gt;%  
+  .$thing_1 -&gt;  # access via dollar sign
+grabbed_thing_1  
+
 *my_named_list
 ```
-]]
-.column[.content[
-
-```
-  [1] "a"
-```
+]
+ 
+.right-panel-named_lists-auto[
 
 ```
   $thing_1
@@ -497,33 +670,83 @@ my_named_list %&gt;%
   [1,]    1    3    5
   [2,]    2    4    1
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-named_lists-auto[
 
 ```r
 list(thing_1 = "a",  
      thing_2 = matrix(data = 1:5, nrow = 2)) -&gt;  
   my_named_list  
-  #############
+
 my_named_list %&gt;%  
-  .$thing_1  # access via dollarsign
+  .$thing_1 -&gt;  # access via dollar sign
+grabbed_thing_1  
+
 my_named_list %&gt;%  
-* .[[1]]  # access via dollarsign
+* .[[1]]   # access via brackets
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-named_lists-auto[
 
 ```
   [1] "a"
 ```
+]
 
+---
+count: false
+ 
+
+.left-panel-named_lists-auto[
+
+```r
+list(thing_1 = "a",  
+     thing_2 = matrix(data = 1:5, nrow = 2)) -&gt;  
+  my_named_list  
+
+my_named_list %&gt;%  
+  .$thing_1 -&gt;  # access via dollar sign
+grabbed_thing_1  
+
+my_named_list %&gt;%  
+  .[[1]] -&gt;  # access via brackets
+*grabbed_thing_1
 ```
-  [1] "a"
-```
-]]
+]
+ 
+.right-panel-named_lists-auto[
+
+]
+
+&lt;style&gt;
+.left-panel-named_lists-auto {
+  color: #777;
+  width: 59%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-named_lists-auto {
+  width: 40%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-named_lists-auto {
+  width: NA%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
 
 
 
@@ -539,16 +762,18 @@ my_named_list %&gt;%
 
 ---
 
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-lists_of_lists-auto[
 
 ```r
 *list(thing_1 = "a",
 *    thing_2 = matrix(data = 1:5, nrow = 2))
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-lists_of_lists-auto[
 
 ```
   $thing_1
@@ -559,36 +784,45 @@ count: false
   [1,]    1    3    5
   [2,]    2    4    1
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-lists_of_lists-auto[
 
 ```r
 list(thing_1 = "a",  
      thing_2 = matrix(data = 1:5, nrow = 2)) -&gt;  
-* my_named_list
+*my_named_list
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-lists_of_lists-auto[
 
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-lists_of_lists-auto[
 
 ```r
 list(thing_1 = "a",  
      thing_2 = matrix(data = 1:5, nrow = 2)) -&gt;  
-  my_named_list  
-*list("a",
-*    1:5,
-*    my_named_list)
+my_named_list  
+
+*list(
+* "a",  # scalar
+* 1:5,  # vector
+* my_named_list  # list
+*    )
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-lists_of_lists-auto[
 
 ```
   [[1]]
@@ -606,23 +840,29 @@ list(thing_1 = "a",
   [1,]    1    3    5
   [2,]    2    4    1
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-lists_of_lists-auto[
 
 ```r
 list(thing_1 = "a",  
      thing_2 = matrix(data = 1:5, nrow = 2)) -&gt;  
-  my_named_list  
-list("a",  
-     1:5,  
-     my_named_list) %&gt;%  
-* .[[3]]
+my_named_list  
+
+list(  
+  "a",  # scalar
+  1:5,  # vector
+  my_named_list  # list
+     ) %&gt;%  
+* .[[3]]   # drilling down w brackets
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-lists_of_lists-auto[
 
 ```
   $thing_1
@@ -633,159 +873,256 @@ list("a",
   [1,]    1    3    5
   [2,]    2    4    1
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-lists_of_lists-auto[
 
 ```r
 list(thing_1 = "a",  
      thing_2 = matrix(data = 1:5, nrow = 2)) -&gt;  
-  my_named_list  
-list("a",  
-     1:5,  
-     my_named_list) %&gt;%  
-  .[[3]] %&gt;%  
-* .$thing_2
+my_named_list  
+
+list(  
+  "a",  # scalar
+  1:5,  # vector
+  my_named_list  # list
+     ) %&gt;%  
+  .[[3]] %&gt;%  # drilling down w brackets
+* .$thing_2   # with dollar sign and name
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-lists_of_lists-auto[
 
 ```
        [,1] [,2] [,3]
   [1,]    1    3    5
   [2,]    2    4    1
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-lists_of_lists-auto[
 
 ```r
 list(thing_1 = "a",  
      thing_2 = matrix(data = 1:5, nrow = 2)) -&gt;  
-  my_named_list  
-list("a",  
-     1:5,  
-     my_named_list) %&gt;%  
-  .[[3]] %&gt;%  
-  .$thing_2 %&gt;%  
-* .[3]
+my_named_list  
+
+list(  
+  "a",  # scalar
+  1:5,  # vector
+  my_named_list  # list
+     ) %&gt;%  
+  .[[3]] %&gt;%  # drilling down w brackets
+  .$thing_2 %&gt;%  # with dollar sign and name
+* .[3]   # with single brackets element in vector
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-lists_of_lists-auto[
 
 ```
   [1] 3
 ```
-]]
+]
+
+---
+count: false
+ 
+
+.left-panel-lists_of_lists-auto[
+
+```r
+list(thing_1 = "a",  
+     thing_2 = matrix(data = 1:5, nrow = 2)) -&gt;  
+my_named_list  
+
+list(  
+  "a",  # scalar
+  1:5,  # vector
+  my_named_list  # list
+     ) %&gt;%  
+  .[[3]] %&gt;%  # drilling down w brackets
+  .$thing_2 %&gt;%  # with dollar sign and name
+  .[3] -&gt;  # with single brackets element in vector
+*lists_within_lists
+```
+]
+ 
+.right-panel-lists_of_lists-auto[
+
+]
+
+&lt;style&gt;
+.left-panel-lists_of_lists-auto {
+  color: #777;
+  width: 59%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-lists_of_lists-auto {
+  width: 40%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-lists_of_lists-auto {
+  width: NA%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
 
 
 ---
 
 
 
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-statistical_function_returns-auto[
 
 ```r
+*set.seed(87463)
+```
+]
+ 
+.right-panel-statistical_function_returns-auto[
+
+]
+
+---
+count: false
+ 
+
+.left-panel-statistical_function_returns-auto[
+
+```r
+set.seed(87463)  
 *corr &lt;- cor.test(rnorm(50), rnorm(50))
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-statistical_function_returns-auto[
 
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-statistical_function_returns-auto[
 
 ```r
+set.seed(87463)  
 corr &lt;- cor.test(rnorm(50), rnorm(50))  
+
 *corr
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-statistical_function_returns-auto[
 
 ```
   
   	Pearson's product-moment correlation
   
   data:  rnorm(50) and rnorm(50)
-  t = 0.33444, df = 48, p-value = 0.7395
+  t = -0.5516, df = 48, p-value = 0.5838
   alternative hypothesis: true correlation is not equal to 0
   95 percent confidence interval:
-   -0.2332624  0.3222389
+   -0.3499814  0.2034776
   sample estimates:
-         cor 
-  0.04821586
+          cor 
+  -0.07936516
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-statistical_function_returns-auto[
 
 ```r
+set.seed(87463)  
 corr &lt;- cor.test(rnorm(50), rnorm(50))  
+
 corr %&gt;%  
 * str()
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-statistical_function_returns-auto[
 
 ```
   List of 9
-   $ statistic  : Named num 0.632
+   $ statistic  : Named num -0.552
     ..- attr(*, "names")= chr "t"
    $ parameter  : Named int 48
     ..- attr(*, "names")= chr "df"
-   $ p.value    : num 0.53
-   $ estimate   : Named num 0.0909
+   $ p.value    : num 0.584
+   $ estimate   : Named num -0.0794
     ..- attr(*, "names")= chr "cor"
    $ null.value : Named num 0
     ..- attr(*, "names")= chr "correlation"
    $ alternative: chr "two.sided"
    $ method     : chr "Pearson's product-moment correlation"
    $ data.name  : chr "rnorm(50) and rnorm(50)"
-   $ conf.int   : num [1:2] -0.192 0.36
+   $ conf.int   : num [1:2] -0.35 0.203
     ..- attr(*, "conf.level")= num 0.95
    - attr(*, "class")= chr "htest"
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-statistical_function_returns-auto[
 
 ```r
+set.seed(87463)  
 corr &lt;- cor.test(rnorm(50), rnorm(50))  
+
 corr %&gt;%  
   str()  
-* # drilling down with dollar sign notation
+
+# drilling down with dollar sign and name
 *corr
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-statistical_function_returns-auto[
 
 ```
   List of 9
-   $ statistic  : Named num -0.416
+   $ statistic  : Named num -0.552
     ..- attr(*, "names")= chr "t"
    $ parameter  : Named int 48
     ..- attr(*, "names")= chr "df"
-   $ p.value    : num 0.68
-   $ estimate   : Named num -0.0599
+   $ p.value    : num 0.584
+   $ estimate   : Named num -0.0794
     ..- attr(*, "names")= chr "cor"
    $ null.value : Named num 0
     ..- attr(*, "names")= chr "correlation"
    $ alternative: chr "two.sided"
    $ method     : chr "Pearson's product-moment correlation"
    $ data.name  : chr "rnorm(50) and rnorm(50)"
-   $ conf.int   : num [1:2] -0.333 0.222
+   $ conf.int   : num [1:2] -0.35 0.203
     ..- attr(*, "conf.level")= num 0.95
    - attr(*, "class")= chr "htest"
 ```
@@ -795,189 +1132,333 @@ corr %&gt;%
   	Pearson's product-moment correlation
   
   data:  rnorm(50) and rnorm(50)
-  t = -0.41555, df = 48, p-value = 0.6796
+  t = -0.5516, df = 48, p-value = 0.5838
   alternative hypothesis: true correlation is not equal to 0
   95 percent confidence interval:
-   -0.3326759  0.2221781
+   -0.3499814  0.2034776
   sample estimates:
-         cor 
-  -0.0598723
+          cor 
+  -0.07936516
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-statistical_function_returns-auto[
 
 ```r
+set.seed(87463)  
 corr &lt;- cor.test(rnorm(50), rnorm(50))  
+
 corr %&gt;%  
   str()  
-  # drilling down with dollar sign notation
+
+# drilling down with dollar sign and name
 corr %&gt;%  
 * .$estimate
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-statistical_function_returns-auto[
 
 ```
   List of 9
-   $ statistic  : Named num -0.75
+   $ statistic  : Named num -0.552
     ..- attr(*, "names")= chr "t"
    $ parameter  : Named int 48
     ..- attr(*, "names")= chr "df"
-   $ p.value    : num 0.457
-   $ estimate   : Named num -0.108
+   $ p.value    : num 0.584
+   $ estimate   : Named num -0.0794
     ..- attr(*, "names")= chr "cor"
    $ null.value : Named num 0
     ..- attr(*, "names")= chr "correlation"
    $ alternative: chr "two.sided"
    $ method     : chr "Pearson's product-moment correlation"
    $ data.name  : chr "rnorm(50) and rnorm(50)"
-   $ conf.int   : num [1:2] -0.375 0.176
+   $ conf.int   : num [1:2] -0.35 0.203
     ..- attr(*, "conf.level")= num 0.95
    - attr(*, "class")= chr "htest"
 ```
 
 ```
-         cor 
-  -0.1076938
+          cor 
+  -0.07936516
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-statistical_function_returns-auto[
 
 ```r
+set.seed(87463)  
 corr &lt;- cor.test(rnorm(50), rnorm(50))  
+
 corr %&gt;%  
   str()  
-  # drilling down with dollar sign notation
+
+# drilling down with dollar sign and name
 corr %&gt;%  
   .$estimate %&gt;%  
 * .[[1]]
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-statistical_function_returns-auto[
 
 ```
   List of 9
-   $ statistic  : Named num 1.97
+   $ statistic  : Named num -0.552
     ..- attr(*, "names")= chr "t"
    $ parameter  : Named int 48
     ..- attr(*, "names")= chr "df"
-   $ p.value    : num 0.0547
-   $ estimate   : Named num 0.273
+   $ p.value    : num 0.584
+   $ estimate   : Named num -0.0794
     ..- attr(*, "names")= chr "cor"
    $ null.value : Named num 0
     ..- attr(*, "names")= chr "correlation"
    $ alternative: chr "two.sided"
    $ method     : chr "Pearson's product-moment correlation"
    $ data.name  : chr "rnorm(50) and rnorm(50)"
-   $ conf.int   : num [1:2] -0.00529 0.51278
+   $ conf.int   : num [1:2] -0.35 0.203
     ..- attr(*, "conf.level")= num 0.95
    - attr(*, "class")= chr "htest"
 ```
 
 ```
-  [1] 0.2734609
+  [1] -0.07936516
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-statistical_function_returns-auto[
 
 ```r
+set.seed(87463)  
 corr &lt;- cor.test(rnorm(50), rnorm(50))  
+
 corr %&gt;%  
   str()  
-  # drilling down with dollar sign notation
+
+# drilling down with dollar sign and name
 corr %&gt;%  
   .$estimate %&gt;%  
-  .[[1]]  
-* # drilling down with brackets
-*corr[[2]]
+  .[[1]] -&gt;  
+*extracted_estimate
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-statistical_function_returns-auto[
 
 ```
   List of 9
-   $ statistic  : Named num 0.476
+   $ statistic  : Named num -0.552
     ..- attr(*, "names")= chr "t"
    $ parameter  : Named int 48
     ..- attr(*, "names")= chr "df"
-   $ p.value    : num 0.636
-   $ estimate   : Named num 0.0686
+   $ p.value    : num 0.584
+   $ estimate   : Named num -0.0794
     ..- attr(*, "names")= chr "cor"
    $ null.value : Named num 0
     ..- attr(*, "names")= chr "correlation"
    $ alternative: chr "two.sided"
    $ method     : chr "Pearson's product-moment correlation"
    $ data.name  : chr "rnorm(50) and rnorm(50)"
-   $ conf.int   : num [1:2] -0.214 0.34
+   $ conf.int   : num [1:2] -0.35 0.203
     ..- attr(*, "conf.level")= num 0.95
    - attr(*, "class")= chr "htest"
 ```
+]
 
-```
-  [1] 0.06856713
-```
-
-```
-  df 
-  48
-```
-]]
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-statistical_function_returns-auto[
 
 ```r
+set.seed(87463)  
 corr &lt;- cor.test(rnorm(50), rnorm(50))  
+
 corr %&gt;%  
   str()  
-  # drilling down with dollar sign notation
+
+# drilling down with dollar sign and name
 corr %&gt;%  
   .$estimate %&gt;%  
-  .[[1]]  
-  # drilling down with brackets
-corr[[2]] %&gt;%  
-* .[[1]]
+  .[[1]] -&gt;  
+extracted_estimate  
+
+# drilling down with brackets
+*corr
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-statistical_function_returns-auto[
 
 ```
   List of 9
-   $ statistic  : Named num 0.926
+   $ statistic  : Named num -0.552
     ..- attr(*, "names")= chr "t"
    $ parameter  : Named int 48
     ..- attr(*, "names")= chr "df"
-   $ p.value    : num 0.359
-   $ estimate   : Named num 0.132
+   $ p.value    : num 0.584
+   $ estimate   : Named num -0.0794
     ..- attr(*, "names")= chr "cor"
    $ null.value : Named num 0
     ..- attr(*, "names")= chr "correlation"
    $ alternative: chr "two.sided"
    $ method     : chr "Pearson's product-moment correlation"
    $ data.name  : chr "rnorm(50) and rnorm(50)"
-   $ conf.int   : num [1:2] -0.151 0.396
+   $ conf.int   : num [1:2] -0.35 0.203
     ..- attr(*, "conf.level")= num 0.95
    - attr(*, "class")= chr "htest"
 ```
 
 ```
-  [1] 0.1324546
+  
+  	Pearson's product-moment correlation
+  
+  data:  rnorm(50) and rnorm(50)
+  t = -0.5516, df = 48, p-value = 0.5838
+  alternative hypothesis: true correlation is not equal to 0
+  95 percent confidence interval:
+   -0.3499814  0.2034776
+  sample estimates:
+          cor 
+  -0.07936516
+```
+]
+
+---
+count: false
+ 
+
+.left-panel-statistical_function_returns-auto[
+
+```r
+set.seed(87463)  
+corr &lt;- cor.test(rnorm(50), rnorm(50))  
+
+corr %&gt;%  
+  str()  
+
+# drilling down with dollar sign and name
+corr %&gt;%  
+  .$estimate %&gt;%  
+  .[[1]] -&gt;  
+extracted_estimate  
+
+# drilling down with brackets
+corr %&gt;%  
+* .[[3]]
+```
+]
+ 
+.right-panel-statistical_function_returns-auto[
+
+```
+  List of 9
+   $ statistic  : Named num -0.552
+    ..- attr(*, "names")= chr "t"
+   $ parameter  : Named int 48
+    ..- attr(*, "names")= chr "df"
+   $ p.value    : num 0.584
+   $ estimate   : Named num -0.0794
+    ..- attr(*, "names")= chr "cor"
+   $ null.value : Named num 0
+    ..- attr(*, "names")= chr "correlation"
+   $ alternative: chr "two.sided"
+   $ method     : chr "Pearson's product-moment correlation"
+   $ data.name  : chr "rnorm(50) and rnorm(50)"
+   $ conf.int   : num [1:2] -0.35 0.203
+    ..- attr(*, "conf.level")= num 0.95
+   - attr(*, "class")= chr "htest"
 ```
 
 ```
-  [1] 48
+  [1] 0.5837828
 ```
-]]
+]
+
+---
+count: false
+ 
+
+.left-panel-statistical_function_returns-auto[
+
+```r
+set.seed(87463)  
+corr &lt;- cor.test(rnorm(50), rnorm(50))  
+
+corr %&gt;%  
+  str()  
+
+# drilling down with dollar sign and name
+corr %&gt;%  
+  .$estimate %&gt;%  
+  .[[1]] -&gt;  
+extracted_estimate  
+
+# drilling down with brackets
+corr %&gt;%  
+  .[[3]] -&gt;  
+*extracted_pvalue
+```
+]
+ 
+.right-panel-statistical_function_returns-auto[
+
+```
+  List of 9
+   $ statistic  : Named num -0.552
+    ..- attr(*, "names")= chr "t"
+   $ parameter  : Named int 48
+    ..- attr(*, "names")= chr "df"
+   $ p.value    : num 0.584
+   $ estimate   : Named num -0.0794
+    ..- attr(*, "names")= chr "cor"
+   $ null.value : Named num 0
+    ..- attr(*, "names")= chr "correlation"
+   $ alternative: chr "two.sided"
+   $ method     : chr "Pearson's product-moment correlation"
+   $ data.name  : chr "rnorm(50) and rnorm(50)"
+   $ conf.int   : num [1:2] -0.35 0.203
+    ..- attr(*, "conf.level")= num 0.95
+   - attr(*, "class")= chr "htest"
+```
+]
+
+&lt;style&gt;
+.left-panel-statistical_function_returns-auto {
+  color: #777;
+  width: 59%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-statistical_function_returns-auto {
+  width: 40%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-statistical_function_returns-auto {
+  width: NA%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
 
 ---
 
@@ -988,19 +1469,21 @@ corr[[2]] %&gt;%
 ---
 
 
-
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-compare-auto[
 
 ```r
+# order matters
 *list(
 * c("mac", "granny"),
 * c("naval", "blood")
 * )
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-compare-auto[
 
 ```
   [[1]]
@@ -1009,33 +1492,40 @@ count: false
   [[2]]
   [1] "naval" "blood"
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-compare-auto[
 
 ```r
+# order matters
 list(  
   c("mac", "granny"),  
   c("naval", "blood")  
   ) %&gt;%  
 * .[2]
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-compare-auto[
 
 ```
   [[1]]
   [1] "naval" "blood"
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-compare-auto[
 
 ```r
+# order matters
 list(  
   c("mac", "granny"),  
   c("naval", "blood")  
@@ -1043,32 +1533,40 @@ list(
   .[2] %&gt;%  
 * .[[1]]
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-compare-auto[
 
 ```
   [1] "naval" "blood"
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-compare-auto[
 
 ```r
+# order matters
 list(  
   c("mac", "granny"),  
   c("naval", "blood")  
   ) %&gt;%  
   .[2] %&gt;%  
   .[[1]]  
+
+
+# compare with above result
 *list(
 * c("mac", "granny"),
 * c("naval", "blood")
 * )
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-compare-auto[
 
 ```
   [1] "naval" "blood"
@@ -1081,27 +1579,34 @@ list(
   [[2]]
   [1] "naval" "blood"
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-compare-auto[
 
 ```r
+# order matters
 list(  
   c("mac", "granny"),  
   c("naval", "blood")  
   ) %&gt;%  
   .[2] %&gt;%  
   .[[1]]  
+
+
+# compare with above result
 list(  
   c("mac", "granny"),  
   c("naval", "blood")  
   ) %&gt;%  
 * .[[2]]
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-compare-auto[
 
 ```
   [1] "naval" "blood"
@@ -1110,19 +1615,25 @@ list(
 ```
   [1] "naval" "blood"
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-compare-auto[
 
 ```r
+# order matters
 list(  
   c("mac", "granny"),  
   c("naval", "blood")  
   ) %&gt;%  
   .[2] %&gt;%  
   .[[1]]  
+
+
+# compare with above result
 list(  
   c("mac", "granny"),  
   c("naval", "blood")  
@@ -1130,8 +1641,9 @@ list(
   .[[2]] %&gt;%  
 * .[1]
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-compare-auto[
 
 ```
   [1] "naval" "blood"
@@ -1140,20 +1652,183 @@ list(
 ```
   [1] "naval"
 ```
-]]
+]
+
+&lt;style&gt;
+.left-panel-compare-auto {
+  color: #777;
+  width: 59%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-compare-auto {
+  width: 40%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-compare-auto {
+  width: NA%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
 
 
 
+
+
+
+
+
+
+---
+
+count: false
+ 
+
+.left-panel-example-rotate[
 
 ```r
-list(apples = c("mac", "granny"), 
-     oranges = c("naval", "blood")) %&gt;% 
-  .$oranges
+tibble(x = c(1,2,3,4,6),  
+       y = 1:5,  
+       z = list(1:2, 4:5, 8, NA, c(1,7,9,0))) %&gt;%  
+  tibble()  # does not do anything 
 ```
+]
+ 
+.right-panel-example-rotate[
 
 ```
-  [1] "naval" "blood"
+  # A tibble: 5 x 3
+        x     y z        
+    &lt;dbl&gt; &lt;int&gt; &lt;list&gt;   
+  1     1     1 &lt;int [2]&gt;
+  2     2     2 &lt;int [2]&gt;
+  3     3     3 &lt;dbl [1]&gt;
+  4     4     4 &lt;lgl [1]&gt;
+  5     6     5 &lt;dbl [4]&gt;
 ```
+]
+
+---
+count: false
+ 
+
+.left-panel-example-rotate[
+
+```r
+tibble(x = c(1,2,3,4,6),  
+       y = 1:5,  
+       z = list(1:2, 4:5, 8, NA, c(1,7,9,0))) %&gt;%  
+* mutate(the_length = map(z, length))   #general
+```
+]
+ 
+.right-panel-example-rotate[
+
+```
+  # A tibble: 5 x 4
+        x     y z         the_length
+    &lt;dbl&gt; &lt;int&gt; &lt;list&gt;    &lt;list&gt;    
+  1     1     1 &lt;int [2]&gt; &lt;int [1]&gt; 
+  2     2     2 &lt;int [2]&gt; &lt;int [1]&gt; 
+  3     3     3 &lt;dbl [1]&gt; &lt;int [1]&gt; 
+  4     4     4 &lt;lgl [1]&gt; &lt;int [1]&gt; 
+  5     6     5 &lt;dbl [4]&gt; &lt;int [1]&gt;
+```
+]
+
+---
+count: false
+ 
+
+.left-panel-example-rotate[
+
+```r
+tibble(x = c(1,2,3,4,6),  
+       y = 1:5,  
+       z = list(1:2, 4:5, 8, NA, c(1,7,9,0))) %&gt;%  
+* mutate(the_length = map_int(z, length))   #scalar integer
+```
+]
+ 
+.right-panel-example-rotate[
+
+```
+  # A tibble: 5 x 4
+        x     y z         the_length
+    &lt;dbl&gt; &lt;int&gt; &lt;list&gt;         &lt;int&gt;
+  1     1     1 &lt;int [2]&gt;          2
+  2     2     2 &lt;int [2]&gt;          2
+  3     3     3 &lt;dbl [1]&gt;          1
+  4     4     4 &lt;lgl [1]&gt;          1
+  5     6     5 &lt;dbl [4]&gt;          4
+```
+]
+
+---
+count: false
+ 
+
+.left-panel-example-rotate[
+
+```r
+tibble(x = c(1,2,3,4,6),  
+       y = 1:5,  
+       z = list(1:2, 4:5, 8, NA, c(1,7,9,0))) %&gt;%  
+* mutate(the_length = map_chr(z, length))  #scalar character
+```
+]
+ 
+.right-panel-example-rotate[
+
+```
+  # A tibble: 5 x 4
+        x     y z         the_length
+    &lt;dbl&gt; &lt;int&gt; &lt;list&gt;    &lt;chr&gt;     
+  1     1     1 &lt;int [2]&gt; 2         
+  2     2     2 &lt;int [2]&gt; 2         
+  3     3     3 &lt;dbl [1]&gt; 1         
+  4     4     4 &lt;lgl [1]&gt; 1         
+  5     6     5 &lt;dbl [4]&gt; 4
+```
+]
+
+&lt;style&gt;
+.left-panel-example-rotate {
+  color: #777;
+  width: 38.6138613861386%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-example-rotate {
+  width: 59.4059405940594%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-example-rotate {
+  width: 0%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+
+
+
+
+---
+
+
+
 
 
 ---
@@ -1174,47 +1849,55 @@ list(apples = c("mac", "granny"),
 
 ---
 
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-list_column_workflow-auto[
 
 ```r
-* # linear modeling function
+# linear modeling function
 *mod_fun &lt;- function(df) lm(Sepal.Length ~ ., data = df)
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-list_column_workflow-auto[
 
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-list_column_workflow-auto[
 
 ```r
-  # linear modeling function
+# linear modeling function
 mod_fun &lt;- function(df) lm(Sepal.Length ~ ., data = df)  
-* # returns coefficients of the model
+# returns coefficients of the model
 *b_fun &lt;- function(mod) coefficients(mod)[[1]]
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-list_column_workflow-auto[
 
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-list_column_workflow-auto[
 
 ```r
-  # linear modeling function
+# linear modeling function
 mod_fun &lt;- function(df) lm(Sepal.Length ~ ., data = df)  
-  # returns coefficients of the model
+# returns coefficients of the model
 b_fun &lt;- function(mod) coefficients(mod)[[1]]  
 *iris
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-list_column_workflow-auto[
 
 ```
       Sepal.Length Sepal.Width Petal.Length Petal.Width    Species
@@ -1369,22 +2052,25 @@ b_fun &lt;- function(mod) coefficients(mod)[[1]]
   149          6.2         3.4          5.4         2.3  virginica
   150          5.9         3.0          5.1         1.8  virginica
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-list_column_workflow-auto[
 
 ```r
-  # linear modeling function
+# linear modeling function
 mod_fun &lt;- function(df) lm(Sepal.Length ~ ., data = df)  
-  # returns coefficients of the model
+# returns coefficients of the model
 b_fun &lt;- function(mod) coefficients(mod)[[1]]  
 iris %&gt;%  
 * group_by(Species)
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-list_column_workflow-auto[
 
 ```
   # A tibble: 150 x 5
@@ -1403,71 +2089,79 @@ iris %&gt;%
   10          4.9         3.1          1.5         0.1 setosa 
   # … with 140 more rows
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-list_column_workflow-auto[
 
 ```r
-  # linear modeling function
+# linear modeling function
 mod_fun &lt;- function(df) lm(Sepal.Length ~ ., data = df)  
-  # returns coefficients of the model
+# returns coefficients of the model
 b_fun &lt;- function(mod) coefficients(mod)[[1]]  
 iris %&gt;%  
   group_by(Species) %&gt;%  
 * nest()   # Make a list column
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-list_column_workflow-auto[
 
 ```
   # A tibble: 3 x 2
   # Groups:   Species [3]
-    Species              data
-    &lt;fct&gt;      &lt;list&lt;df[,4]&gt;&gt;
-  1 setosa           [50 × 4]
-  2 versicolor       [50 × 4]
-  3 virginica        [50 × 4]
+    Species    data             
+    &lt;fct&gt;      &lt;list&gt;           
+  1 setosa     &lt;tibble [50 × 4]&gt;
+  2 versicolor &lt;tibble [50 × 4]&gt;
+  3 virginica  &lt;tibble [50 × 4]&gt;
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-list_column_workflow-auto[
 
 ```r
-  # linear modeling function
+# linear modeling function
 mod_fun &lt;- function(df) lm(Sepal.Length ~ ., data = df)  
-  # returns coefficients of the model
+# returns coefficients of the model
 b_fun &lt;- function(mod) coefficients(mod)[[1]]  
 iris %&gt;%  
   group_by(Species) %&gt;%  
   nest() %&gt;%  # Make a list column
 * mutate(model = map(data, mod_fun))
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-list_column_workflow-auto[
 
 ```
   # A tibble: 3 x 3
   # Groups:   Species [3]
-    Species              data model 
-    &lt;fct&gt;      &lt;list&lt;df[,4]&gt;&gt; &lt;list&gt;
-  1 setosa           [50 × 4] &lt;lm&gt;  
-  2 versicolor       [50 × 4] &lt;lm&gt;  
-  3 virginica        [50 × 4] &lt;lm&gt;
+    Species    data              model 
+    &lt;fct&gt;      &lt;list&gt;            &lt;list&gt;
+  1 setosa     &lt;tibble [50 × 4]&gt; &lt;lm&gt;  
+  2 versicolor &lt;tibble [50 × 4]&gt; &lt;lm&gt;  
+  3 virginica  &lt;tibble [50 × 4]&gt; &lt;lm&gt;
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-list_column_workflow-auto[
 
 ```r
-  # linear modeling function
+# linear modeling function
 mod_fun &lt;- function(df) lm(Sepal.Length ~ ., data = df)  
-  # returns coefficients of the model
+# returns coefficients of the model
 b_fun &lt;- function(mod) coefficients(mod)[[1]]  
 iris %&gt;%  
   group_by(Species) %&gt;%  
@@ -1475,28 +2169,31 @@ iris %&gt;%
   mutate(model = map(data, mod_fun)) %&gt;%  
 * mutate(beta_0 = map_dbl(model, b_fun))
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-list_column_workflow-auto[
 
 ```
   # A tibble: 3 x 4
   # Groups:   Species [3]
-    Species              data model  beta_0
-    &lt;fct&gt;      &lt;list&lt;df[,4]&gt;&gt; &lt;list&gt;  &lt;dbl&gt;
-  1 setosa           [50 × 4] &lt;lm&gt;    2.35 
-  2 versicolor       [50 × 4] &lt;lm&gt;    1.90 
-  3 virginica        [50 × 4] &lt;lm&gt;    0.700
+    Species    data              model  beta_0
+    &lt;fct&gt;      &lt;list&gt;            &lt;list&gt;  &lt;dbl&gt;
+  1 setosa     &lt;tibble [50 × 4]&gt; &lt;lm&gt;    2.35 
+  2 versicolor &lt;tibble [50 × 4]&gt; &lt;lm&gt;    1.90 
+  3 virginica  &lt;tibble [50 × 4]&gt; &lt;lm&gt;    0.700
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-list_column_workflow-auto[
 
 ```r
-  # linear modeling function
+# linear modeling function
 mod_fun &lt;- function(df) lm(Sepal.Length ~ ., data = df)  
-  # returns coefficients of the model
+# returns coefficients of the model
 b_fun &lt;- function(mod) coefficients(mod)[[1]]  
 iris %&gt;%  
   group_by(Species) %&gt;%  
@@ -1505,10 +2202,35 @@ iris %&gt;%
   mutate(beta_0 = map_dbl(model, b_fun)) -&gt;  
 *iris_mods
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-list_column_workflow-auto[
 
-]]
+]
+
+&lt;style&gt;
+.left-panel-list_column_workflow-auto {
+  color: #777;
+  width: 59%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-list_column_workflow-auto {
+  width: 40%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-list_column_workflow-auto {
+  width: NA%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
 
 
 ---
@@ -1657,72 +2379,39 @@ mtcars %&gt;%
 ```
 
 ```
-      mpg cyl  disp  hp drat    wt  qsec vs am gear carb
-  1  21.0   6 160.0 110 3.90 2.620 16.46  0  1    4    4
-  2  21.0   6 160.0 110 3.90 2.875 17.02  0  1    4    4
-  3  22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1
-  4  21.4   6 258.0 110 3.08 3.215 19.44  1  0    3    1
-  5  18.7   8 360.0 175 3.15 3.440 17.02  0  0    3    2
-  6  18.1   6 225.0 105 2.76 3.460 20.22  1  0    3    1
-  7  14.3   8 360.0 245 3.21 3.570 15.84  0  0    3    4
-  8  24.4   4 146.7  62 3.69 3.190 20.00  1  0    4    2
-  9  22.8   4 140.8  95 3.92 3.150 22.90  1  0    4    2
-  10 19.2   6 167.6 123 3.92 3.440 18.30  1  0    4    4
-  11 17.8   6 167.6 123 3.92 3.440 18.90  1  0    4    4
-  12 16.4   8 275.8 180 3.07 4.070 17.40  0  0    3    3
-  13 17.3   8 275.8 180 3.07 3.730 17.60  0  0    3    3
-  14 15.2   8 275.8 180 3.07 3.780 18.00  0  0    3    3
-  15 10.4   8 472.0 205 2.93 5.250 17.98  0  0    3    4
-  16 10.4   8 460.0 215 3.00 5.424 17.82  0  0    3    4
-  17 14.7   8 440.0 230 3.23 5.345 17.42  0  0    3    4
-  18 32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1
-  19 30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2
-  20 33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1
-  21 21.5   4 120.1  97 3.70 2.465 20.01  1  0    3    1
-  22 15.5   8 318.0 150 2.76 3.520 16.87  0  0    3    2
-  23 15.2   8 304.0 150 3.15 3.435 17.30  0  0    3    2
-  24 13.3   8 350.0 245 3.73 3.840 15.41  0  0    3    4
-  25 19.2   8 400.0 175 3.08 3.845 17.05  0  0    3    2
-  26 27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1
-  27 26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2
-  28 30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2
-  29 15.8   8 351.0 264 4.22 3.170 14.50  0  1    5    4
-  30 19.7   6 145.0 175 3.62 2.770 15.50  0  1    5    6
-  31 15.0   8 301.0 335 3.54 3.570 14.60  0  1    5    8
-  32 21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2
-                        seq
-  1        1, 2, 3, 4, 5, 6
-  2        1, 2, 3, 4, 5, 6
-  3              1, 2, 3, 4
-  4        1, 2, 3, 4, 5, 6
-  5  1, 2, 3, 4, 5, 6, 7, 8
-  6        1, 2, 3, 4, 5, 6
-  7  1, 2, 3, 4, 5, 6, 7, 8
-  8              1, 2, 3, 4
-  9              1, 2, 3, 4
-  10       1, 2, 3, 4, 5, 6
-  11       1, 2, 3, 4, 5, 6
-  12 1, 2, 3, 4, 5, 6, 7, 8
-  13 1, 2, 3, 4, 5, 6, 7, 8
-  14 1, 2, 3, 4, 5, 6, 7, 8
-  15 1, 2, 3, 4, 5, 6, 7, 8
-  16 1, 2, 3, 4, 5, 6, 7, 8
-  17 1, 2, 3, 4, 5, 6, 7, 8
-  18             1, 2, 3, 4
-  19             1, 2, 3, 4
-  20             1, 2, 3, 4
-  21             1, 2, 3, 4
-  22 1, 2, 3, 4, 5, 6, 7, 8
-  23 1, 2, 3, 4, 5, 6, 7, 8
-  24 1, 2, 3, 4, 5, 6, 7, 8
-  25 1, 2, 3, 4, 5, 6, 7, 8
-  26             1, 2, 3, 4
-  27             1, 2, 3, 4
-  28             1, 2, 3, 4
-  29 1, 2, 3, 4, 5, 6, 7, 8
-  30       1, 2, 3, 4, 5, 6
-  31 1, 2, 3, 4, 5, 6, 7, 8
-  32             1, 2, 3, 4
+      mpg cyl  disp  hp drat    wt  qsec vs am gear carb                    seq
+  1  21.0   6 160.0 110 3.90 2.620 16.46  0  1    4    4       1, 2, 3, 4, 5, 6
+  2  21.0   6 160.0 110 3.90 2.875 17.02  0  1    4    4       1, 2, 3, 4, 5, 6
+  3  22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1             1, 2, 3, 4
+  4  21.4   6 258.0 110 3.08 3.215 19.44  1  0    3    1       1, 2, 3, 4, 5, 6
+  5  18.7   8 360.0 175 3.15 3.440 17.02  0  0    3    2 1, 2, 3, 4, 5, 6, 7, 8
+  6  18.1   6 225.0 105 2.76 3.460 20.22  1  0    3    1       1, 2, 3, 4, 5, 6
+  7  14.3   8 360.0 245 3.21 3.570 15.84  0  0    3    4 1, 2, 3, 4, 5, 6, 7, 8
+  8  24.4   4 146.7  62 3.69 3.190 20.00  1  0    4    2             1, 2, 3, 4
+  9  22.8   4 140.8  95 3.92 3.150 22.90  1  0    4    2             1, 2, 3, 4
+  10 19.2   6 167.6 123 3.92 3.440 18.30  1  0    4    4       1, 2, 3, 4, 5, 6
+  11 17.8   6 167.6 123 3.92 3.440 18.90  1  0    4    4       1, 2, 3, 4, 5, 6
+  12 16.4   8 275.8 180 3.07 4.070 17.40  0  0    3    3 1, 2, 3, 4, 5, 6, 7, 8
+  13 17.3   8 275.8 180 3.07 3.730 17.60  0  0    3    3 1, 2, 3, 4, 5, 6, 7, 8
+  14 15.2   8 275.8 180 3.07 3.780 18.00  0  0    3    3 1, 2, 3, 4, 5, 6, 7, 8
+  15 10.4   8 472.0 205 2.93 5.250 17.98  0  0    3    4 1, 2, 3, 4, 5, 6, 7, 8
+  16 10.4   8 460.0 215 3.00 5.424 17.82  0  0    3    4 1, 2, 3, 4, 5, 6, 7, 8
+  17 14.7   8 440.0 230 3.23 5.345 17.42  0  0    3    4 1, 2, 3, 4, 5, 6, 7, 8
+  18 32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1             1, 2, 3, 4
+  19 30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2             1, 2, 3, 4
+  20 33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1             1, 2, 3, 4
+  21 21.5   4 120.1  97 3.70 2.465 20.01  1  0    3    1             1, 2, 3, 4
+  22 15.5   8 318.0 150 2.76 3.520 16.87  0  0    3    2 1, 2, 3, 4, 5, 6, 7, 8
+  23 15.2   8 304.0 150 3.15 3.435 17.30  0  0    3    2 1, 2, 3, 4, 5, 6, 7, 8
+  24 13.3   8 350.0 245 3.73 3.840 15.41  0  0    3    4 1, 2, 3, 4, 5, 6, 7, 8
+  25 19.2   8 400.0 175 3.08 3.845 17.05  0  0    3    2 1, 2, 3, 4, 5, 6, 7, 8
+  26 27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1             1, 2, 3, 4
+  27 26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2             1, 2, 3, 4
+  28 30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2             1, 2, 3, 4
+  29 15.8   8 351.0 264 4.22 3.170 14.50  0  1    5    4 1, 2, 3, 4, 5, 6, 7, 8
+  30 19.7   6 145.0 175 3.62 2.770 15.50  0  1    5    6       1, 2, 3, 4, 5, 6
+  31 15.0   8 301.0 335 3.54 3.570 14.60  0  1    5    8 1, 2, 3, 4, 5, 6, 7, 8
+  32 21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2             1, 2, 3, 4
 ```
 
 
@@ -1771,20 +2460,22 @@ m_iris &lt;- n_iris %&gt;%
 ---
 
 
-purrr::map(.x, .f, ...)
-Apply .f element-wise to .x as .f(.x) 
+&lt;!-- purrr::map(.x, .f, ...) --&gt;
+&lt;!-- Apply .f element-wise to .x as .f(.x)  --&gt;
 
 
 
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-wwlc1-auto[
 
 ```r
 *n_iris
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-wwlc1-auto[
 
 ```
   # A tibble: 3 x 2
@@ -1795,18 +2486,21 @@ count: false
   2 versicolor       [50 × 4]
   3 virginica        [50 × 4]
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-wwlc1-auto[
 
 ```r
 n_iris %&gt;%  
 * mutate(n = map(data, dim))
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-wwlc1-auto[
 
 ```
   # A tibble: 3 x 3
@@ -1817,24 +2511,50 @@ n_iris %&gt;%
   2 versicolor       [50 × 4] &lt;int [2]&gt;
   3 virginica        [50 × 4] &lt;int [2]&gt;
 ```
-]]
+]
+
+&lt;style&gt;
+.left-panel-wwlc1-auto {
+  color: #777;
+  width: 59%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-wwlc1-auto {
+  width: 40%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-wwlc1-auto {
+  width: NA%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
 
 ---
 
-purrr::map2(.x, .y, .f, ...)
-Apply .f element-wise to .x and .y as .f(.x, .y) 
+&lt;!-- purrr::map2(.x, .y, .f, ...) --&gt;
+&lt;!-- Apply .f element-wise to .x and .y as .f(.x, .y)  --&gt;
 
 
 
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-wwlc2-auto[
 
 ```r
 *m_iris
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-wwlc2-auto[
 
 ```
   # A tibble: 3 x 3
@@ -1845,18 +2565,21 @@ count: false
   2 versicolor       [50 × 4] &lt;lm&gt;  
   3 virginica        [50 × 4] &lt;lm&gt;
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-wwlc2-auto[
 
 ```r
 m_iris %&gt;%  
 * mutate(n = map2(data, model, list))
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-wwlc2-auto[
 
 ```
   # A tibble: 3 x 4
@@ -1867,26 +2590,52 @@ m_iris %&gt;%
   2 versicolor       [50 × 4] &lt;lm&gt;   &lt;list [2]&gt;
   3 virginica        [50 × 4] &lt;lm&gt;   &lt;list [2]&gt;
 ```
-]]
+]
+
+&lt;style&gt;
+.left-panel-wwlc2-auto {
+  color: #777;
+  width: 59%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-wwlc2-auto {
+  width: 40%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-wwlc2-auto {
+  width: NA%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
 
 
 ---
 
 
-purrr::pmap(.l, .f, ...)
-Apply .f element-wise to vectors saved in .l 
+&lt;!-- purrr::pmap(.l, .f, ...) --&gt;
+&lt;!-- Apply .f element-wise to vectors saved in .l  --&gt;
 
 
 
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-wwlc3-auto[
 
 ```r
 *m_iris
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-wwlc3-auto[
 
 ```
   # A tibble: 3 x 3
@@ -1897,18 +2646,21 @@ count: false
   2 versicolor       [50 × 4] &lt;lm&gt;  
   3 virginica        [50 × 4] &lt;lm&gt;
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-wwlc3-auto[
 
 ```r
 m_iris %&gt;%  
 * mutate(n = pmap(list(data, model, data), list))
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-wwlc3-auto[
 
 ```
   # A tibble: 3 x 4
@@ -1919,7 +2671,31 @@ m_iris %&gt;%
   2 versicolor       [50 × 4] &lt;lm&gt;   &lt;list [3]&gt;
   3 virginica        [50 × 4] &lt;lm&gt;   &lt;list [3]&gt;
 ```
-]]
+]
+
+&lt;style&gt;
+.left-panel-wwlc3-auto {
+  color: #777;
+  width: 59%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-wwlc3-auto {
+  width: 40%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-wwlc3-auto {
+  width: NA%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
 
 
 ---
@@ -1931,20 +2707,22 @@ Use the purrr functions map_lgl(), map_int(), map_dbl(), map_chr(), as well as t
 
 ---
 
-purrr::map_lgl(.x, .f, ...)
-Apply .f element-wise to .x, return a logical vector 
+&lt;!-- purrr::map_lgl(.x, .f, ...) --&gt;
+&lt;!-- Apply .f element-wise to .x, return a logical vector  --&gt;
 
 
 
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-slc1-auto[
 
 ```r
 *n_iris
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-slc1-auto[
 
 ```
   # A tibble: 3 x 2
@@ -1955,18 +2733,21 @@ count: false
   2 versicolor       [50 × 4]
   3 virginica        [50 × 4]
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-slc1-auto[
 
 ```r
 n_iris %&gt;%  
 * transmute(n = map_lgl(data, is.matrix))
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-slc1-auto[
 
 ```
   # A tibble: 3 x 2
@@ -1977,25 +2758,51 @@ n_iris %&gt;%
   2 versicolor FALSE
   3 virginica  FALSE
 ```
-]]
+]
+
+&lt;style&gt;
+.left-panel-slc1-auto {
+  color: #777;
+  width: 59%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-slc1-auto {
+  width: 40%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-slc1-auto {
+  width: NA%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
 
 
 ---
 
-purrr::map_int(.x, .f, ...)
-Apply .f element-wise to .x, return an integer vector 
+&lt;!-- purrr::map_int(.x, .f, ...) --&gt;
+&lt;!-- Apply .f element-wise to .x, return an integer vector  --&gt;
 
 
 
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-slc2-auto[
 
 ```r
 *n_iris
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-slc2-auto[
 
 ```
   # A tibble: 3 x 2
@@ -2006,18 +2813,21 @@ count: false
   2 versicolor       [50 × 4]
   3 virginica        [50 × 4]
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-slc2-auto[
 
 ```r
 n_iris %&gt;%  
 * transmute(n = map_int(data, nrow))
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-slc2-auto[
 
 ```
   # A tibble: 3 x 2
@@ -2028,25 +2838,51 @@ n_iris %&gt;%
   2 versicolor    50
   3 virginica     50
 ```
-]]
+]
+
+&lt;style&gt;
+.left-panel-slc2-auto {
+  color: #777;
+  width: 59%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-slc2-auto {
+  width: 40%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-slc2-auto {
+  width: NA%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
 
 
 ---
 
-purrr::map_dbl(.x, .f, ...)
-Apply .f element-wise to .x, return a double vector
+&lt;!-- purrr::map_dbl(.x, .f, ...) --&gt;
+&lt;!-- Apply .f element-wise to .x, return a double vector --&gt;
 
 
 
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-slc3-auto[
 
 ```r
 *n_iris
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-slc3-auto[
 
 ```
   # A tibble: 3 x 2
@@ -2057,18 +2893,21 @@ count: false
   2 versicolor       [50 × 4]
   3 virginica        [50 × 4]
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-slc3-auto[
 
 ```r
 n_iris %&gt;%  
 * transmute(n = map_dbl(data, nrow))
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-slc3-auto[
 
 ```
   # A tibble: 3 x 2
@@ -2079,28 +2918,54 @@ n_iris %&gt;%
   2 versicolor    50
   3 virginica     50
 ```
-]]
+]
+
+&lt;style&gt;
+.left-panel-slc3-auto {
+  color: #777;
+  width: 59%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-slc3-auto {
+  width: 40%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-slc3-auto {
+  width: NA%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
 
 
 ---
 
 
 
-purrr::map_chr(.x, .f, ...)
-Apply .f element-wise to .x, return a character vector 
+&lt;!-- purrr::map_chr(.x, .f, ...) --&gt;
+&lt;!-- Apply .f element-wise to .x, return a character vector  --&gt;
 
 
 
 
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-slc4-auto[
 
 ```r
 *n_iris
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-slc4-auto[
 
 ```
   # A tibble: 3 x 2
@@ -2111,18 +2976,21 @@ count: false
   2 versicolor       [50 × 4]
   3 virginica        [50 × 4]
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-slc4-auto[
 
 ```r
 n_iris %&gt;%  
 * transmute(n = map_chr(data, nrow))
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-slc4-auto[
 
 ```
   # A tibble: 3 x 2
@@ -2133,7 +3001,31 @@ n_iris %&gt;%
   2 versicolor 50   
   3 virginica  50
 ```
-]]
+]
+
+&lt;style&gt;
+.left-panel-slc4-auto {
+  color: #777;
+  width: 59%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-slc4-auto {
+  width: 40%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-slc4-auto {
+  width: NA%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
 
 
 ---
@@ -2478,7 +3370,7 @@ more_manipulations$n
 
 
 &lt;style type="text/css"&gt;
-.remark-code{line-height: 1.5; font-size: 60%}
+.remark-code{line-height: 1.5; font-size: 90%}
 &lt;/style&gt;
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
@@ -2525,9 +3417,25 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     }
     deleted = true;
   });
-})();</script>
-
-<script>
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
 (function() {
   var links = document.getElementsByTagName('a');
   for (var i = 0; i < links.length; i++) {
@@ -2536,7 +3444,23 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     }
   }
 })();
-</script>
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
 
 <script>
 slideshow._releaseMath = function(el) {

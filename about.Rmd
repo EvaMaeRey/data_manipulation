@@ -41,6 +41,13 @@ The `{tidyverse}`  data manipulation functions have been a boon to analysts' pro
 | arrange()   | *order rows based on a variable*|
 | slice()     | *keep or drop rows based on row number |
 
+```{r, include=F}
+library(viztoc)
+```
+
+
+`r build_and_use_gif(static_file = "one_stream_wrangle.png", gif_file = "one_stream_wrangle.gif", href = "one_stream_wrangle.html", width = 650, height = 410)`
+
 
 #### [Logical operators](booleans.html#3){target="_blank"}
 
@@ -73,24 +80,11 @@ The function `summary()` can also be used to request summary statistcs for an en
 | pivot_wider() | *from long to wide*|
 
 
-```{css, echo = F}
-.static {
-  position:absolute;
-  background: white;
-}
 
-.static:hover {
-  opacity:0;
-}
-```
 
 ```{r, eval = T, echo = F}
 library(viztoc)
 ```
-
-`r flipbook_webshots_build_and_use_gif(dir = "hi/",num_pages = 4,pattern = "", base_url = "https://evamaerey.github.io/tidyverse_in_action/one_stream_wrangle.html", width = 400, height = 300, cached_gif = T, delay = .5)`
-
-
 
 
 
@@ -125,7 +119,7 @@ You can also do a lot of data manipulation without any external packages at all.
 
 ## [Data Cleaning Examples & Intro to String Manipulation, Country Identifiers, and Date Manipulation](https://evamaerey.github.io/data_manipulation/data_cleaning/data_cleaning){target="_blank"}
 
-What's the workflow from reading in data to analysis ready.  It really depends!  Data cleaning is chard to teach because data can be messy/untidy in a lot of different ways.  The data cleaning flipbook will walk you through some real-life examples, with special focus on string manipulation, country codes and date manipulation.  
+What's the workflow from reading in data to analysis-ready?  It really depends!  Data cleaning is hard to teach because data can be messy/untidy in a lot of different ways.  The data cleaning flipbook will walk you through some real-life examples, with special focus on string manipulation, country codes and date manipulation.  
 
 - Regular expressions, character string manipulation with `{stringr}`
 - Unique identifiers for countries with `{countrycode}`
@@ -140,3 +134,55 @@ What's the workflow from reading in data to analysis ready.  It really depends! 
 ## [Back to "The R Flipbook Textbook" Table of Contents](https://evamaerey.github.io/flipbooks/textbook)
 
 You might also be interested related tools for data visualization and statistical analysis. 
+
+
+
+
+
+```{css, echo = F}
+.static {
+  position:absolute;
+  background: white;
+}
+
+.static:hover {
+  opacity:0;
+}
+```
+
+
+
+
+
+```{r, eval = F, echo = F}
+# htmls except for about html
+html_files_all <- list.files(pattern = "html")
+html_files <- html_files_all[html_files_all!="about.html"]
+
+# convert to pdf
+for(i in html_files) {
+  try(pagedown::chrome_print(i))
+}
+
+
+# pdf to gif
+pdf_files <- list.files(pattern = "pdf")
+gif_files <- stringr::str_replace(pdf_files, "pdf", "gif")
+static_files <- stringr::str_replace(pdf_files, "pdf", "png")
+
+for (i in 1:length(pdf_files)){
+  
+
+num_slides <- pdftools::pdf_length(pdf_files[i])
+  
+try(magick::image_read_pdf(path = pdf_files[i], pages = num_slides) %>% 
+  magick::image_write(static_files[i]))
+
+try(magick::image_read_pdf(path = pdf_files[i]) %>%
+  magick::image_write_gif(path = gif_files[i], delay =.4))
+
+unlink(pdf_files[i])
+
+}
+
+```

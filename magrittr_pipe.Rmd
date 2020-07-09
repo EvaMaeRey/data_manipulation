@@ -136,3 +136,11 @@ select(.data =
 
 ```
 
+
+```{css, include = F}
+@media print {
+  .has-continuation {
+    display: block;
+  }
+}
+```

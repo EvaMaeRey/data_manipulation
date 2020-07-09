@@ -55,7 +55,7 @@ class: inverse, middle center
 
 ---
 
-The following exercises are designed to help you practice your data wrangling "vocabulary". In the exercises, you'll always start from the full gapminder data and wrangle to a target using functions fromm {dplyr} (one of the packages made available in the tidyverse).
+The following exercises are designed to help you practice your data wrangling "vocabulary". In the exercises, you'll always start from the full gapminder data and wrangle to a target using functions from {dplyr} (one of the packages made available in the tidyverse).
 
 --
 

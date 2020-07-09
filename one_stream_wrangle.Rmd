@@ -55,7 +55,6 @@ ggplot(data = europe_or_not_2002) +
 
 `r flipbookr::chunk_reveal("factor_relevel")`
 
----
 
 
 <!-- r flipbookr::chunk_reveal("factor_relevel", break_type = "user")` -->
@@ -89,4 +88,10 @@ gapminder %>%
 
 ```{css, eval = TRUE, echo = FALSE}
 .remark-code{line-height: 1.5; font-size: 60%}
+
+@media print {
+  .has-continuation {
+    display: block;
+  }
+}
 ```

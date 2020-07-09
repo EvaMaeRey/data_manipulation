@@ -76,4 +76,13 @@ country_pop %>%
 
 `r chunk_reveal("merging_data")`
 
----
+
+
+```{css, include = F}
+@media print {
+  .has-continuation {
+    display: block;
+  }
+}
+```
+

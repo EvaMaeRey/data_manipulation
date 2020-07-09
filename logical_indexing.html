@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
   <head>
     <title>the logic of logical indexing and data wrangling with base R</title>
     <meta charset="utf-8" />
@@ -37,17 +37,19 @@ library(gapminder)
 
 
 
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-load_packages_manipulation-auto[
 
 ```r
 *gm_2002 &lt;- gapminder
  
-gm_2002 # tracked object
+gm_2002
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-load_packages_manipulation-auto[
 
 ```
 # A tibble: 1,704 x 6
@@ -65,21 +67,24 @@ gm_2002 # tracked object
 10 Afghanistan Asia       1997    41.8 22227415      635.
 # … with 1,694 more rows
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-load_packages_manipulation-auto[
 
 ```r
 gm_2002 &lt;- gapminder %&gt;%  
 * .[, c("year", "country",
 *       "pop", "gdpPercap")]
  
-gm_2002 # tracked object
+gm_2002
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-load_packages_manipulation-auto[
 
 ```
 # A tibble: 1,704 x 4
@@ -97,11 +102,13 @@ gm_2002 # tracked object
 10  1997 Afghanistan 22227415      635.
 # … with 1,694 more rows
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-load_packages_manipulation-auto[
 
 ```r
 gm_2002 &lt;- gapminder %&gt;%  
@@ -109,10 +116,11 @@ gm_2002 &lt;- gapminder %&gt;%
         "pop", "gdpPercap")] %&gt;%  
 * .[gapminder$year == 2002, ]
  
-gm_2002 # tracked object
+gm_2002
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-load_packages_manipulation-auto[
 
 ```
 # A tibble: 142 x 4
@@ -130,11 +138,13 @@ gm_2002 # tracked object
 10  2002 Belgium      10311970    30486.
 # … with 132 more rows
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-load_packages_manipulation-auto[
 
 ```r
 gm_2002 &lt;- gapminder %&gt;%  
@@ -143,10 +153,11 @@ gm_2002 &lt;- gapminder %&gt;%
   .[gapminder$year == 2002, ] %&gt;%  
 * .[, -1]
  
-gm_2002 # tracked object
+gm_2002
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-load_packages_manipulation-auto[
 
 ```
 # A tibble: 142 x 3
@@ -164,11 +175,13 @@ gm_2002 # tracked object
 10 Belgium      10311970    30486.
 # … with 132 more rows
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-load_packages_manipulation-auto[
 
 ```r
 gm_2002 &lt;- gapminder %&gt;%  
@@ -176,12 +189,14 @@ gm_2002 &lt;- gapminder %&gt;%
         "pop", "gdpPercap")] %&gt;%  
   .[gapminder$year == 2002, ] %&gt;%  
   .[, -1]  
+
 *gm_2002$gdp &lt;- with(gm_2002, pop * gdpPercap)
  
-gm_2002 # tracked object
+gm_2002
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-load_packages_manipulation-auto[
 
 ```
 # A tibble: 142 x 4
@@ -199,51 +214,82 @@ gm_2002 # tracked object
 10 Belgium      10311970    30486. 314369518653.
 # … with 132 more rows
 ```
-]]
+]
+
+&lt;style&gt;
+.left-panel-load_packages_manipulation-auto {
+  color: #777;
+  width: 38.6138613861386%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-load_packages_manipulation-auto {
+  width: 59.4059405940594%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-load_packages_manipulation-auto {
+  width: 0%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
 
 ---
 
 
 
 
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-free_form-auto[
 
 ```r
 *my_data &lt;- 18:1
  
-my_data # tracked object
+my_data
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-free_form-auto[
 
 ```
  [1] 18 17 16 15 14 13 12 11 10  9  8  7  6  5  4  3  2  1
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-free_form-auto[
 
 ```r
 my_data &lt;- 18:1 %&gt;%  
 * .[c(1,10,18)]
  
-my_data # tracked object
+my_data
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-free_form-auto[
 
 ```
 [1] 18  9  1
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-free_form-auto[
 
 ```r
 my_data &lt;- 18:1 %&gt;%  
@@ -252,10 +298,11 @@ my_data &lt;- 18:1 %&gt;%
 *            q = 1:3,
 *            hi = 7:9)
  
-my_data # tracked object
+my_data
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-free_form-auto[
 
 ```
    .  y q hi
@@ -263,11 +310,13 @@ my_data # tracked object
 2  9 hi 2  8
 3  1 hi 3  9
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-free_form-auto[
 
 ```r
 my_data &lt;- 18:1 %&gt;%  
@@ -277,21 +326,24 @@ my_data &lt;- 18:1 %&gt;%
              hi = 7:9) %&gt;%  
 * .[2:3, ]
  
-my_data # tracked object
+my_data
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-free_form-auto[
 
 ```
   .  y q hi
 2 9 hi 2  8
 3 1 hi 3  9
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.left-panel-free_form-auto[
 
 ```r
 my_data &lt;- 18:1 %&gt;%  
@@ -300,24 +352,56 @@ my_data &lt;- 18:1 %&gt;%
              q = 1:3,  
              hi = 7:9) %&gt;%  
   .[2:3, ]  
+
 *names(my_data)[1] &lt;- "var1"
  
-my_data # tracked object
+my_data
 ```
-]]
-.column[.content[
+]
+ 
+.right-panel-free_form-auto[
 
 ```
   var1  y q hi
 2    9 hi 2  8
 3    1 hi 3  9
 ```
-]]
+]
 
----
+&lt;style&gt;
+.left-panel-free_form-auto {
+  color: #777;
+  width: 38.6138613861386%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-free_form-auto {
+  width: 59.4059405940594%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-free_form-auto {
+  width: 0%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+
 
 &lt;style type="text/css"&gt;
 .remark-code{line-height: 1.5; font-size: 60%}
+
+@media print {
+  .has-continuation {
+    display: block;
+  }
+}
 &lt;/style&gt;
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
@@ -366,9 +450,25 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     }
     deleted = true;
   });
-})();</script>
-
-<script>
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
 (function() {
   var links = document.getElementsByTagName('a');
   for (var i = 0; i < links.length; i++) {
@@ -377,7 +477,23 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     }
   }
 })();
-</script>
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
 
 <script>
 slideshow._releaseMath = function(el) {
