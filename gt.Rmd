@@ -12,7 +12,6 @@ output:
       highlightStyle: github
       highlightLines: true
       countIncrementalSlides: false
-      beforeInit: "https://platform.twitter.com/widgets.js"
 ---
 
 

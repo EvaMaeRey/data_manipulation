@@ -3,14 +3,42 @@ title: "the logic of logical indexing and data wrangling with base R"
 author: "Gina Reynolds, September 2019"
 output:
   xaringan::moon_reader:
+    seal: false
     lib_dir: libs
-    css: ["kunoichi", "ninjutsu"]
+    css: [default, hygge, ninjutsu]
     nature:
       ratio: 16:10
       highlightStyle: github
       highlightLines: true
       countIncrementalSlides: false
 ---
+
+
+
+
+
+
+class: left, top, inverse
+background-image: url(https://images.unsplash.com/photo-1546198632-9ef6368bef12?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80)
+background-size: cover
+
+# .large[logical indexing]
+### Walk through <br>with {flipbookr}<br>and {xaringan}
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+#### .right[Gina Reynolds<br>Photo Credit: Denny Müller]
+
+
 
 
 ```{r setup, include=F}

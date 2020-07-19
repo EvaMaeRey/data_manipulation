@@ -10,46 +10,35 @@
   </head>
   <body>
     <textarea id="source">
-class: center, middle, inverse, title-slide
 
-# long to wide or wide to long
-### Evangeline Reynolds
-### 2/16/2019
+
+
+https://images.unsplash.com/photo-1590605103416-230704277b05?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1500&amp;q=80
+
+
+class: left, top, inverse
+background-image: url(https://images.unsplash.com/photo-1590605103416-230704277b05?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1500&amp;q=80)
+background-size: cover
+
+# .large[Reshaping (Long &lt;--&gt; Wide)]
+### Walk-throughs &lt;br&gt;with {flipbookr}&lt;br&gt;and {xaringan}
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+#### .right[Gina Reynolds&lt;br&gt;Photo Credit: Courtney Cook]
+
 
 ---
 
-
-
-
-```r
-library(gapminder)
-library(tidyverse)
-```
-
-```
-## ── Attaching packages ─────────────────────────────────────────── tidyverse 1.3.0 ──
-```
-
-```
-## ✓ ggplot2 3.3.2     ✓ purrr   0.3.3
-## ✓ tibble  3.0.0     ✓ dplyr   0.8.5
-## ✓ tidyr   1.0.2     ✓ stringr 1.4.0
-## ✓ readr   1.3.1     ✓ forcats 0.5.0
-```
-
-```
-## Warning: package 'ggplot2' was built under R version 3.6.2
-```
-
-```
-## Warning: package 'tibble' was built under R version 3.6.2
-```
-
-```
-## ── Conflicts ────────────────────────────────────────────── tidyverse_conflicts() ──
-## x dplyr::filter() masks stats::filter()
-## x dplyr::lag()    masks stats::lag()
-```
 
 ```r
 library(flipbookr)
@@ -75,14 +64,47 @@ Sometimes, we need to transform the shape of our data.  The wide form of data is
 count: false
  
 
-.left-panel-long_to_wide-auto[
+.panel1-long_to_wide-auto[
 
 ```r
+*library(gapminder)
+```
+]
+ 
+.panel2-long_to_wide-auto[
+
+]
+
+---
+count: false
+ 
+
+.panel1-long_to_wide-auto[
+
+```r
+library(gapminder)  
+*library(tidyverse)
+```
+]
+ 
+.panel2-long_to_wide-auto[
+
+]
+
+---
+count: false
+ 
+
+.panel1-long_to_wide-auto[
+
+```r
+library(gapminder)  
+library(tidyverse)  
 *gapminder
 ```
 ]
  
-.right-panel-long_to_wide-auto[
+.panel2-long_to_wide-auto[
 
 ```
 # A tibble: 1,704 x 6
@@ -106,16 +128,18 @@ count: false
 count: false
  
 
-.left-panel-long_to_wide-auto[
+.panel1-long_to_wide-auto[
 
 ```r
+library(gapminder)  
+library(tidyverse)  
 gapminder %&gt;%  
 * select(country, continent,
 *        lifeExp, year)
 ```
 ]
  
-.right-panel-long_to_wide-auto[
+.panel2-long_to_wide-auto[
 
 ```
 # A tibble: 1,704 x 4
@@ -139,9 +163,11 @@ gapminder %&gt;%
 count: false
  
 
-.left-panel-long_to_wide-auto[
+.panel1-long_to_wide-auto[
 
 ```r
+library(gapminder)  
+library(tidyverse)  
 gapminder %&gt;%  
   select(country, continent,  
          lifeExp, year) %&gt;%  
@@ -150,7 +176,7 @@ gapminder %&gt;%
 ```
 ]
  
-.right-panel-long_to_wide-auto[
+.panel2-long_to_wide-auto[
 
 ```
 # A tibble: 142 x 14
@@ -175,9 +201,11 @@ gapminder %&gt;%
 count: false
  
 
-.left-panel-long_to_wide-auto[
+.panel1-long_to_wide-auto[
 
 ```r
+library(gapminder)  
+library(tidyverse)  
 gapminder %&gt;%  
   select(country, continent,  
          lifeExp, year) %&gt;%  
@@ -187,25 +215,27 @@ gapminder %&gt;%
 ```
 ]
  
-.right-panel-long_to_wide-auto[
+.panel2-long_to_wide-auto[
 
 ]
 
 &lt;style&gt;
-.left-panel-long_to_wide-auto {
-  color: #777;
-  width: 49%;
-  height: 92%;
+.panel1-long_to_wide-auto {
+  color: black;
+  width: 48.5050505050505%;
   float: left;
-  font-size: 80%
-}
-.right-panel-long_to_wide-auto {
-  width: 50%;
-  float: right;
   padding-left: 1%;
   font-size: 80%
 }
-.middle-panel-long_to_wide-auto {
+.panel2-long_to_wide-auto {
+  color: black;
+  width: 49.4949494949495%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-long_to_wide-auto {
+  color: black;
   width: NA%;
   float: left;
   padding-left: 1%;
@@ -227,14 +257,14 @@ gapminder %&gt;%
 count: false
  
 
-.left-panel-wide_to_long-auto[
+.panel1-wide_to_long-auto[
 
 ```r
 *gapminder_life_exp_wide
 ```
 ]
  
-.right-panel-wide_to_long-auto[
+.panel2-wide_to_long-auto[
 
 ```
 # A tibble: 142 x 14
@@ -259,7 +289,7 @@ count: false
 count: false
  
 
-.left-panel-wide_to_long-auto[
+.panel1-wide_to_long-auto[
 
 ```r
 gapminder_life_exp_wide %&gt;%  
@@ -270,7 +300,7 @@ gapminder_life_exp_wide %&gt;%
 ```
 ]
  
-.right-panel-wide_to_long-auto[
+.panel2-wide_to_long-auto[
 
 ```
 # A tibble: 1,704 x 4
@@ -294,7 +324,7 @@ gapminder_life_exp_wide %&gt;%
 count: false
  
 
-.left-panel-wide_to_long-auto[
+.panel1-wide_to_long-auto[
 
 ```r
 gapminder_life_exp_wide %&gt;%  
@@ -306,7 +336,7 @@ gapminder_life_exp_wide %&gt;%
 ```
 ]
  
-.right-panel-wide_to_long-auto[
+.panel2-wide_to_long-auto[
 
 ```
 # A tibble: 1,704 x 4
@@ -330,7 +360,7 @@ gapminder_life_exp_wide %&gt;%
 count: false
  
 
-.left-panel-wide_to_long-auto[
+.panel1-wide_to_long-auto[
 
 ```r
 gapminder_life_exp_wide %&gt;%  
@@ -343,25 +373,27 @@ gapminder_life_exp_wide %&gt;%
 ```
 ]
  
-.right-panel-wide_to_long-auto[
+.panel2-wide_to_long-auto[
 
 ]
 
 &lt;style&gt;
-.left-panel-wide_to_long-auto {
-  color: #777;
-  width: 49%;
-  height: 92%;
+.panel1-wide_to_long-auto {
+  color: black;
+  width: 48.5050505050505%;
   float: left;
-  font-size: 80%
-}
-.right-panel-wide_to_long-auto {
-  width: 50%;
-  float: right;
   padding-left: 1%;
   font-size: 80%
 }
-.middle-panel-wide_to_long-auto {
+.panel2-wide_to_long-auto {
+  color: black;
+  width: 49.4949494949495%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-wide_to_long-auto {
+  color: black;
   width: NA%;
   float: left;
   padding-left: 1%;
@@ -372,7 +404,7 @@ gapminder_life_exp_wide %&gt;%
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({
-"ratio": "16:10",
+"ratio": "20:10",
 "highlightStyle": "github",
 "highlightLines": true,
 "countIncrementalSlides": false

@@ -10,14 +10,32 @@
   </head>
   <body>
     <textarea id="source">
-class: center, middle, inverse, title-slide
 
-# Some data structures and arithmetic operators
-## With flipbookr and xaringan
-### Gina Reynolds, March 2020
 
----
 
+
+
+
+
+class: left, top, inverse
+background-image: url(https://images.unsplash.com/reserve/uZYSV4nuQeyq64azfVIn_15130980706_64134efc6e_o.jpg?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1047&amp;q=80)
+background-size: cover
+
+# .large[Data types]
+### An exploration &lt;br&gt;with {flipbookr}&lt;br&gt;and {xaringan}
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+#### .right[Gina Reynolds&lt;br&gt;Photo Credit: Amador Loureiro]
 
 
 
@@ -28,14 +46,14 @@ class: center, middle, inverse, title-slide
 count: false
  
 
-.left-panel-basic-auto[
+.panel1-basic-auto[
 
 ```r
 *1 + 1
 ```
 ]
  
-.right-panel-basic-auto[
+.panel2-basic-auto[
 
 ```
 [1] 2
@@ -46,7 +64,7 @@ count: false
 count: false
  
 
-.left-panel-basic-auto[
+.panel1-basic-auto[
 
 ```r
 1 + 1  
@@ -55,7 +73,7 @@ count: false
 ```
 ]
  
-.right-panel-basic-auto[
+.panel2-basic-auto[
 
 ```
 [1] 2
@@ -70,7 +88,7 @@ count: false
 count: false
  
 
-.left-panel-basic-auto[
+.panel1-basic-auto[
 
 ```r
 1 + 1  
@@ -81,7 +99,7 @@ count: false
 ```
 ]
  
-.right-panel-basic-auto[
+.panel2-basic-auto[
 
 ```
 [1] 2
@@ -100,7 +118,7 @@ count: false
 count: false
  
 
-.left-panel-basic-auto[
+.panel1-basic-auto[
 
 ```r
 1 + 1  
@@ -113,7 +131,7 @@ count: false
 ```
 ]
  
-.right-panel-basic-auto[
+.panel2-basic-auto[
 
 ```
 [1] 2
@@ -133,21 +151,23 @@ count: false
 ]
 
 &lt;style&gt;
-.left-panel-basic-auto {
-  color: #777;
-  width: 38.6138613861386%;
-  height: 92%;
+.panel1-basic-auto {
+  color: black;
+  width: 38.6060606060606%;
   float: left;
-  font-size: 80%
-}
-.right-panel-basic-auto {
-  width: 59.4059405940594%;
-  float: right;
   padding-left: 1%;
   font-size: 80%
 }
-.middle-panel-basic-auto {
-  width: 0%;
+.panel2-basic-auto {
+  color: black;
+  width: 59.3939393939394%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-basic-auto {
+  color: black;
+  width: NA%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -164,14 +184,14 @@ count: false
 count: false
  
 
-.left-panel-vec-auto[
+.panel1-vec-auto[
 
 ```r
 *3:10
 ```
 ]
  
-.right-panel-vec-auto[
+.panel2-vec-auto[
 
 ```
 [1]  3  4  5  6  7  8  9 10
@@ -182,7 +202,7 @@ count: false
 count: false
  
 
-.left-panel-vec-auto[
+.panel1-vec-auto[
 
 ```r
 3:10  
@@ -191,7 +211,7 @@ count: false
 ```
 ]
  
-.right-panel-vec-auto[
+.panel2-vec-auto[
 
 ```
 [1]  3  4  5  6  7  8  9 10
@@ -206,7 +226,7 @@ count: false
 count: false
  
 
-.left-panel-vec-auto[
+.panel1-vec-auto[
 
 ```r
 3:10  
@@ -217,7 +237,7 @@ count: false
 ```
 ]
  
-.right-panel-vec-auto[
+.panel2-vec-auto[
 
 ```
 [1]  3  4  5  6  7  8  9 10
@@ -236,7 +256,7 @@ count: false
 count: false
  
 
-.left-panel-vec-auto[
+.panel1-vec-auto[
 
 ```r
 3:10  
@@ -249,7 +269,7 @@ c(1, 2, 6, 10)
 ```
 ]
  
-.right-panel-vec-auto[
+.panel2-vec-auto[
 
 ```
 [1]  3  4  5  6  7  8  9 10
@@ -272,7 +292,7 @@ c(1, 2, 6, 10)
 count: false
  
 
-.left-panel-vec-auto[
+.panel1-vec-auto[
 
 ```r
 3:10  
@@ -287,7 +307,7 @@ c(1, 2, 6, 10)
 ```
 ]
  
-.right-panel-vec-auto[
+.panel2-vec-auto[
 
 ```
 [1]  3  4  5  6  7  8  9 10
@@ -314,7 +334,7 @@ c(1, 2, 6, 10)
 count: false
  
 
-.left-panel-vec-auto[
+.panel1-vec-auto[
 
 ```r
 3:10  
@@ -331,7 +351,7 @@ TRUE
 ```
 ]
  
-.right-panel-vec-auto[
+.panel2-vec-auto[
 
 ```
 [1]  3  4  5  6  7  8  9 10
@@ -362,7 +382,7 @@ TRUE
 count: false
  
 
-.left-panel-vec-auto[
+.panel1-vec-auto[
 
 ```r
 3:10  
@@ -381,7 +401,7 @@ c(T, T, F, F)
 ```
 ]
  
-.right-panel-vec-auto[
+.panel2-vec-auto[
 
 ```
 [1]  3  4  5  6  7  8  9 10
@@ -416,7 +436,7 @@ c(T, T, F, F)
 count: false
  
 
-.left-panel-vec-auto[
+.panel1-vec-auto[
 
 ```r
 3:10  
@@ -437,7 +457,7 @@ c(T, T, F, F)
 ```
 ]
  
-.right-panel-vec-auto[
+.panel2-vec-auto[
 
 ```
 [1]  3  4  5  6  7  8  9 10
@@ -476,7 +496,7 @@ c(T, T, F, F)
 count: false
  
 
-.left-panel-vec-auto[
+.panel1-vec-auto[
 
 ```r
 3:10  
@@ -499,7 +519,7 @@ c("hello", "hi", "bye", "bye-bye")
 ```
 ]
  
-.right-panel-vec-auto[
+.panel2-vec-auto[
 
 ```
 [1]  3  4  5  6  7  8  9 10
@@ -542,7 +562,7 @@ NULL
 count: false
  
 
-.left-panel-vec-auto[
+.panel1-vec-auto[
 
 ```r
 3:10  
@@ -567,7 +587,7 @@ NULL
 ```
 ]
  
-.right-panel-vec-auto[
+.panel2-vec-auto[
 
 ```
 [1]  3  4  5  6  7  8  9 10
@@ -615,7 +635,7 @@ Levels: bye hello hi
 count: false
  
 
-.left-panel-vec-auto[
+.panel1-vec-auto[
 
 ```r
 3:10  
@@ -643,7 +663,7 @@ factor(c("hello", "hi", "bye", "bye"))
 ```
 ]
  
-.right-panel-vec-auto[
+.panel2-vec-auto[
 
 ```
 [1]  3  4  5  6  7  8  9 10
@@ -693,21 +713,23 @@ Levels: hi hello bye bye-bye
 ]
 
 &lt;style&gt;
-.left-panel-vec-auto {
-  color: #777;
-  width: 38.6138613861386%;
-  height: 92%;
+.panel1-vec-auto {
+  color: black;
+  width: 38.6060606060606%;
   float: left;
-  font-size: 80%
-}
-.right-panel-vec-auto {
-  width: 59.4059405940594%;
-  float: right;
   padding-left: 1%;
   font-size: 80%
 }
-.middle-panel-vec-auto {
-  width: 0%;
+.panel2-vec-auto {
+  color: black;
+  width: 59.3939393939394%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-vec-auto {
+  color: black;
+  width: NA%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -724,14 +746,14 @@ Levels: hi hello bye bye-bye
 count: false
  
 
-.left-panel-str-auto[
+.panel1-str-auto[
 
 ```r
 *str(3)
 ```
 ]
  
-.right-panel-str-auto[
+.panel2-str-auto[
 
 ```
  num 3
@@ -742,7 +764,7 @@ count: false
 count: false
  
 
-.left-panel-str-auto[
+.panel1-str-auto[
 
 ```r
 str(3)  
@@ -751,7 +773,7 @@ str(3)
 ```
 ]
  
-.right-panel-str-auto[
+.panel2-str-auto[
 
 ```
  num 3
@@ -766,7 +788,7 @@ str(3)
 count: false
  
 
-.left-panel-str-auto[
+.panel1-str-auto[
 
 ```r
 str(3)  
@@ -777,7 +799,7 @@ str("hello")
 ```
 ]
  
-.right-panel-str-auto[
+.panel2-str-auto[
 
 ```
  num 3
@@ -796,7 +818,7 @@ str("hello")
 count: false
  
 
-.left-panel-str-auto[
+.panel1-str-auto[
 
 ```r
 str(3)  
@@ -809,7 +831,7 @@ str(1.1)
 ```
 ]
  
-.right-panel-str-auto[
+.panel2-str-auto[
 
 ```
  num 3
@@ -832,7 +854,7 @@ str(1.1)
 count: false
  
 
-.left-panel-str-auto[
+.panel1-str-auto[
 
 ```r
 str(3)  
@@ -847,7 +869,7 @@ str(1:8)
 ```
 ]
  
-.right-panel-str-auto[
+.panel2-str-auto[
 
 ```
  num 3
@@ -874,7 +896,7 @@ str(1:8)
 count: false
  
 
-.left-panel-str-auto[
+.panel1-str-auto[
 
 ```r
 str(3)  
@@ -891,7 +913,7 @@ str(2L)
 ```
 ]
  
-.right-panel-str-auto[
+.panel2-str-auto[
 
 ```
  num 3
@@ -922,7 +944,7 @@ str(2L)
 count: false
  
 
-.left-panel-str-auto[
+.panel1-str-auto[
 
 ```r
 str(3)  
@@ -941,7 +963,7 @@ str(c(2, 5, 8))
 ```
 ]
  
-.right-panel-str-auto[
+.panel2-str-auto[
 
 ```
  num 3
@@ -976,7 +998,7 @@ str(c(2, 5, 8))
 count: false
  
 
-.left-panel-str-auto[
+.panel1-str-auto[
 
 ```r
 str(3)  
@@ -997,7 +1019,7 @@ str(c(2L, 5L, 8L))
 ```
 ]
  
-.right-panel-str-auto[
+.panel2-str-auto[
 
 ```
  num 3
@@ -1036,7 +1058,7 @@ str(c(2L, 5L, 8L))
 count: false
  
 
-.left-panel-str-auto[
+.panel1-str-auto[
 
 ```r
 str(3)  
@@ -1059,7 +1081,7 @@ str(c(1,3))
 ```
 ]
  
-.right-panel-str-auto[
+.panel2-str-auto[
 
 ```
  num 3
@@ -1102,7 +1124,7 @@ str(c(1,3))
 count: false
  
 
-.left-panel-str-auto[
+.panel1-str-auto[
 
 ```r
 str(3)  
@@ -1128,7 +1150,7 @@ str(factor(c("hello", "bye")))
 ```
 ]
  
-.right-panel-str-auto[
+.panel2-str-auto[
 
 ```
  num 3
@@ -1175,7 +1197,7 @@ str(factor(c("hello", "bye")))
 count: false
  
 
-.left-panel-str-auto[
+.panel1-str-auto[
 
 ```r
 str(3)  
@@ -1203,7 +1225,7 @@ str(factor(c("hello", "bye"),
 ```
 ]
  
-.right-panel-str-auto[
+.panel2-str-auto[
 
 ```
  num 3
@@ -1246,7 +1268,7 @@ str(factor(c("hello", "bye"),
 ```
 
 ```
- POSIXct[1:1], format: "2020-07-03 23:46:13"
+ POSIXct[1:1], format: "2020-07-19 10:30:33"
 ```
 ]
 
@@ -1254,7 +1276,7 @@ str(factor(c("hello", "bye"),
 count: false
  
 
-.left-panel-str-auto[
+.panel1-str-auto[
 
 ```r
 str(3)  
@@ -1284,7 +1306,7 @@ str(Sys.time())
 ```
 ]
  
-.right-panel-str-auto[
+.panel2-str-auto[
 
 ```
  num 3
@@ -1327,30 +1349,32 @@ str(Sys.time())
 ```
 
 ```
- POSIXct[1:1], format: "2020-07-03 23:46:13"
+ POSIXct[1:1], format: "2020-07-19 10:30:33"
 ```
 
 ```
- Date[1:1], format: "2020-07-03"
+ Date[1:1], format: "2020-07-19"
 ```
 ]
 
 &lt;style&gt;
-.left-panel-str-auto {
-  color: #777;
-  width: 38.6138613861386%;
-  height: 92%;
+.panel1-str-auto {
+  color: black;
+  width: 38.6060606060606%;
   float: left;
-  font-size: 80%
-}
-.right-panel-str-auto {
-  width: 59.4059405940594%;
-  float: right;
   padding-left: 1%;
   font-size: 80%
 }
-.middle-panel-str-auto {
-  width: 0%;
+.panel2-str-auto {
+  color: black;
+  width: 59.3939393939394%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-str-auto {
+  color: black;
+  width: NA%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -1369,14 +1393,14 @@ str(Sys.time())
 count: false
  
 
-.left-panel-mat-auto[
+.panel1-mat-auto[
 
 ```r
 *matrix(1:10, nrow = 5)
 ```
 ]
  
-.right-panel-mat-auto[
+.panel2-mat-auto[
 
 ```
      [,1] [,2]
@@ -1392,7 +1416,7 @@ count: false
 count: false
  
 
-.left-panel-mat-auto[
+.panel1-mat-auto[
 
 ```r
 matrix(1:10, nrow = 5)  
@@ -1401,7 +1425,7 @@ matrix(1:10, nrow = 5)
 ```
 ]
  
-.right-panel-mat-auto[
+.panel2-mat-auto[
 
 ```
      [,1] [,2]
@@ -1425,7 +1449,7 @@ matrix(1:10, nrow = 5)
 count: false
  
 
-.left-panel-mat-auto[
+.panel1-mat-auto[
 
 ```r
 matrix(1:10, nrow = 5)  
@@ -1442,7 +1466,7 @@ matrix(1:10, ncol = 3)
 ```
 ]
  
-.right-panel-mat-auto[
+.panel2-mat-auto[
 
 ```
      [,1] [,2]
@@ -1472,7 +1496,7 @@ matrix(1:10, ncol = 3)
 count: false
  
 
-.left-panel-mat-auto[
+.panel1-mat-auto[
 
 ```r
 matrix(1:10, nrow = 5)  
@@ -1497,7 +1521,7 @@ matrix(c(1,2,3,4),
 ```
 ]
  
-.right-panel-mat-auto[
+.panel2-mat-auto[
 
 ```
      [,1] [,2]
@@ -1533,7 +1557,7 @@ matrix(c(1,2,3,4),
 count: false
  
 
-.left-panel-mat-auto[
+.panel1-mat-auto[
 
 ```r
 matrix(1:10, nrow = 5)  
@@ -1562,7 +1586,7 @@ matrix(c(1,2,3,4),
 ```
 ]
  
-.right-panel-mat-auto[
+.panel2-mat-auto[
 
 ```
      [,1] [,2]
@@ -1601,21 +1625,23 @@ matrix(c(1,2,3,4),
 ]
 
 &lt;style&gt;
-.left-panel-mat-auto {
-  color: #777;
-  width: 38.6138613861386%;
-  height: 92%;
+.panel1-mat-auto {
+  color: black;
+  width: 38.6060606060606%;
   float: left;
-  font-size: 80%
-}
-.right-panel-mat-auto {
-  width: 59.4059405940594%;
-  float: right;
   padding-left: 1%;
   font-size: 80%
 }
-.middle-panel-mat-auto {
-  width: 0%;
+.panel2-mat-auto {
+  color: black;
+  width: 59.3939393939394%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-mat-auto {
+  color: black;
+  width: NA%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -1635,7 +1661,7 @@ matrix(c(1,2,3,4),
 count: false
  
 
-.left-panel-dat-auto[
+.panel1-dat-auto[
 
 ```r
 *data.frame(id = 1:6,
@@ -1647,7 +1673,7 @@ count: false
 ```
 ]
  
-.right-panel-dat-auto[
+.panel2-dat-auto[
 
 ```
   id  greet nums
@@ -1664,7 +1690,7 @@ count: false
 count: false
  
 
-.left-panel-dat-auto[
+.panel1-dat-auto[
 
 ```r
 data.frame(id = 1:6,  
@@ -1678,7 +1704,7 @@ data.frame(id = 1:6,
 ```
 ]
  
-.right-panel-dat-auto[
+.panel2-dat-auto[
 
 ```
   id  greet nums
@@ -1695,7 +1721,7 @@ data.frame(id = 1:6,
 count: false
  
 
-.left-panel-dat-auto[
+.panel1-dat-auto[
 
 ```r
 data.frame(id = 1:6,  
@@ -1716,7 +1742,7 @@ library(tibble)  # also a part of the tidyverse
 ```
 ]
  
-.right-panel-dat-auto[
+.panel2-dat-auto[
 
 ```
   id  greet nums
@@ -1739,21 +1765,23 @@ library(tibble)  # also a part of the tidyverse
 ]
 
 &lt;style&gt;
-.left-panel-dat-auto {
-  color: #777;
-  width: 38.6138613861386%;
-  height: 92%;
+.panel1-dat-auto {
+  color: black;
+  width: 38.6060606060606%;
   float: left;
-  font-size: 80%
-}
-.right-panel-dat-auto {
-  width: 59.4059405940594%;
-  float: right;
   padding-left: 1%;
   font-size: 80%
 }
-.middle-panel-dat-auto {
-  width: 0%;
+.panel2-dat-auto {
+  color: black;
+  width: 59.3939393939394%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-dat-auto {
+  color: black;
+  width: NA%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -1772,14 +1800,14 @@ library(tibble)  # also a part of the tidyverse
 count: false
  
 
-.left-panel-fun-auto[
+.panel1-fun-auto[
 
 ```r
 *mean(1:5)
 ```
 ]
  
-.right-panel-fun-auto[
+.panel2-fun-auto[
 
 ```
 [1] 3
@@ -1790,7 +1818,7 @@ count: false
 count: false
  
 
-.left-panel-fun-auto[
+.panel1-fun-auto[
 
 ```r
 mean(1:5)  
@@ -1799,7 +1827,7 @@ mean(1:5)
 ```
 ]
  
-.right-panel-fun-auto[
+.panel2-fun-auto[
 
 ```
 [1] 3
@@ -1814,7 +1842,7 @@ mean(1:5)
 count: false
  
 
-.left-panel-fun-auto[
+.panel1-fun-auto[
 
 ```r
 mean(1:5)  
@@ -1825,7 +1853,7 @@ mean(1:100^2)
 ```
 ]
  
-.right-panel-fun-auto[
+.panel2-fun-auto[
 
 ```
 [1] 3
@@ -1844,7 +1872,7 @@ mean(1:100^2)
 count: false
  
 
-.left-panel-fun-auto[
+.panel1-fun-auto[
 
 ```r
 mean(1:5)  
@@ -1857,7 +1885,7 @@ sd(1:10)
 ```
 ]
  
-.right-panel-fun-auto[
+.panel2-fun-auto[
 
 ```
 [1] 3
@@ -1880,7 +1908,7 @@ sd(1:10)
 count: false
  
 
-.left-panel-fun-auto[
+.panel1-fun-auto[
 
 ```r
 mean(1:5)  
@@ -1895,7 +1923,7 @@ mean(c(1, 4, 6, 7))
 ```
 ]
  
-.right-panel-fun-auto[
+.panel2-fun-auto[
 
 ```
 [1] 3
@@ -1922,7 +1950,7 @@ mean(c(1, 4, 6, 7))
 count: false
  
 
-.left-panel-fun-auto[
+.panel1-fun-auto[
 
 ```r
 mean(1:5)  
@@ -1939,7 +1967,7 @@ mean(c(1, 4, 6, 7, NA))
 ```
 ]
  
-.right-panel-fun-auto[
+.panel2-fun-auto[
 
 ```
 [1] 3
@@ -1970,7 +1998,7 @@ mean(c(1, 4, 6, 7, NA))
 count: false
  
 
-.left-panel-fun-auto[
+.panel1-fun-auto[
 
 ```r
 mean(1:5)  
@@ -1989,7 +2017,7 @@ mean(c(1, 4, 6, 7, NA), na.rm = T)
 ```
 ]
  
-.right-panel-fun-auto[
+.panel2-fun-auto[
 
 ```
 [1] 3
@@ -2024,7 +2052,7 @@ mean(c(1, 4, 6, 7, NA), na.rm = T)
 count: false
  
 
-.left-panel-fun-auto[
+.panel1-fun-auto[
 
 ```r
 mean(1:5)  
@@ -2045,7 +2073,7 @@ sd(c(1:10, NA))
 ```
 ]
  
-.right-panel-fun-auto[
+.panel2-fun-auto[
 
 ```
 [1] 3
@@ -2081,21 +2109,23 @@ sd(c(1:10, NA))
 ]
 
 &lt;style&gt;
-.left-panel-fun-auto {
-  color: #777;
-  width: 38.6138613861386%;
-  height: 92%;
+.panel1-fun-auto {
+  color: black;
+  width: 38.6060606060606%;
   float: left;
-  font-size: 80%
-}
-.right-panel-fun-auto {
-  width: 59.4059405940594%;
-  float: right;
   padding-left: 1%;
   font-size: 80%
 }
-.middle-panel-fun-auto {
-  width: 0%;
+.panel2-fun-auto {
+  color: black;
+  width: 59.3939393939394%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-fun-auto {
+  color: black;
+  width: NA%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -2112,14 +2142,14 @@ sd(c(1:10, NA))
 count: false
  
 
-.left-panel-assign-auto[
+.panel1-assign-auto[
 
 ```r
 *1:10
 ```
 ]
  
-.right-panel-assign-auto[
+.panel2-assign-auto[
 
 ```
  [1]  1  2  3  4  5  6  7  8  9 10
@@ -2130,7 +2160,7 @@ count: false
 count: false
  
 
-.left-panel-assign-auto[
+.panel1-assign-auto[
 
 ```r
 1:10 -&gt;  
@@ -2138,7 +2168,7 @@ count: false
 ```
 ]
  
-.right-panel-assign-auto[
+.panel2-assign-auto[
 
 ]
 
@@ -2146,7 +2176,7 @@ count: false
 count: false
  
 
-.left-panel-assign-auto[
+.panel1-assign-auto[
 
 ```r
 1:10 -&gt;  
@@ -2156,7 +2186,7 @@ count: false
 ```
 ]
  
-.right-panel-assign-auto[
+.panel2-assign-auto[
 
 ```
  [1]  5 10 15 20 25 30 35 40 45 50
@@ -2167,7 +2197,7 @@ count: false
 count: false
  
 
-.left-panel-assign-auto[
+.panel1-assign-auto[
 
 ```r
 1:10 -&gt;  
@@ -2178,7 +2208,7 @@ x * 5
 ```
 ]
  
-.right-panel-assign-auto[
+.panel2-assign-auto[
 
 ```
  [1]  5 10 15 20 25 30 35 40 45 50
@@ -2193,7 +2223,7 @@ x * 5
 count: false
  
 
-.left-panel-assign-auto[
+.panel1-assign-auto[
 
 ```r
 1:10 -&gt;  
@@ -2206,7 +2236,7 @@ x^2
 ```
 ]
  
-.right-panel-assign-auto[
+.panel2-assign-auto[
 
 ```
  [1]  5 10 15 20 25 30 35 40 45 50
@@ -2225,7 +2255,7 @@ x^2
 count: false
  
 
-.left-panel-assign-auto[
+.panel1-assign-auto[
 
 ```r
 1:10 -&gt;  
@@ -2239,7 +2269,7 @@ rep(3, 10) -&gt;
 ```
 ]
  
-.right-panel-assign-auto[
+.panel2-assign-auto[
 
 ```
  [1]  5 10 15 20 25 30 35 40 45 50
@@ -2254,7 +2284,7 @@ rep(3, 10) -&gt;
 count: false
  
 
-.left-panel-assign-auto[
+.panel1-assign-auto[
 
 ```r
 1:10 -&gt;  
@@ -2270,7 +2300,7 @@ rep(3, 10) -&gt;
 ```
 ]
  
-.right-panel-assign-auto[
+.panel2-assign-auto[
 
 ```
  [1]  5 10 15 20 25 30 35 40 45 50
@@ -2289,7 +2319,7 @@ rep(3, 10) -&gt;
 count: false
  
 
-.left-panel-assign-auto[
+.panel1-assign-auto[
 
 ```r
 1:10 -&gt;  
@@ -2306,7 +2336,7 @@ x + y -&gt;
 ```
 ]
  
-.right-panel-assign-auto[
+.panel2-assign-auto[
 
 ```
  [1]  5 10 15 20 25 30 35 40 45 50
@@ -2321,7 +2351,7 @@ x + y -&gt;
 count: false
  
 
-.left-panel-assign-auto[
+.panel1-assign-auto[
 
 ```r
 1:10 -&gt;  
@@ -2340,7 +2370,7 @@ x + y -&gt;
 ```
 ]
  
-.right-panel-assign-auto[
+.panel2-assign-auto[
 
 ```
  [1]  5 10 15 20 25 30 35 40 45 50
@@ -2359,7 +2389,7 @@ x + y -&gt;
 count: false
  
 
-.left-panel-assign-auto[
+.panel1-assign-auto[
 
 ```r
 1:10 -&gt;  
@@ -2379,7 +2409,7 @@ x + y -&gt;
 ```
 ]
  
-.right-panel-assign-auto[
+.panel2-assign-auto[
 
 ```
  [1]  5 10 15 20 25 30 35 40 45 50
@@ -2394,7 +2424,7 @@ x + y -&gt;
 count: false
  
 
-.left-panel-assign-auto[
+.panel1-assign-auto[
 
 ```r
 1:10 -&gt;  
@@ -2416,7 +2446,7 @@ x + y -&gt;
 ```
 ]
  
-.right-panel-assign-auto[
+.panel2-assign-auto[
 
 ```
  [1]  5 10 15 20 25 30 35 40 45 50
@@ -2435,7 +2465,7 @@ x + y -&gt;
 count: false
  
 
-.left-panel-assign-auto[
+.panel1-assign-auto[
 
 ```r
 1:10 -&gt;  
@@ -2458,7 +2488,7 @@ x + y -&gt;
 ```
 ]
  
-.right-panel-assign-auto[
+.panel2-assign-auto[
 
 ```
  [1]  5 10 15 20 25 30 35 40 45 50
@@ -2473,7 +2503,7 @@ x + y -&gt;
 count: false
  
 
-.left-panel-assign-auto[
+.panel1-assign-auto[
 
 ```r
 1:10 -&gt;  
@@ -2498,7 +2528,7 @@ x + y -&gt;
 ```
 ]
  
-.right-panel-assign-auto[
+.panel2-assign-auto[
 
 ```
  [1]  5 10 15 20 25 30 35 40 45 50
@@ -2517,7 +2547,7 @@ x + y -&gt;
 count: false
  
 
-.left-panel-assign-auto[
+.panel1-assign-auto[
 
 ```r
 1:10 -&gt;  
@@ -2543,7 +2573,7 @@ x + y -&gt;
 ```
 ]
  
-.right-panel-assign-auto[
+.panel2-assign-auto[
 
 ```
  [1]  5 10 15 20 25 30 35 40 45 50
@@ -2558,7 +2588,7 @@ x + y -&gt;
 count: false
  
 
-.left-panel-assign-auto[
+.panel1-assign-auto[
 
 ```r
 1:10 -&gt;  
@@ -2586,7 +2616,7 @@ x + y -&gt;
 ```
 ]
  
-.right-panel-assign-auto[
+.panel2-assign-auto[
 
 ```
  [1]  5 10 15 20 25 30 35 40 45 50
@@ -2606,21 +2636,23 @@ x + y -&gt;
 ]
 
 &lt;style&gt;
-.left-panel-assign-auto {
-  color: #777;
-  width: 38.6138613861386%;
-  height: 92%;
+.panel1-assign-auto {
+  color: black;
+  width: 38.6060606060606%;
   float: left;
-  font-size: 80%
-}
-.right-panel-assign-auto {
-  width: 59.4059405940594%;
-  float: right;
   padding-left: 1%;
   font-size: 80%
 }
-.middle-panel-assign-auto {
-  width: 0%;
+.panel2-assign-auto {
+  color: black;
+  width: 59.3939393939394%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-assign-auto {
+  color: black;
+  width: NA%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -2643,14 +2675,14 @@ Some functions all about type...
 count: false
  
 
-.left-panel-is_type-auto[
+.panel1-is_type-auto[
 
 ```r
 *is.character("hi")
 ```
 ]
  
-.right-panel-is_type-auto[
+.panel2-is_type-auto[
 
 ```
 [1] TRUE
@@ -2661,7 +2693,7 @@ count: false
 count: false
  
 
-.left-panel-is_type-auto[
+.panel1-is_type-auto[
 
 ```r
 is.character("hi")  
@@ -2670,7 +2702,7 @@ is.character("hi")
 ```
 ]
  
-.right-panel-is_type-auto[
+.panel2-is_type-auto[
 
 ```
 [1] TRUE
@@ -2685,7 +2717,7 @@ is.character("hi")
 count: false
  
 
-.left-panel-is_type-auto[
+.panel1-is_type-auto[
 
 ```r
 is.character("hi")  
@@ -2696,7 +2728,7 @@ is.numeric(1)
 ```
 ]
  
-.right-panel-is_type-auto[
+.panel2-is_type-auto[
 
 ```
 [1] TRUE
@@ -2715,7 +2747,7 @@ is.numeric(1)
 count: false
  
 
-.left-panel-is_type-auto[
+.panel1-is_type-auto[
 
 ```r
 is.character("hi")  
@@ -2728,7 +2760,7 @@ is.integer(2.3)
 ```
 ]
  
-.right-panel-is_type-auto[
+.panel2-is_type-auto[
 
 ```
 [1] TRUE
@@ -2751,7 +2783,7 @@ is.integer(2.3)
 count: false
  
 
-.left-panel-is_type-auto[
+.panel1-is_type-auto[
 
 ```r
 is.character("hi")  
@@ -2766,7 +2798,7 @@ is.double(4L)
 ```
 ]
  
-.right-panel-is_type-auto[
+.panel2-is_type-auto[
 
 ```
 [1] TRUE
@@ -2793,7 +2825,7 @@ is.double(4L)
 count: false
  
 
-.left-panel-is_type-auto[
+.panel1-is_type-auto[
 
 ```r
 is.character("hi")  
@@ -2810,7 +2842,7 @@ is.integer(4)
 ```
 ]
  
-.right-panel-is_type-auto[
+.panel2-is_type-auto[
 
 ```
 [1] TRUE
@@ -2841,7 +2873,7 @@ is.integer(4)
 count: false
  
 
-.left-panel-is_type-auto[
+.panel1-is_type-auto[
 
 ```r
 is.character("hi")  
@@ -2860,7 +2892,7 @@ is.integer(4L)
 ```
 ]
  
-.right-panel-is_type-auto[
+.panel2-is_type-auto[
 
 ```
 [1] TRUE
@@ -2892,21 +2924,23 @@ is.integer(4L)
 ]
 
 &lt;style&gt;
-.left-panel-is_type-auto {
-  color: #777;
-  width: 38.6138613861386%;
-  height: 92%;
+.panel1-is_type-auto {
+  color: black;
+  width: 38.6060606060606%;
   float: left;
-  font-size: 80%
-}
-.right-panel-is_type-auto {
-  width: 59.4059405940594%;
-  float: right;
   padding-left: 1%;
   font-size: 80%
 }
-.middle-panel-is_type-auto {
-  width: 0%;
+.panel2-is_type-auto {
+  color: black;
+  width: 59.3939393939394%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-is_type-auto {
+  color: black;
+  width: NA%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -2922,14 +2956,14 @@ is.integer(4L)
 count: false
  
 
-.left-panel-as_type-auto[
+.panel1-as_type-auto[
 
 ```r
 *as.numeric("hi")
 ```
 ]
  
-.right-panel-as_type-auto[
+.panel2-as_type-auto[
 
 ```
 [1] NA
@@ -2940,7 +2974,7 @@ count: false
 count: false
  
 
-.left-panel-as_type-auto[
+.panel1-as_type-auto[
 
 ```r
 as.numeric("hi")  
@@ -2949,7 +2983,7 @@ as.numeric("hi")
 ```
 ]
  
-.right-panel-as_type-auto[
+.panel2-as_type-auto[
 
 ```
 [1] NA
@@ -2964,7 +2998,7 @@ as.numeric("hi")
 count: false
  
 
-.left-panel-as_type-auto[
+.panel1-as_type-auto[
 
 ```r
 as.numeric("hi")  
@@ -2975,7 +3009,7 @@ as.integer(1)
 ```
 ]
  
-.right-panel-as_type-auto[
+.panel2-as_type-auto[
 
 ```
 [1] NA
@@ -2994,7 +3028,7 @@ as.integer(1)
 count: false
  
 
-.left-panel-as_type-auto[
+.panel1-as_type-auto[
 
 ```r
 as.numeric("hi")  
@@ -3007,7 +3041,7 @@ as.character(2.3)
 ```
 ]
  
-.right-panel-as_type-auto[
+.panel2-as_type-auto[
 
 ```
 [1] NA
@@ -3030,7 +3064,7 @@ as.character(2.3)
 count: false
  
 
-.left-panel-as_type-auto[
+.panel1-as_type-auto[
 
 ```r
 as.numeric("hi")  
@@ -3045,7 +3079,7 @@ as.double(4L)
 ```
 ]
  
-.right-panel-as_type-auto[
+.panel2-as_type-auto[
 
 ```
 [1] NA
@@ -3072,7 +3106,7 @@ as.double(4L)
 count: false
  
 
-.left-panel-as_type-auto[
+.panel1-as_type-auto[
 
 ```r
 as.numeric("hi")  
@@ -3089,7 +3123,7 @@ is.integer(4)
 ```
 ]
  
-.right-panel-as_type-auto[
+.panel2-as_type-auto[
 
 ```
 [1] NA
@@ -3120,7 +3154,7 @@ is.integer(4)
 count: false
  
 
-.left-panel-as_type-auto[
+.panel1-as_type-auto[
 
 ```r
 as.numeric("hi")  
@@ -3139,7 +3173,7 @@ is.integer(4L)
 ```
 ]
  
-.right-panel-as_type-auto[
+.panel2-as_type-auto[
 
 ```
 [1] NA
@@ -3175,7 +3209,7 @@ Levels: bad good
 count: false
  
 
-.left-panel-as_type-auto[
+.panel1-as_type-auto[
 
 ```r
 as.numeric("hi")  
@@ -3196,7 +3230,7 @@ as.factor(c("good", "bad"))
 ```
 ]
  
-.right-panel-as_type-auto[
+.panel2-as_type-auto[
 
 ```
 [1] NA
@@ -3238,7 +3272,7 @@ Levels: bad good
 count: false
  
 
-.left-panel-as_type-auto[
+.panel1-as_type-auto[
 
 ```r
 as.numeric("hi")  
@@ -3261,7 +3295,7 @@ matrix(1:4, nrow = 2) %&gt;%  # this is a pipe operator
 ```
 ]
  
-.right-panel-as_type-auto[
+.panel2-as_type-auto[
 
 ```
 [1] NA
@@ -3298,21 +3332,23 @@ Levels: bad good
 ]
 
 &lt;style&gt;
-.left-panel-as_type-auto {
-  color: #777;
-  width: 38.6138613861386%;
-  height: 92%;
+.panel1-as_type-auto {
+  color: black;
+  width: 38.6060606060606%;
   float: left;
-  font-size: 80%
-}
-.right-panel-as_type-auto {
-  width: 59.4059405940594%;
-  float: right;
   padding-left: 1%;
   font-size: 80%
 }
-.middle-panel-as_type-auto {
-  width: 0%;
+.panel2-as_type-auto {
+  color: black;
+  width: 59.3939393939394%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-as_type-auto {
+  color: black;
+  width: NA%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -3329,14 +3365,14 @@ Levels: bad good
 count: false
  
 
-.left-panel-factors-auto[
+.panel1-factors-auto[
 
 ```r
 *c("50", "80")
 ```
 ]
  
-.right-panel-factors-auto[
+.panel2-factors-auto[
 
 ```
 [1] "50" "80"
@@ -3347,7 +3383,7 @@ count: false
 count: false
  
 
-.left-panel-factors-auto[
+.panel1-factors-auto[
 
 ```r
 c("50", "80") %&gt;%  
@@ -3355,7 +3391,7 @@ c("50", "80") %&gt;%
 ```
 ]
  
-.right-panel-factors-auto[
+.panel2-factors-auto[
 
 ```
 [1] 50 80
@@ -3367,7 +3403,7 @@ Levels: 50 80
 count: false
  
 
-.left-panel-factors-auto[
+.panel1-factors-auto[
 
 ```r
 c("50", "80") %&gt;%  
@@ -3376,7 +3412,7 @@ c("50", "80") %&gt;%
 ```
 ]
  
-.right-panel-factors-auto[
+.panel2-factors-auto[
 
 ```
 [1] 1 2
@@ -3387,7 +3423,7 @@ c("50", "80") %&gt;%
 count: false
  
 
-.left-panel-factors-auto[
+.panel1-factors-auto[
 
 ```r
 c("50", "80") %&gt;%  
@@ -3398,7 +3434,7 @@ c("50", "80") %&gt;%
 ```
 ]
  
-.right-panel-factors-auto[
+.panel2-factors-auto[
 
 ```
 [1] 1 2
@@ -3413,7 +3449,7 @@ c("50", "80") %&gt;%
 count: false
  
 
-.left-panel-factors-auto[
+.panel1-factors-auto[
 
 ```r
 c("50", "80") %&gt;%  
@@ -3425,7 +3461,7 @@ c("50", "80") %&gt;%
 ```
 ]
  
-.right-panel-factors-auto[
+.panel2-factors-auto[
 
 ```
 [1] 1 2
@@ -3441,7 +3477,7 @@ Levels: 50 80
 count: false
  
 
-.left-panel-factors-auto[
+.panel1-factors-auto[
 
 ```r
 c("50", "80") %&gt;%  
@@ -3454,7 +3490,7 @@ c("50", "80") %&gt;%
 ```
 ]
  
-.right-panel-factors-auto[
+.panel2-factors-auto[
 
 ```
 [1] 1 2
@@ -3469,7 +3505,7 @@ c("50", "80") %&gt;%
 count: false
  
 
-.left-panel-factors-auto[
+.panel1-factors-auto[
 
 ```r
 c("50", "80") %&gt;%  
@@ -3483,7 +3519,7 @@ c("50", "80") %&gt;%
 ```
 ]
  
-.right-panel-factors-auto[
+.panel2-factors-auto[
 
 ```
 [1] 1 2
@@ -3495,21 +3531,23 @@ c("50", "80") %&gt;%
 ]
 
 &lt;style&gt;
-.left-panel-factors-auto {
-  color: #777;
-  width: 38.6138613861386%;
-  height: 92%;
+.panel1-factors-auto {
+  color: black;
+  width: 38.6060606060606%;
   float: left;
-  font-size: 80%
-}
-.right-panel-factors-auto {
-  width: 59.4059405940594%;
-  float: right;
   padding-left: 1%;
   font-size: 80%
 }
-.middle-panel-factors-auto {
-  width: 0%;
+.panel2-factors-auto {
+  color: black;
+  width: 59.3939393939394%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-factors-auto {
+  color: black;
+  width: NA%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -3534,7 +3572,7 @@ c("50", "80") %&gt;%
 &lt;/style&gt;
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
-<script src="libs/remark-latest.min.js"></script>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({
 "ratio": "16:10",
 "highlightStyle": "github",

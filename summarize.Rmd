@@ -4,6 +4,7 @@ subtitle: "made with flipbookr and xaringan"
 author: "Gina Reynolds, January 2020"
 output:
   xaringan::moon_reader:
+    seal: false
     lib_dir: libs
     css: [default, hygge, ninjutsu]
     nature:
@@ -12,6 +13,32 @@ output:
       highlightLines: true
       countIncrementalSlides: false
 ---
+
+
+
+
+class: left, top, inverse
+background-image: url(https://images.unsplash.com/photo-1518983546435-91f8b87fe561?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80)
+background-size: cover
+
+# .large[Summarizing]
+### Walk-throughs <br>with {flipbookr}<br>and {xaringan}
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+#### .right[Gina Reynolds<br>Photo Credit: Jason Leung]
+
+
+
 
 
 

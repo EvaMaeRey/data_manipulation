@@ -10,49 +10,36 @@
   </head>
   <body>
     <textarea id="source">
-class: center, middle, inverse, title-slide
 
-# Booleans
-## made with flipbookr and xaringan
-### Gina Reynolds, January 2020
+
+
+
+
+
+class: left, top, inverse
+background-image: url(https://images.unsplash.com/photo-1586165368502-1bad197a6461?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1126&amp;q=80)
+background-size: cover
+
+# .large[Logicals, TRUE-FALSE]
+### Walk-throughs &lt;br&gt;with {flipbookr}&lt;br&gt;and {xaringan}
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+#### .right[Gina Reynolds&lt;br&gt;Photo Credit: Hassan Pasha]
+
 
 ---
 
 
-
-```r
-library(gapminder)
-library(tidyverse)
-```
-
-```
-## ── Attaching packages ─────────────────────────────────────────── tidyverse 1.3.0 ──
-```
-
-```
-## ✓ ggplot2 3.3.2     ✓ purrr   0.3.3
-## ✓ tibble  3.0.0     ✓ dplyr   0.8.5
-## ✓ tidyr   1.0.2     ✓ stringr 1.4.0
-## ✓ readr   1.3.1     ✓ forcats 0.5.0
-```
-
-```
-## Warning: package 'ggplot2' was built under R version 3.6.2
-```
-
-```
-## Warning: package 'tibble' was built under R version 3.6.2
-```
-
-```
-## ── Conflicts ────────────────────────────────────────────── tidyverse_conflicts() ──
-## x dplyr::filter() masks stats::filter()
-## x dplyr::lag()    masks stats::lag()
-```
-
-```r
-knitr::opts_chunk$set(cache = F, comment = "")
-```
 
 
 ---
@@ -60,14 +47,14 @@ knitr::opts_chunk$set(cache = F, comment = "")
 count: false
  
 
-.left-panel-simple_comparisons-auto[
+.panel1-simple_comparisons-auto[
 
 ```r
 *5 == 5
 ```
 ]
  
-.right-panel-simple_comparisons-auto[
+.panel2-simple_comparisons-auto[
 
 ```
 [1] TRUE
@@ -78,7 +65,7 @@ count: false
 count: false
  
 
-.left-panel-simple_comparisons-auto[
+.panel1-simple_comparisons-auto[
 
 ```r
 5 == 5  
@@ -86,7 +73,7 @@ count: false
 ```
 ]
  
-.right-panel-simple_comparisons-auto[
+.panel2-simple_comparisons-auto[
 
 ```
 [1] TRUE
@@ -101,7 +88,7 @@ count: false
 count: false
  
 
-.left-panel-simple_comparisons-auto[
+.panel1-simple_comparisons-auto[
 
 ```r
 5 == 5  
@@ -110,7 +97,7 @@ count: false
 ```
 ]
  
-.right-panel-simple_comparisons-auto[
+.panel2-simple_comparisons-auto[
 
 ```
 [1] TRUE
@@ -129,7 +116,7 @@ count: false
 count: false
  
 
-.left-panel-simple_comparisons-auto[
+.panel1-simple_comparisons-auto[
 
 ```r
 5 == 5  
@@ -139,7 +126,7 @@ count: false
 ```
 ]
  
-.right-panel-simple_comparisons-auto[
+.panel2-simple_comparisons-auto[
 
 ```
 [1] TRUE
@@ -162,7 +149,7 @@ count: false
 count: false
  
 
-.left-panel-simple_comparisons-auto[
+.panel1-simple_comparisons-auto[
 
 ```r
 5 == 5  
@@ -173,7 +160,7 @@ count: false
 ```
 ]
  
-.right-panel-simple_comparisons-auto[
+.panel2-simple_comparisons-auto[
 
 ```
 [1] TRUE
@@ -200,7 +187,7 @@ count: false
 count: false
  
 
-.left-panel-simple_comparisons-auto[
+.panel1-simple_comparisons-auto[
 
 ```r
 5 == 5  
@@ -212,7 +199,7 @@ count: false
 ```
 ]
  
-.right-panel-simple_comparisons-auto[
+.panel2-simple_comparisons-auto[
 
 ```
 [1] TRUE
@@ -243,7 +230,7 @@ count: false
 count: false
  
 
-.left-panel-simple_comparisons-auto[
+.panel1-simple_comparisons-auto[
 
 ```r
 5 == 5  
@@ -256,7 +243,7 @@ count: false
 ```
 ]
  
-.right-panel-simple_comparisons-auto[
+.panel2-simple_comparisons-auto[
 
 ```
 [1] TRUE
@@ -291,7 +278,7 @@ count: false
 count: false
  
 
-.left-panel-simple_comparisons-auto[
+.panel1-simple_comparisons-auto[
 
 ```r
 5 == 5  
@@ -305,7 +292,7 @@ count: false
 ```
 ]
  
-.right-panel-simple_comparisons-auto[
+.panel2-simple_comparisons-auto[
 
 ```
 [1] TRUE
@@ -344,7 +331,7 @@ count: false
 count: false
  
 
-.left-panel-simple_comparisons-auto[
+.panel1-simple_comparisons-auto[
 
 ```r
 5 == 5  
@@ -359,7 +346,7 @@ count: false
 ```
 ]
  
-.right-panel-simple_comparisons-auto[
+.panel2-simple_comparisons-auto[
 
 ```
 [1] TRUE
@@ -402,7 +389,7 @@ count: false
 count: false
  
 
-.left-panel-simple_comparisons-auto[
+.panel1-simple_comparisons-auto[
 
 ```r
 5 == 5  
@@ -418,7 +405,7 @@ count: false
 ```
 ]
  
-.right-panel-simple_comparisons-auto[
+.panel2-simple_comparisons-auto[
 
 ```
 [1] TRUE
@@ -465,7 +452,7 @@ count: false
 count: false
  
 
-.left-panel-simple_comparisons-auto[
+.panel1-simple_comparisons-auto[
 
 ```r
 5 == 5  
@@ -482,7 +469,7 @@ count: false
 ```
 ]
  
-.right-panel-simple_comparisons-auto[
+.panel2-simple_comparisons-auto[
 
 ```
 [1] TRUE
@@ -530,21 +517,23 @@ count: false
 ]
 
 &lt;style&gt;
-.left-panel-simple_comparisons-auto {
-  color: #777;
-  width: 38.6138613861386%;
-  height: 92%;
+.panel1-simple_comparisons-auto {
+  color: black;
+  width: 38.6060606060606%;
   float: left;
-  font-size: 80%
-}
-.right-panel-simple_comparisons-auto {
-  width: 59.4059405940594%;
-  float: right;
   padding-left: 1%;
   font-size: 80%
 }
-.middle-panel-simple_comparisons-auto {
-  width: 0%;
+.panel2-simple_comparisons-auto {
+  color: black;
+  width: 59.3939393939394%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-simple_comparisons-auto {
+  color: black;
+  width: NA%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -562,14 +551,14 @@ count: false
 count: false
  
 
-.left-panel-combining_logicals-auto[
+.panel1-combining_logicals-auto[
 
 ```r
 *TRUE &amp; TRUE
 ```
 ]
  
-.right-panel-combining_logicals-auto[
+.panel2-combining_logicals-auto[
 
 ```
 [1] TRUE
@@ -580,7 +569,7 @@ count: false
 count: false
  
 
-.left-panel-combining_logicals-auto[
+.panel1-combining_logicals-auto[
 
 ```r
 TRUE &amp; TRUE  
@@ -588,7 +577,7 @@ TRUE &amp; TRUE
 ```
 ]
  
-.right-panel-combining_logicals-auto[
+.panel2-combining_logicals-auto[
 
 ```
 [1] TRUE
@@ -603,7 +592,7 @@ TRUE &amp; TRUE
 count: false
  
 
-.left-panel-combining_logicals-auto[
+.panel1-combining_logicals-auto[
 
 ```r
 TRUE &amp; TRUE  
@@ -612,7 +601,7 @@ FALSE &amp; TRUE
 ```
 ]
  
-.right-panel-combining_logicals-auto[
+.panel2-combining_logicals-auto[
 
 ```
 [1] TRUE
@@ -631,7 +620,7 @@ FALSE &amp; TRUE
 count: false
  
 
-.left-panel-combining_logicals-auto[
+.panel1-combining_logicals-auto[
 
 ```r
 TRUE &amp; TRUE  
@@ -641,7 +630,7 @@ TRUE | FALSE
 ```
 ]
  
-.right-panel-combining_logicals-auto[
+.panel2-combining_logicals-auto[
 
 ```
 [1] TRUE
@@ -664,7 +653,7 @@ TRUE | FALSE
 count: false
  
 
-.left-panel-combining_logicals-auto[
+.panel1-combining_logicals-auto[
 
 ```r
 TRUE &amp; TRUE  
@@ -675,7 +664,7 @@ FALSE | FALSE
 ```
 ]
  
-.right-panel-combining_logicals-auto[
+.panel2-combining_logicals-auto[
 
 ```
 [1] TRUE
@@ -702,7 +691,7 @@ FALSE | FALSE
 count: false
  
 
-.left-panel-combining_logicals-auto[
+.panel1-combining_logicals-auto[
 
 ```r
 TRUE &amp; TRUE  
@@ -714,7 +703,7 @@ FALSE | FALSE
 ```
 ]
  
-.right-panel-combining_logicals-auto[
+.panel2-combining_logicals-auto[
 
 ```
 [1] TRUE
@@ -745,7 +734,7 @@ FALSE | FALSE
 count: false
  
 
-.left-panel-combining_logicals-auto[
+.panel1-combining_logicals-auto[
 
 ```r
 TRUE &amp; TRUE  
@@ -758,7 +747,7 @@ FALSE | FALSE
 ```
 ]
  
-.right-panel-combining_logicals-auto[
+.panel2-combining_logicals-auto[
 
 ```
 [1] TRUE
@@ -793,7 +782,7 @@ FALSE | FALSE
 count: false
  
 
-.left-panel-combining_logicals-auto[
+.panel1-combining_logicals-auto[
 
 ```r
 TRUE &amp; TRUE  
@@ -807,7 +796,7 @@ c(2, 5) %in% c(1, 5, 8, 9)
 ```
 ]
  
-.right-panel-combining_logicals-auto[
+.panel2-combining_logicals-auto[
 
 ```
 [1] TRUE
@@ -843,21 +832,23 @@ c(2, 5) %in% c(1, 5, 8, 9)
 ]
 
 &lt;style&gt;
-.left-panel-combining_logicals-auto {
-  color: #777;
-  width: 38.6138613861386%;
-  height: 92%;
+.panel1-combining_logicals-auto {
+  color: black;
+  width: 38.6060606060606%;
   float: left;
-  font-size: 80%
-}
-.right-panel-combining_logicals-auto {
-  width: 59.4059405940594%;
-  float: right;
   padding-left: 1%;
   font-size: 80%
 }
-.middle-panel-combining_logicals-auto {
-  width: 0%;
+.panel2-combining_logicals-auto {
+  color: black;
+  width: 59.3939393939394%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-combining_logicals-auto {
+  color: black;
+  width: NA%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -874,14 +865,71 @@ c(2, 5) %in% c(1, 5, 8, 9)
 count: false
  
 
-.left-panel-in_a_pipeline-auto[
+.panel1-in_a_pipeline-auto[
 
 ```r
+*library(gapminder)
+```
+]
+ 
+.panel2-in_a_pipeline-auto[
+
+]
+
+---
+count: false
+ 
+
+.panel1-in_a_pipeline-auto[
+
+```r
+library(gapminder)  
+*library(tidyverse)
+```
+]
+ 
+.panel2-in_a_pipeline-auto[
+
+```
+── Attaching packages ───────────────────────── tidyverse 1.3.0 ──
+```
+
+```
+✓ ggplot2 3.3.2     ✓ purrr   0.3.3
+✓ tibble  3.0.0     ✓ dplyr   0.8.5
+✓ tidyr   1.0.2     ✓ stringr 1.4.0
+✓ readr   1.3.1     ✓ forcats 0.5.0
+```
+
+```
+Warning: package 'ggplot2' was built under R version 3.6.2
+```
+
+```
+Warning: package 'tibble' was built under R version 3.6.2
+```
+
+```
+── Conflicts ──────────────────────────── tidyverse_conflicts() ──
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+```
+]
+
+---
+count: false
+ 
+
+.panel1-in_a_pipeline-auto[
+
+```r
+library(gapminder)  
+library(tidyverse)  
 *gapminder
 ```
 ]
  
-.right-panel-in_a_pipeline-auto[
+.panel2-in_a_pipeline-auto[
 
 ```
 # A tibble: 1,704 x 6
@@ -905,16 +953,18 @@ count: false
 count: false
  
 
-.left-panel-in_a_pipeline-auto[
+.panel1-in_a_pipeline-auto[
 
 ```r
+library(gapminder)  
+library(tidyverse)  
 gapminder %&gt;%  
 * filter(pop &gt; 100000000 &amp;
 *        gdpPercap &gt; 5000)
 ```
 ]
  
-.right-panel-in_a_pipeline-auto[
+.panel2-in_a_pipeline-auto[
 
 ```
 # A tibble: 30 x 6
@@ -938,9 +988,11 @@ gapminder %&gt;%
 count: false
  
 
-.left-panel-in_a_pipeline-auto[
+.panel1-in_a_pipeline-auto[
 
 ```r
+library(gapminder)  
+library(tidyverse)  
 gapminder %&gt;%  
   filter(pop &gt; 100000000 &amp;  
          gdpPercap &gt; 5000) %&gt;%  
@@ -948,7 +1000,7 @@ gapminder %&gt;%
 ```
 ]
  
-.right-panel-in_a_pipeline-auto[
+.panel2-in_a_pipeline-auto[
 
 ```
 # A tibble: 11 x 6
@@ -972,9 +1024,11 @@ gapminder %&gt;%
 count: false
  
 
-.left-panel-in_a_pipeline-auto[
+.panel1-in_a_pipeline-auto[
 
 ```r
+library(gapminder)  
+library(tidyverse)  
 gapminder %&gt;%  
   filter(pop &gt; 100000000 &amp;  
          gdpPercap &gt; 5000) %&gt;%  
@@ -985,7 +1039,7 @@ gapminder %&gt;%
 ```
 ]
  
-.right-panel-in_a_pipeline-auto[
+.panel2-in_a_pipeline-auto[
 
 ```
 # A tibble: 8 x 6
@@ -1006,9 +1060,11 @@ gapminder %&gt;%
 count: false
  
 
-.left-panel-in_a_pipeline-auto[
+.panel1-in_a_pipeline-auto[
 
 ```r
+library(gapminder)  
+library(tidyverse)  
 gapminder %&gt;%  
   filter(pop &gt; 100000000 &amp;  
          gdpPercap &gt; 5000) %&gt;%  
@@ -1020,7 +1076,7 @@ gapminder %&gt;%
 ```
 ]
  
-.right-panel-in_a_pipeline-auto[
+.panel2-in_a_pipeline-auto[
 
 ```
 # A tibble: 5 x 6
@@ -1035,21 +1091,23 @@ gapminder %&gt;%
 ]
 
 &lt;style&gt;
-.left-panel-in_a_pipeline-auto {
-  color: #777;
-  width: 38.6138613861386%;
-  height: 92%;
+.panel1-in_a_pipeline-auto {
+  color: black;
+  width: 38.6060606060606%;
   float: left;
-  font-size: 80%
-}
-.right-panel-in_a_pipeline-auto {
-  width: 59.4059405940594%;
-  float: right;
   padding-left: 1%;
   font-size: 80%
 }
-.middle-panel-in_a_pipeline-auto {
-  width: 0%;
+.panel2-in_a_pipeline-auto {
+  color: black;
+  width: 59.3939393939394%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-in_a_pipeline-auto {
+  color: black;
+  width: NA%;
   float: left;
   padding-left: 1%;
   font-size: 80%

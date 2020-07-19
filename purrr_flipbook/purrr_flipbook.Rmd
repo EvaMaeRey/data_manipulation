@@ -131,6 +131,10 @@ a_list_i_made %>%
 a_list_i_made %>% 
   .[[2]] %>% # access elements with double brackets
   .[2]
+
+mapply(rep, 1:4, 4:1)
+
+map
 ```
 
 

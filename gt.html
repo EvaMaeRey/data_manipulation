@@ -41,34 +41,33 @@ background-size: cover
 ---
 
 
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-gt-auto[
 
 ```r
 *library(gt)
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-gt-auto[
 
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-gt-auto[
 
 ```r
 library(gt)  
 *exibble
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-gt-auto[
 
 ```
 # A tibble: 8 x 9
@@ -83,22 +82,22 @@ library(gt)
 7  777000     grapefru… seven &lt;NA&gt;     19:10 2018-07-07 05…    NA    row_7 grp_b
 8 8880000     honeydew  eight 2015-08… 20:20 &lt;NA&gt;               0.44 row_8 grp_b
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-gt-auto[
 
 ```r
 library(gt)  
 exibble %&gt;%  
 * rename(fruit = char)
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-gt-auto[
 
 ```
 # A tibble: 8 x 9
@@ -113,14 +112,13 @@ exibble %&gt;%
 7  777000     grapefru… seven &lt;NA&gt;     19:10 2018-07-07 05…    NA    row_7 grp_b
 8 8880000     honeydew  eight 2015-08… 20:20 &lt;NA&gt;               0.44 row_8 grp_b
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-gt-auto[
 
 ```r
 library(gt)  
@@ -128,8 +126,9 @@ exibble %&gt;%
   rename(fruit = char) %&gt;%  
 * rename(team = fctr)
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-gt-auto[
 
 ```
 # A tibble: 8 x 9
@@ -144,14 +143,13 @@ exibble %&gt;%
 7  777000     grapefru… seven &lt;NA&gt;     19:10 2018-07-07 05…    NA    row_7 grp_b
 8 8880000     honeydew  eight 2015-08… 20:20 &lt;NA&gt;               0.44 row_8 grp_b
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-gt-auto[
 
 ```r
 library(gt)  
@@ -160,8 +158,9 @@ exibble %&gt;%
   rename(team = fctr) %&gt;%  
 * rename(weight = num)
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-gt-auto[
 
 ```
 # A tibble: 8 x 9
@@ -176,14 +175,13 @@ exibble %&gt;%
 7  777000     grapefru… seven &lt;NA&gt;     19:10 2018-07-07 05…    NA    row_7 grp_b
 8 8880000     honeydew  eight 2015-08… 20:20 &lt;NA&gt;               0.44 row_8 grp_b
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-gt-auto[
 
 ```r
 library(gt)  
@@ -193,8 +191,9 @@ exibble %&gt;%
   rename(weight = num) %&gt;%  
 * rename(holiday = date)
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-gt-auto[
 
 ```
 # A tibble: 8 x 9
@@ -209,14 +208,13 @@ exibble %&gt;%
 7  777000     grapefru… seven &lt;NA&gt;      19:10 2018-07-07 0…    NA    row_7 grp_b
 8 8880000     honeydew  eight 2015-08-… 20:20 &lt;NA&gt;              0.44 row_8 grp_b
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-gt-auto[
 
 ```r
 library(gt)  
@@ -227,8 +225,9 @@ exibble %&gt;%
   rename(holiday = date) %&gt;%  
 * rename(schedule = time)
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-gt-auto[
 
 ```
 # A tibble: 8 x 9
@@ -243,14 +242,13 @@ exibble %&gt;%
 7    7.77e+5 grapefr… seven &lt;NA&gt;      19:10    2018-07-07 …    NA    row_7 grp_b
 8    8.88e+6 honeydew eight 2015-08-… 20:20    &lt;NA&gt;             0.44 row_8 grp_b
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-gt-auto[
 
 ```r
 library(gt)  
@@ -262,8 +260,9 @@ exibble %&gt;%
   rename(schedule = time) %&gt;%  
 * rename(appointment = datetime)
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-gt-auto[
 
 ```
 # A tibble: 8 x 9
@@ -278,14 +277,13 @@ exibble %&gt;%
 7    7.77e+5 grapefr… seven &lt;NA&gt;     19:10    2018-07-07 0…    NA    row_7 grp_b
 8    8.88e+6 honeydew eight 2015-08… 20:20    &lt;NA&gt;              0.44 row_8 grp_b
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-gt-auto[
 
 ```r
 library(gt)  
@@ -298,8 +296,9 @@ exibble %&gt;%
   rename(appointment = datetime) %&gt;%  
 * rename(price = currency)
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-gt-auto[
 
 ```
 # A tibble: 8 x 9
@@ -314,14 +313,13 @@ exibble %&gt;%
 7    7.77e+5 grapefr… seven &lt;NA&gt;     19:10    2018-07-07 0…    NA    row_7 grp_b
 8    8.88e+6 honeydew eight 2015-08… 20:20    &lt;NA&gt;              0.44 row_8 grp_b
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-gt-auto[
 
 ```r
 library(gt)  
@@ -335,8 +333,9 @@ exibble %&gt;%
   rename(price = currency) %&gt;%  
 * rename(id = row)
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-gt-auto[
 
 ```
 # A tibble: 8 x 9
@@ -351,14 +350,13 @@ exibble %&gt;%
 7    7.77e+5 grapefr… seven &lt;NA&gt;     19:10    2018-07-07 0…    NA    row_7 grp_b
 8    8.88e+6 honeydew eight 2015-08… 20:20    &lt;NA&gt;              0.44 row_8 grp_b
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-gt-auto[
 
 ```r
 library(gt)  
@@ -373,8 +371,9 @@ exibble %&gt;%
   rename(id = row) %&gt;%  
 * rename(club = group)
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-gt-auto[
 
 ```
 # A tibble: 8 x 9
@@ -389,14 +388,13 @@ exibble %&gt;%
 7    7.77e+5 grapefr… seven &lt;NA&gt;     19:10    2018-07-07 0…    NA    row_7 grp_b
 8    8.88e+6 honeydew eight 2015-08… 20:20    &lt;NA&gt;              0.44 row_8 grp_b
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-gt-auto[
 
 ```r
 library(gt)  
@@ -412,17 +410,17 @@ exibble %&gt;%
   rename(club = group) -&gt;  
 *example
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-gt-auto[
 
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-gt-auto[
 
 ```r
 library(gt)  
@@ -439,8 +437,9 @@ exibble %&gt;%
 example  
 *example
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-gt-auto[
 
 ```
 # A tibble: 8 x 9
@@ -455,14 +454,13 @@ example
 7    7.77e+5 grapefr… seven &lt;NA&gt;     19:10    2018-07-07 0…    NA    row_7 grp_b
 8    8.88e+6 honeydew eight 2015-08… 20:20    &lt;NA&gt;              0.44 row_8 grp_b
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-gt-auto[
 
 ```r
 library(gt)  
@@ -480,8 +478,9 @@ example
 example %&gt;%  
 * .[1:5, 1:4]
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-gt-auto[
 
 ```
 # A tibble: 5 x 4
@@ -493,14 +492,13 @@ example %&gt;%
 4  444.    durian  four  2015-04-15
 5 5550     &lt;NA&gt;    five  2015-05-15
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-gt-auto[
 
 ```r
 library(gt)  
@@ -519,8 +517,9 @@ example %&gt;%
   .[1:5, 1:4] %&gt;%  
 * gt()
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-gt-auto[
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
@@ -900,14 +899,13 @@ example %&gt;%
   
   
 </table></div>
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-gt-auto[
 
 ```r
 library(gt)  
@@ -927,8 +925,9 @@ example %&gt;%
   gt() %&gt;%  
 * fmt_number(columns = vars(weight), decimals = 2)
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-gt-auto[
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
@@ -1308,14 +1307,13 @@ example %&gt;%
   
   
 </table></div>
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-gt-auto[
 
 ```r
 library(gt)  
@@ -1336,8 +1334,9 @@ example %&gt;%
   fmt_number(columns = vars(weight), decimals = 2) %&gt;%  
 * fmt_date(columns = vars(holiday), date_style = 1)
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-gt-auto[
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
@@ -1717,7 +1716,33 @@ example %&gt;%
   
   
 </table></div>
-]]
+]
+
+&lt;style&gt;
+.panel1-gt-auto {
+  color: black;
+  width: 38.6060606060606%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel2-gt-auto {
+  color: black;
+  width: 59.3939393939394%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-gt-auto {
+  color: black;
+  width: NA%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
 
 
 
@@ -1725,34 +1750,33 @@ example %&gt;%
 
 ---
 
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-gt2-auto[
 
 ```r
 *library(gt)
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-gt2-auto[
 
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-gt2-auto[
 
 ```r
 library(gt)  
 *example
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-gt2-auto[
 
 ```
 # A tibble: 8 x 9
@@ -1767,22 +1791,22 @@ library(gt)
 7    7.77e+5 grapefr… seven &lt;NA&gt;     19:10    2018-07-07 0…    NA    row_7 grp_b
 8    8.88e+6 honeydew eight 2015-08… 20:20    &lt;NA&gt;              0.44 row_8 grp_b
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-gt2-auto[
 
 ```r
 library(gt)  
 example %&gt;%  
 * .[1:5, 5:8]
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-gt2-auto[
 
 ```
 # A tibble: 5 x 4
@@ -1794,14 +1818,13 @@ example %&gt;%
 4 16:50    2018-04-04 15:55 65100    row_4
 5 17:55    2018-05-05 04:00  1326.   row_5
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-gt2-auto[
 
 ```r
 library(gt)  
@@ -1809,8 +1832,9 @@ example %&gt;%
   .[1:5, 5:8] %&gt;%  
 * gt()
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-gt2-auto[
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
@@ -2190,14 +2214,13 @@ example %&gt;%
   
   
 </table></div>
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-gt2-auto[
 
 ```r
 library(gt)  
@@ -2206,8 +2229,9 @@ example %&gt;%
   gt() %&gt;%  
 * fmt_time(columns = vars(schedule), time_style = 1)
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-gt2-auto[
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
@@ -2587,14 +2611,13 @@ example %&gt;%
   
   
 </table></div>
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-gt2-auto[
 
 ```r
 library(gt)  
@@ -2606,8 +2629,9 @@ example %&gt;%
 *              date_style = 6,
 *              time_style = 4)
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-gt2-auto[
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
@@ -2987,14 +3011,13 @@ example %&gt;%
   
   
 </table></div>
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-gt2-auto[
 
 ```r
 library(gt)  
@@ -3008,8 +3031,9 @@ example %&gt;%
 * fmt_currency(columns = vars(price),
 *              currency = "EUR")
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-gt2-auto[
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
@@ -3389,14 +3413,13 @@ example %&gt;%
   
   
 </table></div>
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-gt2-auto[
 
 ```r
 library(gt)  
@@ -3414,8 +3437,9 @@ example %&gt;%
 *   subtitle = "It is one of six datasets in the package"
 * )
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-gt2-auto[
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
@@ -3802,14 +3826,13 @@ example %&gt;%
   
   
 </table></div>
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-gt2-auto[
 
 ```r
 library(gt)  
@@ -3829,8 +3852,9 @@ example %&gt;%
 * tab_source_note(source_note =
 *                   md("More information is available at `?exibble`."))
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-gt2-auto[
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
@@ -4221,14 +4245,13 @@ example %&gt;%
   </tfoot>
   
 </table></div>
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-gt2-auto[
 
 ```r
 library(gt)  
@@ -4250,8 +4273,9 @@ example %&gt;%
 * tab_spanner(label = "Dates and Times",
 *             columns = matches("schedule|appointment"))
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-gt2-auto[
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
@@ -4647,7 +4671,33 @@ example %&gt;%
   </tfoot>
   
 </table></div>
-]]
+]
+
+&lt;style&gt;
+.panel1-gt2-auto {
+  color: black;
+  width: 38.6060606060606%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel2-gt2-auto {
+  color: black;
+  width: 59.3939393939394%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-gt2-auto {
+  color: black;
+  width: NA%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
 
 
 
@@ -4661,12 +4711,10 @@ class: middle, inverse, center
 
 ---
 
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-time-rotate[
 
 ```r
 library(gt)  
@@ -4675,8 +4723,9 @@ example %&gt;%
   gt() %&gt;%  
   fmt_time(columns = vars(schedule), time_style = "hms")   
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-time-rotate[
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
@@ -5038,14 +5087,13 @@ example %&gt;%
   
   
 </table></div>
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-time-rotate[
 
 ```r
 library(gt)  
@@ -5054,8 +5102,9 @@ example %&gt;%
   gt() %&gt;%  
 * fmt_time(columns = vars(schedule), time_style = "hm")
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-time-rotate[
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
@@ -5417,14 +5466,13 @@ example %&gt;%
   
   
 </table></div>
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-time-rotate[
 
 ```r
 library(gt)  
@@ -5433,8 +5481,9 @@ example %&gt;%
   gt() %&gt;%  
 * fmt_time(columns = vars(schedule), time_style = "hms_p")
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-time-rotate[
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
@@ -5796,14 +5845,13 @@ example %&gt;%
   
   
 </table></div>
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-time-rotate[
 
 ```r
 library(gt)  
@@ -5812,8 +5860,9 @@ example %&gt;%
   gt() %&gt;%  
 * fmt_time(columns = vars(schedule), time_style = "hm_p")
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-time-rotate[
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
@@ -6175,14 +6224,13 @@ example %&gt;%
   
   
 </table></div>
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-time-rotate[
 
 ```r
 library(gt)  
@@ -6191,8 +6239,9 @@ example %&gt;%
   gt() %&gt;%  
 * fmt_time(columns = vars(schedule), time_style = "h_p")
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-time-rotate[
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
@@ -6554,7 +6603,33 @@ example %&gt;%
   
   
 </table></div>
-]]
+]
+
+&lt;style&gt;
+.panel1-time-rotate {
+  color: black;
+  width: 38.6060606060606%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel2-time-rotate {
+  color: black;
+  width: 59.3939393939394%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-time-rotate {
+  color: black;
+  width: NA%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
 
 
 
@@ -6567,12 +6642,10 @@ class: middle, inverse, center
 
 ---
 
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-date-rotate[
 
 ```r
 library(gt)  
@@ -6581,8 +6654,9 @@ example %&gt;%
   gt() %&gt;%  
   fmt_date(columns = vars(holiday), date_style = "iso")   
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-date-rotate[
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
@@ -6944,14 +7018,13 @@ example %&gt;%
   
   
 </table></div>
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-date-rotate[
 
 ```r
 library(gt)  
@@ -6960,8 +7033,9 @@ example %&gt;%
   gt() %&gt;%  
 * fmt_date(columns = vars(holiday), date_style = "wday_month_day_year")
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-date-rotate[
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
@@ -7323,14 +7397,13 @@ example %&gt;%
   
   
 </table></div>
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-date-rotate[
 
 ```r
 library(gt)  
@@ -7339,8 +7412,9 @@ example %&gt;%
   gt() %&gt;%  
 * fmt_date(columns = vars(holiday), date_style = "wd_m_day_year")
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-date-rotate[
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
@@ -7702,14 +7776,13 @@ example %&gt;%
   
   
 </table></div>
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-date-rotate[
 
 ```r
 library(gt)  
@@ -7718,8 +7791,9 @@ example %&gt;%
   gt() %&gt;%  
 * fmt_date(columns = vars(holiday), date_style = "wday_day_month_year")
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-date-rotate[
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
@@ -8081,14 +8155,13 @@ example %&gt;%
   
   
 </table></div>
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-date-rotate[
 
 ```r
 library(gt)  
@@ -8097,8 +8170,9 @@ example %&gt;%
   gt() %&gt;%  
 * fmt_date(columns = vars(holiday), date_style = "month_day_year")
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-date-rotate[
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
@@ -8460,14 +8534,13 @@ example %&gt;%
   
   
 </table></div>
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-date-rotate[
 
 ```r
 library(gt)  
@@ -8476,8 +8549,9 @@ example %&gt;%
   gt() %&gt;%  
 * fmt_date(columns = vars(holiday), date_style = "m_day_year")
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-date-rotate[
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
@@ -8839,14 +8913,13 @@ example %&gt;%
   
   
 </table></div>
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-date-rotate[
 
 ```r
 library(gt)  
@@ -8855,8 +8928,9 @@ example %&gt;%
   gt() %&gt;%  
 * fmt_date(columns = vars(holiday), date_style = "day_m_year")
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-date-rotate[
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
@@ -9218,14 +9292,13 @@ example %&gt;%
   
   
 </table></div>
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-date-rotate[
 
 ```r
 library(gt)  
@@ -9234,8 +9307,9 @@ example %&gt;%
   gt() %&gt;%  
 * fmt_date(columns = vars(holiday), date_style = "day_month_year")
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-date-rotate[
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
@@ -9597,14 +9671,13 @@ example %&gt;%
   
   
 </table></div>
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-date-rotate[
 
 ```r
 library(gt)  
@@ -9613,8 +9686,9 @@ example %&gt;%
   gt() %&gt;%  
 * fmt_date(columns = vars(holiday), date_style = "day_month")
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-date-rotate[
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
@@ -9976,14 +10050,13 @@ example %&gt;%
   
   
 </table></div>
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-date-rotate[
 
 ```r
 library(gt)  
@@ -9992,8 +10065,9 @@ example %&gt;%
   gt() %&gt;%  
 * fmt_date(columns = vars(holiday), date_style = "year")
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-date-rotate[
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
@@ -10355,14 +10429,13 @@ example %&gt;%
   
   
 </table></div>
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-date-rotate[
 
 ```r
 library(gt)  
@@ -10371,8 +10444,9 @@ example %&gt;%
   gt() %&gt;%  
 * fmt_date(columns = vars(holiday), date_style = "month")
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-date-rotate[
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
@@ -10734,14 +10808,13 @@ example %&gt;%
   
   
 </table></div>
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-date-rotate[
 
 ```r
 library(gt)  
@@ -10750,8 +10823,9 @@ example %&gt;%
   gt() %&gt;%  
 * fmt_date(columns = vars(holiday), date_style = "day")
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-date-rotate[
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
@@ -11113,14 +11187,13 @@ example %&gt;%
   
   
 </table></div>
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-date-rotate[
 
 ```r
 library(gt)  
@@ -11129,8 +11202,9 @@ example %&gt;%
   gt() %&gt;%  
 * fmt_date(columns = vars(holiday), date_style = "year.mn.day")
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-date-rotate[
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
@@ -11492,14 +11566,13 @@ example %&gt;%
   
   
 </table></div>
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-date-rotate[
 
 ```r
 library(gt)  
@@ -11508,8 +11581,9 @@ example %&gt;%
   gt() %&gt;%  
 * fmt_date(columns = vars(holiday), date_style = "y.mn.day")
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-date-rotate[
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
@@ -11871,7 +11945,33 @@ example %&gt;%
   
   
 </table></div>
-]]
+]
+
+&lt;style&gt;
+.panel1-date-rotate {
+  color: black;
+  width: 38.6060606060606%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel2-date-rotate {
+  color: black;
+  width: 59.3939393939394%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-date-rotate {
+  color: black;
+  width: NA%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
 
 
 
@@ -11886,12 +11986,10 @@ class: middle, inverse, center
 
 ---
 
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-currency-rotate[
 
 ```r
 library(gt)  
@@ -11900,8 +11998,9 @@ example %&gt;%
   gt() %&gt;%  
   fmt_currency(columns = vars(price), currency = "AED")   # United Arab Emirates dirham  
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-currency-rotate[
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
@@ -12272,14 +12371,13 @@ example %&gt;%
   
   
 </table></div>
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-currency-rotate[
 
 ```r
 library(gt)  
@@ -12288,8 +12386,9 @@ example %&gt;%
   gt() %&gt;%  
 * fmt_currency(columns = vars(price), currency = "AFN")   # Afghan afghani
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-currency-rotate[
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
@@ -12660,14 +12759,13 @@ example %&gt;%
   
   
 </table></div>
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-currency-rotate[
 
 ```r
 library(gt)  
@@ -12676,8 +12774,9 @@ example %&gt;%
   gt() %&gt;%  
 * fmt_currency(columns = vars(price), currency = "BAM")   # Bosnia and Herzegovina convertible mark
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-currency-rotate[
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
@@ -13048,14 +13147,13 @@ example %&gt;%
   
   
 </table></div>
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-currency-rotate[
 
 ```r
 library(gt)  
@@ -13064,8 +13162,9 @@ example %&gt;%
   gt() %&gt;%  
 * fmt_currency(columns = vars(price), currency = "BBD")   # Barbados dollar
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-currency-rotate[
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
@@ -13436,14 +13535,13 @@ example %&gt;%
   
   
 </table></div>
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-currency-rotate[
 
 ```r
 library(gt)  
@@ -13452,8 +13550,9 @@ example %&gt;%
   gt() %&gt;%  
 * fmt_currency(columns = vars(price), currency = "BDT")   # Bangladeshi taka
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-currency-rotate[
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
@@ -13824,14 +13923,13 @@ example %&gt;%
   
   
 </table></div>
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-currency-rotate[
 
 ```r
 library(gt)  
@@ -13840,8 +13938,9 @@ example %&gt;%
   gt() %&gt;%  
 * fmt_currency(columns = vars(price), currency = "BGN")   # Bulgarian lev
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-currency-rotate[
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
@@ -14212,14 +14311,13 @@ example %&gt;%
   
   
 </table></div>
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-currency-rotate[
 
 ```r
 library(gt)  
@@ -14228,8 +14326,9 @@ example %&gt;%
   gt() %&gt;%  
 * fmt_currency(columns = vars(price), currency = "BHD")   # Bahraini dinar
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-currency-rotate[
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
@@ -14600,14 +14699,13 @@ example %&gt;%
   
   
 </table></div>
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-currency-rotate[
 
 ```r
 library(gt)  
@@ -14616,8 +14714,9 @@ example %&gt;%
   gt() %&gt;%  
 * fmt_currency(columns = vars(price), currency = "TMT")   # Turkmenistani manat
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-currency-rotate[
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
@@ -14988,14 +15087,13 @@ example %&gt;%
   
   
 </table></div>
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-currency-rotate[
 
 ```r
 library(gt)  
@@ -15004,8 +15102,9 @@ example %&gt;%
   gt() %&gt;%  
 * fmt_currency(columns = vars(price), currency = "TND")   # Tunisian dinar
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-currency-rotate[
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
@@ -15376,14 +15475,13 @@ example %&gt;%
   
   
 </table></div>
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-currency-rotate[
 
 ```r
 library(gt)  
@@ -15392,8 +15490,9 @@ example %&gt;%
   gt() %&gt;%  
 * fmt_currency(columns = vars(price), currency = "TOP")   # Tongan pa'anga
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-currency-rotate[
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
@@ -15764,14 +15863,13 @@ example %&gt;%
   
   
 </table></div>
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-currency-rotate[
 
 ```r
 library(gt)  
@@ -15780,8 +15878,9 @@ example %&gt;%
   gt() %&gt;%  
 * fmt_currency(columns = vars(price), currency = "USD")   # United States dollar
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-currency-rotate[
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
@@ -16152,14 +16251,13 @@ example %&gt;%
   
   
 </table></div>
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-currency-rotate[
 
 ```r
 library(gt)  
@@ -16168,8 +16266,9 @@ example %&gt;%
   gt() %&gt;%  
 * fmt_currency(columns = vars(price), currency = "USN")   # United States dollar
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-currency-rotate[
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
@@ -16540,14 +16639,13 @@ example %&gt;%
   
   
 </table></div>
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-currency-rotate[
 
 ```r
 library(gt)  
@@ -16556,8 +16654,9 @@ example %&gt;%
   gt() %&gt;%  
 * fmt_currency(columns = vars(price), currency = "USS")   # United States dollar
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-currency-rotate[
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
@@ -16928,14 +17027,13 @@ example %&gt;%
   
   
 </table></div>
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-currency-rotate[
 
 ```r
 library(gt)  
@@ -16944,8 +17042,9 @@ example %&gt;%
   gt() %&gt;%  
 * fmt_currency(columns = vars(price), currency = "UYI")   # Uruguay Peso en Unidades Indexadas
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-currency-rotate[
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
@@ -17316,14 +17415,13 @@ example %&gt;%
   
   
 </table></div>
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-currency-rotate[
 
 ```r
 library(gt)  
@@ -17332,8 +17430,9 @@ example %&gt;%
   gt() %&gt;%  
 * fmt_currency(columns = vars(price), currency = "UYU")   # Uruguayan peso
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-currency-rotate[
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
@@ -17704,14 +17803,13 @@ example %&gt;%
   
   
 </table></div>
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-currency-rotate[
 
 ```r
 library(gt)  
@@ -17720,8 +17818,9 @@ example %&gt;%
   gt() %&gt;%  
 * fmt_currency(columns = vars(price), currency = "UZS")   # Uzbekistan som
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-currency-rotate[
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
@@ -18092,14 +18191,13 @@ example %&gt;%
   
   
 </table></div>
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-currency-rotate[
 
 ```r
 library(gt)  
@@ -18108,8 +18206,9 @@ example %&gt;%
   gt() %&gt;%  
 * fmt_currency(columns = vars(price), currency = "VEF")   # Venezuelan bolivar
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-currency-rotate[
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
@@ -18480,14 +18579,13 @@ example %&gt;%
   
   
 </table></div>
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-currency-rotate[
 
 ```r
 library(gt)  
@@ -18496,8 +18594,9 @@ example %&gt;%
   gt() %&gt;%  
 * fmt_currency(columns = vars(price), currency = "VND")   # Vietnamese dong
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-currency-rotate[
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
@@ -18868,14 +18967,13 @@ example %&gt;%
   
   
 </table></div>
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-currency-rotate[
 
 ```r
 library(gt)  
@@ -18884,8 +18982,9 @@ example %&gt;%
   gt() %&gt;%  
 * fmt_currency(columns = vars(price), currency = "VUV")   # Vanuatu vatu
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-currency-rotate[
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
@@ -19256,14 +19355,13 @@ example %&gt;%
   
   
 </table></div>
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-currency-rotate[
 
 ```r
 library(gt)  
@@ -19272,8 +19370,9 @@ example %&gt;%
   gt() %&gt;%  
 * fmt_currency(columns = vars(price), currency = "XPD")   # Palladium
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-currency-rotate[
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
@@ -19644,14 +19743,13 @@ example %&gt;%
   
   
 </table></div>
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-currency-rotate[
 
 ```r
 library(gt)  
@@ -19660,8 +19758,9 @@ example %&gt;%
   gt() %&gt;%  
 * fmt_currency(columns = vars(price), currency = "XPF")   # CFP franc
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-currency-rotate[
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
@@ -20032,14 +20131,13 @@ example %&gt;%
   
   
 </table></div>
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-currency-rotate[
 
 ```r
 library(gt)  
@@ -20048,8 +20146,9 @@ example %&gt;%
   gt() %&gt;%  
 * fmt_currency(columns = vars(price), currency = "XPT")   # Platinum
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-currency-rotate[
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
@@ -20420,14 +20519,13 @@ example %&gt;%
   
   
 </table></div>
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-currency-rotate[
 
 ```r
 library(gt)  
@@ -20436,8 +20534,9 @@ example %&gt;%
   gt() %&gt;%  
 * fmt_currency(columns = vars(price), currency = "XSU")   # XSU
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-currency-rotate[
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
@@ -20808,14 +20907,13 @@ example %&gt;%
   
   
 </table></div>
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-currency-rotate[
 
 ```r
 library(gt)  
@@ -20824,8 +20922,9 @@ example %&gt;%
   gt() %&gt;%  
 * fmt_currency(columns = vars(price), currency = "XUA")   # XUA
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-currency-rotate[
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
@@ -21196,14 +21295,13 @@ example %&gt;%
   
   
 </table></div>
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-currency-rotate[
 
 ```r
 library(gt)  
@@ -21212,8 +21310,9 @@ example %&gt;%
   gt() %&gt;%  
 * fmt_currency(columns = vars(price), currency = "YER")   # Yemeni rial
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-currency-rotate[
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
@@ -21584,14 +21683,13 @@ example %&gt;%
   
   
 </table></div>
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-currency-rotate[
 
 ```r
 library(gt)  
@@ -21600,8 +21698,9 @@ example %&gt;%
   gt() %&gt;%  
 * fmt_currency(columns = vars(price), currency = "ZAR")   # South African rand
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-currency-rotate[
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
@@ -21972,14 +22071,13 @@ example %&gt;%
   
   
 </table></div>
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-currency-rotate[
 
 ```r
 library(gt)  
@@ -21988,8 +22086,9 @@ example %&gt;%
   gt() %&gt;%  
 * fmt_currency(columns = vars(price), currency = "ZMW")  # Zambian kwacha
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-currency-rotate[
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
@@ -22360,7 +22459,33 @@ example %&gt;%
   
   
 </table></div>
-]]
+]
+
+&lt;style&gt;
+.panel1-currency-rotate {
+  color: black;
+  width: 38.6060606060606%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel2-currency-rotate {
+  color: black;
+  width: 59.3939393939394%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-currency-rotate {
+  color: black;
+  width: NA%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
 
 
 
@@ -22368,60 +22493,58 @@ example %&gt;%
 
 ---
 
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-pizza-auto[
 
 ```r
 *library(tidyverse)
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-pizza-auto[
 
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-pizza-auto[
 
 ```r
 library(tidyverse)  
 *library(paletteer)
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-pizza-auto[
 
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-pizza-auto[
 
 ```r
 library(tidyverse)  
 library(paletteer)  
 *library(gt)
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-pizza-auto[
 
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-pizza-auto[
 
 ```r
 library(tidyverse)  
@@ -22429,8 +22552,9 @@ library(paletteer)
 library(gt)  
 *pizzaplace
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-pizza-auto[
 
 ```
 # A tibble: 49,574 x 7
@@ -22448,14 +22572,13 @@ library(gt)
 10 2015-000005 2015-01-01 12:21:30 ital_supr   M     supreme  16.5
 # … with 49,564 more rows
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-pizza-auto[
 
 ```r
 library(tidyverse)  
@@ -22469,8 +22592,9 @@ pizzaplace %&gt;%
 *   type == "veggie" ~ "chicken (pizzas without any meats whatsoever)",
 * ))
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-pizza-auto[
 
 ```
 # A tibble: 49,574 x 7
@@ -22488,14 +22612,13 @@ pizzaplace %&gt;%
 10 2015-000… 2015-01… 12:21… ital_su… M     supreme (pizzas that try a li…  16.5
 # … with 49,564 more rows
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-pizza-auto[
 
 ```r
 library(tidyverse)  
@@ -22510,8 +22633,9 @@ pizzaplace %&gt;%
   )) %&gt;%  
 * mutate(size = factor(size, levels = c("S", "M", "L", "XL", "XXL")))
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-pizza-auto[
 
 ```
 # A tibble: 49,574 x 7
@@ -22529,14 +22653,13 @@ pizzaplace %&gt;%
 10 2015-000… 2015-01… 12:21… ital_su… M     supreme (pizzas that try a li…  16.5
 # … with 49,564 more rows
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-pizza-auto[
 
 ```r
 library(tidyverse)  
@@ -22552,8 +22675,9 @@ pizzaplace %&gt;%
   mutate(size = factor(size, levels = c("S", "M", "L", "XL", "XXL"))) %&gt;%  
 * dplyr::group_by(type, size)
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-pizza-auto[
 
 ```
 # A tibble: 49,574 x 7
@@ -22572,14 +22696,13 @@ pizzaplace %&gt;%
 10 2015-000… 2015-01… 12:21… ital_su… M     supreme (pizzas that try a li…  16.5
 # … with 49,564 more rows
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-pizza-auto[
 
 ```r
 library(tidyverse)  
@@ -22599,8 +22722,9 @@ pizzaplace %&gt;%
 *   income = sum(price)
 * )
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-pizza-auto[
 
 ```
 # A tibble: 14 x 4
@@ -22622,14 +22746,13 @@ pizzaplace %&gt;%
 13 supreme (pizzas that try a little harder)           M      4046  66475 
 14 supreme (pizzas that try a little harder)           L      4564  94258.
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-pizza-auto[
 
 ```r
 library(tidyverse)  
@@ -22651,8 +22774,9 @@ pizzaplace %&gt;%
 # table is kind of large, hard to make sense of
 * dplyr::filter(size != "S" &amp; size != "M" &amp; size != "XL")
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-pizza-auto[
 
 ```
 # A tibble: 5 x 4
@@ -22665,14 +22789,13 @@ pizzaplace %&gt;%
 4 classic (classical pizzas)                          XXL      28   1007.
 5 supreme (pizzas that try a little harder)           L      4564  94258.
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-pizza-auto[
 
 ```r
 library(tidyverse)  
@@ -22695,28 +22818,54 @@ pizzaplace %&gt;%
   dplyr::filter(size != "S" &amp; size != "M" &amp; size != "XL") -&gt;  
 *pizza_prep
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-pizza-auto[
 
-]]
+]
+
+&lt;style&gt;
+.panel1-pizza-auto {
+  color: black;
+  width: 38.6060606060606%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel2-pizza-auto {
+  color: black;
+  width: 59.3939393939394%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-pizza-auto {
+  color: black;
+  width: NA%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
 
 
 
 
 ---
 
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-pizza_prep-auto[
 
 ```r
 *pizza_prep
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-pizza_prep-auto[
 
 ```
 # A tibble: 6 x 4
@@ -22730,21 +22879,21 @@ count: false
 5 classic (classical pizzas)                          XXL      28   1007.
 6 supreme (pizzas that try a little harder)           L      4564  94258.
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-pizza_prep-auto[
 
 ```r
 pizza_prep %&gt;%  
 * gt(rowname_col = "size")
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-pizza_prep-auto[
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
@@ -23135,22 +23284,22 @@ pizza_prep %&gt;%
   
   
 </table></div>
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-pizza_prep-auto[
 
 ```r
 pizza_prep %&gt;%  
   gt(rowname_col = "size") %&gt;%  
 * tab_header(title = md("&amp;#127829; Pizzas Sold in 2015 &amp;#127829;"))
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-pizza_prep-auto[
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
@@ -23548,14 +23697,13 @@ pizza_prep %&gt;%
   
   
 </table></div>
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-pizza_prep-auto[
 
 ```r
 pizza_prep %&gt;%  
@@ -23567,8 +23715,9 @@ pizza_prep %&gt;%
 *   use_seps = TRUE
 * )
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-pizza_prep-auto[
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
@@ -23966,14 +24115,13 @@ pizza_prep %&gt;%
   
   
 </table></div>
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-pizza_prep-auto[
 
 ```r
 pizza_prep %&gt;%  
@@ -23989,8 +24137,9 @@ pizza_prep %&gt;%
 *   currency = "USD"
 * )
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-pizza_prep-auto[
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
@@ -24388,14 +24537,13 @@ pizza_prep %&gt;%
   
   
 </table></div>
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-pizza_prep-auto[
 
 ```r
 pizza_prep %&gt;%  
@@ -24412,8 +24560,9 @@ pizza_prep %&gt;%
   ) %&gt;%  
 * cols_align(align = "right", columns = TRUE)
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-pizza_prep-auto[
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
@@ -24811,14 +24960,13 @@ pizza_prep %&gt;%
   
   
 </table></div>
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-pizza_prep-auto[
 
 ```r
 pizza_prep %&gt;%  
@@ -24836,27 +24984,53 @@ pizza_prep %&gt;%
   cols_align(align = "right", columns = TRUE) -&gt;  
 *pizza2
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-pizza_prep-auto[
 
-]]
+]
+
+&lt;style&gt;
+.panel1-pizza_prep-auto {
+  color: black;
+  width: 38.6060606060606%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel2-pizza_prep-auto {
+  color: black;
+  width: 59.3939393939394%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-pizza_prep-auto {
+  color: black;
+  width: NA%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
 
 
 
 ---
 
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-pizza1-auto[
 
 ```r
 *pizza2
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-pizza1-auto[
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
@@ -25254,14 +25428,13 @@ count: false
   
   
 </table></div>
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-pizza1-auto[
 
 ```r
 pizza2 %&gt;%  
@@ -25276,8 +25449,9 @@ pizza2 %&gt;%
 *   alpha = 0.8
 * )
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-pizza1-auto[
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
@@ -25675,14 +25849,13 @@ pizza2 %&gt;%
   
   
 </table></div>
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-pizza1-auto[
 
 ```r
 pizza2 %&gt;%  
@@ -25705,8 +25878,9 @@ pizza2 %&gt;%
 *   use_seps = TRUE
 * )
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-pizza1-auto[
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
@@ -26124,14 +26298,13 @@ pizza2 %&gt;%
   
   
 </table></div>
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-pizza1-auto[
 
 ```r
 pizza2 %&gt;%  
@@ -26161,8 +26334,9 @@ pizza2 %&gt;%
 *   currency = "USD"
 * )
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-pizza1-auto[
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
@@ -26580,14 +26754,13 @@ pizza2 %&gt;%
   
   
 </table></div>
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-pizza1-auto[
 
 ```r
 pizza2 %&gt;%  
@@ -26624,8 +26797,9 @@ pizza2 %&gt;%
 *   use_seps = TRUE
 * )
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-pizza1-auto[
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
@@ -27048,14 +27222,13 @@ pizza2 %&gt;%
   
   
 </table></div>
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-pizza1-auto[
 
 ```r
 pizza2 %&gt;%  
@@ -27093,27 +27266,53 @@ pizza2 %&gt;%
   )  -&gt;  
 *pizza3
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-pizza1-auto[
 
-]]
+]
+
+&lt;style&gt;
+.panel1-pizza1-auto {
+  color: black;
+  width: 38.6060606060606%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel2-pizza1-auto {
+  color: black;
+  width: 59.3939393939394%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-pizza1-auto {
+  color: black;
+  width: NA%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
 
 
 
 ---
 
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-pizza2-auto[
 
 ```r
 *pizza3
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-pizza2-auto[
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
@@ -27536,14 +27735,13 @@ count: false
   
   
 </table></div>
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-pizza2-auto[
 
 ```r
 pizza3 %&gt;%  
@@ -27554,8 +27752,9 @@ pizza3 %&gt;%
 *   currency = "USD"
 * )
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-pizza2-auto[
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
@@ -27978,14 +28177,13 @@ pizza3 %&gt;%
   
   
 </table></div>
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-pizza2-auto[
 
 ```r
 pizza3 %&gt;%  
@@ -27997,8 +28195,9 @@ pizza3 %&gt;%
   ) %&gt;%  
 * tab_options(table.font.size = "tiny")
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-pizza2-auto[
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
@@ -28421,14 +28620,13 @@ pizza3 %&gt;%
   
   
 </table></div>
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-pizza2-auto[
 
 ```r
 pizza3 %&gt;%  
@@ -28444,8 +28642,9 @@ pizza3 %&gt;%
 *   locations = cells_row_groups("classic (classical pizzas)")
 * )
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-pizza2-auto[
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
@@ -28881,14 +29080,13 @@ pizza3 %&gt;%
     </tr>
   </tfoot>
 </table></div>
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-pizza2-auto[
 
 ```r
 pizza3 %&gt;%  
@@ -28908,8 +29106,9 @@ pizza3 %&gt;%
 *   locations = cells_stub(c("XL", "XXL"))
 * )
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-pizza2-auto[
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
@@ -29353,14 +29552,13 @@ pizza3 %&gt;%
     </tr>
   </tfoot>
 </table></div>
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-pizza2-auto[
 
 ```r
 pizza3 %&gt;%  
@@ -29384,8 +29582,9 @@ pizza3 %&gt;%
 *   locations = cells_grand_summary(columns = vars(sold))
 * )
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-pizza2-auto[
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
@@ -29837,14 +30036,13 @@ pizza3 %&gt;%
     </tr>
   </tfoot>
 </table></div>
-]]
+]
+
 ---
-class: split-40
 count: false
  
 
- 
-.column[.content[
+.panel1-pizza2-auto[
 
 ```r
 pizza3 %&gt;%  
@@ -29869,10 +30067,37 @@ pizza3 %&gt;%
   ) -&gt;  
 *pizza_tab
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-pizza2-auto[
 
-]]
+]
+
+&lt;style&gt;
+.panel1-pizza2-auto {
+  color: black;
+  width: 38.6060606060606%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel2-pizza2-auto {
+  color: black;
+  width: 59.3939393939394%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-pizza2-auto {
+  color: black;
+  width: NA%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
 
 
   
@@ -29894,11 +30119,19 @@ pizza3 %&gt;%
   float: right;
   padding-left: 1%;
 }
+
+
+@media print {
+  .has-continuation {
+    display: block;
+  }
+}
 &lt;/style&gt;
+
+```
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
-<script src="https://platform.twitter.com/widgets.js"></script>
 <script>var slideshow = remark.create({
 "ratio": "16:10",
 "highlightStyle": "github",

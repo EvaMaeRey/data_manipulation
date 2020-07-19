@@ -1,12 +1,16 @@
 ---
 title: "Data Manipulation"
-author: "Evangeline Reynolds"
-date: "February 2020"
+author: "Gina Reynolds"
 output: 
   html_document:
     theme: yeti
     highlight: monochrome
 ---
+
+
+```{r, include=F}
+knitr::opts_chunk$set(echo = F)
+```
 
 
 # The very basics
@@ -25,6 +29,11 @@ This section cover some very basics including:
 
 - *objects and assignment*: `=` `<-` `->` 
 
+```{r}
+knitr::include_url("arithmetic_and_data_types.html")
+```
+
+
 # Data manipulation with the tidyverse
 
 The `{tidyverse}`  data manipulation functions have been a boon to analysts' productivity. This resource is built with the idea that we sometimes just need to see how functions work in action to understand them; just link the materials for each section to see the functions "in-action". The materials here can be used as an introduction or for reference. The `{tidyverse}` is an open source project in R lead by Hadley Wickham; the `{tidyverse}` itself contains several packages designed to work together in a consistent, logical, and human-friendly fashion.
@@ -41,17 +50,21 @@ The `{tidyverse}`  data manipulation functions have been a boon to analysts' pro
 | arrange()   | *order rows based on a variable*|
 | slice()     | *keep or drop rows based on row number |
 
-```{r, include=F}
-library(viztoc)
+```{r}
+knitr::include_url("one_stream_wrangle.html")
 ```
 
-
-`r build_and_use_gif(static_file = "one_stream_wrangle.png", gif_file = "one_stream_wrangle.gif", href = "one_stream_wrangle.html", width = 650, height = 410)`
 
 
 #### [Logical operators](booleans.html#3){target="_blank"}
 
 Especially in filtering, you are likely to use Boolean operatores `==`, `!=`, `>`, `<`, `>=`, `<=`, which make a comparison and return `TRUE` or `FALSE`.  These can also be combine with `&` (both conditions must be met), `|` (either condition may be met), or `%in%` (if the left hand side element is found *among* the right hand side elements, `TRUE` is returned).
+
+
+```{r}
+knitr::include_url("booleans.html")
+```
+
 
 
 ### [Summarizing](summarize.html#3){target="_blank"}
@@ -72,6 +85,10 @@ Base-R functions that you are might use in summarizing include `mean()`, `median
 
 The function `summary()` can also be used to request summary statistcs for an entire data set. 
 
+```{r}
+knitr::include_url("summarize.html", height = )
+```
+
 ### [Shape transformation (wide <---> long)](long_to_wide_and_back.html#3){target="_blank"}
 
 |function |action |
@@ -79,16 +96,9 @@ The function `summary()` can also be used to request summary statistcs for an en
 | pivot_longer() | *from wide to long*|
 | pivot_wider() | *from long to wide*|
 
-
-
-
-```{r, eval = T, echo = F}
-library(viztoc)
+```{r}
+knitr::include_url("long_to_wide_and_back.html", height = "400px")
 ```
-
-
-
-
 
 
 
@@ -105,7 +115,9 @@ library(viztoc)
 | bind_rows()   |  *stack datasets, finding consistent column names* |
 | bind_cols()   |  *glue datasets together side-by-side* |
 
-
+```{r}
+knitr::include_url("joining_data.html")
+```
 
 
 ## [Manipulation with data.table](data.table.html){target="_blank"}
@@ -113,9 +125,19 @@ library(viztoc)
 
 {data.table} is data manipulation package.  It's "blazing fast" and very popular; but this section is under construction --- so limited in its examples. 
 
+```{r}
+knitr::include_url("data.table.html")
+```
+
+
 ## [Manipulation with base R and logical indexing](logical_indexing.html){target="_blank"}
 
 You can also do a lot of data manipulation without any external packages at all.
+
+```{r}
+knitr::include_url("logical_indexing.html")
+```
+
 
 ## [Data Cleaning Examples & Intro to String Manipulation, Country Identifiers, and Date Manipulation](https://evamaerey.github.io/data_manipulation/data_cleaning/data_cleaning){target="_blank"}
 
@@ -130,6 +152,8 @@ What's the workflow from reading in data to analysis-ready?  It really depends! 
 # Formatting tables
 
 - [gt: grammar of tables](gt.html){target="_blank"}
+
+
 
 ## [Back to "The R Flipbook Textbook" Table of Contents](https://evamaerey.github.io/flipbooks/textbook)
 

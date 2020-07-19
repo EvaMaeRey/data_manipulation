@@ -4,17 +4,39 @@
     <title>the logic of logical indexing and data wrangling with base R</title>
     <meta charset="utf-8" />
     <meta name="author" content="Gina Reynolds, September 2019" />
-    <link href="libs/remark-css-0.0.1/kunoichi.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/hygge.css" rel="stylesheet" />
     <link href="libs/remark-css-0.0.1/ninjutsu.css" rel="stylesheet" />
   </head>
   <body>
     <textarea id="source">
-class: center, middle, inverse, title-slide
 
-# the logic of logical indexing and data wrangling with base R
-### Gina Reynolds, September 2019
 
----
+
+
+
+
+
+class: left, top, inverse
+background-image: url(https://images.unsplash.com/photo-1546198632-9ef6368bef12?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1500&amp;q=80)
+background-size: cover
+
+# .large[logical indexing]
+### Walk through &lt;br&gt;with {flipbookr}&lt;br&gt;and {xaringan}
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+#### .right[Gina Reynolds&lt;br&gt;Photo Credit: Denny Müller]
+
 
 
 
@@ -40,7 +62,7 @@ library(gapminder)
 count: false
  
 
-.left-panel-load_packages_manipulation-auto[
+.panel1-load_packages_manipulation-auto[
 
 ```r
 *gm_2002 &lt;- gapminder
@@ -49,7 +71,7 @@ gm_2002
 ```
 ]
  
-.right-panel-load_packages_manipulation-auto[
+.panel2-load_packages_manipulation-auto[
 
 ```
 # A tibble: 1,704 x 6
@@ -73,7 +95,7 @@ gm_2002
 count: false
  
 
-.left-panel-load_packages_manipulation-auto[
+.panel1-load_packages_manipulation-auto[
 
 ```r
 gm_2002 &lt;- gapminder %&gt;%  
@@ -84,7 +106,7 @@ gm_2002
 ```
 ]
  
-.right-panel-load_packages_manipulation-auto[
+.panel2-load_packages_manipulation-auto[
 
 ```
 # A tibble: 1,704 x 4
@@ -108,7 +130,7 @@ gm_2002
 count: false
  
 
-.left-panel-load_packages_manipulation-auto[
+.panel1-load_packages_manipulation-auto[
 
 ```r
 gm_2002 &lt;- gapminder %&gt;%  
@@ -120,7 +142,7 @@ gm_2002
 ```
 ]
  
-.right-panel-load_packages_manipulation-auto[
+.panel2-load_packages_manipulation-auto[
 
 ```
 # A tibble: 142 x 4
@@ -144,7 +166,7 @@ gm_2002
 count: false
  
 
-.left-panel-load_packages_manipulation-auto[
+.panel1-load_packages_manipulation-auto[
 
 ```r
 gm_2002 &lt;- gapminder %&gt;%  
@@ -157,7 +179,7 @@ gm_2002
 ```
 ]
  
-.right-panel-load_packages_manipulation-auto[
+.panel2-load_packages_manipulation-auto[
 
 ```
 # A tibble: 142 x 3
@@ -181,7 +203,7 @@ gm_2002
 count: false
  
 
-.left-panel-load_packages_manipulation-auto[
+.panel1-load_packages_manipulation-auto[
 
 ```r
 gm_2002 &lt;- gapminder %&gt;%  
@@ -196,7 +218,7 @@ gm_2002
 ```
 ]
  
-.right-panel-load_packages_manipulation-auto[
+.panel2-load_packages_manipulation-auto[
 
 ```
 # A tibble: 142 x 4
@@ -217,21 +239,23 @@ gm_2002
 ]
 
 &lt;style&gt;
-.left-panel-load_packages_manipulation-auto {
-  color: #777;
-  width: 38.6138613861386%;
-  height: 92%;
+.panel1-load_packages_manipulation-auto {
+  color: black;
+  width: 38.6060606060606%;
   float: left;
-  font-size: 80%
-}
-.right-panel-load_packages_manipulation-auto {
-  width: 59.4059405940594%;
-  float: right;
   padding-left: 1%;
   font-size: 80%
 }
-.middle-panel-load_packages_manipulation-auto {
-  width: 0%;
+.panel2-load_packages_manipulation-auto {
+  color: black;
+  width: 59.3939393939394%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-load_packages_manipulation-auto {
+  color: black;
+  width: NA%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -248,7 +272,7 @@ gm_2002
 count: false
  
 
-.left-panel-free_form-auto[
+.panel1-free_form-auto[
 
 ```r
 *my_data &lt;- 18:1
@@ -257,7 +281,7 @@ my_data
 ```
 ]
  
-.right-panel-free_form-auto[
+.panel2-free_form-auto[
 
 ```
  [1] 18 17 16 15 14 13 12 11 10  9  8  7  6  5  4  3  2  1
@@ -268,7 +292,7 @@ my_data
 count: false
  
 
-.left-panel-free_form-auto[
+.panel1-free_form-auto[
 
 ```r
 my_data &lt;- 18:1 %&gt;%  
@@ -278,7 +302,7 @@ my_data
 ```
 ]
  
-.right-panel-free_form-auto[
+.panel2-free_form-auto[
 
 ```
 [1] 18  9  1
@@ -289,7 +313,7 @@ my_data
 count: false
  
 
-.left-panel-free_form-auto[
+.panel1-free_form-auto[
 
 ```r
 my_data &lt;- 18:1 %&gt;%  
@@ -302,7 +326,7 @@ my_data
 ```
 ]
  
-.right-panel-free_form-auto[
+.panel2-free_form-auto[
 
 ```
    .  y q hi
@@ -316,7 +340,7 @@ my_data
 count: false
  
 
-.left-panel-free_form-auto[
+.panel1-free_form-auto[
 
 ```r
 my_data &lt;- 18:1 %&gt;%  
@@ -330,7 +354,7 @@ my_data
 ```
 ]
  
-.right-panel-free_form-auto[
+.panel2-free_form-auto[
 
 ```
   .  y q hi
@@ -343,7 +367,7 @@ my_data
 count: false
  
 
-.left-panel-free_form-auto[
+.panel1-free_form-auto[
 
 ```r
 my_data &lt;- 18:1 %&gt;%  
@@ -359,7 +383,7 @@ my_data
 ```
 ]
  
-.right-panel-free_form-auto[
+.panel2-free_form-auto[
 
 ```
   var1  y q hi
@@ -369,21 +393,23 @@ my_data
 ]
 
 &lt;style&gt;
-.left-panel-free_form-auto {
-  color: #777;
-  width: 38.6138613861386%;
-  height: 92%;
+.panel1-free_form-auto {
+  color: black;
+  width: 38.6060606060606%;
   float: left;
-  font-size: 80%
-}
-.right-panel-free_form-auto {
-  width: 59.4059405940594%;
-  float: right;
   padding-left: 1%;
   font-size: 80%
 }
-.middle-panel-free_form-auto {
-  width: 0%;
+.panel2-free_form-auto {
+  color: black;
+  width: 59.3939393939394%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-free_form-auto {
+  color: black;
+  width: NA%;
   float: left;
   padding-left: 1%;
   font-size: 80%

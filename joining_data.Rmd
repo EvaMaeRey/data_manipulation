@@ -4,6 +4,7 @@ author: "Evangeline Reynolds"
 date: "2/16/2019"
 output:
   xaringan::moon_reader:
+    seal: false
     lib_dir: libs
     css: [default, hygge, ninjutsu]
     nature:
@@ -13,9 +14,31 @@ output:
       countIncrementalSlides: false
 ---
 
-```{r}
-library(gapminder)
-library(tidyverse)
+
+
+class: left, top, inverse
+background-image: url(https://images.unsplash.com/photo-1573625141506-77f6b5e9eb45?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80)
+background-size: cover
+
+# .large[Joining data]
+### An exploration <br>with {flipbookr}<br>and {xaringan}
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+#### .right[Gina Reynolds<br>Photo Credit: Vlad Tchompalov]
+
+---
+
+```{r include = F}
 library(flipbookr)
 knitr::opts_chunk$set(cache = F, comment = "")
 ```
@@ -33,6 +56,8 @@ Sometimes we'll need to join diverse data together from different sources.  Here
 ---
 
 ```{r dataset_1, include = F}
+library(gapminder)
+library(tidyverse)
 gapminder %>% 
   select(country, lifeExp, year) ->
   country_life_exp
@@ -65,16 +90,17 @@ A natural join merges on any variable names found in common between the data set
 
 ---
 
+`r chunk_reveal("merging_data")`
 
 ```{r merging_data, include = F}
 country_pop %>% 
   full_join(country_life_exp, 
-            by = c("country", "year")) ->
+            by = c("country", 
+                   "year")) ->
   merged_data
 ```
 
 
-`r chunk_reveal("merging_data")`
 
 
 

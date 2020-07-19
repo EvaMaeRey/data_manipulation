@@ -4,7 +4,7 @@ subtitle: "With flipbookr and xaringan"
 author: "Gina Reynolds, March 2020"
 output:
   xaringan::moon_reader:
-    chakra: libs/remark-latest.min.js
+    seal: false
     lib_dir: libs
     css: [default, hygge, ninjutsu]
     nature:
@@ -13,6 +13,31 @@ output:
       highlightLines: true
       countIncrementalSlides: false
 ---
+
+
+
+
+
+
+class: left, top, inverse
+background-image: url(https://images.unsplash.com/reserve/uZYSV4nuQeyq64azfVIn_15130980706_64134efc6e_o.jpg?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1047&q=80)
+background-size: cover
+
+# .large[Data types]
+### An exploration <br>with {flipbookr}<br>and {xaringan}
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+#### .right[Gina Reynolds<br>Photo Credit: Amador Loureiro]
 
 
 

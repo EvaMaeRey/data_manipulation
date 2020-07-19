@@ -4,6 +4,7 @@ subtitle: "made with flipbookr and xaringan"
 author: "Gina Reynolds, January 2020"
 output:
   xaringan::moon_reader:
+    seal: false
     lib_dir: libs
     css: [default, hygge, ninjutsu]
     nature:
@@ -13,9 +14,34 @@ output:
       countIncrementalSlides: false
 ---
 
-```{r}
-library(gapminder)
-library(tidyverse)
+
+
+
+
+class: left, top, inverse
+background-image: url(https://images.unsplash.com/photo-1586165368502-1bad197a6461?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1126&q=80)
+background-size: cover
+
+# .large[Logicals, TRUE-FALSE]
+### Walk-throughs <br>with {flipbookr}<br>and {xaringan}
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+#### .right[Gina Reynolds<br>Photo Credit: Hassan Pasha]
+
+
+---
+
+```{r, include = F}
 knitr::opts_chunk$set(cache = F, comment = "")
 ```
 
@@ -62,6 +88,8 @@ c(1, 5, 8, 9) %in% 5
 
 
 ```{r in_a_pipeline, include = F}
+library(gapminder)
+library(tidyverse)
 gapminder %>% 
   filter(pop > 100000000 &
          gdpPercap > 5000) %>% 
