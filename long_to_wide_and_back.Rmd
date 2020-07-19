@@ -8,7 +8,7 @@ output:
     lib_dir: libs
     css: [default, hygge, ninjutsu]
     nature:
-      ratio: 20:10
+      ratio: 16:10
       highlightStyle: github
       highlightLines: true
       countIncrementalSlides: false

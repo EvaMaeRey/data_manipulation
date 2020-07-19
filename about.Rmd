@@ -30,7 +30,7 @@ This section cover some very basics including:
 - *objects and assignment*: `=` `<-` `->` 
 
 ```{r}
-knitr::include_url("arithmetic_and_data_types.html")
+knitr::include_url("arithmetic_and_data_types.html", height =  "420px")
 ```
 
 
@@ -51,7 +51,7 @@ The `{tidyverse}`  data manipulation functions have been a boon to analysts' pro
 | slice()     | *keep or drop rows based on row number |
 
 ```{r}
-knitr::include_url("one_stream_wrangle.html")
+knitr::include_url("one_stream_wrangle.html", height =  "420px")
 ```
 
 
@@ -62,7 +62,7 @@ Especially in filtering, you are likely to use Boolean operatores `==`, `!=`, `>
 
 
 ```{r}
-knitr::include_url("booleans.html")
+knitr::include_url("booleans.html", height =  "420px")
 ```
 
 
@@ -86,7 +86,7 @@ Base-R functions that you are might use in summarizing include `mean()`, `median
 The function `summary()` can also be used to request summary statistcs for an entire data set. 
 
 ```{r}
-knitr::include_url("summarize.html", height = )
+knitr::include_url("summarize.html", height =  "420px")
 ```
 
 ### [Shape transformation (wide <---> long)](long_to_wide_and_back.html#3){target="_blank"}
@@ -97,7 +97,7 @@ knitr::include_url("summarize.html", height = )
 | pivot_wider() | *from long to wide*|
 
 ```{r}
-knitr::include_url("long_to_wide_and_back.html", height = "400px")
+knitr::include_url("long_to_wide_and_back.html", height = "420px")
 ```
 
 
@@ -116,7 +116,7 @@ knitr::include_url("long_to_wide_and_back.html", height = "400px")
 | bind_cols()   |  *glue datasets together side-by-side* |
 
 ```{r}
-knitr::include_url("joining_data.html")
+knitr::include_url("joining_data.html", height =  "420px")
 ```
 
 
@@ -126,7 +126,7 @@ knitr::include_url("joining_data.html")
 {data.table} is data manipulation package.  It's "blazing fast" and very popular; but this section is under construction --- so limited in its examples. 
 
 ```{r}
-knitr::include_url("data.table.html")
+knitr::include_url("data.table.html", height =  "420px")
 ```
 
 
@@ -135,7 +135,7 @@ knitr::include_url("data.table.html")
 You can also do a lot of data manipulation without any external packages at all.
 
 ```{r}
-knitr::include_url("logical_indexing.html")
+knitr::include_url("logical_indexing.html", height =  "420px")
 ```
 
 
