@@ -66,7 +66,7 @@ count: false
 
 ```r
 *gm_2002 &lt;- gapminder
- 
+
 gm_2002
 ```
 ]
@@ -98,10 +98,10 @@ count: false
 .panel1-load_packages_manipulation-auto[
 
 ```r
-gm_2002 &lt;- gapminder %&gt;%  
+gm_2002 &lt;- gapminder %&gt;%
 * .[, c("year", "country",
 *       "pop", "gdpPercap")]
- 
+
 gm_2002
 ```
 ]
@@ -133,11 +133,11 @@ count: false
 .panel1-load_packages_manipulation-auto[
 
 ```r
-gm_2002 &lt;- gapminder %&gt;%  
-  .[, c("year", "country",  
-        "pop", "gdpPercap")] %&gt;%  
+gm_2002 &lt;- gapminder %&gt;%
+  .[, c("year", "country",
+        "pop", "gdpPercap")] %&gt;%
 * .[gapminder$year == 2002, ]
- 
+
 gm_2002
 ```
 ]
@@ -169,12 +169,12 @@ count: false
 .panel1-load_packages_manipulation-auto[
 
 ```r
-gm_2002 &lt;- gapminder %&gt;%  
-  .[, c("year", "country",  
-        "pop", "gdpPercap")] %&gt;%  
-  .[gapminder$year == 2002, ] %&gt;%  
+gm_2002 &lt;- gapminder %&gt;%
+  .[, c("year", "country",
+        "pop", "gdpPercap")] %&gt;%
+  .[gapminder$year == 2002, ] %&gt;%
 * .[, -1]
- 
+
 gm_2002
 ```
 ]
@@ -206,14 +206,15 @@ count: false
 .panel1-load_packages_manipulation-auto[
 
 ```r
-gm_2002 &lt;- gapminder %&gt;%  
-  .[, c("year", "country",  
-        "pop", "gdpPercap")] %&gt;%  
-  .[gapminder$year == 2002, ] %&gt;%  
-  .[, -1]  
+gm_2002 &lt;- gapminder %&gt;%
+  .[, c("year", "country",
+        "pop", "gdpPercap")] %&gt;%
+  .[gapminder$year == 2002, ] %&gt;%
+  .[, -1]
 
-*gm_2002$gdp &lt;- with(gm_2002, pop * gdpPercap)
- 
+*gm_2002$gdp &lt;- with(gm_2002,
+*                   pop * gdpPercap)
+
 gm_2002
 ```
 ]
@@ -242,6 +243,7 @@ gm_2002
 .panel1-load_packages_manipulation-auto {
   color: black;
   width: 38.6060606060606%;
+  hight: 32%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -249,6 +251,7 @@ gm_2002
 .panel2-load_packages_manipulation-auto {
   color: black;
   width: 59.3939393939394%;
+  hight: 32%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -256,6 +259,7 @@ gm_2002
 .panel3-load_packages_manipulation-auto {
   color: black;
   width: NA%;
+  hight: 33%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -276,7 +280,7 @@ count: false
 
 ```r
 *my_data &lt;- 18:1
- 
+
 my_data
 ```
 ]
@@ -295,9 +299,9 @@ count: false
 .panel1-free_form-auto[
 
 ```r
-my_data &lt;- 18:1 %&gt;%  
+my_data &lt;- 18:1 %&gt;%
 * .[c(1,10,18)]
- 
+
 my_data
 ```
 ]
@@ -316,12 +320,12 @@ count: false
 .panel1-free_form-auto[
 
 ```r
-my_data &lt;- 18:1 %&gt;%  
-  .[c(1,10,18)] %&gt;%  
+my_data &lt;- 18:1 %&gt;%
+  .[c(1,10,18)] %&gt;%
 * data.frame(y = rep("hi", 3),
 *            q = 1:3,
 *            hi = 7:9)
- 
+
 my_data
 ```
 ]
@@ -343,13 +347,13 @@ count: false
 .panel1-free_form-auto[
 
 ```r
-my_data &lt;- 18:1 %&gt;%  
-  .[c(1,10,18)] %&gt;%  
-  data.frame(y = rep("hi", 3),  
-             q = 1:3,  
-             hi = 7:9) %&gt;%  
+my_data &lt;- 18:1 %&gt;%
+  .[c(1,10,18)] %&gt;%
+  data.frame(y = rep("hi", 3),
+             q = 1:3,
+             hi = 7:9) %&gt;%
 * .[2:3, ]
- 
+
 my_data
 ```
 ]
@@ -370,15 +374,15 @@ count: false
 .panel1-free_form-auto[
 
 ```r
-my_data &lt;- 18:1 %&gt;%  
-  .[c(1,10,18)] %&gt;%  
-  data.frame(y = rep("hi", 3),  
-             q = 1:3,  
-             hi = 7:9) %&gt;%  
-  .[2:3, ]  
+my_data &lt;- 18:1 %&gt;%
+  .[c(1,10,18)] %&gt;%
+  data.frame(y = rep("hi", 3),
+             q = 1:3,
+             hi = 7:9) %&gt;%
+  .[2:3, ]
 
 *names(my_data)[1] &lt;- "var1"
- 
+
 my_data
 ```
 ]
@@ -396,6 +400,7 @@ my_data
 .panel1-free_form-auto {
   color: black;
   width: 38.6060606060606%;
+  hight: 32%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -403,6 +408,7 @@ my_data
 .panel2-free_form-auto {
   color: black;
   width: 59.3939393939394%;
+  hight: 32%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -410,6 +416,7 @@ my_data
 .panel3-free_form-auto {
   color: black;
   width: NA%;
+  hight: 33%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -421,7 +428,7 @@ my_data
 
 
 &lt;style type="text/css"&gt;
-.remark-code{line-height: 1.5; font-size: 60%}
+.remark-code{line-height: 1.5; font-size: 90%}
 
 @media print {
   .has-continuation {

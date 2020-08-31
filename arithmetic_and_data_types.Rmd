@@ -89,8 +89,10 @@ NULL
 
 factor(c("hello", "hi", "bye", "bye"))
 
-factor(c("hello", "hi", "bye", "bye"), 
-       levels = c("hi", "hello", "bye", "bye-bye"))
+factor(c("hello", "hi", 
+         "bye", "bye"), 
+       levels = c("hi", "hello", 
+                  "bye", "bye-bye"))
 ```
 
 
@@ -119,7 +121,8 @@ str(c(1,3))
 str(factor(c("hello", "bye")))
 
 str(factor(c("hello", "bye"), 
-           levels = c("hi", "hello", "bye")))
+           levels = c("hi", "hello", 
+                      "bye")))
 
 str(Sys.time())
 
@@ -167,12 +170,13 @@ matrix(c(1,2,3,4),
 `r chunk_reveal("dat")`
 
 ```{r dat, include=F}
-data.frame(id = 1:6, 
-           greet = c("hi", "bye", 
-                     "hello", "chao",
-                     "adios", "tchuss"),
-           nums = c(2.3, 4.1, 3.5, 
-                    3.2, 5.6, 8.9))
+data.frame(
+  id = 1:6, 
+  greet = c("hi", "bye", 
+            "hello", "chao",
+            "adios", "tchuss"),
+  nums = c(2.3, 4.1, 3.5, 
+           3.2, 5.6, 8.9))
 
 library(tibble) # also a part of the tidyverse
 # tribble helps build small data sets
@@ -286,7 +290,7 @@ is.integer(4L)
 as.factor(c("good", "bad"))
 
 matrix(1:4, nrow = 2) %>% # this is a pipe operator
- # passes all of what procedes to function that follows
+ # passes all of what precedes to function that follows
   as.vector()
 ```
 
@@ -309,7 +313,7 @@ c("50", "80") %>%
 
 
 ```{css, eval = TRUE, echo = FALSE}
-.remark-code{line-height: 1.5; font-size: 80%}
+.remark-code{line-height: 1.5; font-size: 100%}
 
 
 @media print {

@@ -25,9 +25,11 @@ This section cover some very basics including:
 
 - *data structures*: scalar, vector, matrix, data frame (with rows and columns)
 
+- *objects and assignment*: `=` `<-` `->` 
 - *functions*: `mean()`, `median()`, `mode()`, `log10()`
 
-- *objects and assignment*: `=` `<-` `->` 
+
+*Click on the slides below. Then use `->` or `<-` arrow keys to navigate, or [view in new window](arithmetic_and_data_types.html){target="_blank"}*
 
 ```{r}
 knitr::include_url("arithmetic_and_data_types.html", height =  "420px")
@@ -50,6 +52,8 @@ The `{tidyverse}`  data manipulation functions have been a boon to analysts' pro
 | arrange()   | *order rows based on a variable*|
 | slice()     | *keep or drop rows based on row number |
 
+*Click on the slides below. Then use `->` or `<-` arrow keys to navigate, or [view in new window](one_stream_wrangle.html){target="_blank"}*
+
 ```{r}
 knitr::include_url("one_stream_wrangle.html", height =  "420px")
 ```
@@ -60,6 +64,7 @@ knitr::include_url("one_stream_wrangle.html", height =  "420px")
 
 Especially in filtering, you are likely to use Boolean operatores `==`, `!=`, `>`, `<`, `>=`, `<=`, which make a comparison and return `TRUE` or `FALSE`.  These can also be combine with `&` (both conditions must be met), `|` (either condition may be met), or `%in%` (if the left hand side element is found *among* the right hand side elements, `TRUE` is returned).
 
+*Click on the slides below. Then `->` or `<-` arrow keys to navigate, or [view in new window](booleans.html){target="_blank"}*
 
 ```{r}
 knitr::include_url("booleans.html", height =  "420px")
@@ -85,6 +90,8 @@ Base-R functions that you are might use in summarizing include `mean()`, `median
 
 The function `summary()` can also be used to request summary statistcs for an entire data set. 
 
+*Click on the slides below and use arrow keys to advance, or [view in new window](summarize.html#3){target="_blank"}*
+
 ```{r}
 knitr::include_url("summarize.html", height =  "420px")
 ```
@@ -95,6 +102,8 @@ knitr::include_url("summarize.html", height =  "420px")
 | :--- | ---: |
 | pivot_longer() | *from wide to long*|
 | pivot_wider() | *from long to wide*|
+
+*Click on the slides below. Then use `->` or `<-` arrow keys to navigate, or [view in new window](long_to_wide_and_back.html){target="_blank"}*
 
 ```{r}
 knitr::include_url("long_to_wide_and_back.html", height = "420px")
@@ -115,6 +124,8 @@ knitr::include_url("long_to_wide_and_back.html", height = "420px")
 | bind_rows()   |  *stack datasets, finding consistent column names* |
 | bind_cols()   |  *glue datasets together side-by-side* |
 
+*Click on the slides below and use arrow keys to advance, or [view in new window](joining_data.html){target="_blank"}*
+
 ```{r}
 knitr::include_url("joining_data.html", height =  "420px")
 ```
@@ -125,6 +136,8 @@ knitr::include_url("joining_data.html", height =  "420px")
 
 {data.table} is data manipulation package.  It's "blazing fast" and very popular; but this section is under construction --- so limited in its examples. 
 
+*Click on the slides below and use arrow keys to advance, or [view in new window](data.table.html){target="_blank"}*
+
 ```{r}
 knitr::include_url("data.table.html", height =  "420px")
 ```
@@ -133,6 +146,8 @@ knitr::include_url("data.table.html", height =  "420px")
 ## [Manipulation with base R and logical indexing](logical_indexing.html){target="_blank"}
 
 You can also do a lot of data manipulation without any external packages at all.
+
+*Click on the slides below and use arrow keys to advance, or [view in new window](logical_indexing.html){target="_blank"}*
 
 ```{r}
 knitr::include_url("logical_indexing.html", height =  "420px")

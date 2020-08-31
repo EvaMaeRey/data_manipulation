@@ -93,6 +93,9 @@ gapminder_life_exp_wide %>%
 `r chunk_reveal("wide_to_long",widths = c(49, 50))`
 
 ```{css, include = F}
+
+.remark-code{line-height: 1.5; font-size: 90%}
+
 @media print {
   .has-continuation {
     display: block;

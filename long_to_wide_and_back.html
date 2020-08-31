@@ -82,7 +82,7 @@ count: false
 .panel1-long_to_wide-auto[
 
 ```r
-library(gapminder)  
+library(gapminder)
 *library(tidyverse)
 ```
 ]
@@ -98,8 +98,8 @@ count: false
 .panel1-long_to_wide-auto[
 
 ```r
-library(gapminder)  
-library(tidyverse)  
+library(gapminder)
+library(tidyverse)
 *gapminder
 ```
 ]
@@ -131,9 +131,9 @@ count: false
 .panel1-long_to_wide-auto[
 
 ```r
-library(gapminder)  
-library(tidyverse)  
-gapminder %&gt;%  
+library(gapminder)
+library(tidyverse)
+gapminder %&gt;%
 * select(country, continent,
 *        lifeExp, year)
 ```
@@ -166,11 +166,11 @@ count: false
 .panel1-long_to_wide-auto[
 
 ```r
-library(gapminder)  
-library(tidyverse)  
-gapminder %&gt;%  
-  select(country, continent,  
-         lifeExp, year) %&gt;%  
+library(gapminder)
+library(tidyverse)
+gapminder %&gt;%
+  select(country, continent,
+         lifeExp, year) %&gt;%
 * pivot_wider(names_from = year,
 *             values_from = lifeExp)
 ```
@@ -204,13 +204,13 @@ count: false
 .panel1-long_to_wide-auto[
 
 ```r
-library(gapminder)  
-library(tidyverse)  
-gapminder %&gt;%  
-  select(country, continent,  
-         lifeExp, year) %&gt;%  
-  pivot_wider(names_from = year,  
-              values_from = lifeExp) -&gt;  
+library(gapminder)
+library(tidyverse)
+gapminder %&gt;%
+  select(country, continent,
+         lifeExp, year) %&gt;%
+  pivot_wider(names_from = year,
+              values_from = lifeExp) -&gt;
 *gapminder_life_exp_wide
 ```
 ]
@@ -223,6 +223,7 @@ gapminder %&gt;%
 .panel1-long_to_wide-auto {
   color: black;
   width: 48.5050505050505%;
+  hight: 32%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -230,6 +231,7 @@ gapminder %&gt;%
 .panel2-long_to_wide-auto {
   color: black;
   width: 49.4949494949495%;
+  hight: 32%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -237,6 +239,7 @@ gapminder %&gt;%
 .panel3-long_to_wide-auto {
   color: black;
   width: NA%;
+  hight: 33%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -292,7 +295,7 @@ count: false
 .panel1-wide_to_long-auto[
 
 ```r
-gapminder_life_exp_wide %&gt;%  
+gapminder_life_exp_wide %&gt;%
 * pivot_longer(`1952`:`2007`,  # backticks needed because numeric
 # column names look like number values without them
 *              names_to = "year",
@@ -327,11 +330,11 @@ count: false
 .panel1-wide_to_long-auto[
 
 ```r
-gapminder_life_exp_wide %&gt;%  
+gapminder_life_exp_wide %&gt;%
   pivot_longer(`1952`:`2007`,  # backticks needed because numeric
 # column names look like number values without them
-               names_to = "year",  
-               values_to = "lifeExp") %&gt;%  
+               names_to = "year",
+               values_to = "lifeExp") %&gt;%
 * mutate(year = as.numeric(year))
 ```
 ]
@@ -363,12 +366,12 @@ count: false
 .panel1-wide_to_long-auto[
 
 ```r
-gapminder_life_exp_wide %&gt;%  
+gapminder_life_exp_wide %&gt;%
   pivot_longer(`1952`:`2007`,  # backticks needed because numeric
 # column names look like number values without them
-               names_to = "year",  
-               values_to = "lifeExp") %&gt;%  
-  mutate(year = as.numeric(year)) -&gt;  
+               names_to = "year",
+               values_to = "lifeExp") %&gt;%
+  mutate(year = as.numeric(year)) -&gt;
 * gapminder_life_exp_long
 ```
 ]
@@ -381,6 +384,7 @@ gapminder_life_exp_wide %&gt;%
 .panel1-wide_to_long-auto {
   color: black;
   width: 48.5050505050505%;
+  hight: 32%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -388,6 +392,7 @@ gapminder_life_exp_wide %&gt;%
 .panel2-wide_to_long-auto {
   color: black;
   width: 49.4949494949495%;
+  hight: 32%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -395,6 +400,7 @@ gapminder_life_exp_wide %&gt;%
 .panel3-wide_to_long-auto {
   color: black;
   width: NA%;
+  hight: 33%;
   float: left;
   padding-left: 1%;
   font-size: 80%

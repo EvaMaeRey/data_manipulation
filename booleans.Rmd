@@ -97,7 +97,8 @@ gapminder %>%
   filter(country == "Brazil" |
          country == "Mexico" |
          country == "United States") %>% 
-  filter(country %in% c("United States", "Mexico"))
+  filter(country %in% c("United States", 
+                        "Mexico"))
 ```
 
 
@@ -105,7 +106,7 @@ gapminder %>%
 
 
 ```{css, eval = TRUE, echo = FALSE}
-.remark-code{line-height: 1.5; font-size: 70%}
+.remark-code{line-height: 1.5; font-size: 80%}
 
 @media print {
   .has-continuation {

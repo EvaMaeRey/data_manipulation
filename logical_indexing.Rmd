@@ -68,7 +68,8 @@ gm_2002 <- gapminder %>%
   .[gapminder$year == 2002, ] %>% 
   .[, -1]
 
-gm_2002$gdp <- with(gm_2002, pop * gdpPercap)
+gm_2002$gdp <- with(gm_2002, 
+                    pop * gdpPercap)
 ```
 
 `r chunk_reveal("load_packages_manipulation", left_assign = T)`
@@ -92,7 +93,7 @@ names(my_data)[1] <- "var1"
 
 
 ```{css, eval = TRUE, echo = F}
-.remark-code{line-height: 1.5; font-size: 60%}
+.remark-code{line-height: 1.5; font-size: 90%}
 
 @media print {
   .has-continuation {

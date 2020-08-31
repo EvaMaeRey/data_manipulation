@@ -60,7 +60,7 @@ count: false
 .panel1-mini-auto[
 
 ```r
-library(gapminder)  
+library(gapminder)
 *library(tidyverse)
 ```
 ]
@@ -68,18 +68,18 @@ library(gapminder)
 .panel2-mini-auto[
 
 ```
-── Attaching packages ───────────────────────────────────── tidyverse 1.3.0 ──
+── Attaching packages ────────────────────────────── tidyverse 1.3.0 ──
 ```
 
 ```
 ✓ ggplot2 3.3.2     ✓ purrr   0.3.3
-✓ tibble  3.0.0     ✓ dplyr   0.8.5
+✓ tibble  3.0.0     ✓ dplyr   1.0.2
 ✓ tidyr   1.0.2     ✓ stringr 1.4.0
 ✓ readr   1.3.1     ✓ forcats 0.5.0
 ```
 
 ```
-── Conflicts ──────────────────────────────────────── tidyverse_conflicts() ──
+── Conflicts ───────────────────────────────── tidyverse_conflicts() ──
 x dplyr::filter() masks stats::filter()
 x dplyr::lag()    masks stats::lag()
 ```
@@ -92,8 +92,8 @@ count: false
 .panel1-mini-auto[
 
 ```r
-library(gapminder)  
-library(tidyverse)  
+library(gapminder)
+library(tidyverse)
 *gapminder
 ```
 ]
@@ -125,9 +125,9 @@ count: false
 .panel1-mini-auto[
 
 ```r
-library(gapminder)  
-library(tidyverse)  
-gapminder %&gt;%  
+library(gapminder)
+library(tidyverse)
+gapminder %&gt;%
 * filter(year == 2002)
 ```
 ]
@@ -159,10 +159,10 @@ count: false
 .panel1-mini-auto[
 
 ```r
-library(gapminder)  
-library(tidyverse)  
-gapminder %&gt;%  
-  filter(year == 2002) %&gt;%  
+library(gapminder)
+library(tidyverse)
+gapminder %&gt;%
+  filter(year == 2002) %&gt;%
 * select(-lifeExp)
 ```
 ]
@@ -194,11 +194,11 @@ count: false
 .panel1-mini-auto[
 
 ```r
-library(gapminder)  
-library(tidyverse)  
-gapminder %&gt;%  
-  filter(year == 2002) %&gt;%  
-  select(-lifeExp) %&gt;%  
+library(gapminder)
+library(tidyverse)
+gapminder %&gt;%
+  filter(year == 2002) %&gt;%
+  select(-lifeExp) %&gt;%
 * rename(gdp_per_cap = gdpPercap)
 ```
 ]
@@ -230,12 +230,12 @@ count: false
 .panel1-mini-auto[
 
 ```r
-library(gapminder)  
-library(tidyverse)  
-gapminder %&gt;%  
-  filter(year == 2002) %&gt;%  
-  select(-lifeExp) %&gt;%  
-  rename(gdp_per_cap = gdpPercap) %&gt;%  
+library(gapminder)
+library(tidyverse)
+gapminder %&gt;%
+  filter(year == 2002) %&gt;%
+  select(-lifeExp) %&gt;%
+  rename(gdp_per_cap = gdpPercap) %&gt;%
 * mutate(gdp = gdp_per_cap * pop)
 ```
 ]
@@ -267,13 +267,13 @@ count: false
 .panel1-mini-auto[
 
 ```r
-library(gapminder)  
-library(tidyverse)  
-gapminder %&gt;%  
-  filter(year == 2002) %&gt;%  
-  select(-lifeExp) %&gt;%  
-  rename(gdp_per_cap = gdpPercap) %&gt;%  
-  mutate(gdp = gdp_per_cap * pop) %&gt;%  
+library(gapminder)
+library(tidyverse)
+gapminder %&gt;%
+  filter(year == 2002) %&gt;%
+  select(-lifeExp) %&gt;%
+  rename(gdp_per_cap = gdpPercap) %&gt;%
+  mutate(gdp = gdp_per_cap * pop) %&gt;%
 * mutate(percent_gdp = 100 * gdp / sum(gdp))
 ```
 ]
@@ -305,14 +305,14 @@ count: false
 .panel1-mini-auto[
 
 ```r
-library(gapminder)  
-library(tidyverse)  
-gapminder %&gt;%  
-  filter(year == 2002) %&gt;%  
-  select(-lifeExp) %&gt;%  
-  rename(gdp_per_cap = gdpPercap) %&gt;%  
-  mutate(gdp = gdp_per_cap * pop) %&gt;%  
-  mutate(percent_gdp = 100 * gdp / sum(gdp)) %&gt;%  
+library(gapminder)
+library(tidyverse)
+gapminder %&gt;%
+  filter(year == 2002) %&gt;%
+  select(-lifeExp) %&gt;%
+  rename(gdp_per_cap = gdpPercap) %&gt;%
+  mutate(gdp = gdp_per_cap * pop) %&gt;%
+  mutate(percent_gdp = 100 * gdp / sum(gdp)) %&gt;%
 * mutate(europe = continent == "Europe")
 ```
 ]
@@ -344,15 +344,15 @@ count: false
 .panel1-mini-auto[
 
 ```r
-library(gapminder)  
-library(tidyverse)  
-gapminder %&gt;%  
-  filter(year == 2002) %&gt;%  
-  select(-lifeExp) %&gt;%  
-  rename(gdp_per_cap = gdpPercap) %&gt;%  
-  mutate(gdp = gdp_per_cap * pop) %&gt;%  
-  mutate(percent_gdp = 100 * gdp / sum(gdp)) %&gt;%  
-  mutate(europe = continent == "Europe") %&gt;%  
+library(gapminder)
+library(tidyverse)
+gapminder %&gt;%
+  filter(year == 2002) %&gt;%
+  select(-lifeExp) %&gt;%
+  rename(gdp_per_cap = gdpPercap) %&gt;%
+  mutate(gdp = gdp_per_cap * pop) %&gt;%
+  mutate(percent_gdp = 100 * gdp / sum(gdp)) %&gt;%
+  mutate(europe = continent == "Europe") %&gt;%
 * select(country, year, gdp, europe, pop)
 ```
 ]
@@ -384,19 +384,20 @@ count: false
 .panel1-mini-auto[
 
 ```r
-library(gapminder)  
-library(tidyverse)  
-gapminder %&gt;%  
-  filter(year == 2002) %&gt;%  
-  select(-lifeExp) %&gt;%  
-  rename(gdp_per_cap = gdpPercap) %&gt;%  
-  mutate(gdp = gdp_per_cap * pop) %&gt;%  
-  mutate(percent_gdp = 100 * gdp / sum(gdp)) %&gt;%  
-  mutate(europe = continent == "Europe") %&gt;%  
-  select(country, year, gdp, europe, pop) %&gt;%  
+library(gapminder)
+library(tidyverse)
+gapminder %&gt;%
+  filter(year == 2002) %&gt;%
+  select(-lifeExp) %&gt;%
+  rename(gdp_per_cap = gdpPercap) %&gt;%
+  mutate(gdp = gdp_per_cap * pop) %&gt;%
+  mutate(percent_gdp = 100 * gdp / sum(gdp)) %&gt;%
+  mutate(europe = continent == "Europe") %&gt;%
+  select(country, year, gdp, europe, pop) %&gt;%
 * mutate(europe_category =
 *          case_when(europe == T ~ "Europe",
-*                    europe == F ~ "Not Europe"))
+*                    europe == F ~
+*                      "Not Europe"))
 ```
 ]
  
@@ -427,19 +428,20 @@ count: false
 .panel1-mini-auto[
 
 ```r
-library(gapminder)  
-library(tidyverse)  
-gapminder %&gt;%  
-  filter(year == 2002) %&gt;%  
-  select(-lifeExp) %&gt;%  
-  rename(gdp_per_cap = gdpPercap) %&gt;%  
-  mutate(gdp = gdp_per_cap * pop) %&gt;%  
-  mutate(percent_gdp = 100 * gdp / sum(gdp)) %&gt;%  
-  mutate(europe = continent == "Europe") %&gt;%  
-  select(country, year, gdp, europe, pop) %&gt;%  
-  mutate(europe_category =  
-           case_when(europe == T ~ "Europe",  
-                     europe == F ~ "Not Europe")) %&gt;%  
+library(gapminder)
+library(tidyverse)
+gapminder %&gt;%
+  filter(year == 2002) %&gt;%
+  select(-lifeExp) %&gt;%
+  rename(gdp_per_cap = gdpPercap) %&gt;%
+  mutate(gdp = gdp_per_cap * pop) %&gt;%
+  mutate(percent_gdp = 100 * gdp / sum(gdp)) %&gt;%
+  mutate(europe = continent == "Europe") %&gt;%
+  select(country, year, gdp, europe, pop) %&gt;%
+  mutate(europe_category =
+           case_when(europe == T ~ "Europe",
+                     europe == F ~
+                       "Not Europe")) %&gt;%
 * arrange(-gdp)
 ```
 ]
@@ -471,20 +473,21 @@ count: false
 .panel1-mini-auto[
 
 ```r
-library(gapminder)  
-library(tidyverse)  
-gapminder %&gt;%  
-  filter(year == 2002) %&gt;%  
-  select(-lifeExp) %&gt;%  
-  rename(gdp_per_cap = gdpPercap) %&gt;%  
-  mutate(gdp = gdp_per_cap * pop) %&gt;%  
-  mutate(percent_gdp = 100 * gdp / sum(gdp)) %&gt;%  
-  mutate(europe = continent == "Europe") %&gt;%  
-  select(country, year, gdp, europe, pop) %&gt;%  
-  mutate(europe_category =  
-           case_when(europe == T ~ "Europe",  
-                     europe == F ~ "Not Europe")) %&gt;%  
-  arrange(-gdp) %&gt;%  
+library(gapminder)
+library(tidyverse)
+gapminder %&gt;%
+  filter(year == 2002) %&gt;%
+  select(-lifeExp) %&gt;%
+  rename(gdp_per_cap = gdpPercap) %&gt;%
+  mutate(gdp = gdp_per_cap * pop) %&gt;%
+  mutate(percent_gdp = 100 * gdp / sum(gdp)) %&gt;%
+  mutate(europe = continent == "Europe") %&gt;%
+  select(country, year, gdp, europe, pop) %&gt;%
+  mutate(europe_category =
+           case_when(europe == T ~ "Europe",
+                     europe == F ~
+                       "Not Europe")) %&gt;%
+  arrange(-gdp) %&gt;%
 * mutate(gdp_billions = gdp/1000000000)
 ```
 ]
@@ -516,21 +519,22 @@ count: false
 .panel1-mini-auto[
 
 ```r
-library(gapminder)  
-library(tidyverse)  
-gapminder %&gt;%  
-  filter(year == 2002) %&gt;%  
-  select(-lifeExp) %&gt;%  
-  rename(gdp_per_cap = gdpPercap) %&gt;%  
-  mutate(gdp = gdp_per_cap * pop) %&gt;%  
-  mutate(percent_gdp = 100 * gdp / sum(gdp)) %&gt;%  
-  mutate(europe = continent == "Europe") %&gt;%  
-  select(country, year, gdp, europe, pop) %&gt;%  
-  mutate(europe_category =  
-           case_when(europe == T ~ "Europe",  
-                     europe == F ~ "Not Europe")) %&gt;%  
-  arrange(-gdp) %&gt;%  
-  mutate(gdp_billions = gdp/1000000000) %&gt;%  
+library(gapminder)
+library(tidyverse)
+gapminder %&gt;%
+  filter(year == 2002) %&gt;%
+  select(-lifeExp) %&gt;%
+  rename(gdp_per_cap = gdpPercap) %&gt;%
+  mutate(gdp = gdp_per_cap * pop) %&gt;%
+  mutate(percent_gdp = 100 * gdp / sum(gdp)) %&gt;%
+  mutate(europe = continent == "Europe") %&gt;%
+  select(country, year, gdp, europe, pop) %&gt;%
+  mutate(europe_category =
+           case_when(europe == T ~ "Europe",
+                     europe == F ~
+                       "Not Europe")) %&gt;%
+  arrange(-gdp) %&gt;%
+  mutate(gdp_billions = gdp/1000000000) %&gt;%
 * slice(1:8)
 ```
 ]
@@ -559,22 +563,23 @@ count: false
 .panel1-mini-auto[
 
 ```r
-library(gapminder)  
-library(tidyverse)  
-gapminder %&gt;%  
-  filter(year == 2002) %&gt;%  
-  select(-lifeExp) %&gt;%  
-  rename(gdp_per_cap = gdpPercap) %&gt;%  
-  mutate(gdp = gdp_per_cap * pop) %&gt;%  
-  mutate(percent_gdp = 100 * gdp / sum(gdp)) %&gt;%  
-  mutate(europe = continent == "Europe") %&gt;%  
-  select(country, year, gdp, europe, pop) %&gt;%  
-  mutate(europe_category =  
-           case_when(europe == T ~ "Europe",  
-                     europe == F ~ "Not Europe")) %&gt;%  
-  arrange(-gdp) %&gt;%  
-  mutate(gdp_billions = gdp/1000000000) %&gt;%  
-  slice(1:8) -&gt;  
+library(gapminder)
+library(tidyverse)
+gapminder %&gt;%
+  filter(year == 2002) %&gt;%
+  select(-lifeExp) %&gt;%
+  rename(gdp_per_cap = gdpPercap) %&gt;%
+  mutate(gdp = gdp_per_cap * pop) %&gt;%
+  mutate(percent_gdp = 100 * gdp / sum(gdp)) %&gt;%
+  mutate(europe = continent == "Europe") %&gt;%
+  select(country, year, gdp, europe, pop) %&gt;%
+  mutate(europe_category =
+           case_when(europe == T ~ "Europe",
+                     europe == F ~
+                       "Not Europe")) %&gt;%
+  arrange(-gdp) %&gt;%
+  mutate(gdp_billions = gdp/1000000000) %&gt;%
+  slice(1:8) -&gt;
 *europe_or_not_2002
 ```
 ]
@@ -590,23 +595,24 @@ count: false
 .panel1-mini-auto[
 
 ```r
-library(gapminder)  
-library(tidyverse)  
-gapminder %&gt;%  
-  filter(year == 2002) %&gt;%  
-  select(-lifeExp) %&gt;%  
-  rename(gdp_per_cap = gdpPercap) %&gt;%  
-  mutate(gdp = gdp_per_cap * pop) %&gt;%  
-  mutate(percent_gdp = 100 * gdp / sum(gdp)) %&gt;%  
-  mutate(europe = continent == "Europe") %&gt;%  
-  select(country, year, gdp, europe, pop) %&gt;%  
-  mutate(europe_category =  
-           case_when(europe == T ~ "Europe",  
-                     europe == F ~ "Not Europe")) %&gt;%  
-  arrange(-gdp) %&gt;%  
-  mutate(gdp_billions = gdp/1000000000) %&gt;%  
-  slice(1:8) -&gt;  
-europe_or_not_2002  
+library(gapminder)
+library(tidyverse)
+gapminder %&gt;%
+  filter(year == 2002) %&gt;%
+  select(-lifeExp) %&gt;%
+  rename(gdp_per_cap = gdpPercap) %&gt;%
+  mutate(gdp = gdp_per_cap * pop) %&gt;%
+  mutate(percent_gdp = 100 * gdp / sum(gdp)) %&gt;%
+  mutate(europe = continent == "Europe") %&gt;%
+  select(country, year, gdp, europe, pop) %&gt;%
+  mutate(europe_category =
+           case_when(europe == T ~ "Europe",
+                     europe == F ~
+                       "Not Europe")) %&gt;%
+  arrange(-gdp) %&gt;%
+  mutate(gdp_billions = gdp/1000000000) %&gt;%
+  slice(1:8) -&gt;
+europe_or_not_2002
 
 *ggplot(data = europe_or_not_2002)
 ```
@@ -623,25 +629,26 @@ count: false
 .panel1-mini-auto[
 
 ```r
-library(gapminder)  
-library(tidyverse)  
-gapminder %&gt;%  
-  filter(year == 2002) %&gt;%  
-  select(-lifeExp) %&gt;%  
-  rename(gdp_per_cap = gdpPercap) %&gt;%  
-  mutate(gdp = gdp_per_cap * pop) %&gt;%  
-  mutate(percent_gdp = 100 * gdp / sum(gdp)) %&gt;%  
-  mutate(europe = continent == "Europe") %&gt;%  
-  select(country, year, gdp, europe, pop) %&gt;%  
-  mutate(europe_category =  
-           case_when(europe == T ~ "Europe",  
-                     europe == F ~ "Not Europe")) %&gt;%  
-  arrange(-gdp) %&gt;%  
-  mutate(gdp_billions = gdp/1000000000) %&gt;%  
-  slice(1:8) -&gt;  
-europe_or_not_2002  
+library(gapminder)
+library(tidyverse)
+gapminder %&gt;%
+  filter(year == 2002) %&gt;%
+  select(-lifeExp) %&gt;%
+  rename(gdp_per_cap = gdpPercap) %&gt;%
+  mutate(gdp = gdp_per_cap * pop) %&gt;%
+  mutate(percent_gdp = 100 * gdp / sum(gdp)) %&gt;%
+  mutate(europe = continent == "Europe") %&gt;%
+  select(country, year, gdp, europe, pop) %&gt;%
+  mutate(europe_category =
+           case_when(europe == T ~ "Europe",
+                     europe == F ~
+                       "Not Europe")) %&gt;%
+  arrange(-gdp) %&gt;%
+  mutate(gdp_billions = gdp/1000000000) %&gt;%
+  slice(1:8) -&gt;
+europe_or_not_2002
 
-ggplot(data = europe_or_not_2002) +  
+ggplot(data = europe_or_not_2002) +
 * aes(y = fct_reorder(country, gdp_billions))
 ```
 ]
@@ -657,26 +664,27 @@ count: false
 .panel1-mini-auto[
 
 ```r
-library(gapminder)  
-library(tidyverse)  
-gapminder %&gt;%  
-  filter(year == 2002) %&gt;%  
-  select(-lifeExp) %&gt;%  
-  rename(gdp_per_cap = gdpPercap) %&gt;%  
-  mutate(gdp = gdp_per_cap * pop) %&gt;%  
-  mutate(percent_gdp = 100 * gdp / sum(gdp)) %&gt;%  
-  mutate(europe = continent == "Europe") %&gt;%  
-  select(country, year, gdp, europe, pop) %&gt;%  
-  mutate(europe_category =  
-           case_when(europe == T ~ "Europe",  
-                     europe == F ~ "Not Europe")) %&gt;%  
-  arrange(-gdp) %&gt;%  
-  mutate(gdp_billions = gdp/1000000000) %&gt;%  
-  slice(1:8) -&gt;  
-europe_or_not_2002  
+library(gapminder)
+library(tidyverse)
+gapminder %&gt;%
+  filter(year == 2002) %&gt;%
+  select(-lifeExp) %&gt;%
+  rename(gdp_per_cap = gdpPercap) %&gt;%
+  mutate(gdp = gdp_per_cap * pop) %&gt;%
+  mutate(percent_gdp = 100 * gdp / sum(gdp)) %&gt;%
+  mutate(europe = continent == "Europe") %&gt;%
+  select(country, year, gdp, europe, pop) %&gt;%
+  mutate(europe_category =
+           case_when(europe == T ~ "Europe",
+                     europe == F ~
+                       "Not Europe")) %&gt;%
+  arrange(-gdp) %&gt;%
+  mutate(gdp_billions = gdp/1000000000) %&gt;%
+  slice(1:8) -&gt;
+europe_or_not_2002
 
-ggplot(data = europe_or_not_2002) +  
-  aes(y = fct_reorder(country, gdp_billions)) +  
+ggplot(data = europe_or_not_2002) +
+  aes(y = fct_reorder(country, gdp_billions)) +
 * aes(x = gdp_billions)
 ```
 ]
@@ -692,27 +700,28 @@ count: false
 .panel1-mini-auto[
 
 ```r
-library(gapminder)  
-library(tidyverse)  
-gapminder %&gt;%  
-  filter(year == 2002) %&gt;%  
-  select(-lifeExp) %&gt;%  
-  rename(gdp_per_cap = gdpPercap) %&gt;%  
-  mutate(gdp = gdp_per_cap * pop) %&gt;%  
-  mutate(percent_gdp = 100 * gdp / sum(gdp)) %&gt;%  
-  mutate(europe = continent == "Europe") %&gt;%  
-  select(country, year, gdp, europe, pop) %&gt;%  
-  mutate(europe_category =  
-           case_when(europe == T ~ "Europe",  
-                     europe == F ~ "Not Europe")) %&gt;%  
-  arrange(-gdp) %&gt;%  
-  mutate(gdp_billions = gdp/1000000000) %&gt;%  
-  slice(1:8) -&gt;  
-europe_or_not_2002  
+library(gapminder)
+library(tidyverse)
+gapminder %&gt;%
+  filter(year == 2002) %&gt;%
+  select(-lifeExp) %&gt;%
+  rename(gdp_per_cap = gdpPercap) %&gt;%
+  mutate(gdp = gdp_per_cap * pop) %&gt;%
+  mutate(percent_gdp = 100 * gdp / sum(gdp)) %&gt;%
+  mutate(europe = continent == "Europe") %&gt;%
+  select(country, year, gdp, europe, pop) %&gt;%
+  mutate(europe_category =
+           case_when(europe == T ~ "Europe",
+                     europe == F ~
+                       "Not Europe")) %&gt;%
+  arrange(-gdp) %&gt;%
+  mutate(gdp_billions = gdp/1000000000) %&gt;%
+  slice(1:8) -&gt;
+europe_or_not_2002
 
-ggplot(data = europe_or_not_2002) +  
-  aes(y = fct_reorder(country, gdp_billions)) +  
-  aes(x = gdp_billions) +  
+ggplot(data = europe_or_not_2002) +
+  aes(y = fct_reorder(country, gdp_billions)) +
+  aes(x = gdp_billions) +
 * geom_col()
 ```
 ]
@@ -728,28 +737,29 @@ count: false
 .panel1-mini-auto[
 
 ```r
-library(gapminder)  
-library(tidyverse)  
-gapminder %&gt;%  
-  filter(year == 2002) %&gt;%  
-  select(-lifeExp) %&gt;%  
-  rename(gdp_per_cap = gdpPercap) %&gt;%  
-  mutate(gdp = gdp_per_cap * pop) %&gt;%  
-  mutate(percent_gdp = 100 * gdp / sum(gdp)) %&gt;%  
-  mutate(europe = continent == "Europe") %&gt;%  
-  select(country, year, gdp, europe, pop) %&gt;%  
-  mutate(europe_category =  
-           case_when(europe == T ~ "Europe",  
-                     europe == F ~ "Not Europe")) %&gt;%  
-  arrange(-gdp) %&gt;%  
-  mutate(gdp_billions = gdp/1000000000) %&gt;%  
-  slice(1:8) -&gt;  
-europe_or_not_2002  
+library(gapminder)
+library(tidyverse)
+gapminder %&gt;%
+  filter(year == 2002) %&gt;%
+  select(-lifeExp) %&gt;%
+  rename(gdp_per_cap = gdpPercap) %&gt;%
+  mutate(gdp = gdp_per_cap * pop) %&gt;%
+  mutate(percent_gdp = 100 * gdp / sum(gdp)) %&gt;%
+  mutate(europe = continent == "Europe") %&gt;%
+  select(country, year, gdp, europe, pop) %&gt;%
+  mutate(europe_category =
+           case_when(europe == T ~ "Europe",
+                     europe == F ~
+                       "Not Europe")) %&gt;%
+  arrange(-gdp) %&gt;%
+  mutate(gdp_billions = gdp/1000000000) %&gt;%
+  slice(1:8) -&gt;
+europe_or_not_2002
 
-ggplot(data = europe_or_not_2002) +  
-  aes(y = fct_reorder(country, gdp_billions)) +  
-  aes(x = gdp_billions) +  
-  geom_col() +  
+ggplot(data = europe_or_not_2002) +
+  aes(y = fct_reorder(country, gdp_billions)) +
+  aes(x = gdp_billions) +
+  geom_col() +
 * aes(fill = europe_category)
 ```
 ]
@@ -765,29 +775,30 @@ count: false
 .panel1-mini-auto[
 
 ```r
-library(gapminder)  
-library(tidyverse)  
-gapminder %&gt;%  
-  filter(year == 2002) %&gt;%  
-  select(-lifeExp) %&gt;%  
-  rename(gdp_per_cap = gdpPercap) %&gt;%  
-  mutate(gdp = gdp_per_cap * pop) %&gt;%  
-  mutate(percent_gdp = 100 * gdp / sum(gdp)) %&gt;%  
-  mutate(europe = continent == "Europe") %&gt;%  
-  select(country, year, gdp, europe, pop) %&gt;%  
-  mutate(europe_category =  
-           case_when(europe == T ~ "Europe",  
-                     europe == F ~ "Not Europe")) %&gt;%  
-  arrange(-gdp) %&gt;%  
-  mutate(gdp_billions = gdp/1000000000) %&gt;%  
-  slice(1:8) -&gt;  
-europe_or_not_2002  
+library(gapminder)
+library(tidyverse)
+gapminder %&gt;%
+  filter(year == 2002) %&gt;%
+  select(-lifeExp) %&gt;%
+  rename(gdp_per_cap = gdpPercap) %&gt;%
+  mutate(gdp = gdp_per_cap * pop) %&gt;%
+  mutate(percent_gdp = 100 * gdp / sum(gdp)) %&gt;%
+  mutate(europe = continent == "Europe") %&gt;%
+  select(country, year, gdp, europe, pop) %&gt;%
+  mutate(europe_category =
+           case_when(europe == T ~ "Europe",
+                     europe == F ~
+                       "Not Europe")) %&gt;%
+  arrange(-gdp) %&gt;%
+  mutate(gdp_billions = gdp/1000000000) %&gt;%
+  slice(1:8) -&gt;
+europe_or_not_2002
 
-ggplot(data = europe_or_not_2002) +  
-  aes(y = fct_reorder(country, gdp_billions)) +  
-  aes(x = gdp_billions) +  
-  geom_col() +  
-  aes(fill = europe_category) +  
+ggplot(data = europe_or_not_2002) +
+  aes(y = fct_reorder(country, gdp_billions)) +
+  aes(x = gdp_billions) +
+  geom_col() +
+  aes(fill = europe_category) +
 * scale_x_log10()
 ```
 ]
@@ -803,30 +814,31 @@ count: false
 .panel1-mini-auto[
 
 ```r
-library(gapminder)  
-library(tidyverse)  
-gapminder %&gt;%  
-  filter(year == 2002) %&gt;%  
-  select(-lifeExp) %&gt;%  
-  rename(gdp_per_cap = gdpPercap) %&gt;%  
-  mutate(gdp = gdp_per_cap * pop) %&gt;%  
-  mutate(percent_gdp = 100 * gdp / sum(gdp)) %&gt;%  
-  mutate(europe = continent == "Europe") %&gt;%  
-  select(country, year, gdp, europe, pop) %&gt;%  
-  mutate(europe_category =  
-           case_when(europe == T ~ "Europe",  
-                     europe == F ~ "Not Europe")) %&gt;%  
-  arrange(-gdp) %&gt;%  
-  mutate(gdp_billions = gdp/1000000000) %&gt;%  
-  slice(1:8) -&gt;  
-europe_or_not_2002  
+library(gapminder)
+library(tidyverse)
+gapminder %&gt;%
+  filter(year == 2002) %&gt;%
+  select(-lifeExp) %&gt;%
+  rename(gdp_per_cap = gdpPercap) %&gt;%
+  mutate(gdp = gdp_per_cap * pop) %&gt;%
+  mutate(percent_gdp = 100 * gdp / sum(gdp)) %&gt;%
+  mutate(europe = continent == "Europe") %&gt;%
+  select(country, year, gdp, europe, pop) %&gt;%
+  mutate(europe_category =
+           case_when(europe == T ~ "Europe",
+                     europe == F ~
+                       "Not Europe")) %&gt;%
+  arrange(-gdp) %&gt;%
+  mutate(gdp_billions = gdp/1000000000) %&gt;%
+  slice(1:8) -&gt;
+europe_or_not_2002
 
-ggplot(data = europe_or_not_2002) +  
-  aes(y = fct_reorder(country, gdp_billions)) +  
-  aes(x = gdp_billions) +  
-  geom_col() +  
-  aes(fill = europe_category) +  
-  scale_x_log10() +  
+ggplot(data = europe_or_not_2002) +
+  aes(y = fct_reorder(country, gdp_billions)) +
+  aes(x = gdp_billions) +
+  geom_col() +
+  aes(fill = europe_category) +
+  scale_x_log10() +
 * labs(title = "Eight largest economies, 2002")
 ```
 ]
@@ -839,6 +851,7 @@ ggplot(data = europe_or_not_2002) +
 .panel1-mini-auto {
   color: black;
   width: 38.6060606060606%;
+  hight: 32%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -846,6 +859,7 @@ ggplot(data = europe_or_not_2002) +
 .panel2-mini-auto {
   color: black;
   width: 59.3939393939394%;
+  hight: 32%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -853,6 +867,7 @@ ggplot(data = europe_or_not_2002) +
 .panel3-mini-auto {
   color: black;
   width: NA%;
+  hight: 33%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -890,9 +905,9 @@ count: false
 .panel1-factor_relevel-auto[
 
 ```r
-my_countries &lt;- c("Brazil", "France", "Russia",  
-        "United Kingdom", "United States",  
-        "China", "India", "Japan")  
+my_countries &lt;- c("Brazil", "France", "Russia",
+        "United Kingdom", "United States",
+        "China", "India", "Japan")
 
 *gapminder
 ```
@@ -925,11 +940,11 @@ count: false
 .panel1-factor_relevel-auto[
 
 ```r
-my_countries &lt;- c("Brazil", "France", "Russia",  
-        "United Kingdom", "United States",  
-        "China", "India", "Japan")  
+my_countries &lt;- c("Brazil", "France", "Russia",
+        "United Kingdom", "United States",
+        "China", "India", "Japan")
 
-gapminder %&gt;%  
+gapminder %&gt;%
 * filter(year == 2002)
 ```
 ]
@@ -961,12 +976,12 @@ count: false
 .panel1-factor_relevel-auto[
 
 ```r
-my_countries &lt;- c("Brazil", "France", "Russia",  
-        "United Kingdom", "United States",  
-        "China", "India", "Japan")  
+my_countries &lt;- c("Brazil", "France", "Russia",
+        "United Kingdom", "United States",
+        "China", "India", "Japan")
 
-gapminder %&gt;%  
-  filter(year == 2002) %&gt;%  
+gapminder %&gt;%
+  filter(year == 2002) %&gt;%
 * filter(country %in% my_countries)
 ```
 ]
@@ -994,17 +1009,19 @@ count: false
 .panel1-factor_relevel-auto[
 
 ```r
-my_countries &lt;- c("Brazil", "France", "Russia",  
-        "United Kingdom", "United States",  
-        "China", "India", "Japan")  
+my_countries &lt;- c("Brazil", "France", "Russia",
+        "United Kingdom", "United States",
+        "China", "India", "Japan")
 
-gapminder %&gt;%  
-  filter(year == 2002) %&gt;%  
-  filter(country %in% my_countries) %&gt;%  
-* mutate(pop_category =
-*          case_when(pop &gt;= 1000000000 ~ "billions",
-*                    pop &gt;=  100000000 ~ "hundred millions",
-*                    pop &lt;  100000000 ~ "fewer than hundred million"))
+gapminder %&gt;%
+  filter(year == 2002) %&gt;%
+  filter(country %in% my_countries) %&gt;%
+* mutate(
+*   pop_category =
+*     case_when(pop &gt;= 1000000000 ~ "billions",
+*               pop &gt;=  100000000 ~ "hundred millions",
+*               pop &lt;  100000000 ~
+*                 "fewer than hundred million"))
 ```
 ]
  
@@ -1031,21 +1048,25 @@ count: false
 .panel1-factor_relevel-auto[
 
 ```r
-my_countries &lt;- c("Brazil", "France", "Russia",  
-        "United Kingdom", "United States",  
-        "China", "India", "Japan")  
+my_countries &lt;- c("Brazil", "France", "Russia",
+        "United Kingdom", "United States",
+        "China", "India", "Japan")
 
-gapminder %&gt;%  
-  filter(year == 2002) %&gt;%  
-  filter(country %in% my_countries) %&gt;%  
-  mutate(pop_category =  
-           case_when(pop &gt;= 1000000000 ~ "billions",  
-                     pop &gt;=  100000000 ~ "hundred millions",  
-                     pop &lt;  100000000 ~ "fewer than hundred million")) %&gt;%  
-* mutate(pop_category = fct_relevel(pop_category,
-*                      level = c("fewer than hundred million",
-*                                "hundred millions",
-*                                "billions")))
+gapminder %&gt;%
+  filter(year == 2002) %&gt;%
+  filter(country %in% my_countries) %&gt;%
+  mutate(
+    pop_category =
+      case_when(pop &gt;= 1000000000 ~ "billions",
+                pop &gt;=  100000000 ~ "hundred millions",
+                pop &lt;  100000000 ~
+                  "fewer than hundred million")) %&gt;%
+* mutate(
+*   pop_category =
+*     fct_relevel(pop_category,
+*                 level = c("fewer than hundred million",
+*                           "hundred millions",
+*                           "billions")))
 ```
 ]
  
@@ -1072,27 +1093,31 @@ count: false
 .panel1-factor_relevel-auto[
 
 ```r
-my_countries &lt;- c("Brazil", "France", "Russia",  
-        "United Kingdom", "United States",  
-        "China", "India", "Japan")  
+my_countries &lt;- c("Brazil", "France", "Russia",
+        "United Kingdom", "United States",
+        "China", "India", "Japan")
 
-gapminder %&gt;%  
-  filter(year == 2002) %&gt;%  
-  filter(country %in% my_countries) %&gt;%  
-  mutate(pop_category =  
-           case_when(pop &gt;= 1000000000 ~ "billions",  
-                     pop &gt;=  100000000 ~ "hundred millions",  
-                     pop &lt;  100000000 ~ "fewer than hundred million")) %&gt;%  
-  mutate(pop_category = fct_relevel(pop_category,  
-                       level = c("fewer than hundred million",  
-                                 "hundred millions",  
-                                 "billions"))) %&gt;%  
+gapminder %&gt;%
+  filter(year == 2002) %&gt;%
+  filter(country %in% my_countries) %&gt;%
+  mutate(
+    pop_category =
+      case_when(pop &gt;= 1000000000 ~ "billions",
+                pop &gt;=  100000000 ~ "hundred millions",
+                pop &lt;  100000000 ~
+                  "fewer than hundred million")) %&gt;%
+  mutate(
+    pop_category =
+      fct_relevel(pop_category,
+                  level = c("fewer than hundred million",
+                            "hundred millions",
+                            "billions"))) %&gt;%
 * ggplot()
 ```
 ]
  
 .panel2-factor_relevel-auto[
-![](one_stream_wrangle_files/figure-html/factor_relevel_auto_7_output-1.png)&lt;!-- --&gt;
+![](one_stream_wrangle_files/figure-html/factor_relevel_auto_07_output-1.png)&lt;!-- --&gt;
 ]
 
 ---
@@ -1102,28 +1127,32 @@ count: false
 .panel1-factor_relevel-auto[
 
 ```r
-my_countries &lt;- c("Brazil", "France", "Russia",  
-        "United Kingdom", "United States",  
-        "China", "India", "Japan")  
+my_countries &lt;- c("Brazil", "France", "Russia",
+        "United Kingdom", "United States",
+        "China", "India", "Japan")
 
-gapminder %&gt;%  
-  filter(year == 2002) %&gt;%  
-  filter(country %in% my_countries) %&gt;%  
-  mutate(pop_category =  
-           case_when(pop &gt;= 1000000000 ~ "billions",  
-                     pop &gt;=  100000000 ~ "hundred millions",  
-                     pop &lt;  100000000 ~ "fewer than hundred million")) %&gt;%  
-  mutate(pop_category = fct_relevel(pop_category,  
-                       level = c("fewer than hundred million",  
-                                 "hundred millions",  
-                                 "billions"))) %&gt;%  
-  ggplot() +  
+gapminder %&gt;%
+  filter(year == 2002) %&gt;%
+  filter(country %in% my_countries) %&gt;%
+  mutate(
+    pop_category =
+      case_when(pop &gt;= 1000000000 ~ "billions",
+                pop &gt;=  100000000 ~ "hundred millions",
+                pop &lt;  100000000 ~
+                  "fewer than hundred million")) %&gt;%
+  mutate(
+    pop_category =
+      fct_relevel(pop_category,
+                  level = c("fewer than hundred million",
+                            "hundred millions",
+                            "billions"))) %&gt;%
+  ggplot() +
 * aes(y = pop_category)
 ```
 ]
  
 .panel2-factor_relevel-auto[
-![](one_stream_wrangle_files/figure-html/factor_relevel_auto_8_output-1.png)&lt;!-- --&gt;
+![](one_stream_wrangle_files/figure-html/factor_relevel_auto_08_output-1.png)&lt;!-- --&gt;
 ]
 
 ---
@@ -1133,29 +1162,33 @@ count: false
 .panel1-factor_relevel-auto[
 
 ```r
-my_countries &lt;- c("Brazil", "France", "Russia",  
-        "United Kingdom", "United States",  
-        "China", "India", "Japan")  
+my_countries &lt;- c("Brazil", "France", "Russia",
+        "United Kingdom", "United States",
+        "China", "India", "Japan")
 
-gapminder %&gt;%  
-  filter(year == 2002) %&gt;%  
-  filter(country %in% my_countries) %&gt;%  
-  mutate(pop_category =  
-           case_when(pop &gt;= 1000000000 ~ "billions",  
-                     pop &gt;=  100000000 ~ "hundred millions",  
-                     pop &lt;  100000000 ~ "fewer than hundred million")) %&gt;%  
-  mutate(pop_category = fct_relevel(pop_category,  
-                       level = c("fewer than hundred million",  
-                                 "hundred millions",  
-                                 "billions"))) %&gt;%  
-  ggplot() +  
-  aes(y = pop_category) +  
+gapminder %&gt;%
+  filter(year == 2002) %&gt;%
+  filter(country %in% my_countries) %&gt;%
+  mutate(
+    pop_category =
+      case_when(pop &gt;= 1000000000 ~ "billions",
+                pop &gt;=  100000000 ~ "hundred millions",
+                pop &lt;  100000000 ~
+                  "fewer than hundred million")) %&gt;%
+  mutate(
+    pop_category =
+      fct_relevel(pop_category,
+                  level = c("fewer than hundred million",
+                            "hundred millions",
+                            "billions"))) %&gt;%
+  ggplot() +
+  aes(y = pop_category) +
 * aes(x = gdpPercap)
 ```
 ]
  
 .panel2-factor_relevel-auto[
-![](one_stream_wrangle_files/figure-html/factor_relevel_auto_9_output-1.png)&lt;!-- --&gt;
+![](one_stream_wrangle_files/figure-html/factor_relevel_auto_09_output-1.png)&lt;!-- --&gt;
 ]
 
 ---
@@ -1165,24 +1198,28 @@ count: false
 .panel1-factor_relevel-auto[
 
 ```r
-my_countries &lt;- c("Brazil", "France", "Russia",  
-        "United Kingdom", "United States",  
-        "China", "India", "Japan")  
+my_countries &lt;- c("Brazil", "France", "Russia",
+        "United Kingdom", "United States",
+        "China", "India", "Japan")
 
-gapminder %&gt;%  
-  filter(year == 2002) %&gt;%  
-  filter(country %in% my_countries) %&gt;%  
-  mutate(pop_category =  
-           case_when(pop &gt;= 1000000000 ~ "billions",  
-                     pop &gt;=  100000000 ~ "hundred millions",  
-                     pop &lt;  100000000 ~ "fewer than hundred million")) %&gt;%  
-  mutate(pop_category = fct_relevel(pop_category,  
-                       level = c("fewer than hundred million",  
-                                 "hundred millions",  
-                                 "billions"))) %&gt;%  
-  ggplot() +  
-  aes(y = pop_category) +  
-  aes(x = gdpPercap) +  
+gapminder %&gt;%
+  filter(year == 2002) %&gt;%
+  filter(country %in% my_countries) %&gt;%
+  mutate(
+    pop_category =
+      case_when(pop &gt;= 1000000000 ~ "billions",
+                pop &gt;=  100000000 ~ "hundred millions",
+                pop &lt;  100000000 ~
+                  "fewer than hundred million")) %&gt;%
+  mutate(
+    pop_category =
+      fct_relevel(pop_category,
+                  level = c("fewer than hundred million",
+                            "hundred millions",
+                            "billions"))) %&gt;%
+  ggplot() +
+  aes(y = pop_category) +
+  aes(x = gdpPercap) +
 * geom_point()
 ```
 ]
@@ -1198,25 +1235,29 @@ count: false
 .panel1-factor_relevel-auto[
 
 ```r
-my_countries &lt;- c("Brazil", "France", "Russia",  
-        "United Kingdom", "United States",  
-        "China", "India", "Japan")  
+my_countries &lt;- c("Brazil", "France", "Russia",
+        "United Kingdom", "United States",
+        "China", "India", "Japan")
 
-gapminder %&gt;%  
-  filter(year == 2002) %&gt;%  
-  filter(country %in% my_countries) %&gt;%  
-  mutate(pop_category =  
-           case_when(pop &gt;= 1000000000 ~ "billions",  
-                     pop &gt;=  100000000 ~ "hundred millions",  
-                     pop &lt;  100000000 ~ "fewer than hundred million")) %&gt;%  
-  mutate(pop_category = fct_relevel(pop_category,  
-                       level = c("fewer than hundred million",  
-                                 "hundred millions",  
-                                 "billions"))) %&gt;%  
-  ggplot() +  
-  aes(y = pop_category) +  
-  aes(x = gdpPercap) +  
-  geom_point() +  
+gapminder %&gt;%
+  filter(year == 2002) %&gt;%
+  filter(country %in% my_countries) %&gt;%
+  mutate(
+    pop_category =
+      case_when(pop &gt;= 1000000000 ~ "billions",
+                pop &gt;=  100000000 ~ "hundred millions",
+                pop &lt;  100000000 ~
+                  "fewer than hundred million")) %&gt;%
+  mutate(
+    pop_category =
+      fct_relevel(pop_category,
+                  level = c("fewer than hundred million",
+                            "hundred millions",
+                            "billions"))) %&gt;%
+  ggplot() +
+  aes(y = pop_category) +
+  aes(x = gdpPercap) +
+  geom_point() +
 * ggrepel::geom_text_repel(aes(label = country))
 ```
 ]
@@ -1229,6 +1270,7 @@ gapminder %&gt;%
 .panel1-factor_relevel-auto {
   color: black;
   width: 38.6060606060606%;
+  hight: 32%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -1236,6 +1278,7 @@ gapminder %&gt;%
 .panel2-factor_relevel-auto {
   color: black;
   width: 59.3939393939394%;
+  hight: 32%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -1243,6 +1286,7 @@ gapminder %&gt;%
 .panel3-factor_relevel-auto {
   color: black;
   width: NA%;
+  hight: 33%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -1262,7 +1306,7 @@ gapminder %&gt;%
 
 
 &lt;style type="text/css"&gt;
-.remark-code{line-height: 1.5; font-size: 60%}
+.remark-code{line-height: 1.5; font-size: 70%}
 
 @media print {
   .has-continuation {
