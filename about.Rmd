@@ -31,10 +31,13 @@ This section cover some very basics including:
 
 *Click on the slides below. Then use `->` or `<-` arrow keys to navigate, or [view in new window](arithmetic_and_data_types.html){target="_blank"}*
 
-```{r}
-knitr::include_url("arithmetic_and_data_types.html", height =  "420px")
-```
 
+```{r, echo = F}
+xaringanExtra::embed_xaringan(
+  url = "arithmetic_and_data_types.html",
+  ratio = "16:10"
+)
+```
 
 # Data manipulation with the tidyverse
 
@@ -54,22 +57,27 @@ The `{tidyverse}`  data manipulation functions have been a boon to analysts' pro
 
 *Click on the slides below. Then use `->` or `<-` arrow keys to navigate, or [view in new window](one_stream_wrangle.html){target="_blank"}*
 
-```{r}
-knitr::include_url("one_stream_wrangle.html", height =  "420px")
-```
 
+
+```{r, echo = F}
+xaringanExtra::embed_xaringan(
+  url = "one_stream_wrangle.html",
+  ratio = "16:10"
+)
+```
 
 
 #### [Logical operators](booleans.html#3){target="_blank"}
 
 Especially in filtering, you are likely to use Boolean operatores `==`, `!=`, `>`, `<`, `>=`, `<=`, which make a comparison and return `TRUE` or `FALSE`.  These can also be combine with `&` (both conditions must be met), `|` (either condition may be met), or `%in%` (if the left hand side element is found *among* the right hand side elements, `TRUE` is returned).
 
-*Click on the slides below. Then `->` or `<-` arrow keys to navigate, or [view in new window](booleans.html){target="_blank"}*
 
-```{r}
-knitr::include_url("booleans.html", height =  "420px")
+```{r, echo = F}
+xaringanExtra::embed_xaringan(
+  url = "booleans.html",
+  ratio = "16:10"
+)
 ```
-
 
 
 ### [Summarizing](summarize.html#3){target="_blank"}
@@ -92,8 +100,13 @@ The function `summary()` can also be used to request summary statistcs for an en
 
 *Click on the slides below and use arrow keys to advance, or [view in new window](summarize.html#3){target="_blank"}*
 
-```{r}
-knitr::include_url("summarize.html", height =  "420px")
+
+
+```{r, echo = F}
+xaringanExtra::embed_xaringan(
+  url = "summarize.html",
+  ratio = "16:10"
+)
 ```
 
 ### [Shape transformation (wide <---> long)](long_to_wide_and_back.html#3){target="_blank"}
@@ -103,10 +116,13 @@ knitr::include_url("summarize.html", height =  "420px")
 | pivot_longer() | *from wide to long*|
 | pivot_wider() | *from long to wide*|
 
-*Click on the slides below. Then use `->` or `<-` arrow keys to navigate, or [view in new window](long_to_wide_and_back.html){target="_blank"}*
 
-```{r}
-knitr::include_url("long_to_wide_and_back.html", height = "420px")
+
+```{r, echo = F}
+xaringanExtra::embed_xaringan(
+  url = "long_to_wide_and_back.html",
+  ratio = "16:10"
+)
 ```
 
 
@@ -126,9 +142,15 @@ knitr::include_url("long_to_wide_and_back.html", height = "420px")
 
 *Click on the slides below and use arrow keys to advance, or [view in new window](joining_data.html){target="_blank"}*
 
-```{r}
-knitr::include_url("joining_data.html", height =  "420px")
+
+
+```{r, echo = F}
+xaringanExtra::embed_xaringan(
+  url = "joining_data.html",
+  ratio = "16:10"
+)
 ```
+
 
 
 ## [Manipulation with data.table](data.table.html){target="_blank"}
@@ -138,8 +160,12 @@ knitr::include_url("joining_data.html", height =  "420px")
 
 *Click on the slides below and use arrow keys to advance, or [view in new window](data.table.html){target="_blank"}*
 
-```{r}
-knitr::include_url("data.table.html", height =  "420px")
+
+```{r, echo = F}
+xaringanExtra::embed_xaringan(
+  url = "data.table.html",
+  ratio = "16:10"
+)
 ```
 
 
@@ -149,10 +175,13 @@ You can also do a lot of data manipulation without any external packages at all.
 
 *Click on the slides below and use arrow keys to advance, or [view in new window](logical_indexing.html){target="_blank"}*
 
-```{r}
-knitr::include_url("logical_indexing.html", height =  "420px")
-```
 
+```{r, echo = F}
+xaringanExtra::embed_xaringan(
+  url = "logical_indexing.html",
+  ratio = "16:10"
+)
+```
 
 ## [Data Cleaning Examples & Intro to String Manipulation, Country Identifiers, and Date Manipulation](https://evamaerey.github.io/data_manipulation/data_cleaning/data_cleaning){target="_blank"}
 

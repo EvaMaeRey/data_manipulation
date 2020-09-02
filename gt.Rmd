@@ -15,7 +15,9 @@ output:
 ---
 
 
-
+```{r xaringanExtra-share-again, echo=FALSE}
+xaringanExtra::use_share_again()
+```
 
 class: left, top, inverse
 background-image: url(https://images.unsplash.com/photo-1553321846-ad6616f5d1db?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1052&q=80)

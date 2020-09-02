@@ -6,15 +6,42 @@
     <meta name="author" content="  Gina Reynolds, April 2019" />
     <link href="libs/remark-css-0.0.1/kunoichi.css" rel="stylesheet" />
     <link href="libs/remark-css-0.0.1/ninjutsu.css" rel="stylesheet" />
+    <script src="libs/clipboard-2.0.6/clipboard.min.js"></script>
+    <link href="libs/shareon-1.4.1/shareon.min.css" rel="stylesheet" />
+    <script src="libs/shareon-1.4.1/shareon.min.js"></script>
+    <link href="libs/xaringanExtra-shareagain-0.2.1/shareagain.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-shareagain-0.2.1/shareagain.js"></script>
   </head>
   <body>
     <textarea id="source">
-class: center, middle, inverse, title-slide
 
-# purrr flipbook
-## data structures and functional programming with purrr | made with Xaringan
-### <br><br>Gina Reynolds, April 2019
-### <br>
+
+class: left, top, inverse
+background-image: url(https://images.unsplash.com/photo-1575950670249-de0b72289e97?ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1050&amp;q=80)
+background-size: cover
+
+# .large[{purrr}]
+### An exploration &lt;br&gt;with {flipbookr}&lt;br&gt;and {xaringan}
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+#### .right[Edited: Gina Reynolds&lt;br&gt;Photo Credit: Leighann Blackwood]
 
 ---
 
@@ -22,53 +49,20 @@ class: center, middle, inverse, title-slide
 
 
 
-# Introduction
 
-What about purrr.  The R package purrr feels hard to me, but it does have so much promise of providing a easy tidy, efficient workflow.  Maybe purrr feels hard to you too. I need some practice in it and maybe my practice could be a useful reference for you!  Let's flipbook it! 
+# What's purrr? 
 
-I recommend you starting with less complicated data structures that can be managed only with dplyr and tidyr, which are both also part of the tidyverse.  If you aren't familiar with these tools you might want to start there and practice those tools: [The Tidyverse in Action]( https://evamaerey.github.io/tidyverse_in_action/tidyverse_in_action.html#1)
-
-
-
----
-# What is purrr
-
-I'm not really sure, so quoting from purrr.tidyverse.org:
+Quoting from purrr.tidyverse.org:
 
 &gt; purrr enhances R’s functional programming (FP) toolkit by providing a complete and consistent set of tools for working with functions and vectors. If you’ve never heard of FP before, the best place to start is the family of map() functions which allow you to replace many for loops with code that is both more succinct and easier to read. The best place to learn about the map() functions is the iteration chapter in R for data science.
 
 
 
 
----
-
-# Getting started with R and RStudio
-
-The tools demonstrated in this book are implemented in the statistical software, R which is opensource and freely available.  RStudio, an integrated development environment (IDE), is a nice environment for working in R.  The following links may help you get R and RStudio up and running. 
-
-- [Install Windows](https://www.youtube.com/watch?v=aCRMhAWmtpw)
-- [Install Mac](https://www.youtube.com/watch?v=GLLZhc_5enQ)
-
-
----
-
-# Acknowledgements
-
-I'm grateful to the tidyverse team for their tireless work on developing and maintaining this wonderful toolkit and to RStudio for supporting the development.  Emi Tanaka (@statsgen) and Garrick Aden-Buie (@grrrck) helped by writing code to made the flipbook style possible. I'm *very* grateful to them for their work on this as well as to Yihui Xie and others for their work on the Xaringan package --- the extraordinary platform for creating the slides for this book.  I'm thankful too to my students who refresh my perspective on teaching and learning new tools.  Finally, thanks to my family and friends who support data wrangling, plotting, modeling, and me. 
 
 
 
----
 
-# Load the tidyverse and data
-
-To get started, you'll need to install the packages "tidyverse" and load data.  Execute this code in your console:
-
-
-```r
-install.packages("tidyverse")
-install.packages("gapminder")
-```
 
 Then, in an R script or .Rmd you can use and execute the following code: 
 
@@ -100,13 +94,6 @@ count: false
   [1] 1 4 2 6
 ```
 ]
- 
-.panel3-simple_vector-auto[
-
-```
-  [1] "--"
-```
-]
 
 ---
 count: false
@@ -122,13 +109,6 @@ c(1, 4, 2, 6) -&gt;  # is the concatenate function
  
 .panel2-simple_vector-auto[
 
-]
- 
-.panel3-simple_vector-auto[
-
-```
-  [1] 1 4 2 6
-```
 ]
 
 ---
@@ -152,10 +132,6 @@ c(1, 4, 2, 6) -&gt;  # is the concatenate function
   [1] 1 4 2 6
 ```
 ]
- 
-.panel3-simple_vector-auto[
-
-]
 
 ---
 count: false
@@ -168,7 +144,7 @@ c(1, 4, 2, 6) -&gt;  # is the concatenate function
   my_vector  # Now we've done the assignment
 
 # we can pull out element 3 using brackets
-my_vector %&gt;%  
+my_vector %&gt;%
 * .[3]
 ```
 ]
@@ -179,13 +155,6 @@ my_vector %&gt;%
   [1] 2
 ```
 ]
- 
-.panel3-simple_vector-auto[
-
-```
-  [1] 1 4 2 6
-```
-]
 
 ---
 count: false
@@ -198,8 +167,8 @@ c(1, 4, 2, 6) -&gt;  # is the concatenate function
   my_vector  # Now we've done the assignment
 
 # we can pull out element 3 using brackets
-my_vector %&gt;%  
-  .[3]  
+my_vector %&gt;%
+  .[3]
 
 # The above is a line by line version of the following
 *my_vector[3]
@@ -216,18 +185,12 @@ my_vector %&gt;%
   [1] 2
 ```
 ]
- 
-.panel3-simple_vector-auto[
-
-```
-  [1] 2
-```
-]
 
 &lt;style&gt;
 .panel1-simple_vector-auto {
   color: black;
   width: 24.25%;
+  hight: 32%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -235,6 +198,7 @@ my_vector %&gt;%
 .panel2-simple_vector-auto {
   color: black;
   width: 36.375%;
+  hight: 32%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -242,6 +206,7 @@ my_vector %&gt;%
 .panel3-simple_vector-auto {
   color: grey;
   width: 36.375%;
+  hight: 33%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -325,7 +290,7 @@ c(1, 4, 2, 6) -&gt;  # is the concatenate function
   my_vector  # Now we've done the assignment
 
 # we can pull out element 3 using brackets
-my_vector %&gt;%  
+my_vector %&gt;%
 * .[3]
 ```
 ]
@@ -348,8 +313,8 @@ c(1, 4, 2, 6) -&gt;  # is the concatenate function
   my_vector  # Now we've done the assignment
 
 # we can pull out element 3 using brackets
-my_vector %&gt;%  
-  .[3]  
+my_vector %&gt;%
+  .[3]
 
 # The above is a line by line version of the following
 *my_vector[3]
@@ -371,6 +336,7 @@ my_vector %&gt;%
 .panel1-simple_vector-auto {
   color: black;
   width: 58.4040404040404%;
+  hight: 32%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -378,6 +344,7 @@ my_vector %&gt;%
 .panel2-simple_vector-auto {
   color: black;
   width: 39.5959595959596%;
+  hight: 32%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -385,6 +352,7 @@ my_vector %&gt;%
 .panel3-simple_vector-auto {
   color: black;
   width: NA%;
+  hight: 33%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -425,7 +393,7 @@ count: false
 .panel1-simple_matrix-auto[
 
 ```r
-matrix(1:15, nrow = 3) %&gt;%  
+matrix(1:15, nrow = 3) %&gt;%
 # specify which row and which columns
 * .[2, 3:4]
 ```
@@ -445,9 +413,9 @@ count: false
 .panel1-simple_matrix-auto[
 
 ```r
-matrix(1:15, nrow = 3) %&gt;%  
+matrix(1:15, nrow = 3) %&gt;%
 # specify which row and which columns
-  .[2, 3:4] %&gt;%  
+  .[2, 3:4] %&gt;%
 # which element in a vector
 * .[2]
 ```
@@ -467,11 +435,11 @@ count: false
 .panel1-simple_matrix-auto[
 
 ```r
-matrix(1:15, nrow = 3) %&gt;%  
+matrix(1:15, nrow = 3) %&gt;%
 # specify which row and which columns
-  .[2, 3:4] %&gt;%  
+  .[2, 3:4] %&gt;%
 # which element in a vector
-  .[2]  
+  .[2]
 
 # You can do this in one line
 *matrix(1:15, nrow = 3)[2, 3:4][2]
@@ -493,6 +461,7 @@ matrix(1:15, nrow = 3) %&gt;%
 .panel1-simple_matrix-auto {
   color: black;
   width: 58.4040404040404%;
+  hight: 32%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -500,6 +469,7 @@ matrix(1:15, nrow = 3) %&gt;%
 .panel2-simple_matrix-auto {
   color: black;
   width: 39.5959595959596%;
+  hight: 32%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -507,6 +477,7 @@ matrix(1:15, nrow = 3) %&gt;%
 .panel3-simple_matrix-auto {
   color: black;
   width: NA%;
+  hight: 33%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -537,11 +508,11 @@ count: false
 .panel1-some_purrr-rotate[
 
 ```r
-my_list  
+my_list
 
 # some map function from purrr
 # try to describe the behavior of each
-purrr::map(my_list, length)  
+*purrr::map(my_list, length)
 ```
 ]
  
@@ -564,9 +535,6 @@ purrr::map(my_list, length)
   
   [[4]]
   NULL
-  
-  [[5]]
-  [1] TRUE
 ```
 
 ```
@@ -581,9 +549,6 @@ purrr::map(my_list, length)
   
   [[4]]
   [1] 0
-  
-  [[5]]
-  [1] 1
 ```
 ]
 
@@ -594,7 +559,7 @@ count: false
 .panel1-some_purrr-rotate[
 
 ```r
-my_list  
+my_list
 
 # some map function from purrr
 # try to describe the behavior of each
@@ -621,13 +586,10 @@ my_list
   
   [[4]]
   NULL
-  
-  [[5]]
-  [1] TRUE
 ```
 
 ```
-  [1] 1 4 2 0 1
+  [1] 1 4 2 0
 ```
 ]
 
@@ -638,7 +600,7 @@ count: false
 .panel1-some_purrr-rotate[
 
 ```r
-my_list  
+my_list
 
 # some map function from purrr
 # try to describe the behavior of each
@@ -665,13 +627,10 @@ my_list
   
   [[4]]
   NULL
-  
-  [[5]]
-  [1] TRUE
 ```
 
 ```
-  [1] "1" "4" "2" "0" "1"
+  [1] "1" "4" "2" "0"
 ```
 ]
 
@@ -682,7 +641,7 @@ count: false
 .panel1-some_purrr-rotate[
 
 ```r
-my_list  
+my_list
 
 # some map function from purrr
 # try to describe the behavior of each
@@ -709,9 +668,6 @@ my_list
   
   [[4]]
   NULL
-  
-  [[5]]
-  [1] TRUE
 ```
 
 ```
@@ -726,7 +682,7 @@ count: false
 .panel1-some_purrr-rotate[
 
 ```r
-my_list  
+my_list
 
 # some map function from purrr
 # try to describe the behavior of each
@@ -753,9 +709,6 @@ my_list
   
   [[4]]
   NULL
-  
-  [[5]]
-  [1] TRUE
 ```
 
 ```
@@ -771,7 +724,7 @@ count: false
 .panel1-some_purrr-rotate[
 
 ```r
-my_list  
+my_list
 
 # some map function from purrr
 # try to describe the behavior of each
@@ -798,9 +751,6 @@ my_list
   
   [[4]]
   NULL
-  
-  [[5]]
-  [1] TRUE
 ```
 
 ```
@@ -817,9 +767,6 @@ my_list
   
   [[3]]
   NULL
-  
-  [[4]]
-  [1] TRUE
 ```
 ]
 
@@ -830,7 +777,7 @@ count: false
 .panel1-some_purrr-rotate[
 
 ```r
-my_list  
+my_list
 
 # some map function from purrr
 # try to describe the behavior of each
@@ -857,9 +804,6 @@ my_list
   
   [[4]]
   NULL
-  
-  [[5]]
-  [1] TRUE
 ```
 
 ```
@@ -879,7 +823,7 @@ count: false
 .panel1-some_purrr-rotate[
 
 ```r
-my_list  
+my_list
 
 # some map function from purrr
 # try to describe the behavior of each
@@ -906,9 +850,6 @@ my_list
   
   [[4]]
   NULL
-  
-  [[5]]
-  [1] TRUE
 ```
 
 ```
@@ -924,10 +865,6 @@ my_list
   
   [[3]][[2]]
   [1] "bye"     "bye-bye"
-  
-  
-  [[4]]
-  [1] TRUE
 ```
 ]
 
@@ -938,7 +875,7 @@ count: false
 .panel1-some_purrr-rotate[
 
 ```r
-my_list  
+my_list
 
 # some map function from purrr
 # try to describe the behavior of each
@@ -965,9 +902,6 @@ my_list
   
   [[4]]
   NULL
-  
-  [[5]]
-  [1] TRUE
 ```
 
 ```
@@ -991,9 +925,6 @@ my_list
   
   [[7]]
   [1] "bye"     "bye-bye"
-  
-  [[8]]
-  [1] TRUE
 ```
 ]
 
@@ -1004,7 +935,7 @@ count: false
 .panel1-some_purrr-rotate[
 
 ```r
-my_list  
+my_list
 
 # some map function from purrr
 # try to describe the behavior of each
@@ -1031,9 +962,6 @@ my_list
   
   [[4]]
   NULL
-  
-  [[5]]
-  [1] TRUE
 ```
 
 ```
@@ -1048,7 +976,7 @@ count: false
 .panel1-some_purrr-rotate[
 
 ```r
-my_list  
+my_list
 
 # some map function from purrr
 # try to describe the behavior of each
@@ -1075,9 +1003,6 @@ my_list
   
   [[4]]
   NULL
-  
-  [[5]]
-  [1] TRUE
 ```
 
 ```
@@ -1092,7 +1017,7 @@ count: false
 .panel1-some_purrr-rotate[
 
 ```r
-my_list  
+my_list
 
 # some map function from purrr
 # try to describe the behavior of each
@@ -1119,9 +1044,6 @@ my_list
   
   [[4]]
   NULL
-  
-  [[5]]
-  [1] TRUE
 ```
 
 ```
@@ -1132,21 +1054,24 @@ my_list
 &lt;style&gt;
 .panel1-some_purrr-rotate {
   color: black;
-  width: 38.2121212121212%;
+  width: 38.6060606060606%;
+  hight: 32%;
   float: left;
   padding-left: 1%;
   font-size: 80%
 }
 .panel2-some_purrr-rotate {
   color: black;
-  width: 58.7878787878788%;
+  width: 59.3939393939394%;
+  hight: 32%;
   float: left;
   padding-left: 1%;
   font-size: 80%
 }
 .panel3-some_purrr-rotate {
   color: black;
-  width: 0%;
+  width: NA%;
+  hight: 33%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -1200,8 +1125,8 @@ count: false
 .panel1-named_lists-auto[
 
 ```r
-list(thing_1 = "a",  
-     thing_2 = matrix(data = 1:5, nrow = 2)) -&gt;  
+list(thing_1 = "a",
+     thing_2 = matrix(data = 1:5, nrow = 2)) -&gt;
 * my_named_list
 ```
 ]
@@ -1217,9 +1142,9 @@ count: false
 .panel1-named_lists-auto[
 
 ```r
-list(thing_1 = "a",  
-     thing_2 = matrix(data = 1:5, nrow = 2)) -&gt;  
-  my_named_list  
+list(thing_1 = "a",
+     thing_2 = matrix(data = 1:5, nrow = 2)) -&gt;
+  my_named_list
 
 *my_named_list
 ```
@@ -1245,11 +1170,11 @@ count: false
 .panel1-named_lists-auto[
 
 ```r
-list(thing_1 = "a",  
-     thing_2 = matrix(data = 1:5, nrow = 2)) -&gt;  
-  my_named_list  
+list(thing_1 = "a",
+     thing_2 = matrix(data = 1:5, nrow = 2)) -&gt;
+  my_named_list
 
-my_named_list %&gt;%  
+my_named_list %&gt;%
 * .$thing_1   # access via dollar sign
 ```
 ]
@@ -1268,11 +1193,11 @@ count: false
 .panel1-named_lists-auto[
 
 ```r
-list(thing_1 = "a",  
-     thing_2 = matrix(data = 1:5, nrow = 2)) -&gt;  
-  my_named_list  
+list(thing_1 = "a",
+     thing_2 = matrix(data = 1:5, nrow = 2)) -&gt;
+  my_named_list
 
-my_named_list %&gt;%  
+my_named_list %&gt;%
   .$thing_1 -&gt;  # access via dollar sign
 *grabbed_thing_1
 ```
@@ -1289,13 +1214,13 @@ count: false
 .panel1-named_lists-auto[
 
 ```r
-list(thing_1 = "a",  
-     thing_2 = matrix(data = 1:5, nrow = 2)) -&gt;  
-  my_named_list  
+list(thing_1 = "a",
+     thing_2 = matrix(data = 1:5, nrow = 2)) -&gt;
+  my_named_list
 
-my_named_list %&gt;%  
+my_named_list %&gt;%
   .$thing_1 -&gt;  # access via dollar sign
-grabbed_thing_1  
+grabbed_thing_1
 
 *my_named_list
 ```
@@ -1321,15 +1246,15 @@ count: false
 .panel1-named_lists-auto[
 
 ```r
-list(thing_1 = "a",  
-     thing_2 = matrix(data = 1:5, nrow = 2)) -&gt;  
-  my_named_list  
+list(thing_1 = "a",
+     thing_2 = matrix(data = 1:5, nrow = 2)) -&gt;
+  my_named_list
 
-my_named_list %&gt;%  
+my_named_list %&gt;%
   .$thing_1 -&gt;  # access via dollar sign
-grabbed_thing_1  
+grabbed_thing_1
 
-my_named_list %&gt;%  
+my_named_list %&gt;%
 * .[[1]]   # access via brackets
 ```
 ]
@@ -1348,15 +1273,15 @@ count: false
 .panel1-named_lists-auto[
 
 ```r
-list(thing_1 = "a",  
-     thing_2 = matrix(data = 1:5, nrow = 2)) -&gt;  
-  my_named_list  
+list(thing_1 = "a",
+     thing_2 = matrix(data = 1:5, nrow = 2)) -&gt;
+  my_named_list
 
-my_named_list %&gt;%  
+my_named_list %&gt;%
   .$thing_1 -&gt;  # access via dollar sign
-grabbed_thing_1  
+grabbed_thing_1
 
-my_named_list %&gt;%  
+my_named_list %&gt;%
   .[[1]] -&gt;  # access via brackets
 *grabbed_thing_1
 ```
@@ -1370,6 +1295,7 @@ my_named_list %&gt;%
 .panel1-named_lists-auto {
   color: black;
   width: 58.4040404040404%;
+  hight: 32%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -1377,6 +1303,7 @@ my_named_list %&gt;%
 .panel2-named_lists-auto {
   color: black;
   width: 39.5959595959596%;
+  hight: 32%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -1384,6 +1311,7 @@ my_named_list %&gt;%
 .panel3-named_lists-auto {
   color: black;
   width: NA%;
+  hight: 33%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -1437,8 +1365,8 @@ count: false
 .panel1-lists_of_lists-auto[
 
 ```r
-list(thing_1 = "a",  
-     thing_2 = matrix(data = 1:5, nrow = 2)) -&gt;  
+list(thing_1 = "a",
+     thing_2 = matrix(data = 1:5, nrow = 2)) -&gt;
 *my_named_list
 ```
 ]
@@ -1454,9 +1382,9 @@ count: false
 .panel1-lists_of_lists-auto[
 
 ```r
-list(thing_1 = "a",  
-     thing_2 = matrix(data = 1:5, nrow = 2)) -&gt;  
-my_named_list  
+list(thing_1 = "a",
+     thing_2 = matrix(data = 1:5, nrow = 2)) -&gt;
+my_named_list
 
 *list(
 * "a",  # scalar
@@ -1493,15 +1421,15 @@ count: false
 .panel1-lists_of_lists-auto[
 
 ```r
-list(thing_1 = "a",  
-     thing_2 = matrix(data = 1:5, nrow = 2)) -&gt;  
-my_named_list  
+list(thing_1 = "a",
+     thing_2 = matrix(data = 1:5, nrow = 2)) -&gt;
+my_named_list
 
-list(  
+list(
   "a",  # scalar
   1:5,  # vector
   my_named_list  # list
-     ) %&gt;%  
+     ) %&gt;%
 * .[[3]]   # drilling down w brackets
 ```
 ]
@@ -1526,15 +1454,15 @@ count: false
 .panel1-lists_of_lists-auto[
 
 ```r
-list(thing_1 = "a",  
-     thing_2 = matrix(data = 1:5, nrow = 2)) -&gt;  
-my_named_list  
+list(thing_1 = "a",
+     thing_2 = matrix(data = 1:5, nrow = 2)) -&gt;
+my_named_list
 
-list(  
+list(
   "a",  # scalar
   1:5,  # vector
   my_named_list  # list
-     ) %&gt;%  
+     ) %&gt;%
   .[[3]] %&gt;%  # drilling down w brackets
 * .$thing_2   # with dollar sign and name
 ```
@@ -1556,15 +1484,15 @@ count: false
 .panel1-lists_of_lists-auto[
 
 ```r
-list(thing_1 = "a",  
-     thing_2 = matrix(data = 1:5, nrow = 2)) -&gt;  
-my_named_list  
+list(thing_1 = "a",
+     thing_2 = matrix(data = 1:5, nrow = 2)) -&gt;
+my_named_list
 
-list(  
+list(
   "a",  # scalar
   1:5,  # vector
   my_named_list  # list
-     ) %&gt;%  
+     ) %&gt;%
   .[[3]] %&gt;%  # drilling down w brackets
   .$thing_2 %&gt;%  # with dollar sign and name
 * .[3]   # with single brackets element in vector
@@ -1585,15 +1513,15 @@ count: false
 .panel1-lists_of_lists-auto[
 
 ```r
-list(thing_1 = "a",  
-     thing_2 = matrix(data = 1:5, nrow = 2)) -&gt;  
-my_named_list  
+list(thing_1 = "a",
+     thing_2 = matrix(data = 1:5, nrow = 2)) -&gt;
+my_named_list
 
-list(  
+list(
   "a",  # scalar
   1:5,  # vector
   my_named_list  # list
-     ) %&gt;%  
+     ) %&gt;%
   .[[3]] %&gt;%  # drilling down w brackets
   .$thing_2 %&gt;%  # with dollar sign and name
   .[3] -&gt;  # with single brackets element in vector
@@ -1609,6 +1537,7 @@ list(
 .panel1-lists_of_lists-auto {
   color: black;
   width: 58.4040404040404%;
+  hight: 32%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -1616,6 +1545,7 @@ list(
 .panel2-lists_of_lists-auto {
   color: black;
   width: 39.5959595959596%;
+  hight: 32%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -1623,6 +1553,7 @@ list(
 .panel3-lists_of_lists-auto {
   color: black;
   width: NA%;
+  hight: 33%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -1657,7 +1588,7 @@ count: false
 .panel1-statistical_function_returns-auto[
 
 ```r
-set.seed(87463)  
+set.seed(87463)
 *corr &lt;- cor.test(rnorm(50), rnorm(50))
 ```
 ]
@@ -1673,8 +1604,8 @@ count: false
 .panel1-statistical_function_returns-auto[
 
 ```r
-set.seed(87463)  
-corr &lt;- cor.test(rnorm(50), rnorm(50))  
+set.seed(87463)
+corr &lt;- cor.test(rnorm(50), rnorm(50))
 
 *corr
 ```
@@ -1704,10 +1635,10 @@ count: false
 .panel1-statistical_function_returns-auto[
 
 ```r
-set.seed(87463)  
-corr &lt;- cor.test(rnorm(50), rnorm(50))  
+set.seed(87463)
+corr &lt;- cor.test(rnorm(50), rnorm(50))
 
-corr %&gt;%  
+corr %&gt;%
 * str()
 ```
 ]
@@ -1741,11 +1672,11 @@ count: false
 .panel1-statistical_function_returns-auto[
 
 ```r
-set.seed(87463)  
-corr &lt;- cor.test(rnorm(50), rnorm(50))  
+set.seed(87463)
+corr &lt;- cor.test(rnorm(50), rnorm(50))
 
-corr %&gt;%  
-  str()  
+corr %&gt;%
+  str()
 
 # drilling down with dollar sign and name
 *corr
@@ -1795,14 +1726,14 @@ count: false
 .panel1-statistical_function_returns-auto[
 
 ```r
-set.seed(87463)  
-corr &lt;- cor.test(rnorm(50), rnorm(50))  
+set.seed(87463)
+corr &lt;- cor.test(rnorm(50), rnorm(50))
 
-corr %&gt;%  
-  str()  
+corr %&gt;%
+  str()
 
 # drilling down with dollar sign and name
-corr %&gt;%  
+corr %&gt;%
 * .$estimate
 ```
 ]
@@ -1841,15 +1772,15 @@ count: false
 .panel1-statistical_function_returns-auto[
 
 ```r
-set.seed(87463)  
-corr &lt;- cor.test(rnorm(50), rnorm(50))  
+set.seed(87463)
+corr &lt;- cor.test(rnorm(50), rnorm(50))
 
-corr %&gt;%  
-  str()  
+corr %&gt;%
+  str()
 
 # drilling down with dollar sign and name
-corr %&gt;%  
-  .$estimate %&gt;%  
+corr %&gt;%
+  .$estimate %&gt;%
 * .[[1]]
 ```
 ]
@@ -1887,16 +1818,16 @@ count: false
 .panel1-statistical_function_returns-auto[
 
 ```r
-set.seed(87463)  
-corr &lt;- cor.test(rnorm(50), rnorm(50))  
+set.seed(87463)
+corr &lt;- cor.test(rnorm(50), rnorm(50))
 
-corr %&gt;%  
-  str()  
+corr %&gt;%
+  str()
 
 # drilling down with dollar sign and name
-corr %&gt;%  
-  .$estimate %&gt;%  
-  .[[1]] -&gt;  
+corr %&gt;%
+  .$estimate %&gt;%
+  .[[1]] -&gt;
 *extracted_estimate
 ```
 ]
@@ -1930,17 +1861,17 @@ count: false
 .panel1-statistical_function_returns-auto[
 
 ```r
-set.seed(87463)  
-corr &lt;- cor.test(rnorm(50), rnorm(50))  
+set.seed(87463)
+corr &lt;- cor.test(rnorm(50), rnorm(50))
 
-corr %&gt;%  
-  str()  
+corr %&gt;%
+  str()
 
 # drilling down with dollar sign and name
-corr %&gt;%  
-  .$estimate %&gt;%  
-  .[[1]] -&gt;  
-extracted_estimate  
+corr %&gt;%
+  .$estimate %&gt;%
+  .[[1]] -&gt;
+extracted_estimate
 
 # drilling down with brackets
 *corr
@@ -1990,20 +1921,20 @@ count: false
 .panel1-statistical_function_returns-auto[
 
 ```r
-set.seed(87463)  
-corr &lt;- cor.test(rnorm(50), rnorm(50))  
+set.seed(87463)
+corr &lt;- cor.test(rnorm(50), rnorm(50))
 
-corr %&gt;%  
-  str()  
+corr %&gt;%
+  str()
 
 # drilling down with dollar sign and name
-corr %&gt;%  
-  .$estimate %&gt;%  
-  .[[1]] -&gt;  
-extracted_estimate  
+corr %&gt;%
+  .$estimate %&gt;%
+  .[[1]] -&gt;
+extracted_estimate
 
 # drilling down with brackets
-corr %&gt;%  
+corr %&gt;%
 * .[[3]]
 ```
 ]
@@ -2041,21 +1972,21 @@ count: false
 .panel1-statistical_function_returns-auto[
 
 ```r
-set.seed(87463)  
-corr &lt;- cor.test(rnorm(50), rnorm(50))  
+set.seed(87463)
+corr &lt;- cor.test(rnorm(50), rnorm(50))
 
-corr %&gt;%  
-  str()  
+corr %&gt;%
+  str()
 
 # drilling down with dollar sign and name
-corr %&gt;%  
-  .$estimate %&gt;%  
-  .[[1]] -&gt;  
-extracted_estimate  
+corr %&gt;%
+  .$estimate %&gt;%
+  .[[1]] -&gt;
+extracted_estimate
 
 # drilling down with brackets
-corr %&gt;%  
-  .[[3]] -&gt;  
+corr %&gt;%
+  .[[3]] -&gt;
 *extracted_pvalue
 ```
 ]
@@ -2086,6 +2017,7 @@ corr %&gt;%
 .panel1-statistical_function_returns-auto {
   color: black;
   width: 58.4040404040404%;
+  hight: 32%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -2093,6 +2025,7 @@ corr %&gt;%
 .panel2-statistical_function_returns-auto {
   color: black;
   width: 39.5959595959596%;
+  hight: 32%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -2100,6 +2033,7 @@ corr %&gt;%
 .panel3-statistical_function_returns-auto {
   color: black;
   width: NA%;
+  hight: 33%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -2150,10 +2084,10 @@ count: false
 
 ```r
 # order matters
-list(  
-  c("mac", "granny"),  
-  c("naval", "blood")  
-  ) %&gt;%  
+list(
+  c("mac", "granny"),
+  c("naval", "blood")
+  ) %&gt;%
 * .[2]
 ```
 ]
@@ -2174,11 +2108,11 @@ count: false
 
 ```r
 # order matters
-list(  
-  c("mac", "granny"),  
-  c("naval", "blood")  
-  ) %&gt;%  
-  .[2] %&gt;%  
+list(
+  c("mac", "granny"),
+  c("naval", "blood")
+  ) %&gt;%
+  .[2] %&gt;%
 * .[[1]]
 ```
 ]
@@ -2198,12 +2132,12 @@ count: false
 
 ```r
 # order matters
-list(  
-  c("mac", "granny"),  
-  c("naval", "blood")  
-  ) %&gt;%  
-  .[2] %&gt;%  
-  .[[1]]  
+list(
+  c("mac", "granny"),
+  c("naval", "blood")
+  ) %&gt;%
+  .[2] %&gt;%
+  .[[1]]
 
 
 # compare with above result
@@ -2237,19 +2171,19 @@ count: false
 
 ```r
 # order matters
-list(  
-  c("mac", "granny"),  
-  c("naval", "blood")  
-  ) %&gt;%  
-  .[2] %&gt;%  
-  .[[1]]  
+list(
+  c("mac", "granny"),
+  c("naval", "blood")
+  ) %&gt;%
+  .[2] %&gt;%
+  .[[1]]
 
 
 # compare with above result
-list(  
-  c("mac", "granny"),  
-  c("naval", "blood")  
-  ) %&gt;%  
+list(
+  c("mac", "granny"),
+  c("naval", "blood")
+  ) %&gt;%
 * .[[2]]
 ```
 ]
@@ -2273,20 +2207,20 @@ count: false
 
 ```r
 # order matters
-list(  
-  c("mac", "granny"),  
-  c("naval", "blood")  
-  ) %&gt;%  
-  .[2] %&gt;%  
-  .[[1]]  
+list(
+  c("mac", "granny"),
+  c("naval", "blood")
+  ) %&gt;%
+  .[2] %&gt;%
+  .[[1]]
 
 
 # compare with above result
-list(  
-  c("mac", "granny"),  
-  c("naval", "blood")  
-  ) %&gt;%  
-  .[[2]] %&gt;%  
+list(
+  c("mac", "granny"),
+  c("naval", "blood")
+  ) %&gt;%
+  .[[2]] %&gt;%
 * .[1]
 ```
 ]
@@ -2306,6 +2240,7 @@ list(
 .panel1-compare-auto {
   color: black;
   width: 58.4040404040404%;
+  hight: 32%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -2313,6 +2248,7 @@ list(
 .panel2-compare-auto {
   color: black;
   width: 39.5959595959596%;
+  hight: 32%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -2320,6 +2256,7 @@ list(
 .panel3-compare-auto {
   color: black;
   width: NA%;
+  hight: 33%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -2342,10 +2279,10 @@ count: false
 .panel1-example-rotate[
 
 ```r
-tibble(x = c(1,2,3,4,6),  
-       y = 1:5,  
-       z = list(1:2, 4:5, 8, NA, c(1,7,9,0))) %&gt;%  
-  tibble()  # does not do anything 
+tibble(x = c(1,2,3,4,6),
+       y = 1:5,
+       z = list(1:2, 4:5, 8, NA, c(1,7,9,0))) %&gt;%
+* tibble()  # does not do anything
 ```
 ]
  
@@ -2370,9 +2307,9 @@ count: false
 .panel1-example-rotate[
 
 ```r
-tibble(x = c(1,2,3,4,6),  
-       y = 1:5,  
-       z = list(1:2, 4:5, 8, NA, c(1,7,9,0))) %&gt;%  
+tibble(x = c(1,2,3,4,6),
+       y = 1:5,
+       z = list(1:2, 4:5, 8, NA, c(1,7,9,0))) %&gt;%
 * mutate(the_length = map(z, length))   #general
 ```
 ]
@@ -2398,9 +2335,9 @@ count: false
 .panel1-example-rotate[
 
 ```r
-tibble(x = c(1,2,3,4,6),  
-       y = 1:5,  
-       z = list(1:2, 4:5, 8, NA, c(1,7,9,0))) %&gt;%  
+tibble(x = c(1,2,3,4,6),
+       y = 1:5,
+       z = list(1:2, 4:5, 8, NA, c(1,7,9,0))) %&gt;%
 * mutate(the_length = map_int(z, length))   #scalar integer
 ```
 ]
@@ -2426,9 +2363,9 @@ count: false
 .panel1-example-rotate[
 
 ```r
-tibble(x = c(1,2,3,4,6),  
-       y = 1:5,  
-       z = list(1:2, 4:5, 8, NA, c(1,7,9,0))) %&gt;%  
+tibble(x = c(1,2,3,4,6),
+       y = 1:5,
+       z = list(1:2, 4:5, 8, NA, c(1,7,9,0))) %&gt;%
 * mutate(the_length = map_dbl(z, length))   #scalar numeric
 ```
 ]
@@ -2454,9 +2391,9 @@ count: false
 .panel1-example-rotate[
 
 ```r
-tibble(x = c(1,2,3,4,6),  
-       y = 1:5,  
-       z = list(1:2, 4:5, 8, NA, c(1,7,9,0))) %&gt;%  
+tibble(x = c(1,2,3,4,6),
+       y = 1:5,
+       z = list(1:2, 4:5, 8, NA, c(1,7,9,0))) %&gt;%
 * mutate(the_length = map_chr(z, length))  #scalar character
 ```
 ]
@@ -2479,6 +2416,7 @@ tibble(x = c(1,2,3,4,6),
 .panel1-example-rotate {
   color: black;
   width: 58.4040404040404%;
+  hight: 32%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -2486,6 +2424,7 @@ tibble(x = c(1,2,3,4,6),
 .panel2-example-rotate {
   color: black;
   width: 39.5959595959596%;
+  hight: 32%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -2493,6 +2432,7 @@ tibble(x = c(1,2,3,4,6),
 .panel3-example-rotate {
   color: black;
   width: NA%;
+  hight: 33%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -2504,18 +2444,16 @@ tibble(x = c(1,2,3,4,6),
 
 
 
-
 ---
 
 
-# End!
 
 
 ---
-# From purrr cheatsheet
-
-
-&gt; List column workflow
+  # From purrr cheatsheet
+  
+  
+  &gt; List column workflow
 
 - Make a list column
 - Work with list column
@@ -2528,8 +2466,8 @@ tibble(x = c(1,2,3,4,6),
 
 
 ---
-
-count: false
+  
+  count: false
  
 
 .panel1-list_column_workflow-auto[
@@ -2552,7 +2490,7 @@ count: false
 
 ```r
 # linear modeling function
-mod_fun &lt;- function(df) lm(Sepal.Length ~ ., data = df)  
+mod_fun &lt;- function(df) lm(Sepal.Length ~ ., data = df)
 # returns coefficients of the model
 *b_fun &lt;- function(mod) coefficients(mod)[[1]]
 ```
@@ -2570,9 +2508,9 @@ count: false
 
 ```r
 # linear modeling function
-mod_fun &lt;- function(df) lm(Sepal.Length ~ ., data = df)  
+mod_fun &lt;- function(df) lm(Sepal.Length ~ ., data = df)
 # returns coefficients of the model
-b_fun &lt;- function(mod) coefficients(mod)[[1]]  
+b_fun &lt;- function(mod) coefficients(mod)[[1]]
 *iris
 ```
 ]
@@ -2742,10 +2680,10 @@ count: false
 
 ```r
 # linear modeling function
-mod_fun &lt;- function(df) lm(Sepal.Length ~ ., data = df)  
+mod_fun &lt;- function(df) lm(Sepal.Length ~ ., data = df)
 # returns coefficients of the model
-b_fun &lt;- function(mod) coefficients(mod)[[1]]  
-iris %&gt;%  
+b_fun &lt;- function(mod) coefficients(mod)[[1]]
+iris %&gt;%
 * group_by(Species)
 ```
 ]
@@ -2779,11 +2717,11 @@ count: false
 
 ```r
 # linear modeling function
-mod_fun &lt;- function(df) lm(Sepal.Length ~ ., data = df)  
+mod_fun &lt;- function(df) lm(Sepal.Length ~ ., data = df)
 # returns coefficients of the model
-b_fun &lt;- function(mod) coefficients(mod)[[1]]  
-iris %&gt;%  
-  group_by(Species) %&gt;%  
+b_fun &lt;- function(mod) coefficients(mod)[[1]]
+iris %&gt;%
+  group_by(Species) %&gt;%
 * nest()   # Make a list column
 ```
 ]
@@ -2809,11 +2747,11 @@ count: false
 
 ```r
 # linear modeling function
-mod_fun &lt;- function(df) lm(Sepal.Length ~ ., data = df)  
+mod_fun &lt;- function(df) lm(Sepal.Length ~ ., data = df)
 # returns coefficients of the model
-b_fun &lt;- function(mod) coefficients(mod)[[1]]  
-iris %&gt;%  
-  group_by(Species) %&gt;%  
+b_fun &lt;- function(mod) coefficients(mod)[[1]]
+iris %&gt;%
+  group_by(Species) %&gt;%
   nest() %&gt;%  # Make a list column
 * mutate(model = map(data, mod_fun))
 ```
@@ -2840,13 +2778,13 @@ count: false
 
 ```r
 # linear modeling function
-mod_fun &lt;- function(df) lm(Sepal.Length ~ ., data = df)  
+mod_fun &lt;- function(df) lm(Sepal.Length ~ ., data = df)
 # returns coefficients of the model
-b_fun &lt;- function(mod) coefficients(mod)[[1]]  
-iris %&gt;%  
-  group_by(Species) %&gt;%  
+b_fun &lt;- function(mod) coefficients(mod)[[1]]
+iris %&gt;%
+  group_by(Species) %&gt;%
   nest() %&gt;%  # Make a list column
-  mutate(model = map(data, mod_fun)) %&gt;%  
+  mutate(model = map(data, mod_fun)) %&gt;%
 * mutate(beta_0 = map_dbl(model, b_fun))
 ```
 ]
@@ -2872,15 +2810,15 @@ count: false
 
 ```r
 # linear modeling function
-mod_fun &lt;- function(df) lm(Sepal.Length ~ ., data = df)  
+mod_fun &lt;- function(df) lm(Sepal.Length ~ ., data = df)
 # returns coefficients of the model
-b_fun &lt;- function(mod) coefficients(mod)[[1]]  
-iris %&gt;%  
-  group_by(Species) %&gt;%  
+b_fun &lt;- function(mod) coefficients(mod)[[1]]
+iris %&gt;%
+  group_by(Species) %&gt;%
   nest() %&gt;%  # Make a list column
-  mutate(model = map(data, mod_fun)) %&gt;%  
-  mutate(beta_0 = map_dbl(model, b_fun)) -&gt;  
-*iris_mods
+  mutate(model = map(data, mod_fun)) %&gt;%
+  mutate(beta_0 = map_dbl(model, b_fun)) -&gt;
+* iris_mods
 ```
 ]
  
@@ -2892,6 +2830,7 @@ iris %&gt;%
 .panel1-list_column_workflow-auto {
   color: black;
   width: 58.4040404040404%;
+  hight: 32%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -2899,6 +2838,7 @@ iris %&gt;%
 .panel2-list_column_workflow-auto {
   color: black;
   width: 39.5959595959596%;
+  hight: 32%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -2906,6 +2846,7 @@ iris %&gt;%
 .panel3-list_column_workflow-auto {
   color: black;
   width: NA%;
+  hight: 33%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -2916,81 +2857,81 @@ iris %&gt;%
 
 
 ---
-
-# Looking inside a list-column
-
-
-```r
-iris_mods$model 
-```
-
-```
-  [[1]]
   
-  Call:
-  lm(formula = Sepal.Length ~ ., data = df)
-  
-  Coefficients:
-   (Intercept)   Sepal.Width  Petal.Length   Petal.Width  
-        2.3519        0.6548        0.2376        0.2521  
+  # Looking inside a list-column
   
   
-  [[2]]
+  ```r
+  iris_mods$model 
+  ```
   
-  Call:
-  lm(formula = Sepal.Length ~ ., data = df)
-  
-  Coefficients:
-   (Intercept)   Sepal.Width  Petal.Length   Petal.Width  
-        1.8955        0.3869        0.9083       -0.6792  
-  
-  
-  [[3]]
-  
-  Call:
-  lm(formula = Sepal.Length ~ ., data = df)
-  
-  Coefficients:
-   (Intercept)   Sepal.Width  Petal.Length   Petal.Width  
-        0.6999        0.3303        0.9455       -0.1698
-```
+  ```
+    [[1]]
+    
+    Call:
+    lm(formula = Sepal.Length ~ ., data = df)
+    
+    Coefficients:
+     (Intercept)   Sepal.Width  Petal.Length   Petal.Width  
+          2.3519        0.6548        0.2376        0.2521  
+    
+    
+    [[2]]
+    
+    Call:
+    lm(formula = Sepal.Length ~ ., data = df)
+    
+    Coefficients:
+     (Intercept)   Sepal.Width  Petal.Length   Petal.Width  
+          1.8955        0.3869        0.9083       -0.6792  
+    
+    
+    [[3]]
+    
+    Call:
+    lm(formula = Sepal.Length ~ ., data = df)
+    
+    Coefficients:
+     (Intercept)   Sepal.Width  Petal.Length   Petal.Width  
+          0.6999        0.3303        0.9455       -0.1698
+  ```
 
 ---
+  
+  # Looking at an element in a list-column
+  
+  
+  
+  ```r
+  iris_mods$data[[3]]
+  ```
+  
+  ```
+    # A tibble: 50 x 4
+       Sepal.Length Sepal.Width Petal.Length Petal.Width
+              &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt;
+     1          6.3         3.3          6           2.5
+     2          5.8         2.7          5.1         1.9
+     3          7.1         3            5.9         2.1
+     4          6.3         2.9          5.6         1.8
+     5          6.5         3            5.8         2.2
+     6          7.6         3            6.6         2.1
+     7          4.9         2.5          4.5         1.7
+     8          7.3         2.9          6.3         1.8
+     9          6.7         2.5          5.8         1.8
+    10          7.2         3.6          6.1         2.5
+    # … with 40 more rows
+  ```
 
-# Looking at an element in a list-column
-
-
-
-```r
-iris_mods$data[[3]]
-```
-
-```
-  # A tibble: 50 x 4
-     Sepal.Length Sepal.Width Petal.Length Petal.Width
-            &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt;
-   1          6.3         3.3          6           2.5
-   2          5.8         2.7          5.1         1.9
-   3          7.1         3            5.9         2.1
-   4          6.3         2.9          5.6         1.8
-   5          6.5         3            5.8         2.2
-   6          7.6         3            6.6         2.1
-   7          4.9         2.5          4.5         1.7
-   8          7.3         2.9          6.3         1.8
-   9          6.7         2.5          5.8         1.8
-  10          7.2         3.6          6.1         2.5
-  # … with 40 more rows
-```
-
-
----
-# Greater detail and examples
-
-&gt; MAKE A LIST COLUMN - You can create list columns with functions in the tibble and dplyr packages, as well as tidyr’s nest()
 
 ---
+  # Greater detail and examples
+  
+  &gt; MAKE A LIST COLUMN - You can create list columns with functions in the tibble and dplyr packages, as well as tidyr’s nest()
 
-&gt; tibble::tribble(...)
+---
+  
+  &gt; tibble::tribble(...)
 Makes list column when needed
 
 
@@ -3011,8 +2952,8 @@ tribble( ~max, ~seq,
   3     5 &lt;int [5]&gt;
 ```
 ---
-
-&gt; tibble::tibble(...)
+  
+  &gt; tibble::tibble(...)
 Saves list input as list columns
 
 
@@ -3031,8 +2972,8 @@ tibble(max = c(3, 4, 5),
 ```
 
 ---
-
-&gt; tibble::enframe(x, name="name", value="value") Converts multi-level list to tibble with list cols
+  
+  &gt; tibble::enframe(x, name="name", value="value") Converts multi-level list to tibble with list cols
 
 
 
@@ -3051,8 +2992,8 @@ enframe(list('3' = 1:3, '4' = 1:4, '5' = 1:5),
 ```
 
 ---
-
-dplyr::mutate(.data, ...) Also transmute() Returns list col when result returns list.
+  
+  dplyr::mutate(.data, ...) Also transmute() Returns list col when result returns list.
 
 
 ```r
@@ -3098,8 +3039,8 @@ mtcars %&gt;%
 
 
 ---
-
-dplyr::summarise(.data, ...)
+  
+  dplyr::summarise(.data, ...)
 Returns list col when result is wrapped with list()
 
 
@@ -3107,6 +3048,10 @@ Returns list col when result is wrapped with list()
 mtcars %&gt;% 
   group_by(cyl) %&gt;% 
   summarise(q = list(quantile(mpg)))
+```
+
+```
+  `summarise()` ungrouping output (override with `.groups` argument)
 ```
 
 ```
@@ -3120,11 +3065,11 @@ mtcars %&gt;%
 
 
 ---
-## 2 WORK WITH LIST COLUMNS - Use the purrr functions map(), map2(), and pmap() to apply a function that returns a result element-wise to the cells of a list column. walk(), walk2(), and pwalk() work the same way, but return a side effect.
-
----
-
-# set up
+  ## 2 WORK WITH LIST COLUMNS - Use the purrr functions map(), map2(), and pmap() to apply a function that returns a result element-wise to the cells of a list column. walk(), walk2(), and pwalk() work the same way, but return a side effect.
+  
+  ---
+  
+  # set up
 
 ```r
 n_iris &lt;- iris %&gt;% 
@@ -3137,98 +3082,624 @@ m_iris &lt;- n_iris %&gt;%
 
 
 ---
-
-
-&lt;!-- purrr::map(.x, .f, ...) --&gt;
-&lt;!-- Apply .f element-wise to .x as .f(.x)  --&gt;
-
-
-
-r chunk_reveal("wwlc1", widths = c(59,40))`
-
+  
+  
+purrr::map(.x, .f, ...)
+Apply .f element-wise to .x as .f(.x)
+  
 ---
-
-&lt;!-- purrr::map2(.x, .y, .f, ...) --&gt;
-&lt;!-- Apply .f element-wise to .x and .y as .f(.x, .y)  --&gt;
-
-
-
-r chunk_reveal("wwlc2", widths = c(59,40))`
+  
 
 
 ---
 
+count: false
+ 
 
-&lt;!-- purrr::pmap(.l, .f, ...) --&gt;
-&lt;!-- Apply .f element-wise to vectors saved in .l  --&gt;
+.panel1-wwlc1-auto[
 
+```r
+*n_iris
+```
+]
+ 
+.panel2-wwlc1-auto[
 
+```
+  # A tibble: 3 x 2
+  # Groups:   Species [3]
+    Species    data             
+    &lt;fct&gt;      &lt;list&gt;           
+  1 setosa     &lt;tibble [50 × 4]&gt;
+  2 versicolor &lt;tibble [50 × 4]&gt;
+  3 virginica  &lt;tibble [50 × 4]&gt;
+```
+]
 
-r chunk_reveal("wwlc3", widths = c(59,40))`
+---
+count: false
+ 
+
+.panel1-wwlc1-auto[
+
+```r
+n_iris %&gt;%
+* mutate(n = map(data, dim))
+```
+]
+ 
+.panel2-wwlc1-auto[
+
+```
+  # A tibble: 3 x 3
+  # Groups:   Species [3]
+    Species    data              n        
+    &lt;fct&gt;      &lt;list&gt;            &lt;list&gt;   
+  1 setosa     &lt;tibble [50 × 4]&gt; &lt;int [2]&gt;
+  2 versicolor &lt;tibble [50 × 4]&gt; &lt;int [2]&gt;
+  3 virginica  &lt;tibble [50 × 4]&gt; &lt;int [2]&gt;
+```
+]
+
+&lt;style&gt;
+.panel1-wwlc1-auto {
+  color: black;
+  width: 58.4040404040404%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel2-wwlc1-auto {
+  color: black;
+  width: 39.5959595959596%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-wwlc1-auto {
+  color: black;
+  width: NA%;
+  hight: 33%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
 
 
 ---
+  
+  purrr::map2(.x, .y, .f, ...)
+  Apply .f element-wise to .x and .y as .f(.x, .y)
+
+---
+  
 
 
+count: false
+ 
+
+.panel1-wwlc2-auto[
+
+```r
+*m_iris
+```
+]
+ 
+.panel2-wwlc2-auto[
+
+```
+  # A tibble: 3 x 3
+  # Groups:   Species [3]
+    Species    data              model 
+    &lt;fct&gt;      &lt;list&gt;            &lt;list&gt;
+  1 setosa     &lt;tibble [50 × 4]&gt; &lt;lm&gt;  
+  2 versicolor &lt;tibble [50 × 4]&gt; &lt;lm&gt;  
+  3 virginica  &lt;tibble [50 × 4]&gt; &lt;lm&gt;
+```
+]
+
+---
+count: false
+ 
+
+.panel1-wwlc2-auto[
+
+```r
+m_iris %&gt;%
+* mutate(n = map2(data, model, list))
+```
+]
+ 
+.panel2-wwlc2-auto[
+
+```
+  # A tibble: 3 x 4
+  # Groups:   Species [3]
+    Species    data              model  n         
+    &lt;fct&gt;      &lt;list&gt;            &lt;list&gt; &lt;list&gt;    
+  1 setosa     &lt;tibble [50 × 4]&gt; &lt;lm&gt;   &lt;list [2]&gt;
+  2 versicolor &lt;tibble [50 × 4]&gt; &lt;lm&gt;   &lt;list [2]&gt;
+  3 virginica  &lt;tibble [50 × 4]&gt; &lt;lm&gt;   &lt;list [2]&gt;
+```
+]
+
+&lt;style&gt;
+.panel1-wwlc2-auto {
+  color: black;
+  width: 58.4040404040404%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel2-wwlc2-auto {
+  color: black;
+  width: 39.5959595959596%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-wwlc2-auto {
+  color: black;
+  width: NA%;
+  hight: 33%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+
+---
+  
+  
+purrr::pmap(.l, .f, ...)
+Apply .f element-wise to vectors saved in .l
+  
+---  
+  
+
+
+count: false
+ 
+
+.panel1-wwlc3-auto[
+
+```r
+*m_iris
+```
+]
+ 
+.panel2-wwlc3-auto[
+
+```
+  # A tibble: 3 x 3
+  # Groups:   Species [3]
+    Species    data              model 
+    &lt;fct&gt;      &lt;list&gt;            &lt;list&gt;
+  1 setosa     &lt;tibble [50 × 4]&gt; &lt;lm&gt;  
+  2 versicolor &lt;tibble [50 × 4]&gt; &lt;lm&gt;  
+  3 virginica  &lt;tibble [50 × 4]&gt; &lt;lm&gt;
+```
+]
+
+---
+count: false
+ 
+
+.panel1-wwlc3-auto[
+
+```r
+m_iris %&gt;%
+* mutate(n = pmap(list(data, model, data), list))
+```
+]
+ 
+.panel2-wwlc3-auto[
+
+```
+  # A tibble: 3 x 4
+  # Groups:   Species [3]
+    Species    data              model  n         
+    &lt;fct&gt;      &lt;list&gt;            &lt;list&gt; &lt;list&gt;    
+  1 setosa     &lt;tibble [50 × 4]&gt; &lt;lm&gt;   &lt;list [3]&gt;
+  2 versicolor &lt;tibble [50 × 4]&gt; &lt;lm&gt;   &lt;list [3]&gt;
+  3 virginica  &lt;tibble [50 × 4]&gt; &lt;lm&gt;   &lt;list [3]&gt;
+```
+]
+
+&lt;style&gt;
+.panel1-wwlc3-auto {
+  color: black;
+  width: 58.4040404040404%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel2-wwlc3-auto {
+  color: black;
+  width: 39.5959595959596%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-wwlc3-auto {
+  color: black;
+  width: NA%;
+  hight: 33%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+  
+  
+---
+  
+  
 3. SIMPLIFY THE LIST COLUMN (into a regular column)
 
 Use the purrr functions map_lgl(), map_int(), map_dbl(), map_chr(), as well as tidyr’s unnest() to reduce a list column into a regular column.
 
 ---
 
-&lt;!-- purrr::map_lgl(.x, .f, ...) --&gt;
-&lt;!-- Apply .f element-wise to .x, return a logical vector  --&gt;
+purrr::map_lgl(.x, .f, ...)
+Apply .f element-wise to .x, return a logical vector
+  
 
 
+count: false
+ 
 
-r chunk_reveal("slc1", widths = c(59,40))`
-
-
----
-
-&lt;!-- purrr::map_int(.x, .f, ...) --&gt;
-&lt;!-- Apply .f element-wise to .x, return an integer vector  --&gt;
-
-
-
-r chunk_reveal("slc2", widths = c(59,40))`
-
-
----
-
-&lt;!-- purrr::map_dbl(.x, .f, ...) --&gt;
-&lt;!-- Apply .f element-wise to .x, return a double vector --&gt;
-
-
-
-r chunk_reveal("slc3", widths = c(59,40))`
-
-
----
-
-
-
-&lt;!-- purrr::map_chr(.x, .f, ...) --&gt;
-&lt;!-- Apply .f element-wise to .x, return a character vector  --&gt;
-
-
-
-
-r chunk_reveal("slc4", widths = c(59,40))`
-
-
----
-
-
-
+.panel1-slc1-rotate[
 
 ```r
-mtcars %&gt;% 
-  select(mpg, cyl) %&gt;% 
-  distinct() %&gt;% 
-  mutate(seq = map(cyl, seq)) %&gt;% 
-  unnest()
+n_iris %&gt;%
+* transmute(n = map_lgl(data, is.matrix))
 ```
+]
+ 
+.panel2-slc1-rotate[
+
+```
+  # A tibble: 3 x 2
+  # Groups:   Species [3]
+    Species    n    
+    &lt;fct&gt;      &lt;lgl&gt;
+  1 setosa     FALSE
+  2 versicolor FALSE
+  3 virginica  FALSE
+```
+]
+
+---
+count: false
+ 
+
+.panel1-slc1-rotate[
+
+```r
+n_iris %&gt;%
+* transmute(n = map_int(data, nrow))
+```
+]
+ 
+.panel2-slc1-rotate[
+
+```
+  # A tibble: 3 x 2
+  # Groups:   Species [3]
+    Species        n
+    &lt;fct&gt;      &lt;int&gt;
+  1 setosa        50
+  2 versicolor    50
+  3 virginica     50
+```
+]
+
+---
+count: false
+ 
+
+.panel1-slc1-rotate[
+
+```r
+n_iris %&gt;%
+* transmute(n = map_dbl(data, nrow))
+```
+]
+ 
+.panel2-slc1-rotate[
+
+```
+  # A tibble: 3 x 2
+  # Groups:   Species [3]
+    Species        n
+    &lt;fct&gt;      &lt;dbl&gt;
+  1 setosa        50
+  2 versicolor    50
+  3 virginica     50
+```
+]
+
+---
+count: false
+ 
+
+.panel1-slc1-rotate[
+
+```r
+n_iris %&gt;%
+* transmute(n = map_chr(data, nrow))
+```
+]
+ 
+.panel2-slc1-rotate[
+
+```
+  # A tibble: 3 x 2
+  # Groups:   Species [3]
+    Species    n    
+    &lt;fct&gt;      &lt;chr&gt;
+  1 setosa     50   
+  2 versicolor 50   
+  3 virginica  50
+```
+]
+
+&lt;style&gt;
+.panel1-slc1-rotate {
+  color: black;
+  width: 38.6060606060606%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel2-slc1-rotate {
+  color: black;
+  width: 59.3939393939394%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-slc1-rotate {
+  color: black;
+  width: NA%;
+  hight: 33%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+---
+  
+count: false
+ 
+
+.panel1-mt-auto[
+
+```r
+*mtcars
+```
+]
+ 
+.panel2-mt-auto[
+
+```
+                       mpg cyl  disp  hp drat    wt  qsec vs am gear carb
+  Mazda RX4           21.0   6 160.0 110 3.90 2.620 16.46  0  1    4    4
+  Mazda RX4 Wag       21.0   6 160.0 110 3.90 2.875 17.02  0  1    4    4
+  Datsun 710          22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1
+  Hornet 4 Drive      21.4   6 258.0 110 3.08 3.215 19.44  1  0    3    1
+  Hornet Sportabout   18.7   8 360.0 175 3.15 3.440 17.02  0  0    3    2
+  Valiant             18.1   6 225.0 105 2.76 3.460 20.22  1  0    3    1
+  Duster 360          14.3   8 360.0 245 3.21 3.570 15.84  0  0    3    4
+  Merc 240D           24.4   4 146.7  62 3.69 3.190 20.00  1  0    4    2
+  Merc 230            22.8   4 140.8  95 3.92 3.150 22.90  1  0    4    2
+  Merc 280            19.2   6 167.6 123 3.92 3.440 18.30  1  0    4    4
+  Merc 280C           17.8   6 167.6 123 3.92 3.440 18.90  1  0    4    4
+  Merc 450SE          16.4   8 275.8 180 3.07 4.070 17.40  0  0    3    3
+  Merc 450SL          17.3   8 275.8 180 3.07 3.730 17.60  0  0    3    3
+  Merc 450SLC         15.2   8 275.8 180 3.07 3.780 18.00  0  0    3    3
+  Cadillac Fleetwood  10.4   8 472.0 205 2.93 5.250 17.98  0  0    3    4
+  Lincoln Continental 10.4   8 460.0 215 3.00 5.424 17.82  0  0    3    4
+  Chrysler Imperial   14.7   8 440.0 230 3.23 5.345 17.42  0  0    3    4
+  Fiat 128            32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1
+  Honda Civic         30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2
+  Toyota Corolla      33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1
+  Toyota Corona       21.5   4 120.1  97 3.70 2.465 20.01  1  0    3    1
+  Dodge Challenger    15.5   8 318.0 150 2.76 3.520 16.87  0  0    3    2
+  AMC Javelin         15.2   8 304.0 150 3.15 3.435 17.30  0  0    3    2
+  Camaro Z28          13.3   8 350.0 245 3.73 3.840 15.41  0  0    3    4
+  Pontiac Firebird    19.2   8 400.0 175 3.08 3.845 17.05  0  0    3    2
+  Fiat X1-9           27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1
+  Porsche 914-2       26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2
+  Lotus Europa        30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2
+  Ford Pantera L      15.8   8 351.0 264 4.22 3.170 14.50  0  1    5    4
+  Ferrari Dino        19.7   6 145.0 175 3.62 2.770 15.50  0  1    5    6
+  Maserati Bora       15.0   8 301.0 335 3.54 3.570 14.60  0  1    5    8
+  Volvo 142E          21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2
+```
+]
+
+---
+count: false
+ 
+
+.panel1-mt-auto[
+
+```r
+mtcars %&gt;%
+* select(mpg, cyl)
+```
+]
+ 
+.panel2-mt-auto[
+
+```
+                       mpg cyl
+  Mazda RX4           21.0   6
+  Mazda RX4 Wag       21.0   6
+  Datsun 710          22.8   4
+  Hornet 4 Drive      21.4   6
+  Hornet Sportabout   18.7   8
+  Valiant             18.1   6
+  Duster 360          14.3   8
+  Merc 240D           24.4   4
+  Merc 230            22.8   4
+  Merc 280            19.2   6
+  Merc 280C           17.8   6
+  Merc 450SE          16.4   8
+  Merc 450SL          17.3   8
+  Merc 450SLC         15.2   8
+  Cadillac Fleetwood  10.4   8
+  Lincoln Continental 10.4   8
+  Chrysler Imperial   14.7   8
+  Fiat 128            32.4   4
+  Honda Civic         30.4   4
+  Toyota Corolla      33.9   4
+  Toyota Corona       21.5   4
+  Dodge Challenger    15.5   8
+  AMC Javelin         15.2   8
+  Camaro Z28          13.3   8
+  Pontiac Firebird    19.2   8
+  Fiat X1-9           27.3   4
+  Porsche 914-2       26.0   4
+  Lotus Europa        30.4   4
+  Ford Pantera L      15.8   8
+  Ferrari Dino        19.7   6
+  Maserati Bora       15.0   8
+  Volvo 142E          21.4   4
+```
+]
+
+---
+count: false
+ 
+
+.panel1-mt-auto[
+
+```r
+mtcars %&gt;%
+  select(mpg, cyl) %&gt;%
+* distinct()
+```
+]
+ 
+.panel2-mt-auto[
+
+```
+                      mpg cyl
+  Mazda RX4          21.0   6
+  Datsun 710         22.8   4
+  Hornet 4 Drive     21.4   6
+  Hornet Sportabout  18.7   8
+  Valiant            18.1   6
+  Duster 360         14.3   8
+  Merc 240D          24.4   4
+  Merc 280           19.2   6
+  Merc 280C          17.8   6
+  Merc 450SE         16.4   8
+  Merc 450SL         17.3   8
+  Merc 450SLC        15.2   8
+  Cadillac Fleetwood 10.4   8
+  Chrysler Imperial  14.7   8
+  Fiat 128           32.4   4
+  Honda Civic        30.4   4
+  Toyota Corolla     33.9   4
+  Toyota Corona      21.5   4
+  Dodge Challenger   15.5   8
+  Camaro Z28         13.3   8
+  Pontiac Firebird   19.2   8
+  Fiat X1-9          27.3   4
+  Porsche 914-2      26.0   4
+  Ford Pantera L     15.8   8
+  Ferrari Dino       19.7   6
+  Maserati Bora      15.0   8
+  Volvo 142E         21.4   4
+```
+]
+
+---
+count: false
+ 
+
+.panel1-mt-auto[
+
+```r
+mtcars %&gt;%
+  select(mpg, cyl) %&gt;%
+  distinct() %&gt;%
+* mutate(seq = map(cyl, seq))
+```
+]
+ 
+.panel2-mt-auto[
+
+```
+      mpg cyl                    seq
+  1  21.0   6       1, 2, 3, 4, 5, 6
+  2  22.8   4             1, 2, 3, 4
+  3  21.4   6       1, 2, 3, 4, 5, 6
+  4  18.7   8 1, 2, 3, 4, 5, 6, 7, 8
+  5  18.1   6       1, 2, 3, 4, 5, 6
+  6  14.3   8 1, 2, 3, 4, 5, 6, 7, 8
+  7  24.4   4             1, 2, 3, 4
+  8  19.2   6       1, 2, 3, 4, 5, 6
+  9  17.8   6       1, 2, 3, 4, 5, 6
+  10 16.4   8 1, 2, 3, 4, 5, 6, 7, 8
+  11 17.3   8 1, 2, 3, 4, 5, 6, 7, 8
+  12 15.2   8 1, 2, 3, 4, 5, 6, 7, 8
+  13 10.4   8 1, 2, 3, 4, 5, 6, 7, 8
+  14 14.7   8 1, 2, 3, 4, 5, 6, 7, 8
+  15 32.4   4             1, 2, 3, 4
+  16 30.4   4             1, 2, 3, 4
+  17 33.9   4             1, 2, 3, 4
+  18 21.5   4             1, 2, 3, 4
+  19 15.5   8 1, 2, 3, 4, 5, 6, 7, 8
+  20 13.3   8 1, 2, 3, 4, 5, 6, 7, 8
+  21 19.2   8 1, 2, 3, 4, 5, 6, 7, 8
+  22 27.3   4             1, 2, 3, 4
+  23 26.0   4             1, 2, 3, 4
+  24 15.8   8 1, 2, 3, 4, 5, 6, 7, 8
+  25 19.7   6       1, 2, 3, 4, 5, 6
+  26 15.0   8 1, 2, 3, 4, 5, 6, 7, 8
+  27 21.4   4             1, 2, 3, 4
+```
+]
+
+---
+count: false
+ 
+
+.panel1-mt-auto[
+
+```r
+mtcars %&gt;%
+  select(mpg, cyl) %&gt;%
+  distinct() %&gt;%
+  mutate(seq = map(cyl, seq)) %&gt;%
+* unnest()
+```
+]
+ 
+.panel2-mt-auto[
 
 ```
   # A tibble: 168 x 3
@@ -3246,14 +3717,164 @@ mtcars %&gt;%
   10  22.8     4     4
   # … with 158 more rows
 ```
+]
 
+&lt;style&gt;
+.panel1-mt-auto {
+  color: black;
+  width: 38.6060606060606%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel2-mt-auto {
+  color: black;
+  width: 59.3939393939394%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-mt-auto {
+  color: black;
+  width: NA%;
+  hight: 33%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+  
+
+
+---
+
+
+count: false
+ 
+
+.panel1-unnest-auto[
 
 ```r
-mtcars %&gt;% 
-  group_by(cyl) %&gt;% 
-  summarise(quantiles = list(quantile(mpg))) %&gt;% 
-  unnest()
+*mtcars
 ```
+]
+ 
+.panel2-unnest-auto[
+
+```
+                       mpg cyl  disp  hp drat    wt  qsec vs am gear carb
+  Mazda RX4           21.0   6 160.0 110 3.90 2.620 16.46  0  1    4    4
+  Mazda RX4 Wag       21.0   6 160.0 110 3.90 2.875 17.02  0  1    4    4
+  Datsun 710          22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1
+  Hornet 4 Drive      21.4   6 258.0 110 3.08 3.215 19.44  1  0    3    1
+  Hornet Sportabout   18.7   8 360.0 175 3.15 3.440 17.02  0  0    3    2
+  Valiant             18.1   6 225.0 105 2.76 3.460 20.22  1  0    3    1
+  Duster 360          14.3   8 360.0 245 3.21 3.570 15.84  0  0    3    4
+  Merc 240D           24.4   4 146.7  62 3.69 3.190 20.00  1  0    4    2
+  Merc 230            22.8   4 140.8  95 3.92 3.150 22.90  1  0    4    2
+  Merc 280            19.2   6 167.6 123 3.92 3.440 18.30  1  0    4    4
+  Merc 280C           17.8   6 167.6 123 3.92 3.440 18.90  1  0    4    4
+  Merc 450SE          16.4   8 275.8 180 3.07 4.070 17.40  0  0    3    3
+  Merc 450SL          17.3   8 275.8 180 3.07 3.730 17.60  0  0    3    3
+  Merc 450SLC         15.2   8 275.8 180 3.07 3.780 18.00  0  0    3    3
+  Cadillac Fleetwood  10.4   8 472.0 205 2.93 5.250 17.98  0  0    3    4
+  Lincoln Continental 10.4   8 460.0 215 3.00 5.424 17.82  0  0    3    4
+  Chrysler Imperial   14.7   8 440.0 230 3.23 5.345 17.42  0  0    3    4
+  Fiat 128            32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1
+  Honda Civic         30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2
+  Toyota Corolla      33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1
+  Toyota Corona       21.5   4 120.1  97 3.70 2.465 20.01  1  0    3    1
+  Dodge Challenger    15.5   8 318.0 150 2.76 3.520 16.87  0  0    3    2
+  AMC Javelin         15.2   8 304.0 150 3.15 3.435 17.30  0  0    3    2
+  Camaro Z28          13.3   8 350.0 245 3.73 3.840 15.41  0  0    3    4
+  Pontiac Firebird    19.2   8 400.0 175 3.08 3.845 17.05  0  0    3    2
+  Fiat X1-9           27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1
+  Porsche 914-2       26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2
+  Lotus Europa        30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2
+  Ford Pantera L      15.8   8 351.0 264 4.22 3.170 14.50  0  1    5    4
+  Ferrari Dino        19.7   6 145.0 175 3.62 2.770 15.50  0  1    5    6
+  Maserati Bora       15.0   8 301.0 335 3.54 3.570 14.60  0  1    5    8
+  Volvo 142E          21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2
+```
+]
+
+---
+count: false
+ 
+
+.panel1-unnest-auto[
+
+```r
+mtcars %&gt;%
+* group_by(cyl)
+```
+]
+ 
+.panel2-unnest-auto[
+
+```
+  # A tibble: 32 x 11
+  # Groups:   cyl [3]
+       mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb
+     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+   1  21       6  160    110  3.9   2.62  16.5     0     1     4     4
+   2  21       6  160    110  3.9   2.88  17.0     0     1     4     4
+   3  22.8     4  108     93  3.85  2.32  18.6     1     1     4     1
+   4  21.4     6  258    110  3.08  3.22  19.4     1     0     3     1
+   5  18.7     8  360    175  3.15  3.44  17.0     0     0     3     2
+   6  18.1     6  225    105  2.76  3.46  20.2     1     0     3     1
+   7  14.3     8  360    245  3.21  3.57  15.8     0     0     3     4
+   8  24.4     4  147.    62  3.69  3.19  20       1     0     4     2
+   9  22.8     4  141.    95  3.92  3.15  22.9     1     0     4     2
+  10  19.2     6  168.   123  3.92  3.44  18.3     1     0     4     4
+  # … with 22 more rows
+```
+]
+
+---
+count: false
+ 
+
+.panel1-unnest-auto[
+
+```r
+mtcars %&gt;%
+  group_by(cyl) %&gt;%
+* summarise(quantiles = list(quantile(mpg)))
+```
+]
+ 
+.panel2-unnest-auto[
+
+```
+  # A tibble: 3 x 2
+      cyl quantiles
+    &lt;dbl&gt; &lt;list&gt;   
+  1     4 &lt;dbl [5]&gt;
+  2     6 &lt;dbl [5]&gt;
+  3     8 &lt;dbl [5]&gt;
+```
+]
+
+---
+count: false
+ 
+
+.panel1-unnest-auto[
+
+```r
+mtcars %&gt;%
+  group_by(cyl) %&gt;%
+  summarise(quantiles = list(quantile(mpg))) %&gt;%
+* unnest()
+```
+]
+ 
+.panel2-unnest-auto[
 
 ```
   # A tibble: 15 x 2
@@ -3275,22 +3896,401 @@ mtcars %&gt;%
   14     8      16.2
   15     8      19.2
 ```
+]
+
+&lt;style&gt;
+.panel1-unnest-auto {
+  color: black;
+  width: 38.6060606060606%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel2-unnest-auto {
+  color: black;
+  width: 59.3939393939394%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-unnest-auto {
+  color: black;
+  width: NA%;
+  hight: 33%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
 
 
 
 
 
+
+---
+
+count: false
+ 
+
+.panel1-idontknow-auto[
+
+```r
+*iris
+```
+]
+ 
+.panel2-idontknow-auto[
+
+```
+      Sepal.Length Sepal.Width Petal.Length Petal.Width    Species
+  1            5.1         3.5          1.4         0.2     setosa
+  2            4.9         3.0          1.4         0.2     setosa
+  3            4.7         3.2          1.3         0.2     setosa
+  4            4.6         3.1          1.5         0.2     setosa
+  5            5.0         3.6          1.4         0.2     setosa
+  6            5.4         3.9          1.7         0.4     setosa
+  7            4.6         3.4          1.4         0.3     setosa
+  8            5.0         3.4          1.5         0.2     setosa
+  9            4.4         2.9          1.4         0.2     setosa
+  10           4.9         3.1          1.5         0.1     setosa
+  11           5.4         3.7          1.5         0.2     setosa
+  12           4.8         3.4          1.6         0.2     setosa
+  13           4.8         3.0          1.4         0.1     setosa
+  14           4.3         3.0          1.1         0.1     setosa
+  15           5.8         4.0          1.2         0.2     setosa
+  16           5.7         4.4          1.5         0.4     setosa
+  17           5.4         3.9          1.3         0.4     setosa
+  18           5.1         3.5          1.4         0.3     setosa
+  19           5.7         3.8          1.7         0.3     setosa
+  20           5.1         3.8          1.5         0.3     setosa
+  21           5.4         3.4          1.7         0.2     setosa
+  22           5.1         3.7          1.5         0.4     setosa
+  23           4.6         3.6          1.0         0.2     setosa
+  24           5.1         3.3          1.7         0.5     setosa
+  25           4.8         3.4          1.9         0.2     setosa
+  26           5.0         3.0          1.6         0.2     setosa
+  27           5.0         3.4          1.6         0.4     setosa
+  28           5.2         3.5          1.5         0.2     setosa
+  29           5.2         3.4          1.4         0.2     setosa
+  30           4.7         3.2          1.6         0.2     setosa
+  31           4.8         3.1          1.6         0.2     setosa
+  32           5.4         3.4          1.5         0.4     setosa
+  33           5.2         4.1          1.5         0.1     setosa
+  34           5.5         4.2          1.4         0.2     setosa
+  35           4.9         3.1          1.5         0.2     setosa
+  36           5.0         3.2          1.2         0.2     setosa
+  37           5.5         3.5          1.3         0.2     setosa
+  38           4.9         3.6          1.4         0.1     setosa
+  39           4.4         3.0          1.3         0.2     setosa
+  40           5.1         3.4          1.5         0.2     setosa
+  41           5.0         3.5          1.3         0.3     setosa
+  42           4.5         2.3          1.3         0.3     setosa
+  43           4.4         3.2          1.3         0.2     setosa
+  44           5.0         3.5          1.6         0.6     setosa
+  45           5.1         3.8          1.9         0.4     setosa
+  46           4.8         3.0          1.4         0.3     setosa
+  47           5.1         3.8          1.6         0.2     setosa
+  48           4.6         3.2          1.4         0.2     setosa
+  49           5.3         3.7          1.5         0.2     setosa
+  50           5.0         3.3          1.4         0.2     setosa
+  51           7.0         3.2          4.7         1.4 versicolor
+  52           6.4         3.2          4.5         1.5 versicolor
+  53           6.9         3.1          4.9         1.5 versicolor
+  54           5.5         2.3          4.0         1.3 versicolor
+  55           6.5         2.8          4.6         1.5 versicolor
+  56           5.7         2.8          4.5         1.3 versicolor
+  57           6.3         3.3          4.7         1.6 versicolor
+  58           4.9         2.4          3.3         1.0 versicolor
+  59           6.6         2.9          4.6         1.3 versicolor
+  60           5.2         2.7          3.9         1.4 versicolor
+  61           5.0         2.0          3.5         1.0 versicolor
+  62           5.9         3.0          4.2         1.5 versicolor
+  63           6.0         2.2          4.0         1.0 versicolor
+  64           6.1         2.9          4.7         1.4 versicolor
+  65           5.6         2.9          3.6         1.3 versicolor
+  66           6.7         3.1          4.4         1.4 versicolor
+  67           5.6         3.0          4.5         1.5 versicolor
+  68           5.8         2.7          4.1         1.0 versicolor
+  69           6.2         2.2          4.5         1.5 versicolor
+  70           5.6         2.5          3.9         1.1 versicolor
+  71           5.9         3.2          4.8         1.8 versicolor
+  72           6.1         2.8          4.0         1.3 versicolor
+  73           6.3         2.5          4.9         1.5 versicolor
+  74           6.1         2.8          4.7         1.2 versicolor
+  75           6.4         2.9          4.3         1.3 versicolor
+  76           6.6         3.0          4.4         1.4 versicolor
+  77           6.8         2.8          4.8         1.4 versicolor
+  78           6.7         3.0          5.0         1.7 versicolor
+  79           6.0         2.9          4.5         1.5 versicolor
+  80           5.7         2.6          3.5         1.0 versicolor
+  81           5.5         2.4          3.8         1.1 versicolor
+  82           5.5         2.4          3.7         1.0 versicolor
+  83           5.8         2.7          3.9         1.2 versicolor
+  84           6.0         2.7          5.1         1.6 versicolor
+  85           5.4         3.0          4.5         1.5 versicolor
+  86           6.0         3.4          4.5         1.6 versicolor
+  87           6.7         3.1          4.7         1.5 versicolor
+  88           6.3         2.3          4.4         1.3 versicolor
+  89           5.6         3.0          4.1         1.3 versicolor
+  90           5.5         2.5          4.0         1.3 versicolor
+  91           5.5         2.6          4.4         1.2 versicolor
+  92           6.1         3.0          4.6         1.4 versicolor
+  93           5.8         2.6          4.0         1.2 versicolor
+  94           5.0         2.3          3.3         1.0 versicolor
+  95           5.6         2.7          4.2         1.3 versicolor
+  96           5.7         3.0          4.2         1.2 versicolor
+  97           5.7         2.9          4.2         1.3 versicolor
+  98           6.2         2.9          4.3         1.3 versicolor
+  99           5.1         2.5          3.0         1.1 versicolor
+  100          5.7         2.8          4.1         1.3 versicolor
+  101          6.3         3.3          6.0         2.5  virginica
+  102          5.8         2.7          5.1         1.9  virginica
+  103          7.1         3.0          5.9         2.1  virginica
+  104          6.3         2.9          5.6         1.8  virginica
+  105          6.5         3.0          5.8         2.2  virginica
+  106          7.6         3.0          6.6         2.1  virginica
+  107          4.9         2.5          4.5         1.7  virginica
+  108          7.3         2.9          6.3         1.8  virginica
+  109          6.7         2.5          5.8         1.8  virginica
+  110          7.2         3.6          6.1         2.5  virginica
+  111          6.5         3.2          5.1         2.0  virginica
+  112          6.4         2.7          5.3         1.9  virginica
+  113          6.8         3.0          5.5         2.1  virginica
+  114          5.7         2.5          5.0         2.0  virginica
+  115          5.8         2.8          5.1         2.4  virginica
+  116          6.4         3.2          5.3         2.3  virginica
+  117          6.5         3.0          5.5         1.8  virginica
+  118          7.7         3.8          6.7         2.2  virginica
+  119          7.7         2.6          6.9         2.3  virginica
+  120          6.0         2.2          5.0         1.5  virginica
+  121          6.9         3.2          5.7         2.3  virginica
+  122          5.6         2.8          4.9         2.0  virginica
+  123          7.7         2.8          6.7         2.0  virginica
+  124          6.3         2.7          4.9         1.8  virginica
+  125          6.7         3.3          5.7         2.1  virginica
+  126          7.2         3.2          6.0         1.8  virginica
+  127          6.2         2.8          4.8         1.8  virginica
+  128          6.1         3.0          4.9         1.8  virginica
+  129          6.4         2.8          5.6         2.1  virginica
+  130          7.2         3.0          5.8         1.6  virginica
+  131          7.4         2.8          6.1         1.9  virginica
+  132          7.9         3.8          6.4         2.0  virginica
+  133          6.4         2.8          5.6         2.2  virginica
+  134          6.3         2.8          5.1         1.5  virginica
+  135          6.1         2.6          5.6         1.4  virginica
+  136          7.7         3.0          6.1         2.3  virginica
+  137          6.3         3.4          5.6         2.4  virginica
+  138          6.4         3.1          5.5         1.8  virginica
+  139          6.0         3.0          4.8         1.8  virginica
+  140          6.9         3.1          5.4         2.1  virginica
+  141          6.7         3.1          5.6         2.4  virginica
+  142          6.9         3.1          5.1         2.3  virginica
+  143          5.8         2.7          5.1         1.9  virginica
+  144          6.8         3.2          5.9         2.3  virginica
+  145          6.7         3.3          5.7         2.5  virginica
+  146          6.7         3.0          5.2         2.3  virginica
+  147          6.3         2.5          5.0         1.9  virginica
+  148          6.5         3.0          5.2         2.0  virginica
+  149          6.2         3.4          5.4         2.3  virginica
+  150          5.9         3.0          5.1         1.8  virginica
+```
+]
+
+---
+count: false
+ 
+
+.panel1-idontknow-auto[
+
+```r
+iris %&gt;%
+* group_by(Species)
+```
+]
+ 
+.panel2-idontknow-auto[
+
+```
+  # A tibble: 150 x 5
+  # Groups:   Species [3]
+     Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+            &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt; &lt;fct&gt;  
+   1          5.1         3.5          1.4         0.2 setosa 
+   2          4.9         3            1.4         0.2 setosa 
+   3          4.7         3.2          1.3         0.2 setosa 
+   4          4.6         3.1          1.5         0.2 setosa 
+   5          5           3.6          1.4         0.2 setosa 
+   6          5.4         3.9          1.7         0.4 setosa 
+   7          4.6         3.4          1.4         0.3 setosa 
+   8          5           3.4          1.5         0.2 setosa 
+   9          4.4         2.9          1.4         0.2 setosa 
+  10          4.9         3.1          1.5         0.1 setosa 
+  # … with 140 more rows
+```
+]
+
+---
+count: false
+ 
+
+.panel1-idontknow-auto[
 
 ```r
 iris %&gt;%
   group_by(Species) %&gt;%
-  nest() %&gt;% 
-  mutate(dimensions = map(data, dim)) %&gt;% 
-  mutate(rows = dimensions[[1]][1]) %&gt;% 
-  mutate(columns = dimensions[[1]][2]) %&gt;% 
-  select(-data) %&gt;% 
-  unnest()
+* nest()
 ```
+]
+ 
+.panel2-idontknow-auto[
+
+```
+  # A tibble: 3 x 2
+  # Groups:   Species [3]
+    Species    data             
+    &lt;fct&gt;      &lt;list&gt;           
+  1 setosa     &lt;tibble [50 × 4]&gt;
+  2 versicolor &lt;tibble [50 × 4]&gt;
+  3 virginica  &lt;tibble [50 × 4]&gt;
+```
+]
+
+---
+count: false
+ 
+
+.panel1-idontknow-auto[
+
+```r
+iris %&gt;%
+  group_by(Species) %&gt;%
+  nest() %&gt;%
+* mutate(dimensions = map(data, dim))
+```
+]
+ 
+.panel2-idontknow-auto[
+
+```
+  # A tibble: 3 x 3
+  # Groups:   Species [3]
+    Species    data              dimensions
+    &lt;fct&gt;      &lt;list&gt;            &lt;list&gt;    
+  1 setosa     &lt;tibble [50 × 4]&gt; &lt;int [2]&gt; 
+  2 versicolor &lt;tibble [50 × 4]&gt; &lt;int [2]&gt; 
+  3 virginica  &lt;tibble [50 × 4]&gt; &lt;int [2]&gt;
+```
+]
+
+---
+count: false
+ 
+
+.panel1-idontknow-auto[
+
+```r
+iris %&gt;%
+  group_by(Species) %&gt;%
+  nest() %&gt;%
+  mutate(dimensions = map(data, dim)) %&gt;%
+* mutate(rows = dimensions[[1]][1])
+```
+]
+ 
+.panel2-idontknow-auto[
+
+```
+  # A tibble: 3 x 4
+  # Groups:   Species [3]
+    Species    data              dimensions  rows
+    &lt;fct&gt;      &lt;list&gt;            &lt;list&gt;     &lt;int&gt;
+  1 setosa     &lt;tibble [50 × 4]&gt; &lt;int [2]&gt;     50
+  2 versicolor &lt;tibble [50 × 4]&gt; &lt;int [2]&gt;     50
+  3 virginica  &lt;tibble [50 × 4]&gt; &lt;int [2]&gt;     50
+```
+]
+
+---
+count: false
+ 
+
+.panel1-idontknow-auto[
+
+```r
+iris %&gt;%
+  group_by(Species) %&gt;%
+  nest() %&gt;%
+  mutate(dimensions = map(data, dim)) %&gt;%
+  mutate(rows = dimensions[[1]][1]) %&gt;%
+* mutate(columns = dimensions[[1]][2])
+```
+]
+ 
+.panel2-idontknow-auto[
+
+```
+  # A tibble: 3 x 5
+  # Groups:   Species [3]
+    Species    data              dimensions  rows columns
+    &lt;fct&gt;      &lt;list&gt;            &lt;list&gt;     &lt;int&gt;   &lt;int&gt;
+  1 setosa     &lt;tibble [50 × 4]&gt; &lt;int [2]&gt;     50       4
+  2 versicolor &lt;tibble [50 × 4]&gt; &lt;int [2]&gt;     50       4
+  3 virginica  &lt;tibble [50 × 4]&gt; &lt;int [2]&gt;     50       4
+```
+]
+
+---
+count: false
+ 
+
+.panel1-idontknow-auto[
+
+```r
+iris %&gt;%
+  group_by(Species) %&gt;%
+  nest() %&gt;%
+  mutate(dimensions = map(data, dim)) %&gt;%
+  mutate(rows = dimensions[[1]][1]) %&gt;%
+  mutate(columns = dimensions[[1]][2]) %&gt;%
+* select(-data)
+```
+]
+ 
+.panel2-idontknow-auto[
+
+```
+  # A tibble: 3 x 4
+  # Groups:   Species [3]
+    Species    dimensions  rows columns
+    &lt;fct&gt;      &lt;list&gt;     &lt;int&gt;   &lt;int&gt;
+  1 setosa     &lt;int [2]&gt;     50       4
+  2 versicolor &lt;int [2]&gt;     50       4
+  3 virginica  &lt;int [2]&gt;     50       4
+```
+]
+
+---
+count: false
+ 
+
+.panel1-idontknow-auto[
+
+```r
+iris %&gt;%
+  group_by(Species) %&gt;%
+  nest() %&gt;%
+  mutate(dimensions = map(data, dim)) %&gt;%
+  mutate(rows = dimensions[[1]][1]) %&gt;%
+  mutate(columns = dimensions[[1]][2]) %&gt;%
+  select(-data) %&gt;%
+* unnest()
+```
+]
+ 
+.panel2-idontknow-auto[
 
 ```
   # A tibble: 6 x 4
@@ -3304,21 +4304,366 @@ iris %&gt;%
   5 virginica          50    50       4
   6 virginica           4    50       4
 ```
+]
+
+&lt;style&gt;
+.panel1-idontknow-auto {
+  color: black;
+  width: 38.6060606060606%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel2-idontknow-auto {
+  color: black;
+  width: 59.3939393939394%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-idontknow-auto {
+  color: black;
+  width: NA%;
+  hight: 33%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+
 
 ---
+
 # List Column
 
+---
+
+
+count: false
+ 
+
+.panel1-list_column-auto[
 
 ```r
-iris %&gt;% 
-  group_by(Species) %&gt;% 
-  nest() %&gt;%
-  mutate(model = map(data, mod_fun))  %&gt;% 
-  mutate(n = map2(data, model, list)) -&gt;
-iris_more_mod
-
-iris_more_mod$n
+*iris
 ```
+]
+ 
+.panel2-list_column-auto[
+
+```
+      Sepal.Length Sepal.Width Petal.Length Petal.Width    Species
+  1            5.1         3.5          1.4         0.2     setosa
+  2            4.9         3.0          1.4         0.2     setosa
+  3            4.7         3.2          1.3         0.2     setosa
+  4            4.6         3.1          1.5         0.2     setosa
+  5            5.0         3.6          1.4         0.2     setosa
+  6            5.4         3.9          1.7         0.4     setosa
+  7            4.6         3.4          1.4         0.3     setosa
+  8            5.0         3.4          1.5         0.2     setosa
+  9            4.4         2.9          1.4         0.2     setosa
+  10           4.9         3.1          1.5         0.1     setosa
+  11           5.4         3.7          1.5         0.2     setosa
+  12           4.8         3.4          1.6         0.2     setosa
+  13           4.8         3.0          1.4         0.1     setosa
+  14           4.3         3.0          1.1         0.1     setosa
+  15           5.8         4.0          1.2         0.2     setosa
+  16           5.7         4.4          1.5         0.4     setosa
+  17           5.4         3.9          1.3         0.4     setosa
+  18           5.1         3.5          1.4         0.3     setosa
+  19           5.7         3.8          1.7         0.3     setosa
+  20           5.1         3.8          1.5         0.3     setosa
+  21           5.4         3.4          1.7         0.2     setosa
+  22           5.1         3.7          1.5         0.4     setosa
+  23           4.6         3.6          1.0         0.2     setosa
+  24           5.1         3.3          1.7         0.5     setosa
+  25           4.8         3.4          1.9         0.2     setosa
+  26           5.0         3.0          1.6         0.2     setosa
+  27           5.0         3.4          1.6         0.4     setosa
+  28           5.2         3.5          1.5         0.2     setosa
+  29           5.2         3.4          1.4         0.2     setosa
+  30           4.7         3.2          1.6         0.2     setosa
+  31           4.8         3.1          1.6         0.2     setosa
+  32           5.4         3.4          1.5         0.4     setosa
+  33           5.2         4.1          1.5         0.1     setosa
+  34           5.5         4.2          1.4         0.2     setosa
+  35           4.9         3.1          1.5         0.2     setosa
+  36           5.0         3.2          1.2         0.2     setosa
+  37           5.5         3.5          1.3         0.2     setosa
+  38           4.9         3.6          1.4         0.1     setosa
+  39           4.4         3.0          1.3         0.2     setosa
+  40           5.1         3.4          1.5         0.2     setosa
+  41           5.0         3.5          1.3         0.3     setosa
+  42           4.5         2.3          1.3         0.3     setosa
+  43           4.4         3.2          1.3         0.2     setosa
+  44           5.0         3.5          1.6         0.6     setosa
+  45           5.1         3.8          1.9         0.4     setosa
+  46           4.8         3.0          1.4         0.3     setosa
+  47           5.1         3.8          1.6         0.2     setosa
+  48           4.6         3.2          1.4         0.2     setosa
+  49           5.3         3.7          1.5         0.2     setosa
+  50           5.0         3.3          1.4         0.2     setosa
+  51           7.0         3.2          4.7         1.4 versicolor
+  52           6.4         3.2          4.5         1.5 versicolor
+  53           6.9         3.1          4.9         1.5 versicolor
+  54           5.5         2.3          4.0         1.3 versicolor
+  55           6.5         2.8          4.6         1.5 versicolor
+  56           5.7         2.8          4.5         1.3 versicolor
+  57           6.3         3.3          4.7         1.6 versicolor
+  58           4.9         2.4          3.3         1.0 versicolor
+  59           6.6         2.9          4.6         1.3 versicolor
+  60           5.2         2.7          3.9         1.4 versicolor
+  61           5.0         2.0          3.5         1.0 versicolor
+  62           5.9         3.0          4.2         1.5 versicolor
+  63           6.0         2.2          4.0         1.0 versicolor
+  64           6.1         2.9          4.7         1.4 versicolor
+  65           5.6         2.9          3.6         1.3 versicolor
+  66           6.7         3.1          4.4         1.4 versicolor
+  67           5.6         3.0          4.5         1.5 versicolor
+  68           5.8         2.7          4.1         1.0 versicolor
+  69           6.2         2.2          4.5         1.5 versicolor
+  70           5.6         2.5          3.9         1.1 versicolor
+  71           5.9         3.2          4.8         1.8 versicolor
+  72           6.1         2.8          4.0         1.3 versicolor
+  73           6.3         2.5          4.9         1.5 versicolor
+  74           6.1         2.8          4.7         1.2 versicolor
+  75           6.4         2.9          4.3         1.3 versicolor
+  76           6.6         3.0          4.4         1.4 versicolor
+  77           6.8         2.8          4.8         1.4 versicolor
+  78           6.7         3.0          5.0         1.7 versicolor
+  79           6.0         2.9          4.5         1.5 versicolor
+  80           5.7         2.6          3.5         1.0 versicolor
+  81           5.5         2.4          3.8         1.1 versicolor
+  82           5.5         2.4          3.7         1.0 versicolor
+  83           5.8         2.7          3.9         1.2 versicolor
+  84           6.0         2.7          5.1         1.6 versicolor
+  85           5.4         3.0          4.5         1.5 versicolor
+  86           6.0         3.4          4.5         1.6 versicolor
+  87           6.7         3.1          4.7         1.5 versicolor
+  88           6.3         2.3          4.4         1.3 versicolor
+  89           5.6         3.0          4.1         1.3 versicolor
+  90           5.5         2.5          4.0         1.3 versicolor
+  91           5.5         2.6          4.4         1.2 versicolor
+  92           6.1         3.0          4.6         1.4 versicolor
+  93           5.8         2.6          4.0         1.2 versicolor
+  94           5.0         2.3          3.3         1.0 versicolor
+  95           5.6         2.7          4.2         1.3 versicolor
+  96           5.7         3.0          4.2         1.2 versicolor
+  97           5.7         2.9          4.2         1.3 versicolor
+  98           6.2         2.9          4.3         1.3 versicolor
+  99           5.1         2.5          3.0         1.1 versicolor
+  100          5.7         2.8          4.1         1.3 versicolor
+  101          6.3         3.3          6.0         2.5  virginica
+  102          5.8         2.7          5.1         1.9  virginica
+  103          7.1         3.0          5.9         2.1  virginica
+  104          6.3         2.9          5.6         1.8  virginica
+  105          6.5         3.0          5.8         2.2  virginica
+  106          7.6         3.0          6.6         2.1  virginica
+  107          4.9         2.5          4.5         1.7  virginica
+  108          7.3         2.9          6.3         1.8  virginica
+  109          6.7         2.5          5.8         1.8  virginica
+  110          7.2         3.6          6.1         2.5  virginica
+  111          6.5         3.2          5.1         2.0  virginica
+  112          6.4         2.7          5.3         1.9  virginica
+  113          6.8         3.0          5.5         2.1  virginica
+  114          5.7         2.5          5.0         2.0  virginica
+  115          5.8         2.8          5.1         2.4  virginica
+  116          6.4         3.2          5.3         2.3  virginica
+  117          6.5         3.0          5.5         1.8  virginica
+  118          7.7         3.8          6.7         2.2  virginica
+  119          7.7         2.6          6.9         2.3  virginica
+  120          6.0         2.2          5.0         1.5  virginica
+  121          6.9         3.2          5.7         2.3  virginica
+  122          5.6         2.8          4.9         2.0  virginica
+  123          7.7         2.8          6.7         2.0  virginica
+  124          6.3         2.7          4.9         1.8  virginica
+  125          6.7         3.3          5.7         2.1  virginica
+  126          7.2         3.2          6.0         1.8  virginica
+  127          6.2         2.8          4.8         1.8  virginica
+  128          6.1         3.0          4.9         1.8  virginica
+  129          6.4         2.8          5.6         2.1  virginica
+  130          7.2         3.0          5.8         1.6  virginica
+  131          7.4         2.8          6.1         1.9  virginica
+  132          7.9         3.8          6.4         2.0  virginica
+  133          6.4         2.8          5.6         2.2  virginica
+  134          6.3         2.8          5.1         1.5  virginica
+  135          6.1         2.6          5.6         1.4  virginica
+  136          7.7         3.0          6.1         2.3  virginica
+  137          6.3         3.4          5.6         2.4  virginica
+  138          6.4         3.1          5.5         1.8  virginica
+  139          6.0         3.0          4.8         1.8  virginica
+  140          6.9         3.1          5.4         2.1  virginica
+  141          6.7         3.1          5.6         2.4  virginica
+  142          6.9         3.1          5.1         2.3  virginica
+  143          5.8         2.7          5.1         1.9  virginica
+  144          6.8         3.2          5.9         2.3  virginica
+  145          6.7         3.3          5.7         2.5  virginica
+  146          6.7         3.0          5.2         2.3  virginica
+  147          6.3         2.5          5.0         1.9  virginica
+  148          6.5         3.0          5.2         2.0  virginica
+  149          6.2         3.4          5.4         2.3  virginica
+  150          5.9         3.0          5.1         1.8  virginica
+```
+]
+
+---
+count: false
+ 
+
+.panel1-list_column-auto[
+
+```r
+iris %&gt;%
+* group_by(Species)
+```
+]
+ 
+.panel2-list_column-auto[
+
+```
+  # A tibble: 150 x 5
+  # Groups:   Species [3]
+     Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+            &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt; &lt;fct&gt;  
+   1          5.1         3.5          1.4         0.2 setosa 
+   2          4.9         3            1.4         0.2 setosa 
+   3          4.7         3.2          1.3         0.2 setosa 
+   4          4.6         3.1          1.5         0.2 setosa 
+   5          5           3.6          1.4         0.2 setosa 
+   6          5.4         3.9          1.7         0.4 setosa 
+   7          4.6         3.4          1.4         0.3 setosa 
+   8          5           3.4          1.5         0.2 setosa 
+   9          4.4         2.9          1.4         0.2 setosa 
+  10          4.9         3.1          1.5         0.1 setosa 
+  # … with 140 more rows
+```
+]
+
+---
+count: false
+ 
+
+.panel1-list_column-auto[
+
+```r
+iris %&gt;%
+  group_by(Species) %&gt;%
+* nest()
+```
+]
+ 
+.panel2-list_column-auto[
+
+```
+  # A tibble: 3 x 2
+  # Groups:   Species [3]
+    Species    data             
+    &lt;fct&gt;      &lt;list&gt;           
+  1 setosa     &lt;tibble [50 × 4]&gt;
+  2 versicolor &lt;tibble [50 × 4]&gt;
+  3 virginica  &lt;tibble [50 × 4]&gt;
+```
+]
+
+---
+count: false
+ 
+
+.panel1-list_column-auto[
+
+```r
+iris %&gt;%
+  group_by(Species) %&gt;%
+  nest() %&gt;%
+* mutate(model = map(data, mod_fun))
+```
+]
+ 
+.panel2-list_column-auto[
+
+```
+  # A tibble: 3 x 3
+  # Groups:   Species [3]
+    Species    data              model 
+    &lt;fct&gt;      &lt;list&gt;            &lt;list&gt;
+  1 setosa     &lt;tibble [50 × 4]&gt; &lt;lm&gt;  
+  2 versicolor &lt;tibble [50 × 4]&gt; &lt;lm&gt;  
+  3 virginica  &lt;tibble [50 × 4]&gt; &lt;lm&gt;
+```
+]
+
+---
+count: false
+ 
+
+.panel1-list_column-auto[
+
+```r
+iris %&gt;%
+  group_by(Species) %&gt;%
+  nest() %&gt;%
+  mutate(model = map(data, mod_fun))  %&gt;%
+* mutate(n = map2(data, model, list))
+```
+]
+ 
+.panel2-list_column-auto[
+
+```
+  # A tibble: 3 x 4
+  # Groups:   Species [3]
+    Species    data              model  n         
+    &lt;fct&gt;      &lt;list&gt;            &lt;list&gt; &lt;list&gt;    
+  1 setosa     &lt;tibble [50 × 4]&gt; &lt;lm&gt;   &lt;list [2]&gt;
+  2 versicolor &lt;tibble [50 × 4]&gt; &lt;lm&gt;   &lt;list [2]&gt;
+  3 virginica  &lt;tibble [50 × 4]&gt; &lt;lm&gt;   &lt;list [2]&gt;
+```
+]
+
+---
+count: false
+ 
+
+.panel1-list_column-auto[
+
+```r
+iris %&gt;%
+  group_by(Species) %&gt;%
+  nest() %&gt;%
+  mutate(model = map(data, mod_fun))  %&gt;%
+  mutate(n = map2(data, model, list)) -&gt;
+* iris_more_mod
+```
+]
+ 
+.panel2-list_column-auto[
+
+]
+
+---
+count: false
+ 
+
+.panel1-list_column-auto[
+
+```r
+iris %&gt;%
+  group_by(Species) %&gt;%
+  nest() %&gt;%
+  mutate(model = map(data, mod_fun))  %&gt;%
+  mutate(n = map2(data, model, list)) -&gt;
+  iris_more_mod
+
+*iris_more_mod$n
+```
+]
+ 
+.panel2-list_column-auto[
 
 ```
   [[1]]
@@ -3403,17 +4748,422 @@ iris_more_mod$n
    (Intercept)   Sepal.Width  Petal.Length   Petal.Width  
         0.6999        0.3303        0.9455       -0.1698
 ```
+]
+
+---
+count: false
+ 
+
+.panel1-list_column-auto[
 
 ```r
-iris %&gt;% 
-  group_by(Species) %&gt;% 
+iris %&gt;%
+  group_by(Species) %&gt;%
+  nest() %&gt;%
+  mutate(model = map(data, mod_fun))  %&gt;%
+  mutate(n = map2(data, model, list)) -&gt;
+  iris_more_mod
+
+iris_more_mod$n -&gt;
+* hide
+```
+]
+ 
+.panel2-list_column-auto[
+
+]
+
+---
+count: false
+ 
+
+.panel1-list_column-auto[
+
+```r
+iris %&gt;%
+  group_by(Species) %&gt;%
+  nest() %&gt;%
+  mutate(model = map(data, mod_fun))  %&gt;%
+  mutate(n = map2(data, model, list)) -&gt;
+  iris_more_mod
+
+iris_more_mod$n -&gt;
+  hide
+
+*iris
+```
+]
+ 
+.panel2-list_column-auto[
+
+```
+      Sepal.Length Sepal.Width Petal.Length Petal.Width    Species
+  1            5.1         3.5          1.4         0.2     setosa
+  2            4.9         3.0          1.4         0.2     setosa
+  3            4.7         3.2          1.3         0.2     setosa
+  4            4.6         3.1          1.5         0.2     setosa
+  5            5.0         3.6          1.4         0.2     setosa
+  6            5.4         3.9          1.7         0.4     setosa
+  7            4.6         3.4          1.4         0.3     setosa
+  8            5.0         3.4          1.5         0.2     setosa
+  9            4.4         2.9          1.4         0.2     setosa
+  10           4.9         3.1          1.5         0.1     setosa
+  11           5.4         3.7          1.5         0.2     setosa
+  12           4.8         3.4          1.6         0.2     setosa
+  13           4.8         3.0          1.4         0.1     setosa
+  14           4.3         3.0          1.1         0.1     setosa
+  15           5.8         4.0          1.2         0.2     setosa
+  16           5.7         4.4          1.5         0.4     setosa
+  17           5.4         3.9          1.3         0.4     setosa
+  18           5.1         3.5          1.4         0.3     setosa
+  19           5.7         3.8          1.7         0.3     setosa
+  20           5.1         3.8          1.5         0.3     setosa
+  21           5.4         3.4          1.7         0.2     setosa
+  22           5.1         3.7          1.5         0.4     setosa
+  23           4.6         3.6          1.0         0.2     setosa
+  24           5.1         3.3          1.7         0.5     setosa
+  25           4.8         3.4          1.9         0.2     setosa
+  26           5.0         3.0          1.6         0.2     setosa
+  27           5.0         3.4          1.6         0.4     setosa
+  28           5.2         3.5          1.5         0.2     setosa
+  29           5.2         3.4          1.4         0.2     setosa
+  30           4.7         3.2          1.6         0.2     setosa
+  31           4.8         3.1          1.6         0.2     setosa
+  32           5.4         3.4          1.5         0.4     setosa
+  33           5.2         4.1          1.5         0.1     setosa
+  34           5.5         4.2          1.4         0.2     setosa
+  35           4.9         3.1          1.5         0.2     setosa
+  36           5.0         3.2          1.2         0.2     setosa
+  37           5.5         3.5          1.3         0.2     setosa
+  38           4.9         3.6          1.4         0.1     setosa
+  39           4.4         3.0          1.3         0.2     setosa
+  40           5.1         3.4          1.5         0.2     setosa
+  41           5.0         3.5          1.3         0.3     setosa
+  42           4.5         2.3          1.3         0.3     setosa
+  43           4.4         3.2          1.3         0.2     setosa
+  44           5.0         3.5          1.6         0.6     setosa
+  45           5.1         3.8          1.9         0.4     setosa
+  46           4.8         3.0          1.4         0.3     setosa
+  47           5.1         3.8          1.6         0.2     setosa
+  48           4.6         3.2          1.4         0.2     setosa
+  49           5.3         3.7          1.5         0.2     setosa
+  50           5.0         3.3          1.4         0.2     setosa
+  51           7.0         3.2          4.7         1.4 versicolor
+  52           6.4         3.2          4.5         1.5 versicolor
+  53           6.9         3.1          4.9         1.5 versicolor
+  54           5.5         2.3          4.0         1.3 versicolor
+  55           6.5         2.8          4.6         1.5 versicolor
+  56           5.7         2.8          4.5         1.3 versicolor
+  57           6.3         3.3          4.7         1.6 versicolor
+  58           4.9         2.4          3.3         1.0 versicolor
+  59           6.6         2.9          4.6         1.3 versicolor
+  60           5.2         2.7          3.9         1.4 versicolor
+  61           5.0         2.0          3.5         1.0 versicolor
+  62           5.9         3.0          4.2         1.5 versicolor
+  63           6.0         2.2          4.0         1.0 versicolor
+  64           6.1         2.9          4.7         1.4 versicolor
+  65           5.6         2.9          3.6         1.3 versicolor
+  66           6.7         3.1          4.4         1.4 versicolor
+  67           5.6         3.0          4.5         1.5 versicolor
+  68           5.8         2.7          4.1         1.0 versicolor
+  69           6.2         2.2          4.5         1.5 versicolor
+  70           5.6         2.5          3.9         1.1 versicolor
+  71           5.9         3.2          4.8         1.8 versicolor
+  72           6.1         2.8          4.0         1.3 versicolor
+  73           6.3         2.5          4.9         1.5 versicolor
+  74           6.1         2.8          4.7         1.2 versicolor
+  75           6.4         2.9          4.3         1.3 versicolor
+  76           6.6         3.0          4.4         1.4 versicolor
+  77           6.8         2.8          4.8         1.4 versicolor
+  78           6.7         3.0          5.0         1.7 versicolor
+  79           6.0         2.9          4.5         1.5 versicolor
+  80           5.7         2.6          3.5         1.0 versicolor
+  81           5.5         2.4          3.8         1.1 versicolor
+  82           5.5         2.4          3.7         1.0 versicolor
+  83           5.8         2.7          3.9         1.2 versicolor
+  84           6.0         2.7          5.1         1.6 versicolor
+  85           5.4         3.0          4.5         1.5 versicolor
+  86           6.0         3.4          4.5         1.6 versicolor
+  87           6.7         3.1          4.7         1.5 versicolor
+  88           6.3         2.3          4.4         1.3 versicolor
+  89           5.6         3.0          4.1         1.3 versicolor
+  90           5.5         2.5          4.0         1.3 versicolor
+  91           5.5         2.6          4.4         1.2 versicolor
+  92           6.1         3.0          4.6         1.4 versicolor
+  93           5.8         2.6          4.0         1.2 versicolor
+  94           5.0         2.3          3.3         1.0 versicolor
+  95           5.6         2.7          4.2         1.3 versicolor
+  96           5.7         3.0          4.2         1.2 versicolor
+  97           5.7         2.9          4.2         1.3 versicolor
+  98           6.2         2.9          4.3         1.3 versicolor
+  99           5.1         2.5          3.0         1.1 versicolor
+  100          5.7         2.8          4.1         1.3 versicolor
+  101          6.3         3.3          6.0         2.5  virginica
+  102          5.8         2.7          5.1         1.9  virginica
+  103          7.1         3.0          5.9         2.1  virginica
+  104          6.3         2.9          5.6         1.8  virginica
+  105          6.5         3.0          5.8         2.2  virginica
+  106          7.6         3.0          6.6         2.1  virginica
+  107          4.9         2.5          4.5         1.7  virginica
+  108          7.3         2.9          6.3         1.8  virginica
+  109          6.7         2.5          5.8         1.8  virginica
+  110          7.2         3.6          6.1         2.5  virginica
+  111          6.5         3.2          5.1         2.0  virginica
+  112          6.4         2.7          5.3         1.9  virginica
+  113          6.8         3.0          5.5         2.1  virginica
+  114          5.7         2.5          5.0         2.0  virginica
+  115          5.8         2.8          5.1         2.4  virginica
+  116          6.4         3.2          5.3         2.3  virginica
+  117          6.5         3.0          5.5         1.8  virginica
+  118          7.7         3.8          6.7         2.2  virginica
+  119          7.7         2.6          6.9         2.3  virginica
+  120          6.0         2.2          5.0         1.5  virginica
+  121          6.9         3.2          5.7         2.3  virginica
+  122          5.6         2.8          4.9         2.0  virginica
+  123          7.7         2.8          6.7         2.0  virginica
+  124          6.3         2.7          4.9         1.8  virginica
+  125          6.7         3.3          5.7         2.1  virginica
+  126          7.2         3.2          6.0         1.8  virginica
+  127          6.2         2.8          4.8         1.8  virginica
+  128          6.1         3.0          4.9         1.8  virginica
+  129          6.4         2.8          5.6         2.1  virginica
+  130          7.2         3.0          5.8         1.6  virginica
+  131          7.4         2.8          6.1         1.9  virginica
+  132          7.9         3.8          6.4         2.0  virginica
+  133          6.4         2.8          5.6         2.2  virginica
+  134          6.3         2.8          5.1         1.5  virginica
+  135          6.1         2.6          5.6         1.4  virginica
+  136          7.7         3.0          6.1         2.3  virginica
+  137          6.3         3.4          5.6         2.4  virginica
+  138          6.4         3.1          5.5         1.8  virginica
+  139          6.0         3.0          4.8         1.8  virginica
+  140          6.9         3.1          5.4         2.1  virginica
+  141          6.7         3.1          5.6         2.4  virginica
+  142          6.9         3.1          5.1         2.3  virginica
+  143          5.8         2.7          5.1         1.9  virginica
+  144          6.8         3.2          5.9         2.3  virginica
+  145          6.7         3.3          5.7         2.5  virginica
+  146          6.7         3.0          5.2         2.3  virginica
+  147          6.3         2.5          5.0         1.9  virginica
+  148          6.5         3.0          5.2         2.0  virginica
+  149          6.2         3.4          5.4         2.3  virginica
+  150          5.9         3.0          5.1         1.8  virginica
+```
+]
+
+---
+count: false
+ 
+
+.panel1-list_column-auto[
+
+```r
+iris %&gt;%
+  group_by(Species) %&gt;%
+  nest() %&gt;%
+  mutate(model = map(data, mod_fun))  %&gt;%
+  mutate(n = map2(data, model, list)) -&gt;
+  iris_more_mod
+
+iris_more_mod$n -&gt;
+  hide
+
+iris %&gt;%
+* group_by(Species)
+```
+]
+ 
+.panel2-list_column-auto[
+
+```
+  # A tibble: 150 x 5
+  # Groups:   Species [3]
+     Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+            &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt; &lt;fct&gt;  
+   1          5.1         3.5          1.4         0.2 setosa 
+   2          4.9         3            1.4         0.2 setosa 
+   3          4.7         3.2          1.3         0.2 setosa 
+   4          4.6         3.1          1.5         0.2 setosa 
+   5          5           3.6          1.4         0.2 setosa 
+   6          5.4         3.9          1.7         0.4 setosa 
+   7          4.6         3.4          1.4         0.3 setosa 
+   8          5           3.4          1.5         0.2 setosa 
+   9          4.4         2.9          1.4         0.2 setosa 
+  10          4.9         3.1          1.5         0.1 setosa 
+  # … with 140 more rows
+```
+]
+
+---
+count: false
+ 
+
+.panel1-list_column-auto[
+
+```r
+iris %&gt;%
+  group_by(Species) %&gt;%
+  nest() %&gt;%
+  mutate(model = map(data, mod_fun))  %&gt;%
+  mutate(n = map2(data, model, list)) -&gt;
+  iris_more_mod
+
+iris_more_mod$n -&gt;
+  hide
+
+iris %&gt;%
+  group_by(Species) %&gt;%
+* nest()
+```
+]
+ 
+.panel2-list_column-auto[
+
+```
+  # A tibble: 3 x 2
+  # Groups:   Species [3]
+    Species    data             
+    &lt;fct&gt;      &lt;list&gt;           
+  1 setosa     &lt;tibble [50 × 4]&gt;
+  2 versicolor &lt;tibble [50 × 4]&gt;
+  3 virginica  &lt;tibble [50 × 4]&gt;
+```
+]
+
+---
+count: false
+ 
+
+.panel1-list_column-auto[
+
+```r
+iris %&gt;%
+  group_by(Species) %&gt;%
+  nest() %&gt;%
+  mutate(model = map(data, mod_fun))  %&gt;%
+  mutate(n = map2(data, model, list)) -&gt;
+  iris_more_mod
+
+iris_more_mod$n -&gt;
+  hide
+
+iris %&gt;%
+  group_by(Species) %&gt;%
+  nest() %&gt;%
+* mutate(model = map(data, mod_fun))
+```
+]
+ 
+.panel2-list_column-auto[
+
+```
+  # A tibble: 3 x 3
+  # Groups:   Species [3]
+    Species    data              model 
+    &lt;fct&gt;      &lt;list&gt;            &lt;list&gt;
+  1 setosa     &lt;tibble [50 × 4]&gt; &lt;lm&gt;  
+  2 versicolor &lt;tibble [50 × 4]&gt; &lt;lm&gt;  
+  3 virginica  &lt;tibble [50 × 4]&gt; &lt;lm&gt;
+```
+]
+
+---
+count: false
+ 
+
+.panel1-list_column-auto[
+
+```r
+iris %&gt;%
+  group_by(Species) %&gt;%
+  nest() %&gt;%
+  mutate(model = map(data, mod_fun))  %&gt;%
+  mutate(n = map2(data, model, list)) -&gt;
+  iris_more_mod
+
+iris_more_mod$n -&gt;
+  hide
+
+iris %&gt;%
+  group_by(Species) %&gt;%
+  nest() %&gt;%
+  mutate(model = map(data, mod_fun)) %&gt;%
+* mutate(n = pmap(list(data, model, data), list))
+```
+]
+ 
+.panel2-list_column-auto[
+
+```
+  # A tibble: 3 x 4
+  # Groups:   Species [3]
+    Species    data              model  n         
+    &lt;fct&gt;      &lt;list&gt;            &lt;list&gt; &lt;list&gt;    
+  1 setosa     &lt;tibble [50 × 4]&gt; &lt;lm&gt;   &lt;list [3]&gt;
+  2 versicolor &lt;tibble [50 × 4]&gt; &lt;lm&gt;   &lt;list [3]&gt;
+  3 virginica  &lt;tibble [50 × 4]&gt; &lt;lm&gt;   &lt;list [3]&gt;
+```
+]
+
+---
+count: false
+ 
+
+.panel1-list_column-auto[
+
+```r
+iris %&gt;%
+  group_by(Species) %&gt;%
+  nest() %&gt;%
+  mutate(model = map(data, mod_fun))  %&gt;%
+  mutate(n = map2(data, model, list)) -&gt;
+  iris_more_mod
+
+iris_more_mod$n -&gt;
+  hide
+
+iris %&gt;%
+  group_by(Species) %&gt;%
+  nest() %&gt;%
+  mutate(model = map(data, mod_fun)) %&gt;%
+  mutate(n = pmap(list(data, model, data), list)) -&gt;
+*more_manipulations
+```
+]
+ 
+.panel2-list_column-auto[
+
+]
+
+---
+count: false
+ 
+
+.panel1-list_column-auto[
+
+```r
+iris %&gt;%
+  group_by(Species) %&gt;%
+  nest() %&gt;%
+  mutate(model = map(data, mod_fun))  %&gt;%
+  mutate(n = map2(data, model, list)) -&gt;
+  iris_more_mod
+
+iris_more_mod$n -&gt;
+  hide
+
+iris %&gt;%
+  group_by(Species) %&gt;%
   nest() %&gt;%
   mutate(model = map(data, mod_fun)) %&gt;%
   mutate(n = pmap(list(data, model, data), list)) -&gt;
 more_manipulations
 
-more_manipulations$n
+*more_manipulations$n
 ```
+]
+ 
+.panel2-list_column-auto[
 
 ```
   [[1]]
@@ -3547,6 +5297,37 @@ more_manipulations$n
   10          7.2         3.6          6.1         2.5
   # … with 40 more rows
 ```
+]
+
+&lt;style&gt;
+.panel1-list_column-auto {
+  color: black;
+  width: 38.6060606060606%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel2-list_column-auto {
+  color: black;
+  width: 59.3939393939394%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-list_column-auto {
+  color: black;
+  width: NA%;
+  hight: 33%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+  
 
 
 
@@ -3555,6 +5336,15 @@ more_manipulations$n
 
 
 
+
+
+
+
+
+---
+
+
+# End!
 
 
 

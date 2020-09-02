@@ -226,6 +226,7 @@ window.buildTabsets = function(tocID) {
 };
 
 </script>
+<script>(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.fitvids=f()}})(function(){var define,module,exports;return function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s}({1:[function(require,module,exports){var selectors=['iframe[src*="player.vimeo.com"]','iframe[src*="youtube.com"]','iframe[src*="youtube-nocookie.com"]','iframe[src*="kickstarter.com"][src*="video.html"]',"object"];var css=".fluid-width-video-wrapper{width:100%;position:relative;padding:0;}.fluid-width-video-wrapper iframe,.fluid-width-video-wrapper object,.fluid-width-video-wrapper embed {position:absolute;top:0;left:0;width:100%;height:100%;}";module.exports=function(parentSelector,opts){parentSelector=parentSelector||"body";opts=opts||{};if(isObject(parentSelector)){opts=parentSelector;parentSelector="body"}opts.ignore=opts.ignore||"";opts.players=opts.players||"";var containers=queryAll(parentSelector);if(!hasLength(containers))return;if(!document.getElementById("fit-vids-style")){var head=document.head||document.getElementsByTagName("head")[0];head.appendChild(styles())}var custom=toSelectorArray(opts.players);var ignored=toSelectorArray(opts.ignore);var ignoredSelector=ignored.length>0?ignored.join():null;var selector=selectors.concat(custom).join();if(!hasLength(selector)){return}containers.forEach(function(container){var videos=queryAll(container,selector);videos.forEach(function(video){if(ignoredSelector&&video.matches(ignoredSelector)){return}wrap(video)})})};function queryAll(el,selector){if(typeof el==="string"){selector=el;el=document}return Array.prototype.slice.call(el.querySelectorAll(selector))}function toSelectorArray(input){if(typeof input==="string"){return input.split(",").map(trim).filter(hasLength)}else if(isArray(input)){return flatten(input.map(toSelectorArray).filter(hasLength))}return input||[]}function wrap(el){if(/fluid-width-video-wrapper/.test(el.parentNode.className)){return}var widthAttr=parseInt(el.getAttribute("width"),10);var heightAttr=parseInt(el.getAttribute("height"),10);var width=!isNaN(widthAttr)?widthAttr:el.clientWidth;var height=!isNaN(heightAttr)?heightAttr:el.clientHeight;var aspect=height/width;el.removeAttribute("width");el.removeAttribute("height");var wrapper=document.createElement("div");el.parentNode.insertBefore(wrapper,el);wrapper.className="fluid-width-video-wrapper";wrapper.style.paddingTop=aspect*100+"%";wrapper.appendChild(el)}function styles(){var div=document.createElement("div");div.innerHTML='<p>x</p><style id="fit-vids-style">'+css+"</style>";return div.childNodes[1]}function hasLength(input){return input.length>0}function trim(str){return str.replace(/^\s+|\s+$/g,"")}function flatten(input){return[].concat.apply([],input)}function isObject(input){return Object.prototype.toString.call(input)==="[object Object]"}function isArray(input){return Object.prototype.toString.call(input)==="[object Array]"}},{}]},{},[1])(1)});</script>
 
 
 
@@ -384,8 +385,10 @@ summary {
 <li><p><em>functions</em>: <code>mean()</code>, <code>median()</code>, <code>mode()</code>, <code>log10()</code></p></li>
 </ul>
 <p><em>Click on the slides below. Then use <code>-&gt;</code> or <code>&lt;-</code> arrow keys to navigate, or <a href="arithmetic_and_data_types.html" target="_blank">view in new window</a></em></p>
-<iframe src="arithmetic_and_data_types.html" width="672" height="420px">
-</iframe>
+<div class="shareagain" style="min-width:300px;margin:1em auto;">
+<iframe src="arithmetic_and_data_types.html" width="1600" height="1000" style="border:2px solid currentColor;" loading="lazy" allowfullscreen></iframe>
+<script>fitvids('.shareagain', {players: 'iframe'});</script>
+</div>
 </div>
 </div>
 <div id="data-manipulation-with-the-tidyverse" class="section level1">
@@ -432,14 +435,17 @@ summary {
 </tbody>
 </table>
 <p><em>Click on the slides below. Then use <code>-&gt;</code> or <code>&lt;-</code> arrow keys to navigate, or <a href="one_stream_wrangle.html" target="_blank">view in new window</a></em></p>
-<iframe src="one_stream_wrangle.html" width="672" height="420px">
-</iframe>
+<div class="shareagain" style="min-width:300px;margin:1em auto;">
+<iframe src="one_stream_wrangle.html" width="1600" height="1000" style="border:2px solid currentColor;" loading="lazy" allowfullscreen></iframe>
+<script>fitvids('.shareagain', {players: 'iframe'});</script>
+</div>
 <div id="logical-operators" class="section level4">
 <h4><a href="booleans.html#3" target="_blank">Logical operators</a></h4>
 <p>Especially in filtering, you are likely to use Boolean operatores <code>==</code>, <code>!=</code>, <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code>, which make a comparison and return <code>TRUE</code> or <code>FALSE</code>. These can also be combine with <code>&amp;</code> (both conditions must be met), <code>|</code> (either condition may be met), or <code>%in%</code> (if the left hand side element is found <em>among</em> the right hand side elements, <code>TRUE</code> is returned).</p>
-<p><em>Click on the slides below. Then <code>-&gt;</code> or <code>&lt;-</code> arrow keys to navigate, or <a href="booleans.html" target="_blank">view in new window</a></em></p>
-<iframe src="booleans.html" width="672" height="420px">
-</iframe>
+<div class="shareagain" style="min-width:300px;margin:1em auto;">
+<iframe src="booleans.html" width="1600" height="1000" style="border:2px solid currentColor;" loading="lazy" allowfullscreen></iframe>
+<script>fitvids('.shareagain', {players: 'iframe'});</script>
+</div>
 </div>
 </div>
 <div id="summarizing" class="section level3">
@@ -482,8 +488,10 @@ summary {
 <p>Base-R functions that you are might use in summarizing include <code>mean()</code>, <code>median()</code>, <code>sd()</code>, <code>IQR()</code>, <code>min()</code>, <code>max()</code> etc.</p>
 <p>The function <code>summary()</code> can also be used to request summary statistcs for an entire data set.</p>
 <p><em>Click on the slides below and use arrow keys to advance, or <a href="summarize.html#3" target="_blank">view in new window</a></em></p>
-<iframe src="summarize.html" width="672" height="420px">
-</iframe>
+<div class="shareagain" style="min-width:300px;margin:1em auto;">
+<iframe src="summarize.html" width="1600" height="1000" style="border:2px solid currentColor;" loading="lazy" allowfullscreen></iframe>
+<script>fitvids('.shareagain', {players: 'iframe'});</script>
+</div>
 </div>
 <div id="shape-transformation-wide-long" class="section level3">
 <h3><a href="long_to_wide_and_back.html#3" target="_blank">Shape transformation (wide &lt;—&gt; long)</a></h3>
@@ -505,9 +513,10 @@ summary {
 </tr>
 </tbody>
 </table>
-<p><em>Click on the slides below. Then use <code>-&gt;</code> or <code>&lt;-</code> arrow keys to navigate, or <a href="long_to_wide_and_back.html" target="_blank">view in new window</a></em></p>
-<iframe src="long_to_wide_and_back.html" width="672" height="420px">
-</iframe>
+<div class="shareagain" style="min-width:300px;margin:1em auto;">
+<iframe src="long_to_wide_and_back.html" width="1600" height="1000" style="border:2px solid currentColor;" loading="lazy" allowfullscreen></iframe>
+<script>fitvids('.shareagain', {players: 'iframe'});</script>
+</div>
 </div>
 <div id="bringing-streams-together-joins-and-binds" class="section level3">
 <h3><a href="joining_data.html" target="_blank">Bringing streams together: Joins and Binds</a></h3>
@@ -558,22 +567,28 @@ summary {
 </tbody>
 </table>
 <p><em>Click on the slides below and use arrow keys to advance, or <a href="joining_data.html" target="_blank">view in new window</a></em></p>
-<iframe src="joining_data.html" width="672" height="420px">
-</iframe>
+<div class="shareagain" style="min-width:300px;margin:1em auto;">
+<iframe src="joining_data.html" width="1600" height="1000" style="border:2px solid currentColor;" loading="lazy" allowfullscreen></iframe>
+<script>fitvids('.shareagain', {players: 'iframe'});</script>
+</div>
 </div>
 <div id="manipulation-with-data.table" class="section level2">
 <h2><a href="data.table.html" target="_blank">Manipulation with data.table</a></h2>
 <p>{data.table} is data manipulation package. It’s “blazing fast” and very popular; but this section is under construction — so limited in its examples.</p>
 <p><em>Click on the slides below and use arrow keys to advance, or <a href="data.table.html" target="_blank">view in new window</a></em></p>
-<iframe src="data.table.html" width="672" height="420px">
-</iframe>
+<div class="shareagain" style="min-width:300px;margin:1em auto;">
+<iframe src="data.table.html" width="1600" height="1000" style="border:2px solid currentColor;" loading="lazy" allowfullscreen></iframe>
+<script>fitvids('.shareagain', {players: 'iframe'});</script>
+</div>
 </div>
 <div id="manipulation-with-base-r-and-logical-indexing" class="section level2">
 <h2><a href="logical_indexing.html" target="_blank">Manipulation with base R and logical indexing</a></h2>
 <p>You can also do a lot of data manipulation without any external packages at all.</p>
 <p><em>Click on the slides below and use arrow keys to advance, or <a href="logical_indexing.html" target="_blank">view in new window</a></em></p>
-<iframe src="logical_indexing.html" width="672" height="420px">
-</iframe>
+<div class="shareagain" style="min-width:300px;margin:1em auto;">
+<iframe src="logical_indexing.html" width="1600" height="1000" style="border:2px solid currentColor;" loading="lazy" allowfullscreen></iframe>
+<script>fitvids('.shareagain', {players: 'iframe'});</script>
+</div>
 </div>
 <div id="data-cleaning-examples-intro-to-string-manipulation-country-identifiers-and-date-manipulation" class="section level2">
 <h2><a href="https://evamaerey.github.io/data_manipulation/data_cleaning/data_cleaning" target="_blank">Data Cleaning Examples &amp; Intro to String Manipulation, Country Identifiers, and Date Manipulation</a></h2>

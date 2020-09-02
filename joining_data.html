@@ -7,9 +7,15 @@
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="libs/remark-css-0.0.1/hygge.css" rel="stylesheet" />
     <link href="libs/remark-css-0.0.1/ninjutsu.css" rel="stylesheet" />
+    <script src="libs/clipboard-2.0.6/clipboard.min.js"></script>
+    <link href="libs/shareon-1.4.1/shareon.min.css" rel="stylesheet" />
+    <script src="libs/shareon-1.4.1/shareon.min.js"></script>
+    <link href="libs/xaringanExtra-shareagain-0.2.1/shareagain.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-shareagain-0.2.1/shareagain.js"></script>
   </head>
   <body>
     <textarea id="source">
+
 
 
 
@@ -74,7 +80,7 @@ count: false
 .panel1-dataset_1-auto[
 
 ```r
-library(gapminder)  
+library(gapminder)
 *library(tidyverse)
 ```
 ]
@@ -90,8 +96,8 @@ count: false
 .panel1-dataset_1-auto[
 
 ```r
-library(gapminder)  
-library(tidyverse)  
+library(gapminder)
+library(tidyverse)
 *gapminder
 ```
 ]
@@ -123,9 +129,9 @@ count: false
 .panel1-dataset_1-auto[
 
 ```r
-library(gapminder)  
-library(tidyverse)  
-gapminder %&gt;%  
+library(gapminder)
+library(tidyverse)
+gapminder %&gt;%
 * select(country, lifeExp, year)
 ```
 ]
@@ -157,10 +163,10 @@ count: false
 .panel1-dataset_1-auto[
 
 ```r
-library(gapminder)  
-library(tidyverse)  
-gapminder %&gt;%  
-  select(country, lifeExp, year) -&gt;  
+library(gapminder)
+library(tidyverse)
+gapminder %&gt;%
+  select(country, lifeExp, year) -&gt;
 * country_life_exp
 ```
 ]
@@ -173,6 +179,7 @@ gapminder %&gt;%
 .panel1-dataset_1-auto {
   color: black;
   width: 38.6060606060606%;
+  hight: 32%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -180,6 +187,7 @@ gapminder %&gt;%
 .panel2-dataset_1-auto {
   color: black;
   width: 59.3939393939394%;
+  hight: 32%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -187,6 +195,7 @@ gapminder %&gt;%
 .panel3-dataset_1-auto {
   color: black;
   width: NA%;
+  hight: 33%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -241,7 +250,7 @@ count: false
 .panel1-dataset_2-auto[
 
 ```r
-gapminder %&gt;%  
+gapminder %&gt;%
 * select(country, pop, year)
 ```
 ]
@@ -273,8 +282,8 @@ count: false
 .panel1-dataset_2-auto[
 
 ```r
-gapminder %&gt;%  
-  select(country, pop, year) -&gt;  
+gapminder %&gt;%
+  select(country, pop, year) -&gt;
 * country_pop
 ```
 ]
@@ -287,6 +296,7 @@ gapminder %&gt;%
 .panel1-dataset_2-auto {
   color: black;
   width: 38.6060606060606%;
+  hight: 32%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -294,6 +304,7 @@ gapminder %&gt;%
 .panel2-dataset_2-auto {
   color: black;
   width: 59.3939393939394%;
+  hight: 32%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -301,6 +312,7 @@ gapminder %&gt;%
 .panel3-dataset_2-auto {
   color: black;
   width: NA%;
+  hight: 33%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -355,7 +367,7 @@ count: false
 .panel1-merging_data-auto[
 
 ```r
-country_pop %&gt;%  
+country_pop %&gt;%
 * full_join(country_life_exp,
 *           by = c("country",
 *                  "year"))
@@ -389,10 +401,10 @@ count: false
 .panel1-merging_data-auto[
 
 ```r
-country_pop %&gt;%  
-  full_join(country_life_exp,  
-            by = c("country",  
-                   "year")) -&gt;  
+country_pop %&gt;%
+  full_join(country_life_exp,
+            by = c("country",
+                   "year")) -&gt;
 * merged_data
 ```
 ]
@@ -405,6 +417,7 @@ country_pop %&gt;%
 .panel1-merging_data-auto {
   color: black;
   width: 38.6060606060606%;
+  hight: 32%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -412,6 +425,7 @@ country_pop %&gt;%
 .panel2-merging_data-auto {
   color: black;
   width: 59.3939393939394%;
+  hight: 32%;
   float: left;
   padding-left: 1%;
   font-size: 80%
@@ -419,6 +433,7 @@ country_pop %&gt;%
 .panel3-merging_data-auto {
   color: black;
   width: NA%;
+  hight: 33%;
   float: left;
   padding-left: 1%;
   font-size: 80%

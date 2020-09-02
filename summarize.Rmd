@@ -14,7 +14,9 @@ output:
       countIncrementalSlides: false
 ---
 
-
+```{r xaringanExtra-share-again, echo=FALSE}
+xaringanExtra::use_share_again()
+```
 
 
 class: left, top, inverse
