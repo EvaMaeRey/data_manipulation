@@ -310,9 +310,9 @@ tibble(x = c(1,2,3,4,6),
        y = 1:5, 
        z = list(1:2, 4:5, 8, NA, c(1,7,9,0))) %>% 
   tibble() # does not do anything #ROTATE
-  mutate(the_length = map(z, length)) %>% #general #ROTATE
-  mutate(the_length = map_int(z, length)) %>% #scalar integer #ROTATE
-  mutate(the_length = map_dbl(z, length)) %>% #scalar numeric #ROTATE
+  mutate(the_length = map(z, length)) #general #ROTATE
+  mutate(the_length = map_int(z, length)) #scalar integer #ROTATE
+  mutate(the_length = map_dbl(z, length)) #scalar numeric #ROTATE
   mutate(the_length = map_chr(z, length)) #scalar character #ROTATE
 ```
 
@@ -334,42 +334,33 @@ tibble(x = c(1,2,3,4,6),
 
 
 
-```{r list_column_workflow, echo = F, eval = T}
+---
+
+
+`r chunk_reveal("model", widths = c(59,40))`
+
+
+```{r model, echo = F, eval = T}
+library(gapminder)
 # linear modeling function
-mod_fun <- function(df) lm(Sepal.Length ~ ., data = df) 
+mod_fun <- function(df) lm(lifeExp ~ ., data = df) 
 # returns coefficients of the model
-b_fun <- function(mod) coefficients(mod)[[1]]
-iris %>% 
-  group_by(Species) %>% 
+coef_fun <- function(mod) coefficients(mod)[[1]]
+coef2_fun <- function(mod) coefficients(mod)[[2]]
+gapminder %>% 
+  filter(year == 2002) %>% 
+  group_by(continent) %>% 
+  select(-country, -year) %>% 
   nest() %>% # Make a list column
   mutate(model = map(data, mod_fun)) %>%  
-  mutate(beta_0 = map_dbl(model, b_fun)) -> 
-  iris_mods
+  mutate(beta_0 = map_dbl(model, coef_fun)) %>%  
+  mutate(beta_1 = map_dbl(model, coef2_fun)) %>% 
+  pull(model)
 ```
 
 
 
----
-  
-  `r chunk_reveal("list_column_workflow", widths = c(59,40))`
 
-
----
-  
-  # Looking inside a list-column
-  
-  ```{r}
-iris_mods$model 
-```
-
----
-  
-  # Looking at an element in a list-column
-  
-  
-  ```{r}
-iris_mods$data[[3]]
-```
 
 
 ---
@@ -438,11 +429,12 @@ mtcars %>%
   
   # set up
 ```{r}
-n_iris <- iris %>% 
-  group_by(Species) %>% 
-  nest()
-mod_fun <- function(df) lm(Sepal.Length ~ ., data = df)
-m_iris <- n_iris %>%
+library(gapminder)
+mod_fun <- function(df) lm(lifeExp ~ ., data = df)
+
+continents <- gapminder %>% 
+  group_by(continent) %>% 
+  nest() %>%
   mutate(model = map(data, mod_fun))
 ```
 

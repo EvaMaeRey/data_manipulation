@@ -2310,7 +2310,7 @@ count: false
 tibble(x = c(1,2,3,4,6),
        y = 1:5,
        z = list(1:2, 4:5, 8, NA, c(1,7,9,0))) %&gt;%
-* mutate(the_length = map(z, length))   #general
+* mutate(the_length = map(z, length))  #general
 ```
 ]
  
@@ -2338,7 +2338,7 @@ count: false
 tibble(x = c(1,2,3,4,6),
        y = 1:5,
        z = list(1:2, 4:5, 8, NA, c(1,7,9,0))) %&gt;%
-* mutate(the_length = map_int(z, length))   #scalar integer
+* mutate(the_length = map_int(z, length))  #scalar integer
 ```
 ]
  
@@ -2366,7 +2366,7 @@ count: false
 tibble(x = c(1,2,3,4,6),
        y = 1:5,
        z = list(1:2, 4:5, 8, NA, c(1,7,9,0))) %&gt;%
-* mutate(the_length = map_dbl(z, length))   #scalar numeric
+* mutate(the_length = map_dbl(z, length))  #scalar numeric
 ```
 ]
  
@@ -2461,24 +2461,20 @@ tibble(x = c(1,2,3,4,6),
 
 
 
-
-
-
-
 ---
-  
-  count: false
+
+
+count: false
  
 
-.panel1-list_column_workflow-auto[
+.panel1-model-auto[
 
 ```r
-# linear modeling function
-*mod_fun &lt;- function(df) lm(Sepal.Length ~ ., data = df)
+*library(gapminder)
 ```
 ]
  
-.panel2-list_column_workflow-auto[
+.panel2-model-auto[
 
 ]
 
@@ -2486,17 +2482,16 @@ tibble(x = c(1,2,3,4,6),
 count: false
  
 
-.panel1-list_column_workflow-auto[
+.panel1-model-auto[
 
 ```r
+library(gapminder)
 # linear modeling function
-mod_fun &lt;- function(df) lm(Sepal.Length ~ ., data = df)
-# returns coefficients of the model
-*b_fun &lt;- function(mod) coefficients(mod)[[1]]
+*mod_fun &lt;- function(df) lm(lifeExp ~ ., data = df)
 ```
 ]
  
-.panel2-list_column_workflow-auto[
+.panel2-model-auto[
 
 ]
 
@@ -2504,171 +2499,75 @@ mod_fun &lt;- function(df) lm(Sepal.Length ~ ., data = df)
 count: false
  
 
-.panel1-list_column_workflow-auto[
+.panel1-model-auto[
 
 ```r
+library(gapminder)
 # linear modeling function
-mod_fun &lt;- function(df) lm(Sepal.Length ~ ., data = df)
+mod_fun &lt;- function(df) lm(lifeExp ~ ., data = df)
 # returns coefficients of the model
-b_fun &lt;- function(mod) coefficients(mod)[[1]]
-*iris
+*coef_fun &lt;- function(mod) coefficients(mod)[[1]]
 ```
 ]
  
-.panel2-list_column_workflow-auto[
+.panel2-model-auto[
+
+]
+
+---
+count: false
+ 
+
+.panel1-model-auto[
+
+```r
+library(gapminder)
+# linear modeling function
+mod_fun &lt;- function(df) lm(lifeExp ~ ., data = df)
+# returns coefficients of the model
+coef_fun &lt;- function(mod) coefficients(mod)[[1]]
+*coef2_fun &lt;- function(mod) coefficients(mod)[[2]]
+```
+]
+ 
+.panel2-model-auto[
+
+]
+
+---
+count: false
+ 
+
+.panel1-model-auto[
+
+```r
+library(gapminder)
+# linear modeling function
+mod_fun &lt;- function(df) lm(lifeExp ~ ., data = df)
+# returns coefficients of the model
+coef_fun &lt;- function(mod) coefficients(mod)[[1]]
+coef2_fun &lt;- function(mod) coefficients(mod)[[2]]
+*gapminder
+```
+]
+ 
+.panel2-model-auto[
 
 ```
-      Sepal.Length Sepal.Width Petal.Length Petal.Width    Species
-  1            5.1         3.5          1.4         0.2     setosa
-  2            4.9         3.0          1.4         0.2     setosa
-  3            4.7         3.2          1.3         0.2     setosa
-  4            4.6         3.1          1.5         0.2     setosa
-  5            5.0         3.6          1.4         0.2     setosa
-  6            5.4         3.9          1.7         0.4     setosa
-  7            4.6         3.4          1.4         0.3     setosa
-  8            5.0         3.4          1.5         0.2     setosa
-  9            4.4         2.9          1.4         0.2     setosa
-  10           4.9         3.1          1.5         0.1     setosa
-  11           5.4         3.7          1.5         0.2     setosa
-  12           4.8         3.4          1.6         0.2     setosa
-  13           4.8         3.0          1.4         0.1     setosa
-  14           4.3         3.0          1.1         0.1     setosa
-  15           5.8         4.0          1.2         0.2     setosa
-  16           5.7         4.4          1.5         0.4     setosa
-  17           5.4         3.9          1.3         0.4     setosa
-  18           5.1         3.5          1.4         0.3     setosa
-  19           5.7         3.8          1.7         0.3     setosa
-  20           5.1         3.8          1.5         0.3     setosa
-  21           5.4         3.4          1.7         0.2     setosa
-  22           5.1         3.7          1.5         0.4     setosa
-  23           4.6         3.6          1.0         0.2     setosa
-  24           5.1         3.3          1.7         0.5     setosa
-  25           4.8         3.4          1.9         0.2     setosa
-  26           5.0         3.0          1.6         0.2     setosa
-  27           5.0         3.4          1.6         0.4     setosa
-  28           5.2         3.5          1.5         0.2     setosa
-  29           5.2         3.4          1.4         0.2     setosa
-  30           4.7         3.2          1.6         0.2     setosa
-  31           4.8         3.1          1.6         0.2     setosa
-  32           5.4         3.4          1.5         0.4     setosa
-  33           5.2         4.1          1.5         0.1     setosa
-  34           5.5         4.2          1.4         0.2     setosa
-  35           4.9         3.1          1.5         0.2     setosa
-  36           5.0         3.2          1.2         0.2     setosa
-  37           5.5         3.5          1.3         0.2     setosa
-  38           4.9         3.6          1.4         0.1     setosa
-  39           4.4         3.0          1.3         0.2     setosa
-  40           5.1         3.4          1.5         0.2     setosa
-  41           5.0         3.5          1.3         0.3     setosa
-  42           4.5         2.3          1.3         0.3     setosa
-  43           4.4         3.2          1.3         0.2     setosa
-  44           5.0         3.5          1.6         0.6     setosa
-  45           5.1         3.8          1.9         0.4     setosa
-  46           4.8         3.0          1.4         0.3     setosa
-  47           5.1         3.8          1.6         0.2     setosa
-  48           4.6         3.2          1.4         0.2     setosa
-  49           5.3         3.7          1.5         0.2     setosa
-  50           5.0         3.3          1.4         0.2     setosa
-  51           7.0         3.2          4.7         1.4 versicolor
-  52           6.4         3.2          4.5         1.5 versicolor
-  53           6.9         3.1          4.9         1.5 versicolor
-  54           5.5         2.3          4.0         1.3 versicolor
-  55           6.5         2.8          4.6         1.5 versicolor
-  56           5.7         2.8          4.5         1.3 versicolor
-  57           6.3         3.3          4.7         1.6 versicolor
-  58           4.9         2.4          3.3         1.0 versicolor
-  59           6.6         2.9          4.6         1.3 versicolor
-  60           5.2         2.7          3.9         1.4 versicolor
-  61           5.0         2.0          3.5         1.0 versicolor
-  62           5.9         3.0          4.2         1.5 versicolor
-  63           6.0         2.2          4.0         1.0 versicolor
-  64           6.1         2.9          4.7         1.4 versicolor
-  65           5.6         2.9          3.6         1.3 versicolor
-  66           6.7         3.1          4.4         1.4 versicolor
-  67           5.6         3.0          4.5         1.5 versicolor
-  68           5.8         2.7          4.1         1.0 versicolor
-  69           6.2         2.2          4.5         1.5 versicolor
-  70           5.6         2.5          3.9         1.1 versicolor
-  71           5.9         3.2          4.8         1.8 versicolor
-  72           6.1         2.8          4.0         1.3 versicolor
-  73           6.3         2.5          4.9         1.5 versicolor
-  74           6.1         2.8          4.7         1.2 versicolor
-  75           6.4         2.9          4.3         1.3 versicolor
-  76           6.6         3.0          4.4         1.4 versicolor
-  77           6.8         2.8          4.8         1.4 versicolor
-  78           6.7         3.0          5.0         1.7 versicolor
-  79           6.0         2.9          4.5         1.5 versicolor
-  80           5.7         2.6          3.5         1.0 versicolor
-  81           5.5         2.4          3.8         1.1 versicolor
-  82           5.5         2.4          3.7         1.0 versicolor
-  83           5.8         2.7          3.9         1.2 versicolor
-  84           6.0         2.7          5.1         1.6 versicolor
-  85           5.4         3.0          4.5         1.5 versicolor
-  86           6.0         3.4          4.5         1.6 versicolor
-  87           6.7         3.1          4.7         1.5 versicolor
-  88           6.3         2.3          4.4         1.3 versicolor
-  89           5.6         3.0          4.1         1.3 versicolor
-  90           5.5         2.5          4.0         1.3 versicolor
-  91           5.5         2.6          4.4         1.2 versicolor
-  92           6.1         3.0          4.6         1.4 versicolor
-  93           5.8         2.6          4.0         1.2 versicolor
-  94           5.0         2.3          3.3         1.0 versicolor
-  95           5.6         2.7          4.2         1.3 versicolor
-  96           5.7         3.0          4.2         1.2 versicolor
-  97           5.7         2.9          4.2         1.3 versicolor
-  98           6.2         2.9          4.3         1.3 versicolor
-  99           5.1         2.5          3.0         1.1 versicolor
-  100          5.7         2.8          4.1         1.3 versicolor
-  101          6.3         3.3          6.0         2.5  virginica
-  102          5.8         2.7          5.1         1.9  virginica
-  103          7.1         3.0          5.9         2.1  virginica
-  104          6.3         2.9          5.6         1.8  virginica
-  105          6.5         3.0          5.8         2.2  virginica
-  106          7.6         3.0          6.6         2.1  virginica
-  107          4.9         2.5          4.5         1.7  virginica
-  108          7.3         2.9          6.3         1.8  virginica
-  109          6.7         2.5          5.8         1.8  virginica
-  110          7.2         3.6          6.1         2.5  virginica
-  111          6.5         3.2          5.1         2.0  virginica
-  112          6.4         2.7          5.3         1.9  virginica
-  113          6.8         3.0          5.5         2.1  virginica
-  114          5.7         2.5          5.0         2.0  virginica
-  115          5.8         2.8          5.1         2.4  virginica
-  116          6.4         3.2          5.3         2.3  virginica
-  117          6.5         3.0          5.5         1.8  virginica
-  118          7.7         3.8          6.7         2.2  virginica
-  119          7.7         2.6          6.9         2.3  virginica
-  120          6.0         2.2          5.0         1.5  virginica
-  121          6.9         3.2          5.7         2.3  virginica
-  122          5.6         2.8          4.9         2.0  virginica
-  123          7.7         2.8          6.7         2.0  virginica
-  124          6.3         2.7          4.9         1.8  virginica
-  125          6.7         3.3          5.7         2.1  virginica
-  126          7.2         3.2          6.0         1.8  virginica
-  127          6.2         2.8          4.8         1.8  virginica
-  128          6.1         3.0          4.9         1.8  virginica
-  129          6.4         2.8          5.6         2.1  virginica
-  130          7.2         3.0          5.8         1.6  virginica
-  131          7.4         2.8          6.1         1.9  virginica
-  132          7.9         3.8          6.4         2.0  virginica
-  133          6.4         2.8          5.6         2.2  virginica
-  134          6.3         2.8          5.1         1.5  virginica
-  135          6.1         2.6          5.6         1.4  virginica
-  136          7.7         3.0          6.1         2.3  virginica
-  137          6.3         3.4          5.6         2.4  virginica
-  138          6.4         3.1          5.5         1.8  virginica
-  139          6.0         3.0          4.8         1.8  virginica
-  140          6.9         3.1          5.4         2.1  virginica
-  141          6.7         3.1          5.6         2.4  virginica
-  142          6.9         3.1          5.1         2.3  virginica
-  143          5.8         2.7          5.1         1.9  virginica
-  144          6.8         3.2          5.9         2.3  virginica
-  145          6.7         3.3          5.7         2.5  virginica
-  146          6.7         3.0          5.2         2.3  virginica
-  147          6.3         2.5          5.0         1.9  virginica
-  148          6.5         3.0          5.2         2.0  virginica
-  149          6.2         3.4          5.4         2.3  virginica
-  150          5.9         3.0          5.1         1.8  virginica
+  # A tibble: 1,704 x 6
+     country     continent  year lifeExp      pop gdpPercap
+     &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
+   1 Afghanistan Asia       1952    28.8  8425333      779.
+   2 Afghanistan Asia       1957    30.3  9240934      821.
+   3 Afghanistan Asia       1962    32.0 10267083      853.
+   4 Afghanistan Asia       1967    34.0 11537966      836.
+   5 Afghanistan Asia       1972    36.1 13079460      740.
+   6 Afghanistan Asia       1977    38.4 14880372      786.
+   7 Afghanistan Asia       1982    39.9 12881816      978.
+   8 Afghanistan Asia       1987    40.8 13867957      852.
+   9 Afghanistan Asia       1992    41.7 16317921      649.
+  10 Afghanistan Asia       1997    41.8 22227415      635.
+  # … with 1,694 more rows
 ```
 ]
 
@@ -2676,36 +2575,37 @@ b_fun &lt;- function(mod) coefficients(mod)[[1]]
 count: false
  
 
-.panel1-list_column_workflow-auto[
+.panel1-model-auto[
 
 ```r
+library(gapminder)
 # linear modeling function
-mod_fun &lt;- function(df) lm(Sepal.Length ~ ., data = df)
+mod_fun &lt;- function(df) lm(lifeExp ~ ., data = df)
 # returns coefficients of the model
-b_fun &lt;- function(mod) coefficients(mod)[[1]]
-iris %&gt;%
-* group_by(Species)
+coef_fun &lt;- function(mod) coefficients(mod)[[1]]
+coef2_fun &lt;- function(mod) coefficients(mod)[[2]]
+gapminder %&gt;%
+* filter(year == 2002)
 ```
 ]
  
-.panel2-list_column_workflow-auto[
+.panel2-model-auto[
 
 ```
-  # A tibble: 150 x 5
-  # Groups:   Species [3]
-     Sepal.Length Sepal.Width Petal.Length Petal.Width Species
-            &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt; &lt;fct&gt;  
-   1          5.1         3.5          1.4         0.2 setosa 
-   2          4.9         3            1.4         0.2 setosa 
-   3          4.7         3.2          1.3         0.2 setosa 
-   4          4.6         3.1          1.5         0.2 setosa 
-   5          5           3.6          1.4         0.2 setosa 
-   6          5.4         3.9          1.7         0.4 setosa 
-   7          4.6         3.4          1.4         0.3 setosa 
-   8          5           3.4          1.5         0.2 setosa 
-   9          4.4         2.9          1.4         0.2 setosa 
-  10          4.9         3.1          1.5         0.1 setosa 
-  # … with 140 more rows
+  # A tibble: 142 x 6
+     country     continent  year lifeExp       pop gdpPercap
+     &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;     &lt;int&gt;     &lt;dbl&gt;
+   1 Afghanistan Asia       2002    42.1  25268405      727.
+   2 Albania     Europe     2002    75.7   3508512     4604.
+   3 Algeria     Africa     2002    71.0  31287142     5288.
+   4 Angola      Africa     2002    41.0  10866106     2773.
+   5 Argentina   Americas   2002    74.3  38331121     8798.
+   6 Australia   Oceania    2002    80.4  19546792    30688.
+   7 Austria     Europe     2002    79.0   8148312    32418.
+   8 Bahrain     Asia       2002    74.8    656397    23404.
+   9 Bangladesh  Asia       2002    62.0 135656790     1136.
+  10 Belgium     Europe     2002    78.3  10311970    30486.
+  # … with 132 more rows
 ```
 ]
 
@@ -2713,29 +2613,116 @@ iris %&gt;%
 count: false
  
 
-.panel1-list_column_workflow-auto[
+.panel1-model-auto[
 
 ```r
+library(gapminder)
 # linear modeling function
-mod_fun &lt;- function(df) lm(Sepal.Length ~ ., data = df)
+mod_fun &lt;- function(df) lm(lifeExp ~ ., data = df)
 # returns coefficients of the model
-b_fun &lt;- function(mod) coefficients(mod)[[1]]
-iris %&gt;%
-  group_by(Species) %&gt;%
+coef_fun &lt;- function(mod) coefficients(mod)[[1]]
+coef2_fun &lt;- function(mod) coefficients(mod)[[2]]
+gapminder %&gt;%
+  filter(year == 2002) %&gt;%
+* group_by(continent)
+```
+]
+ 
+.panel2-model-auto[
+
+```
+  # A tibble: 142 x 6
+  # Groups:   continent [5]
+     country     continent  year lifeExp       pop gdpPercap
+     &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;     &lt;int&gt;     &lt;dbl&gt;
+   1 Afghanistan Asia       2002    42.1  25268405      727.
+   2 Albania     Europe     2002    75.7   3508512     4604.
+   3 Algeria     Africa     2002    71.0  31287142     5288.
+   4 Angola      Africa     2002    41.0  10866106     2773.
+   5 Argentina   Americas   2002    74.3  38331121     8798.
+   6 Australia   Oceania    2002    80.4  19546792    30688.
+   7 Austria     Europe     2002    79.0   8148312    32418.
+   8 Bahrain     Asia       2002    74.8    656397    23404.
+   9 Bangladesh  Asia       2002    62.0 135656790     1136.
+  10 Belgium     Europe     2002    78.3  10311970    30486.
+  # … with 132 more rows
+```
+]
+
+---
+count: false
+ 
+
+.panel1-model-auto[
+
+```r
+library(gapminder)
+# linear modeling function
+mod_fun &lt;- function(df) lm(lifeExp ~ ., data = df)
+# returns coefficients of the model
+coef_fun &lt;- function(mod) coefficients(mod)[[1]]
+coef2_fun &lt;- function(mod) coefficients(mod)[[2]]
+gapminder %&gt;%
+  filter(year == 2002) %&gt;%
+  group_by(continent) %&gt;%
+* select(-country, -year)
+```
+]
+ 
+.panel2-model-auto[
+
+```
+  # A tibble: 142 x 4
+  # Groups:   continent [5]
+     continent lifeExp       pop gdpPercap
+     &lt;fct&gt;       &lt;dbl&gt;     &lt;int&gt;     &lt;dbl&gt;
+   1 Asia         42.1  25268405      727.
+   2 Europe       75.7   3508512     4604.
+   3 Africa       71.0  31287142     5288.
+   4 Africa       41.0  10866106     2773.
+   5 Americas     74.3  38331121     8798.
+   6 Oceania      80.4  19546792    30688.
+   7 Europe       79.0   8148312    32418.
+   8 Asia         74.8    656397    23404.
+   9 Asia         62.0 135656790     1136.
+  10 Europe       78.3  10311970    30486.
+  # … with 132 more rows
+```
+]
+
+---
+count: false
+ 
+
+.panel1-model-auto[
+
+```r
+library(gapminder)
+# linear modeling function
+mod_fun &lt;- function(df) lm(lifeExp ~ ., data = df)
+# returns coefficients of the model
+coef_fun &lt;- function(mod) coefficients(mod)[[1]]
+coef2_fun &lt;- function(mod) coefficients(mod)[[2]]
+gapminder %&gt;%
+  filter(year == 2002) %&gt;%
+  group_by(continent) %&gt;%
+  select(-country, -year) %&gt;%
 * nest()   # Make a list column
 ```
 ]
  
-.panel2-list_column_workflow-auto[
+.panel2-model-auto[
 
 ```
-  # A tibble: 3 x 2
-  # Groups:   Species [3]
-    Species    data             
-    &lt;fct&gt;      &lt;list&gt;           
-  1 setosa     &lt;tibble [50 × 4]&gt;
-  2 versicolor &lt;tibble [50 × 4]&gt;
-  3 virginica  &lt;tibble [50 × 4]&gt;
+  # A tibble: 5 x 2
+  # Groups:   continent [5]
+    continent data             
+    &lt;fct&gt;     &lt;list&gt;           
+  1 Asia      &lt;tibble [33 × 3]&gt;
+  2 Europe    &lt;tibble [30 × 3]&gt;
+  3 Africa    &lt;tibble [52 × 3]&gt;
+  4 Americas  &lt;tibble [25 × 3]&gt;
+  5 Oceania   &lt;tibble [2 × 3]&gt;
 ```
 ]
 
@@ -2743,62 +2730,36 @@ iris %&gt;%
 count: false
  
 
-.panel1-list_column_workflow-auto[
+.panel1-model-auto[
 
 ```r
+library(gapminder)
 # linear modeling function
-mod_fun &lt;- function(df) lm(Sepal.Length ~ ., data = df)
+mod_fun &lt;- function(df) lm(lifeExp ~ ., data = df)
 # returns coefficients of the model
-b_fun &lt;- function(mod) coefficients(mod)[[1]]
-iris %&gt;%
-  group_by(Species) %&gt;%
+coef_fun &lt;- function(mod) coefficients(mod)[[1]]
+coef2_fun &lt;- function(mod) coefficients(mod)[[2]]
+gapminder %&gt;%
+  filter(year == 2002) %&gt;%
+  group_by(continent) %&gt;%
+  select(-country, -year) %&gt;%
   nest() %&gt;%  # Make a list column
 * mutate(model = map(data, mod_fun))
 ```
 ]
  
-.panel2-list_column_workflow-auto[
+.panel2-model-auto[
 
 ```
-  # A tibble: 3 x 3
-  # Groups:   Species [3]
-    Species    data              model 
-    &lt;fct&gt;      &lt;list&gt;            &lt;list&gt;
-  1 setosa     &lt;tibble [50 × 4]&gt; &lt;lm&gt;  
-  2 versicolor &lt;tibble [50 × 4]&gt; &lt;lm&gt;  
-  3 virginica  &lt;tibble [50 × 4]&gt; &lt;lm&gt;
-```
-]
-
----
-count: false
- 
-
-.panel1-list_column_workflow-auto[
-
-```r
-# linear modeling function
-mod_fun &lt;- function(df) lm(Sepal.Length ~ ., data = df)
-# returns coefficients of the model
-b_fun &lt;- function(mod) coefficients(mod)[[1]]
-iris %&gt;%
-  group_by(Species) %&gt;%
-  nest() %&gt;%  # Make a list column
-  mutate(model = map(data, mod_fun)) %&gt;%
-* mutate(beta_0 = map_dbl(model, b_fun))
-```
-]
- 
-.panel2-list_column_workflow-auto[
-
-```
-  # A tibble: 3 x 4
-  # Groups:   Species [3]
-    Species    data              model  beta_0
-    &lt;fct&gt;      &lt;list&gt;            &lt;list&gt;  &lt;dbl&gt;
-  1 setosa     &lt;tibble [50 × 4]&gt; &lt;lm&gt;    2.35 
-  2 versicolor &lt;tibble [50 × 4]&gt; &lt;lm&gt;    1.90 
-  3 virginica  &lt;tibble [50 × 4]&gt; &lt;lm&gt;    0.700
+  # A tibble: 5 x 3
+  # Groups:   continent [5]
+    continent data              model 
+    &lt;fct&gt;     &lt;list&gt;            &lt;list&gt;
+  1 Asia      &lt;tibble [33 × 3]&gt; &lt;lm&gt;  
+  2 Europe    &lt;tibble [30 × 3]&gt; &lt;lm&gt;  
+  3 Africa    &lt;tibble [52 × 3]&gt; &lt;lm&gt;  
+  4 Americas  &lt;tibble [25 × 3]&gt; &lt;lm&gt;  
+  5 Oceania   &lt;tibble [2 × 3]&gt;  &lt;lm&gt;
 ```
 ]
 
@@ -2806,28 +2767,160 @@ iris %&gt;%
 count: false
  
 
-.panel1-list_column_workflow-auto[
+.panel1-model-auto[
 
 ```r
+library(gapminder)
 # linear modeling function
-mod_fun &lt;- function(df) lm(Sepal.Length ~ ., data = df)
+mod_fun &lt;- function(df) lm(lifeExp ~ ., data = df)
 # returns coefficients of the model
-b_fun &lt;- function(mod) coefficients(mod)[[1]]
-iris %&gt;%
-  group_by(Species) %&gt;%
+coef_fun &lt;- function(mod) coefficients(mod)[[1]]
+coef2_fun &lt;- function(mod) coefficients(mod)[[2]]
+gapminder %&gt;%
+  filter(year == 2002) %&gt;%
+  group_by(continent) %&gt;%
+  select(-country, -year) %&gt;%
   nest() %&gt;%  # Make a list column
   mutate(model = map(data, mod_fun)) %&gt;%
-  mutate(beta_0 = map_dbl(model, b_fun)) -&gt;
-* iris_mods
+* mutate(beta_0 = map_dbl(model, coef_fun))
 ```
 ]
  
-.panel2-list_column_workflow-auto[
+.panel2-model-auto[
 
+```
+  # A tibble: 5 x 4
+  # Groups:   continent [5]
+    continent data              model  beta_0
+    &lt;fct&gt;     &lt;list&gt;            &lt;list&gt;  &lt;dbl&gt;
+  1 Asia      &lt;tibble [33 × 3]&gt; &lt;lm&gt;     63.3
+  2 Europe    &lt;tibble [30 × 3]&gt; &lt;lm&gt;     71.8
+  3 Africa    &lt;tibble [52 × 3]&gt; &lt;lm&gt;     49.4
+  4 Americas  &lt;tibble [25 × 3]&gt; &lt;lm&gt;     69.4
+  5 Oceania   &lt;tibble [2 × 3]&gt;  &lt;lm&gt;     78.8
+```
+]
+
+---
+count: false
+ 
+
+.panel1-model-auto[
+
+```r
+library(gapminder)
+# linear modeling function
+mod_fun &lt;- function(df) lm(lifeExp ~ ., data = df)
+# returns coefficients of the model
+coef_fun &lt;- function(mod) coefficients(mod)[[1]]
+coef2_fun &lt;- function(mod) coefficients(mod)[[2]]
+gapminder %&gt;%
+  filter(year == 2002) %&gt;%
+  group_by(continent) %&gt;%
+  select(-country, -year) %&gt;%
+  nest() %&gt;%  # Make a list column
+  mutate(model = map(data, mod_fun)) %&gt;%
+  mutate(beta_0 = map_dbl(model, coef_fun)) %&gt;%
+* mutate(beta_1 = map_dbl(model, coef2_fun))
+```
+]
+ 
+.panel2-model-auto[
+
+```
+  # A tibble: 5 x 5
+  # Groups:   continent [5]
+    continent data              model  beta_0   beta_1
+    &lt;fct&gt;     &lt;list&gt;            &lt;list&gt;  &lt;dbl&gt;    &lt;dbl&gt;
+  1 Asia      &lt;tibble [33 × 3]&gt; &lt;lm&gt;     63.3  3.25e-9
+  2 Europe    &lt;tibble [30 × 3]&gt; &lt;lm&gt;     71.8  4.23e-9
+  3 Africa    &lt;tibble [52 × 3]&gt; &lt;lm&gt;     49.4  1.76e-8
+  4 Americas  &lt;tibble [25 × 3]&gt; &lt;lm&gt;     69.4 -1.77e-8
+  5 Oceania   &lt;tibble [2 × 3]&gt;  &lt;lm&gt;     78.8  8.06e-8
+```
+]
+
+---
+count: false
+ 
+
+.panel1-model-auto[
+
+```r
+library(gapminder)
+# linear modeling function
+mod_fun &lt;- function(df) lm(lifeExp ~ ., data = df)
+# returns coefficients of the model
+coef_fun &lt;- function(mod) coefficients(mod)[[1]]
+coef2_fun &lt;- function(mod) coefficients(mod)[[2]]
+gapminder %&gt;%
+  filter(year == 2002) %&gt;%
+  group_by(continent) %&gt;%
+  select(-country, -year) %&gt;%
+  nest() %&gt;%  # Make a list column
+  mutate(model = map(data, mod_fun)) %&gt;%
+  mutate(beta_0 = map_dbl(model, coef_fun)) %&gt;%
+  mutate(beta_1 = map_dbl(model, coef2_fun)) %&gt;%
+* pull(model)
+```
+]
+ 
+.panel2-model-auto[
+
+```
+  [[1]]
+  
+  Call:
+  lm(formula = lifeExp ~ ., data = df)
+  
+  Coefficients:
+  (Intercept)          pop    gdpPercap  
+    6.325e+01    3.250e-09    5.533e-04  
+  
+  
+  [[2]]
+  
+  Call:
+  lm(formula = lifeExp ~ ., data = df)
+  
+  Coefficients:
+  (Intercept)          pop    gdpPercap  
+    7.179e+01    4.227e-09    2.224e-04  
+  
+  
+  [[3]]
+  
+  Call:
+  lm(formula = lifeExp ~ ., data = df)
+  
+  Coefficients:
+  (Intercept)          pop    gdpPercap  
+    4.939e+01    1.765e-08    1.406e-03  
+  
+  
+  [[4]]
+  
+  Call:
+  lm(formula = lifeExp ~ ., data = df)
+  
+  Coefficients:
+  (Intercept)          pop    gdpPercap  
+    6.939e+01   -1.771e-08    3.913e-04  
+  
+  
+  [[5]]
+  
+  Call:
+  lm(formula = lifeExp ~ ., data = df)
+  
+  Coefficients:
+  (Intercept)          pop    gdpPercap  
+    7.880e+01    8.057e-08           NA
+```
 ]
 
 &lt;style&gt;
-.panel1-list_column_workflow-auto {
+.panel1-model-auto {
   color: black;
   width: 58.4040404040404%;
   hight: 32%;
@@ -2835,7 +2928,7 @@ iris %&gt;%
   padding-left: 1%;
   font-size: 80%
 }
-.panel2-list_column_workflow-auto {
+.panel2-model-auto {
   color: black;
   width: 39.5959595959596%;
   hight: 32%;
@@ -2843,7 +2936,7 @@ iris %&gt;%
   padding-left: 1%;
   font-size: 80%
 }
-.panel3-list_column_workflow-auto {
+.panel3-model-auto {
   color: black;
   width: NA%;
   hight: 33%;
@@ -2856,72 +2949,61 @@ iris %&gt;%
 
 
 
----
-  
-  # Looking inside a list-column
-  
-  
-  ```r
-  iris_mods$model 
-  ```
-  
-  ```
-    [[1]]
-    
-    Call:
-    lm(formula = Sepal.Length ~ ., data = df)
-    
-    Coefficients:
-     (Intercept)   Sepal.Width  Petal.Length   Petal.Width  
-          2.3519        0.6548        0.2376        0.2521  
-    
-    
-    [[2]]
-    
-    Call:
-    lm(formula = Sepal.Length ~ ., data = df)
-    
-    Coefficients:
-     (Intercept)   Sepal.Width  Petal.Length   Petal.Width  
-          1.8955        0.3869        0.9083       -0.6792  
-    
-    
-    [[3]]
-    
-    Call:
-    lm(formula = Sepal.Length ~ ., data = df)
-    
-    Coefficients:
-     (Intercept)   Sepal.Width  Petal.Length   Petal.Width  
-          0.6999        0.3303        0.9455       -0.1698
-  ```
 
----
+```
+  [[1]]
   
-  # Looking at an element in a list-column
+  Call:
+  lm(formula = lifeExp ~ ., data = df)
+  
+  Coefficients:
+  (Intercept)          pop    gdpPercap  
+    6.325e+01    3.250e-09    5.533e-04  
   
   
+  [[2]]
   
-  ```r
-  iris_mods$data[[3]]
-  ```
+  Call:
+  lm(formula = lifeExp ~ ., data = df)
   
-  ```
-    # A tibble: 50 x 4
-       Sepal.Length Sepal.Width Petal.Length Petal.Width
-              &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt;
-     1          6.3         3.3          6           2.5
-     2          5.8         2.7          5.1         1.9
-     3          7.1         3            5.9         2.1
-     4          6.3         2.9          5.6         1.8
-     5          6.5         3            5.8         2.2
-     6          7.6         3            6.6         2.1
-     7          4.9         2.5          4.5         1.7
-     8          7.3         2.9          6.3         1.8
-     9          6.7         2.5          5.8         1.8
-    10          7.2         3.6          6.1         2.5
-    # … with 40 more rows
-  ```
+  Coefficients:
+  (Intercept)          pop    gdpPercap  
+    7.179e+01    4.227e-09    2.224e-04  
+  
+  
+  [[3]]
+  
+  Call:
+  lm(formula = lifeExp ~ ., data = df)
+  
+  Coefficients:
+  (Intercept)          pop    gdpPercap  
+    4.939e+01    1.765e-08    1.406e-03  
+  
+  
+  [[4]]
+  
+  Call:
+  lm(formula = lifeExp ~ ., data = df)
+  
+  Coefficients:
+  (Intercept)          pop    gdpPercap  
+    6.939e+01   -1.771e-08    3.913e-04  
+  
+  
+  [[5]]
+  
+  Call:
+  lm(formula = lifeExp ~ ., data = df)
+  
+  Coefficients:
+  (Intercept)          pop    gdpPercap  
+    7.880e+01    8.057e-08           NA
+```
+
+
+
+
 
 
 ---
@@ -3072,11 +3154,12 @@ mtcars %&gt;%
   # set up
 
 ```r
-n_iris &lt;- iris %&gt;% 
-  group_by(Species) %&gt;% 
-  nest()
-mod_fun &lt;- function(df) lm(Sepal.Length ~ ., data = df)
-m_iris &lt;- n_iris %&gt;%
+library(gapminder)
+mod_fun &lt;- function(df) lm(lifeExp ~ ., data = df)
+
+continents &lt;- gapminder %&gt;% 
+  group_by(continent) %&gt;% 
+  nest() %&gt;%
   mutate(model = map(data, mod_fun))
 ```
 

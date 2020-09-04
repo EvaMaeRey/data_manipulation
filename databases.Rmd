@@ -1,0 +1,120 @@
+---
+title: "data bases"
+subtitle: "made with flipbookr and xaringan"
+author: "Gina Reynolds, January 2020"
+output:
+  xaringan::moon_reader:
+    seal: false
+    lib_dir: libs
+    css: [default, hygge, ninjutsu]
+    nature:
+      ratio: 16:10
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+```{r xaringanExtra-share-again, echo=FALSE}
+#xaringanExtra::use_share_again()
+```
+
+```{r, eval = F, echo = F}
+"https://images.unsplash.com/photo-1580618432485-1e08c5039909?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1513&q=80" %>% 
+  magick::image_read() %>% 
+  magick::image_rotate(90) %>% 
+  magick::image_flop() %>% 
+  magick::image_write("lightbulbs.jpg")
+```
+
+
+class: left, top, inverse
+background-image: url(lightbulbs.jpg)
+background-size: cover
+
+# .large[relational databases]
+### Walk-throughs with <br>{DBI}and {RSQLite}
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+#### .right[Gina Reynolds<br>Photo Credit: Fabio Bracht]
+
+
+---
+
+```{r, include = F}
+knitr::opts_chunk$set(cache = F, comment = "")
+library(flipbookr)
+```
+
+`r chunk_reveal("dbi")`
+
+```{r dbi, include=FALSE}
+library(DBI)
+
+# Create an ephemeral in-memory RSQLite database
+con <- dbConnect(RSQLite::SQLite(), 
+                 dbname = ":memory:")
+
+dbListTables(con)
+dbWriteTable(con, "mtcars", mtcars)
+library(gapminder)
+dbWriteTable(con, "gapminder", gapminder)
+
+dbWriteTable(con, "mytibble", 
+             tibble::tibble(
+               x = 1:4, y = 5:8
+               ))
+dbListTables(con)
+
+dbListFields(con, "mtcars")
+dbReadTable(con, "mtcars") ->
+  my_table
+
+# You can fetch all results:
+dbSendQuery(
+  con, 
+  "SELECT * FROM mtcars WHERE cyl = 4") ->
+res
+
+dbFetch(res)
+dbClearResult(res)
+
+# Or a chunk at a time
+dbSendQuery(
+  con, 
+  "SELECT * FROM mtcars WHERE cyl = 4") ->
+res
+while(!dbHasCompleted(res)){
+  chunk <- dbFetch(res, n = 5)
+  print(nrow(chunk))
+}
+
+dbClearResult(res)
+```
+
+---
+
+
+
+
+
+```{css, eval = TRUE, echo = FALSE}
+.remark-code{line-height: 1.5; font-size: 70%}
+
+@media print {
+  .has-continuation {
+    display: block;
+  }
+}
+```
+
+
