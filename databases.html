@@ -45,54 +45,19 @@ background-size: cover
 count: false
  
 
-.panel1-dbi-auto[
+.panel1-dbi-user[
 
 ```r
 *library(DBI)
-```
-]
- 
-.panel2-dbi-auto[
-
-]
-
----
-count: false
- 
-
-.panel1-dbi-auto[
-
-```r
-library(DBI)
 
 # Create an ephemeral in-memory RSQLite database
 *con &lt;- dbConnect(RSQLite::SQLite(),
 *                dbname = ":memory:")
-```
-]
- 
-.panel2-dbi-auto[
-
-]
-
----
-count: false
- 
-
-.panel1-dbi-auto[
-
-```r
-library(DBI)
-
-# Create an ephemeral in-memory RSQLite database
-con &lt;- dbConnect(RSQLite::SQLite(),
-                 dbname = ":memory:")
-
 *dbListTables(con)
 ```
 ]
  
-.panel2-dbi-auto[
+.panel2-dbi-user[
 
 ```
 character(0)
@@ -103,7 +68,7 @@ character(0)
 count: false
  
 
-.panel1-dbi-auto[
+.panel1-dbi-user[
 
 ```r
 library(DBI)
@@ -111,69 +76,24 @@ library(DBI)
 # Create an ephemeral in-memory RSQLite database
 con &lt;- dbConnect(RSQLite::SQLite(),
                  dbname = ":memory:")
-
 dbListTables(con)
+
 *dbWriteTable(con, "mtcars", mtcars)
-```
-]
- 
-.panel2-dbi-auto[
 
-```
-character(0)
-```
-]
-
----
-count: false
- 
-
-.panel1-dbi-auto[
-
-```r
-library(DBI)
-
-# Create an ephemeral in-memory RSQLite database
-con &lt;- dbConnect(RSQLite::SQLite(),
-                 dbname = ":memory:")
-
-dbListTables(con)
-dbWriteTable(con, "mtcars", mtcars)
 *library(gapminder)
-```
-]
- 
-.panel2-dbi-auto[
-
-```
-character(0)
-```
-]
-
----
-count: false
- 
-
-.panel1-dbi-auto[
-
-```r
-library(DBI)
-
-# Create an ephemeral in-memory RSQLite database
-con &lt;- dbConnect(RSQLite::SQLite(),
-                 dbname = ":memory:")
-
-dbListTables(con)
-dbWriteTable(con, "mtcars", mtcars)
-library(gapminder)
 *dbWriteTable(con, "gapminder", gapminder)
+*dbListTables(con)
 ```
 ]
  
-.panel2-dbi-auto[
+.panel2-dbi-user[
 
 ```
 character(0)
+```
+
+```
+[1] "gapminder" "mtcars"   
 ```
 ]
 
@@ -181,7 +101,7 @@ character(0)
 count: false
  
 
-.panel1-dbi-auto[
+.panel1-dbi-user[
 
 ```r
 library(DBI)
@@ -189,56 +109,31 @@ library(DBI)
 # Create an ephemeral in-memory RSQLite database
 con &lt;- dbConnect(RSQLite::SQLite(),
                  dbname = ":memory:")
-
 dbListTables(con)
+
 dbWriteTable(con, "mtcars", mtcars)
+
 library(gapminder)
 dbWriteTable(con, "gapminder", gapminder)
+dbListTables(con)
 
 *dbWriteTable(con, "mytibble",
 *            tibble::tibble(
-*              x = 1:4, y = 5:8
+*              country = c("Germany", "Chile"),
+*              y = c(1,2)
 *              ))
-```
-]
- 
-.panel2-dbi-auto[
-
-```
-character(0)
-```
-]
-
----
-count: false
- 
-
-.panel1-dbi-auto[
-
-```r
-library(DBI)
-
-# Create an ephemeral in-memory RSQLite database
-con &lt;- dbConnect(RSQLite::SQLite(),
-                 dbname = ":memory:")
-
-dbListTables(con)
-dbWriteTable(con, "mtcars", mtcars)
-library(gapminder)
-dbWriteTable(con, "gapminder", gapminder)
-
-dbWriteTable(con, "mytibble",
-             tibble::tibble(
-               x = 1:4, y = 5:8
-               ))
 *dbListTables(con)
 ```
 ]
  
-.panel2-dbi-auto[
+.panel2-dbi-user[
 
 ```
 character(0)
+```
+
+```
+[1] "gapminder" "mtcars"   
 ```
 
 ```
@@ -250,7 +145,7 @@ character(0)
 count: false
  
 
-.panel1-dbi-auto[
+.panel1-dbi-user[
 
 ```r
 library(DBI)
@@ -258,15 +153,18 @@ library(DBI)
 # Create an ephemeral in-memory RSQLite database
 con &lt;- dbConnect(RSQLite::SQLite(),
                  dbname = ":memory:")
-
 dbListTables(con)
+
 dbWriteTable(con, "mtcars", mtcars)
+
 library(gapminder)
 dbWriteTable(con, "gapminder", gapminder)
+dbListTables(con)
 
 dbWriteTable(con, "mytibble",
              tibble::tibble(
-               x = 1:4, y = 5:8
+               country = c("Germany", "Chile"),
+               y = c(1,2)
                ))
 dbListTables(con)
 
@@ -274,10 +172,14 @@ dbListTables(con)
 ```
 ]
  
-.panel2-dbi-auto[
+.panel2-dbi-user[
 
 ```
 character(0)
+```
+
+```
+[1] "gapminder" "mtcars"   
 ```
 
 ```
@@ -294,7 +196,7 @@ character(0)
 count: false
  
 
-.panel1-dbi-auto[
+.panel1-dbi-user[
 
 ```r
 library(DBI)
@@ -302,15 +204,18 @@ library(DBI)
 # Create an ephemeral in-memory RSQLite database
 con &lt;- dbConnect(RSQLite::SQLite(),
                  dbname = ":memory:")
-
 dbListTables(con)
+
 dbWriteTable(con, "mtcars", mtcars)
+
 library(gapminder)
 dbWriteTable(con, "gapminder", gapminder)
+dbListTables(con)
 
 dbWriteTable(con, "mytibble",
              tibble::tibble(
-               x = 1:4, y = 5:8
+               country = c("Germany", "Chile"),
+               y = c(1,2)
                ))
 dbListTables(con)
 
@@ -319,10 +224,14 @@ dbListFields(con, "mtcars")
 ```
 ]
  
-.panel2-dbi-auto[
+.panel2-dbi-user[
 
 ```
 character(0)
+```
+
+```
+[1] "gapminder" "mtcars"   
 ```
 
 ```
@@ -375,7 +284,7 @@ character(0)
 count: false
  
 
-.panel1-dbi-auto[
+.panel1-dbi-user[
 
 ```r
 library(DBI)
@@ -383,15 +292,18 @@ library(DBI)
 # Create an ephemeral in-memory RSQLite database
 con &lt;- dbConnect(RSQLite::SQLite(),
                  dbname = ":memory:")
-
 dbListTables(con)
+
 dbWriteTable(con, "mtcars", mtcars)
+
 library(gapminder)
 dbWriteTable(con, "gapminder", gapminder)
+dbListTables(con)
 
 dbWriteTable(con, "mytibble",
              tibble::tibble(
-               x = 1:4, y = 5:8
+               country = c("Germany", "Chile"),
+               y = c(1,2)
                ))
 dbListTables(con)
 
@@ -401,10 +313,14 @@ dbReadTable(con, "mtcars") -&gt;
 ```
 ]
  
-.panel2-dbi-auto[
+.panel2-dbi-user[
 
 ```
 character(0)
+```
+
+```
+[1] "gapminder" "mtcars"   
 ```
 
 ```
@@ -421,7 +337,7 @@ character(0)
 count: false
  
 
-.panel1-dbi-auto[
+.panel1-dbi-user[
 
 ```r
 library(DBI)
@@ -429,15 +345,18 @@ library(DBI)
 # Create an ephemeral in-memory RSQLite database
 con &lt;- dbConnect(RSQLite::SQLite(),
                  dbname = ":memory:")
-
 dbListTables(con)
+
 dbWriteTable(con, "mtcars", mtcars)
+
 library(gapminder)
 dbWriteTable(con, "gapminder", gapminder)
+dbListTables(con)
 
 dbWriteTable(con, "mytibble",
              tibble::tibble(
-               x = 1:4, y = 5:8
+               country = c("Germany", "Chile"),
+               y = c(1,2)
                ))
 dbListTables(con)
 
@@ -452,10 +371,14 @@ dbReadTable(con, "mtcars") -&gt;
 ```
 ]
  
-.panel2-dbi-auto[
+.panel2-dbi-user[
 
 ```
 character(0)
+```
+
+```
+[1] "gapminder" "mtcars"   
 ```
 
 ```
@@ -479,7 +402,7 @@ character(0)
 count: false
  
 
-.panel1-dbi-auto[
+.panel1-dbi-user[
 
 ```r
 library(DBI)
@@ -487,15 +410,18 @@ library(DBI)
 # Create an ephemeral in-memory RSQLite database
 con &lt;- dbConnect(RSQLite::SQLite(),
                  dbname = ":memory:")
-
 dbListTables(con)
+
 dbWriteTable(con, "mtcars", mtcars)
+
 library(gapminder)
 dbWriteTable(con, "gapminder", gapminder)
+dbListTables(con)
 
 dbWriteTable(con, "mytibble",
              tibble::tibble(
-               x = 1:4, y = 5:8
+               country = c("Germany", "Chile"),
+               y = c(1,2)
                ))
 dbListTables(con)
 
@@ -507,14 +433,18 @@ dbReadTable(con, "mtcars") -&gt;
 dbSendQuery(
   con,
   "SELECT * FROM mtcars WHERE cyl = 4") -&gt;
-*res
+*query
 ```
 ]
  
-.panel2-dbi-auto[
+.panel2-dbi-user[
 
 ```
 character(0)
+```
+
+```
+[1] "gapminder" "mtcars"   
 ```
 
 ```
@@ -531,7 +461,7 @@ character(0)
 count: false
  
 
-.panel1-dbi-auto[
+.panel1-dbi-user[
 
 ```r
 library(DBI)
@@ -539,15 +469,18 @@ library(DBI)
 # Create an ephemeral in-memory RSQLite database
 con &lt;- dbConnect(RSQLite::SQLite(),
                  dbname = ":memory:")
-
 dbListTables(con)
+
 dbWriteTable(con, "mtcars", mtcars)
+
 library(gapminder)
 dbWriteTable(con, "gapminder", gapminder)
+dbListTables(con)
 
 dbWriteTable(con, "mytibble",
              tibble::tibble(
-               x = 1:4, y = 5:8
+               country = c("Germany", "Chile"),
+               y = c(1,2)
                ))
 dbListTables(con)
 
@@ -559,86 +492,20 @@ dbReadTable(con, "mtcars") -&gt;
 dbSendQuery(
   con,
   "SELECT * FROM mtcars WHERE cyl = 4") -&gt;
-res
+query
 
-*dbFetch(res)
+*dbFetch(query)
 ```
 ]
  
-.panel2-dbi-auto[
+.panel2-dbi-user[
 
 ```
 character(0)
 ```
 
 ```
-[1] "gapminder" "mtcars"    "mytibble" 
-```
-
-```
- [1] "mpg"  "cyl"  "disp" "hp"   "drat" "wt"   "qsec" "vs"   "am"   "gear"
-[11] "carb"
-```
-
-```
-    mpg cyl  disp  hp drat    wt  qsec vs am gear carb
-1  22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1
-2  24.4   4 146.7  62 3.69 3.190 20.00  1  0    4    2
-3  22.8   4 140.8  95 3.92 3.150 22.90  1  0    4    2
-4  32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1
-5  30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2
-6  33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1
-7  21.5   4 120.1  97 3.70 2.465 20.01  1  0    3    1
-8  27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1
-9  26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2
-10 30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2
-11 21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2
-```
-]
-
----
-count: false
- 
-
-.panel1-dbi-auto[
-
-```r
-library(DBI)
-
-# Create an ephemeral in-memory RSQLite database
-con &lt;- dbConnect(RSQLite::SQLite(),
-                 dbname = ":memory:")
-
-dbListTables(con)
-dbWriteTable(con, "mtcars", mtcars)
-library(gapminder)
-dbWriteTable(con, "gapminder", gapminder)
-
-dbWriteTable(con, "mytibble",
-             tibble::tibble(
-               x = 1:4, y = 5:8
-               ))
-dbListTables(con)
-
-dbListFields(con, "mtcars")
-dbReadTable(con, "mtcars") -&gt;
-  my_table
-
-# You can fetch all results:
-dbSendQuery(
-  con,
-  "SELECT * FROM mtcars WHERE cyl = 4") -&gt;
-res
-
-dbFetch(res)
-*dbClearResult(res)
-```
-]
- 
-.panel2-dbi-auto[
-
-```
-character(0)
+[1] "gapminder" "mtcars"   
 ```
 
 ```
@@ -670,7 +537,7 @@ character(0)
 count: false
  
 
-.panel1-dbi-auto[
+.panel1-dbi-user[
 
 ```r
 library(DBI)
@@ -678,15 +545,18 @@ library(DBI)
 # Create an ephemeral in-memory RSQLite database
 con &lt;- dbConnect(RSQLite::SQLite(),
                  dbname = ":memory:")
-
 dbListTables(con)
+
 dbWriteTable(con, "mtcars", mtcars)
+
 library(gapminder)
 dbWriteTable(con, "gapminder", gapminder)
+dbListTables(con)
 
 dbWriteTable(con, "mytibble",
              tibble::tibble(
-               x = 1:4, y = 5:8
+               country = c("Germany", "Chile"),
+               y = c(1,2)
                ))
 dbListTables(con)
 
@@ -698,10 +568,136 @@ dbReadTable(con, "mtcars") -&gt;
 dbSendQuery(
   con,
   "SELECT * FROM mtcars WHERE cyl = 4") -&gt;
-res
+query
 
-dbFetch(res)
-dbClearResult(res)
+dbFetch(query) -&gt;
+* mtcars_subset
+```
+]
+ 
+.panel2-dbi-user[
+
+```
+character(0)
+```
+
+```
+[1] "gapminder" "mtcars"   
+```
+
+```
+[1] "gapminder" "mtcars"    "mytibble" 
+```
+
+```
+ [1] "mpg"  "cyl"  "disp" "hp"   "drat" "wt"   "qsec" "vs"   "am"   "gear"
+[11] "carb"
+```
+]
+
+---
+count: false
+ 
+
+.panel1-dbi-user[
+
+```r
+library(DBI)
+
+# Create an ephemeral in-memory RSQLite database
+con &lt;- dbConnect(RSQLite::SQLite(),
+                 dbname = ":memory:")
+dbListTables(con)
+
+dbWriteTable(con, "mtcars", mtcars)
+
+library(gapminder)
+dbWriteTable(con, "gapminder", gapminder)
+dbListTables(con)
+
+dbWriteTable(con, "mytibble",
+             tibble::tibble(
+               country = c("Germany", "Chile"),
+               y = c(1,2)
+               ))
+dbListTables(con)
+
+dbListFields(con, "mtcars")
+dbReadTable(con, "mtcars") -&gt;
+  my_table
+
+# You can fetch all results:
+dbSendQuery(
+  con,
+  "SELECT * FROM mtcars WHERE cyl = 4") -&gt;
+query
+
+dbFetch(query) -&gt;
+  mtcars_subset
+*dbClearResult(query)
+```
+]
+ 
+.panel2-dbi-user[
+
+```
+character(0)
+```
+
+```
+[1] "gapminder" "mtcars"   
+```
+
+```
+[1] "gapminder" "mtcars"    "mytibble" 
+```
+
+```
+ [1] "mpg"  "cyl"  "disp" "hp"   "drat" "wt"   "qsec" "vs"   "am"   "gear"
+[11] "carb"
+```
+]
+
+---
+count: false
+ 
+
+.panel1-dbi-user[
+
+```r
+library(DBI)
+
+# Create an ephemeral in-memory RSQLite database
+con &lt;- dbConnect(RSQLite::SQLite(),
+                 dbname = ":memory:")
+dbListTables(con)
+
+dbWriteTable(con, "mtcars", mtcars)
+
+library(gapminder)
+dbWriteTable(con, "gapminder", gapminder)
+dbListTables(con)
+
+dbWriteTable(con, "mytibble",
+             tibble::tibble(
+               country = c("Germany", "Chile"),
+               y = c(1,2)
+               ))
+dbListTables(con)
+
+dbListFields(con, "mtcars")
+dbReadTable(con, "mtcars") -&gt;
+  my_table
+
+# You can fetch all results:
+dbSendQuery(
+  con,
+  "SELECT * FROM mtcars WHERE cyl = 4") -&gt;
+query
+
+dbFetch(query) -&gt;
+  mtcars_subset
+dbClearResult(query)
 
 # Or a chunk at a time
 *dbSendQuery(
@@ -710,10 +706,14 @@ dbClearResult(res)
 ```
 ]
  
-.panel2-dbi-auto[
+.panel2-dbi-user[
 
 ```
 character(0)
+```
+
+```
+[1] "gapminder" "mtcars"   
 ```
 
 ```
@@ -723,21 +723,6 @@ character(0)
 ```
  [1] "mpg"  "cyl"  "disp" "hp"   "drat" "wt"   "qsec" "vs"   "am"   "gear"
 [11] "carb"
-```
-
-```
-    mpg cyl  disp  hp drat    wt  qsec vs am gear carb
-1  22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1
-2  24.4   4 146.7  62 3.69 3.190 20.00  1  0    4    2
-3  22.8   4 140.8  95 3.92 3.150 22.90  1  0    4    2
-4  32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1
-5  30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2
-6  33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1
-7  21.5   4 120.1  97 3.70 2.465 20.01  1  0    3    1
-8  27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1
-9  26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2
-10 30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2
-11 21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2
 ```
 
 ```
@@ -752,7 +737,7 @@ character(0)
 count: false
  
 
-.panel1-dbi-auto[
+.panel1-dbi-user[
 
 ```r
 library(DBI)
@@ -760,15 +745,18 @@ library(DBI)
 # Create an ephemeral in-memory RSQLite database
 con &lt;- dbConnect(RSQLite::SQLite(),
                  dbname = ":memory:")
-
 dbListTables(con)
+
 dbWriteTable(con, "mtcars", mtcars)
+
 library(gapminder)
 dbWriteTable(con, "gapminder", gapminder)
+dbListTables(con)
 
 dbWriteTable(con, "mytibble",
              tibble::tibble(
-               x = 1:4, y = 5:8
+               country = c("Germany", "Chile"),
+               y = c(1,2)
                ))
 dbListTables(con)
 
@@ -780,10 +768,11 @@ dbReadTable(con, "mtcars") -&gt;
 dbSendQuery(
   con,
   "SELECT * FROM mtcars WHERE cyl = 4") -&gt;
-res
+query
 
-dbFetch(res)
-dbClearResult(res)
+dbFetch(query) -&gt;
+  mtcars_subset
+dbClearResult(query)
 
 # Or a chunk at a time
 dbSendQuery(
@@ -793,10 +782,14 @@ dbSendQuery(
 ```
 ]
  
-.panel2-dbi-auto[
+.panel2-dbi-user[
 
 ```
 character(0)
+```
+
+```
+[1] "gapminder" "mtcars"   
 ```
 
 ```
@@ -807,28 +800,13 @@ character(0)
  [1] "mpg"  "cyl"  "disp" "hp"   "drat" "wt"   "qsec" "vs"   "am"   "gear"
 [11] "carb"
 ```
-
-```
-    mpg cyl  disp  hp drat    wt  qsec vs am gear carb
-1  22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1
-2  24.4   4 146.7  62 3.69 3.190 20.00  1  0    4    2
-3  22.8   4 140.8  95 3.92 3.150 22.90  1  0    4    2
-4  32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1
-5  30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2
-6  33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1
-7  21.5   4 120.1  97 3.70 2.465 20.01  1  0    3    1
-8  27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1
-9  26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2
-10 30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2
-11 21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2
-```
 ]
 
 ---
 count: false
  
 
-.panel1-dbi-auto[
+.panel1-dbi-user[
 
 ```r
 library(DBI)
@@ -836,15 +814,18 @@ library(DBI)
 # Create an ephemeral in-memory RSQLite database
 con &lt;- dbConnect(RSQLite::SQLite(),
                  dbname = ":memory:")
-
 dbListTables(con)
+
 dbWriteTable(con, "mtcars", mtcars)
+
 library(gapminder)
 dbWriteTable(con, "gapminder", gapminder)
+dbListTables(con)
 
 dbWriteTable(con, "mytibble",
              tibble::tibble(
-               x = 1:4, y = 5:8
+               country = c("Germany", "Chile"),
+               y = c(1,2)
                ))
 dbListTables(con)
 
@@ -856,16 +837,19 @@ dbReadTable(con, "mtcars") -&gt;
 dbSendQuery(
   con,
   "SELECT * FROM mtcars WHERE cyl = 4") -&gt;
-res
+query
 
-dbFetch(res)
-dbClearResult(res)
+dbFetch(query) -&gt;
+  mtcars_subset
+dbClearResult(query)
 
 # Or a chunk at a time
 dbSendQuery(
   con,
   "SELECT * FROM mtcars WHERE cyl = 4") -&gt;
 res
+
+# I dont really understand this part
 *while(!dbHasCompleted(res)){
 * chunk &lt;- dbFetch(res, n = 5)
 * print(nrow(chunk))
@@ -873,10 +857,14 @@ res
 ```
 ]
  
-.panel2-dbi-auto[
+.panel2-dbi-user[
 
 ```
 character(0)
+```
+
+```
+[1] "gapminder" "mtcars"   
 ```
 
 ```
@@ -886,21 +874,6 @@ character(0)
 ```
  [1] "mpg"  "cyl"  "disp" "hp"   "drat" "wt"   "qsec" "vs"   "am"   "gear"
 [11] "carb"
-```
-
-```
-    mpg cyl  disp  hp drat    wt  qsec vs am gear carb
-1  22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1
-2  24.4   4 146.7  62 3.69 3.190 20.00  1  0    4    2
-3  22.8   4 140.8  95 3.92 3.150 22.90  1  0    4    2
-4  32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1
-5  30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2
-6  33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1
-7  21.5   4 120.1  97 3.70 2.465 20.01  1  0    3    1
-8  27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1
-9  26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2
-10 30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2
-11 21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2
 ```
 
 ```
@@ -914,7 +887,7 @@ character(0)
 count: false
  
 
-.panel1-dbi-auto[
+.panel1-dbi-user[
 
 ```r
 library(DBI)
@@ -922,15 +895,18 @@ library(DBI)
 # Create an ephemeral in-memory RSQLite database
 con &lt;- dbConnect(RSQLite::SQLite(),
                  dbname = ":memory:")
-
 dbListTables(con)
+
 dbWriteTable(con, "mtcars", mtcars)
+
 library(gapminder)
 dbWriteTable(con, "gapminder", gapminder)
+dbListTables(con)
 
 dbWriteTable(con, "mytibble",
              tibble::tibble(
-               x = 1:4, y = 5:8
+               country = c("Germany", "Chile"),
+               y = c(1,2)
                ))
 dbListTables(con)
 
@@ -942,16 +918,19 @@ dbReadTable(con, "mtcars") -&gt;
 dbSendQuery(
   con,
   "SELECT * FROM mtcars WHERE cyl = 4") -&gt;
-res
+query
 
-dbFetch(res)
-dbClearResult(res)
+dbFetch(query) -&gt;
+  mtcars_subset
+dbClearResult(query)
 
 # Or a chunk at a time
 dbSendQuery(
   con,
   "SELECT * FROM mtcars WHERE cyl = 4") -&gt;
 res
+
+# I dont really understand this part
 while(!dbHasCompleted(res)){
   chunk &lt;- dbFetch(res, n = 5)
   print(nrow(chunk))
@@ -961,10 +940,14 @@ while(!dbHasCompleted(res)){
 ```
 ]
  
-.panel2-dbi-auto[
+.panel2-dbi-user[
 
 ```
 character(0)
+```
+
+```
+[1] "gapminder" "mtcars"   
 ```
 
 ```
@@ -974,21 +957,6 @@ character(0)
 ```
  [1] "mpg"  "cyl"  "disp" "hp"   "drat" "wt"   "qsec" "vs"   "am"   "gear"
 [11] "carb"
-```
-
-```
-    mpg cyl  disp  hp drat    wt  qsec vs am gear carb
-1  22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1
-2  24.4   4 146.7  62 3.69 3.190 20.00  1  0    4    2
-3  22.8   4 140.8  95 3.92 3.150 22.90  1  0    4    2
-4  32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1
-5  30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2
-6  33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1
-7  21.5   4 120.1  97 3.70 2.465 20.01  1  0    3    1
-8  27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1
-9  26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2
-10 30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2
-11 21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2
 ```
 
 ```
@@ -999,7 +967,7 @@ character(0)
 ]
 
 &lt;style&gt;
-.panel1-dbi-auto {
+.panel1-dbi-user {
   color: black;
   width: 38.6060606060606%;
   hight: 32%;
@@ -1007,7 +975,7 @@ character(0)
   padding-left: 1%;
   font-size: 80%
 }
-.panel2-dbi-auto {
+.panel2-dbi-user {
   color: black;
   width: 59.3939393939394%;
   hight: 32%;
@@ -1015,7 +983,7 @@ character(0)
   padding-left: 1%;
   font-size: 80%
 }
-.panel3-dbi-auto {
+.panel3-dbi-user {
   color: black;
   width: NA%;
   hight: 33%;
@@ -1036,7 +1004,7 @@ character(0)
 
 
 &lt;style type="text/css"&gt;
-.remark-code{line-height: 1.5; font-size: 70%}
+.remark-code{line-height: 1.5; font-size: 65%}
 
 @media print {
   .has-continuation {

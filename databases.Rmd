@@ -55,7 +55,7 @@ knitr::opts_chunk$set(cache = F, comment = "")
 library(flipbookr)
 ```
 
-`r chunk_reveal("dbi")`
+`r chunk_reveal("dbi", break_type = "user")`
 
 ```{r dbi, include=FALSE}
 library(DBI)
@@ -63,40 +63,46 @@ library(DBI)
 # Create an ephemeral in-memory RSQLite database
 con <- dbConnect(RSQLite::SQLite(), 
                  dbname = ":memory:")
+dbListTables(con) #BREAK
 
-dbListTables(con)
 dbWriteTable(con, "mtcars", mtcars)
+
 library(gapminder)
 dbWriteTable(con, "gapminder", gapminder)
+dbListTables(con) #BREAK
 
 dbWriteTable(con, "mytibble", 
              tibble::tibble(
-               x = 1:4, y = 5:8
+               country = c("Germany", "Chile"), 
+               y = c(1,2)
                ))
-dbListTables(con)
+dbListTables(con) #BREAK
 
-dbListFields(con, "mtcars")
-dbReadTable(con, "mtcars") ->
-  my_table
+dbListFields(con, "mtcars") #BREAK
+dbReadTable(con, "mtcars") -> #BREAK
+  my_table #BREAK
 
 # You can fetch all results:
 dbSendQuery(
   con, 
-  "SELECT * FROM mtcars WHERE cyl = 4") ->
-res
+  "SELECT * FROM mtcars WHERE cyl = 4") -> #BREAK
+query #BREAK
 
-dbFetch(res)
-dbClearResult(res)
+dbFetch(query) -> #BREAK
+  mtcars_subset #BREAK
+dbClearResult(query) #BREAK
 
 # Or a chunk at a time
 dbSendQuery(
   con, 
-  "SELECT * FROM mtcars WHERE cyl = 4") ->
-res
+  "SELECT * FROM mtcars WHERE cyl = 4") -> #BREAK
+res #BREAK
+
+# I dont really understand this part
 while(!dbHasCompleted(res)){
   chunk <- dbFetch(res, n = 5)
   print(nrow(chunk))
-}
+} #BREAK
 
 dbClearResult(res)
 ```
@@ -108,7 +114,7 @@ dbClearResult(res)
 
 
 ```{css, eval = TRUE, echo = FALSE}
-.remark-code{line-height: 1.5; font-size: 70%}
+.remark-code{line-height: 1.5; font-size: 65%}
 
 @media print {
   .has-continuation {
