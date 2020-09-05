@@ -14,14 +14,16 @@ output:
       countIncrementalSlides: false
 ---
 
+```{r xaringanExtra-share-again, echo=FALSE}
+xaringanExtra::use_share_again()
+```
 
-
-class: left, top, inverse
+class: left, top
 background-image: url(https://images.unsplash.com/photo-1573625142066-61bc7f1b8e35?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=8)
 background-size: cover
 
-# .large[one-stream wrangle]
-### An exploration <br>with {flipbookr}<br>and {xaringan}
+# .large.white[one-stream <br>wrangle]
+### .white[An exploration <br>with {flipbookr}<br>and {xaringan}]
 
 <br>
 <br>
@@ -31,15 +33,13 @@ background-size: cover
 <br>
 <br>
 <br>
-<br>
-<br>
 
-#### .right[Gina Reynolds<br>Photo Credit: Vlad Tchompalov]
+#### .right.white[Gina Reynolds<br>Photo Credit: Vlad Tchompalov]
 
 
 ```{r, include = F}
 
-knitr::opts_chunk$set(cache = F, comment = "", warning = F)
+knitr::opts_chunk$set(cache = T, comment = "", warning = F)
 ```
 
 ---

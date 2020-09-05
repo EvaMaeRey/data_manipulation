@@ -20,10 +20,10 @@ xaringanExtra::use_share_again()
 
 
 class: left, top, inverse
-background-image: url(https://images.unsplash.com/photo-1586255527818-8ad7e579c49c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80)
+background-image: url(https://images.unsplash.com/photo-1511448598600-c01f02a2ee95?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80)
 background-size: cover
 
-# .large[Summarizing]
+# .large[Summarize]
 ### Walk-throughs <br>with {flipbookr}<br>and {xaringan}
 
 <br>
@@ -37,7 +37,7 @@ background-size: cover
 <br>
 <br>
 
-#### .right[Gina Reynolds<br>Photo Credit: Zoya Loonohod]
+#### .right[Gina Reynolds<br>Photo Credit: NordWood Themes]
 
 
 

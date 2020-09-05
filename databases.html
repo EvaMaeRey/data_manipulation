@@ -79,6 +79,37 @@ con &lt;- dbConnect(RSQLite::SQLite(),
 dbListTables(con)
 
 *dbWriteTable(con, "mtcars", mtcars)
+*dbListTables(con)
+```
+]
+ 
+.panel2-dbi-user[
+
+```
+character(0)
+```
+
+```
+[1] "mtcars"
+```
+]
+
+---
+count: false
+ 
+
+.panel1-dbi-user[
+
+```r
+library(DBI)
+
+# Create an ephemeral in-memory RSQLite database
+con &lt;- dbConnect(RSQLite::SQLite(),
+                 dbname = ":memory:")
+dbListTables(con)
+
+dbWriteTable(con, "mtcars", mtcars)
+dbListTables(con)
 
 *library(gapminder)
 *dbWriteTable(con, "gapminder", gapminder)
@@ -90,6 +121,10 @@ dbListTables(con)
 
 ```
 character(0)
+```
+
+```
+[1] "mtcars"
 ```
 
 ```
@@ -112,6 +147,7 @@ con &lt;- dbConnect(RSQLite::SQLite(),
 dbListTables(con)
 
 dbWriteTable(con, "mtcars", mtcars)
+dbListTables(con)
 
 library(gapminder)
 dbWriteTable(con, "gapminder", gapminder)
@@ -130,6 +166,10 @@ dbListTables(con)
 
 ```
 character(0)
+```
+
+```
+[1] "mtcars"
 ```
 
 ```
@@ -156,6 +196,7 @@ con &lt;- dbConnect(RSQLite::SQLite(),
 dbListTables(con)
 
 dbWriteTable(con, "mtcars", mtcars)
+dbListTables(con)
 
 library(gapminder)
 dbWriteTable(con, "gapminder", gapminder)
@@ -176,6 +217,10 @@ dbListTables(con)
 
 ```
 character(0)
+```
+
+```
+[1] "mtcars"
 ```
 
 ```
@@ -207,6 +252,7 @@ con &lt;- dbConnect(RSQLite::SQLite(),
 dbListTables(con)
 
 dbWriteTable(con, "mtcars", mtcars)
+dbListTables(con)
 
 library(gapminder)
 dbWriteTable(con, "gapminder", gapminder)
@@ -228,6 +274,10 @@ dbListFields(con, "mtcars")
 
 ```
 character(0)
+```
+
+```
+[1] "mtcars"
 ```
 
 ```
@@ -295,6 +345,7 @@ con &lt;- dbConnect(RSQLite::SQLite(),
 dbListTables(con)
 
 dbWriteTable(con, "mtcars", mtcars)
+dbListTables(con)
 
 library(gapminder)
 dbWriteTable(con, "gapminder", gapminder)
@@ -317,6 +368,10 @@ dbReadTable(con, "mtcars") -&gt;
 
 ```
 character(0)
+```
+
+```
+[1] "mtcars"
 ```
 
 ```
@@ -348,6 +403,7 @@ con &lt;- dbConnect(RSQLite::SQLite(),
 dbListTables(con)
 
 dbWriteTable(con, "mtcars", mtcars)
+dbListTables(con)
 
 library(gapminder)
 dbWriteTable(con, "gapminder", gapminder)
@@ -375,6 +431,10 @@ dbReadTable(con, "mtcars") -&gt;
 
 ```
 character(0)
+```
+
+```
+[1] "mtcars"
 ```
 
 ```
@@ -413,6 +473,7 @@ con &lt;- dbConnect(RSQLite::SQLite(),
 dbListTables(con)
 
 dbWriteTable(con, "mtcars", mtcars)
+dbListTables(con)
 
 library(gapminder)
 dbWriteTable(con, "gapminder", gapminder)
@@ -444,6 +505,10 @@ character(0)
 ```
 
 ```
+[1] "mtcars"
+```
+
+```
 [1] "gapminder" "mtcars"   
 ```
 
@@ -472,6 +537,7 @@ con &lt;- dbConnect(RSQLite::SQLite(),
 dbListTables(con)
 
 dbWriteTable(con, "mtcars", mtcars)
+dbListTables(con)
 
 library(gapminder)
 dbWriteTable(con, "gapminder", gapminder)
@@ -502,6 +568,10 @@ query
 
 ```
 character(0)
+```
+
+```
+[1] "mtcars"
 ```
 
 ```
@@ -548,6 +618,7 @@ con &lt;- dbConnect(RSQLite::SQLite(),
 dbListTables(con)
 
 dbWriteTable(con, "mtcars", mtcars)
+dbListTables(con)
 
 library(gapminder)
 dbWriteTable(con, "gapminder", gapminder)
@@ -582,6 +653,10 @@ character(0)
 ```
 
 ```
+[1] "mtcars"
+```
+
+```
 [1] "gapminder" "mtcars"   
 ```
 
@@ -610,6 +685,7 @@ con &lt;- dbConnect(RSQLite::SQLite(),
 dbListTables(con)
 
 dbWriteTable(con, "mtcars", mtcars)
+dbListTables(con)
 
 library(gapminder)
 dbWriteTable(con, "gapminder", gapminder)
@@ -645,6 +721,10 @@ character(0)
 ```
 
 ```
+[1] "mtcars"
+```
+
+```
 [1] "gapminder" "mtcars"   
 ```
 
@@ -673,6 +753,7 @@ con &lt;- dbConnect(RSQLite::SQLite(),
 dbListTables(con)
 
 dbWriteTable(con, "mtcars", mtcars)
+dbListTables(con)
 
 library(gapminder)
 dbWriteTable(con, "gapminder", gapminder)
@@ -713,6 +794,10 @@ character(0)
 ```
 
 ```
+[1] "mtcars"
+```
+
+```
 [1] "gapminder" "mtcars"   
 ```
 
@@ -748,6 +833,7 @@ con &lt;- dbConnect(RSQLite::SQLite(),
 dbListTables(con)
 
 dbWriteTable(con, "mtcars", mtcars)
+dbListTables(con)
 
 library(gapminder)
 dbWriteTable(con, "gapminder", gapminder)
@@ -789,6 +875,10 @@ character(0)
 ```
 
 ```
+[1] "mtcars"
+```
+
+```
 [1] "gapminder" "mtcars"   
 ```
 
@@ -817,6 +907,7 @@ con &lt;- dbConnect(RSQLite::SQLite(),
 dbListTables(con)
 
 dbWriteTable(con, "mtcars", mtcars)
+dbListTables(con)
 
 library(gapminder)
 dbWriteTable(con, "gapminder", gapminder)
@@ -864,6 +955,10 @@ character(0)
 ```
 
 ```
+[1] "mtcars"
+```
+
+```
 [1] "gapminder" "mtcars"   
 ```
 
@@ -898,6 +993,7 @@ con &lt;- dbConnect(RSQLite::SQLite(),
 dbListTables(con)
 
 dbWriteTable(con, "mtcars", mtcars)
+dbListTables(con)
 
 library(gapminder)
 dbWriteTable(con, "gapminder", gapminder)
@@ -944,6 +1040,10 @@ while(!dbHasCompleted(res)){
 
 ```
 character(0)
+```
+
+```
+[1] "mtcars"
 ```
 
 ```

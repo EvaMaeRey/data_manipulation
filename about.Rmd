@@ -29,7 +29,7 @@ This section cover some very basics including:
 - *functions*: `mean()`, `median()`, `mode()`, `log10()`
 
 
-*Click on the slides below. Then use `->` or `<-` arrow keys to navigate, or [view in new window](arithmetic_and_data_types.html){target="_blank"}*
+*Click on the slides below. Then use `->` or `<-` arrows keys to navigate, click on arrows, or [expand to full size](arithmetic_and_data_types.html)*
 
 
 ```{r, echo = F}
@@ -41,9 +41,17 @@ xaringanExtra::embed_xaringan(
 
 # Data manipulation with the tidyverse
 
-The `{tidyverse}`  data manipulation functions have been a boon to analysts' productivity. This resource is built with the idea that we sometimes just need to see how functions work in action to understand them; just link the materials for each section to see the functions "in-action". The materials here can be used as an introduction or for reference. The `{tidyverse}` is an open source project in R lead by Hadley Wickham; the `{tidyverse}` itself contains several packages designed to work together in a consistent, logical, and human-friendly fashion.
+The `{tidyverse}`  data manipulation functions have been a boon to analysts' productivity. The `{tidyverse}` is an open source project in R led by Hadley Wickham and supported by RStudio; the `{tidyverse}` contains several packages designed to work together in a consistent, logical, and human-friendly fashion - including {dplyr} and {tidyr}.  For most of the work that follows, you'll need to have the tidyverse attached as follows:
+
+```{r, warning=F, message =F}
+library(tidyverse)
+```
+
+
 
 ### [One-stream data manipulation](one_stream_wrangle.html#3){target="_blank"}
+
+
 
 |function |action |
 | :--- | ---: |
@@ -54,8 +62,6 @@ The `{tidyverse}`  data manipulation functions have been a boon to analysts' pro
 | rename()    | *renaming variables*|
 | arrange()   | *order rows based on a variable*|
 | slice()     | *keep or drop rows based on row number |
-
-*Click on the slides below. Then use `->` or `<-` arrow keys to navigate, or [view in new window](one_stream_wrangle.html){target="_blank"}*
 
 
 
@@ -98,9 +104,6 @@ Base-R functions that you are might use in summarizing include `mean()`, `median
 
 The function `summary()` can also be used to request summary statistcs for an entire data set. 
 
-*Click on the slides below and use arrow keys to advance, or [view in new window](summarize.html#3){target="_blank"}*
-
-
 
 ```{r, echo = F}
 xaringanExtra::embed_xaringan(
@@ -140,9 +143,6 @@ xaringanExtra::embed_xaringan(
 | bind_rows()   |  *stack datasets, finding consistent column names* |
 | bind_cols()   |  *glue datasets together side-by-side* |
 
-*Click on the slides below and use arrow keys to advance, or [view in new window](joining_data.html){target="_blank"}*
-
-
 
 ```{r, echo = F}
 xaringanExtra::embed_xaringan(
@@ -158,7 +158,6 @@ xaringanExtra::embed_xaringan(
 
 {data.table} is data manipulation package.  It's "blazing fast" and very popular; but this section is under construction --- so limited in its examples. 
 
-*Click on the slides below and use arrow keys to advance, or [view in new window](data.table.html){target="_blank"}*
 
 
 ```{r, echo = F}
@@ -173,7 +172,6 @@ xaringanExtra::embed_xaringan(
 
 You can also do a lot of data manipulation without any external packages at all.
 
-*Click on the slides below and use arrow keys to advance, or [view in new window](logical_indexing.html){target="_blank"}*
 
 
 ```{r, echo = F}
@@ -191,12 +189,22 @@ What's the workflow from reading in data to analysis-ready?  It really depends! 
 - Unique identifiers for countries with `{countrycode}`
 - Date manipulation with `{lubridate}`
 
-- [glue, paste, paste0, cat](glue.html){target="_blank"}
+```{r, echo = F}
+xaringanExtra::embed_xaringan(
+  url = "data_cleaning/data_cleaning.html",
+  ratio = "16:10"
+)
+```
+
 
 # Formatting tables
 
-- [gt: grammar of tables](gt.html){target="_blank"}
-
+```{r}
+xaringanExtra::embed_xaringan(
+  url = "gt.html",
+  ratio = "16:10"
+)
+```
 
 
 ## [Back to "The R Flipbook Textbook" Table of Contents](https://evamaerey.github.io/flipbooks/textbook)

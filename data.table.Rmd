@@ -21,7 +21,9 @@ knitr::opts_chunk$set(fig.width = 6, message = F, warning = F,
 
 
 
-
+```{r xaringanExtra-share-again, echo=FALSE}
+xaringanExtra::use_share_again()
+```
 
 class: left, top, inverse
 background-image: url(https://images.unsplash.com/photo-1530018607912-eff2daa1bac4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1502&q=80)

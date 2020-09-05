@@ -4,21 +4,46 @@
     <title>data cleaning flipbook</title>
     <meta charset="utf-8" />
     <meta name="author" content="  Gina Reynolds, October 2019" />
-    <link href="libs/remark-css-0.0.1/kunoichi.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/hygge.css" rel="stylesheet" />
     <link href="libs/remark-css-0.0.1/ninjutsu.css" rel="stylesheet" />
+    <script src="libs/clipboard-2.0.6/clipboard.min.js"></script>
+    <link href="libs/shareon-1.4.1/shareon.min.css" rel="stylesheet" />
+    <script src="libs/shareon-1.4.1/shareon.min.js"></script>
+    <link href="libs/xaringanExtra-shareagain-0.2.1/shareagain.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-shareagain-0.2.1/shareagain.js"></script>
   </head>
   <body>
     <textarea id="source">
-class: center, middle, inverse, title-slide
-
-# data cleaning flipbook
-## a flipbook with some data cleaning examples | made with Xaringan
-### <br><br>Gina Reynolds, October 2019
-### <br>
-
----
 
 
+
+
+
+
+
+
+
+
+class: left, top, inverse
+background-image: url(broom.jpg)
+background-size: cover
+
+# .large[Data Cleaning]
+### Walk-throughs &lt;br&gt;with {flipbookr}&lt;br&gt;and {xaringan}
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+#### .right[Gina Reynolds&lt;br&gt;Photo Credit: Zoya Loonohod]
 
 
 
@@ -26,7 +51,7 @@ class: center, middle, inverse, title-slide
 
 # Introduction
 
-Data cleaning is the pits.  Or is it?  The cleaning tools of the `tidyverse` and other packages like `janitor` might help such tasks become less terrible -- and more of a delight! Let's look at a couple of examples. 
+Data cleaning is the pits.  Or is it?  The cleaning tools of the `tidyverse` and other packages like `janitor` might help such tasks become less terrible -- and more fun! Let's look at a couple of examples. 
 
 
 
@@ -139,18 +164,20 @@ Once you have saved your raw data, you need to scan/read the data into R.  There
 
 
 
-class: split-40
 count: false
-.column[.content[
+ 
+
+.panel1-read_in_fisheries-auto[
 
 ```r
-* # using the htmltab package to scan html file
+# using the htmltab package to scan html file
 *htmltab::htmltab(doc = "raw_data/wikipedia_fisheries.html",
-* # the second table object is what we want
+# the second table object is what we want
 *                which = 2)
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-read_in_fisheries-auto[
 
 ```
                                Country    Capture Aquaculture       Total
@@ -372,24 +399,56 @@ count: false
   217                       San Marino          0           0           0
   218                     Total (2015) 93,736,944 101,084,799 199,741,129
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.panel1-read_in_fisheries-auto[
 
 ```r
-  # using the htmltab package to scan html file
-htmltab::htmltab(doc = "raw_data/wikipedia_fisheries.html",  
-  # the second table object is what we want
-                 which = 2) -&gt;  
-* # assign this to an object with the _raw suffix
+# using the htmltab package to scan html file
+htmltab::htmltab(doc = "raw_data/wikipedia_fisheries.html",
+# the second table object is what we want
+                 which = 2) -&gt;
+# assign this to an object with the _raw suffix
 *fisheries_2015_raw
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-read_in_fisheries-auto[
 
-]]
+]
+
+&lt;style&gt;
+.panel1-read_in_fisheries-auto {
+  color: black;
+  width: 38.6060606060606%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel2-read_in_fisheries-auto {
+  color: black;
+  width: 59.3939393939394%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-read_in_fisheries-auto {
+  color: black;
+  width: NA%;
+  hight: 33%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
 
 
 ---
@@ -402,15 +461,17 @@ We'll do most of the manipulation with dplyr and tidyr which are subpackages of 
 
 
 
-class: split-40
 count: false
-.column[.content[
+ 
+
+.panel1-clean_wikipedia_fisheries-auto[
 
 ```r
 *fisheries_2015_raw
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-clean_wikipedia_fisheries-auto[
 
 ```
                                Country    Capture Aquaculture       Total
@@ -632,18 +693,21 @@ count: false
   217                       San Marino          0           0           0
   218                     Total (2015) 93,736,944 101,084,799 199,741,129
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.panel1-clean_wikipedia_fisheries-auto[
 
 ```r
-fisheries_2015_raw %&gt;%  
+fisheries_2015_raw %&gt;%
 * as_tibble()   # show data in "tidyverse" way, as_tibble
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-clean_wikipedia_fisheries-auto[
 
 ```
   # A tibble: 217 x 4
@@ -661,21 +725,24 @@ fisheries_2015_raw %&gt;%
   10 Bangladesh    1,674,770  2,203,554   3,878,324 
   # … with 207 more rows
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.panel1-clean_wikipedia_fisheries-auto[
 
 ```r
-fisheries_2015_raw %&gt;%  
+fisheries_2015_raw %&gt;%
   as_tibble() %&gt;%  # show data in "tidyverse" way, as_tibble
-* # you may need to install the janitor package for this next step
-* # if you have not already done so
+# you may need to install the janitor package for this next step
+# if you have not already done so
 * janitor::clean_names(case = "snake")   # snake is the default too
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-clean_wikipedia_fisheries-auto[
 
 ```
   # A tibble: 217 x 4
@@ -693,24 +760,27 @@ fisheries_2015_raw %&gt;%
   10 Bangladesh    1,674,770  2,203,554   3,878,324 
   # … with 207 more rows
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.panel1-clean_wikipedia_fisheries-auto[
 
 ```r
-fisheries_2015_raw %&gt;%  
+fisheries_2015_raw %&gt;%
   as_tibble() %&gt;%  # show data in "tidyverse" way, as_tibble
-  # you may need to install the janitor package for this next step
-  # if you have not already done so
+# you may need to install the janitor package for this next step
+# if you have not already done so
   janitor::clean_names(case = "snake") %&gt;%  # snake is the default too
-* # converting columns to numeric 'dbl', which were character 'cha'
+# converting columns to numeric 'dbl', which were character 'cha'
 * mutate(capture =
 *          readr::parse_number(x = capture))
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-clean_wikipedia_fisheries-auto[
 
 ```
   # A tibble: 217 x 4
@@ -728,26 +798,29 @@ fisheries_2015_raw %&gt;%
   10 Bangladesh     1674770 2,203,554   3,878,324 
   # … with 207 more rows
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.panel1-clean_wikipedia_fisheries-auto[
 
 ```r
-fisheries_2015_raw %&gt;%  
+fisheries_2015_raw %&gt;%
   as_tibble() %&gt;%  # show data in "tidyverse" way, as_tibble
-  # you may need to install the janitor package for this next step
-  # if you have not already done so
+# you may need to install the janitor package for this next step
+# if you have not already done so
   janitor::clean_names(case = "snake") %&gt;%  # snake is the default too
-  # converting columns to numeric 'dbl', which were character 'cha'
-  mutate(capture =  
-           readr::parse_number(x = capture)) %&gt;%  
+# converting columns to numeric 'dbl', which were character 'cha'
+  mutate(capture =
+           readr::parse_number(x = capture)) %&gt;%
 * mutate(aquaculture =
 *          readr::parse_number(x = aquaculture))
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-clean_wikipedia_fisheries-auto[
 
 ```
   # A tibble: 217 x 4
@@ -765,28 +838,31 @@ fisheries_2015_raw %&gt;%
   10 Bangladesh     1674770     2203554 3,878,324 
   # … with 207 more rows
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.panel1-clean_wikipedia_fisheries-auto[
 
 ```r
-fisheries_2015_raw %&gt;%  
+fisheries_2015_raw %&gt;%
   as_tibble() %&gt;%  # show data in "tidyverse" way, as_tibble
-  # you may need to install the janitor package for this next step
-  # if you have not already done so
+# you may need to install the janitor package for this next step
+# if you have not already done so
   janitor::clean_names(case = "snake") %&gt;%  # snake is the default too
-  # converting columns to numeric 'dbl', which were character 'cha'
-  mutate(capture =  
-           readr::parse_number(x = capture)) %&gt;%  
-  mutate(aquaculture =  
-           readr::parse_number(x = aquaculture)) %&gt;%  
+# converting columns to numeric 'dbl', which were character 'cha'
+  mutate(capture =
+           readr::parse_number(x = capture)) %&gt;%
+  mutate(aquaculture =
+           readr::parse_number(x = aquaculture)) %&gt;%
 * mutate(total =
 *          readr::parse_number(x = total))
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-clean_wikipedia_fisheries-auto[
 
 ```
   # A tibble: 217 x 4
@@ -804,30 +880,33 @@ fisheries_2015_raw %&gt;%
   10 Bangladesh     1674770     2203554  3878324
   # … with 207 more rows
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.panel1-clean_wikipedia_fisheries-auto[
 
 ```r
-fisheries_2015_raw %&gt;%  
+fisheries_2015_raw %&gt;%
   as_tibble() %&gt;%  # show data in "tidyverse" way, as_tibble
-  # you may need to install the janitor package for this next step
-  # if you have not already done so
+# you may need to install the janitor package for this next step
+# if you have not already done so
   janitor::clean_names(case = "snake") %&gt;%  # snake is the default too
-  # converting columns to numeric 'dbl', which were character 'cha'
-  mutate(capture =  
-           readr::parse_number(x = capture)) %&gt;%  
-  mutate(aquaculture =  
-           readr::parse_number(x = aquaculture)) %&gt;%  
-  mutate(total =  
-           readr::parse_number(x = total)) %&gt;%  
-* # removing white spaces before and after a string
+# converting columns to numeric 'dbl', which were character 'cha'
+  mutate(capture =
+           readr::parse_number(x = capture)) %&gt;%
+  mutate(aquaculture =
+           readr::parse_number(x = aquaculture)) %&gt;%
+  mutate(total =
+           readr::parse_number(x = total)) %&gt;%
+# removing white spaces before and after a string
 * mutate(country = str_trim(string = country))
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-clean_wikipedia_fisheries-auto[
 
 ```
   # A tibble: 217 x 4
@@ -845,38 +924,41 @@ fisheries_2015_raw %&gt;%
   10 Bangladesh     1674770     2203554  3878324
   # … with 207 more rows
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.panel1-clean_wikipedia_fisheries-auto[
 
 ```r
-fisheries_2015_raw %&gt;%  
+fisheries_2015_raw %&gt;%
   as_tibble() %&gt;%  # show data in "tidyverse" way, as_tibble
-  # you may need to install the janitor package for this next step
-  # if you have not already done so
+# you may need to install the janitor package for this next step
+# if you have not already done so
   janitor::clean_names(case = "snake") %&gt;%  # snake is the default too
-  # converting columns to numeric 'dbl', which were character 'cha'
-  mutate(capture =  
-           readr::parse_number(x = capture)) %&gt;%  
-  mutate(aquaculture =  
-           readr::parse_number(x = aquaculture)) %&gt;%  
-  mutate(total =  
-           readr::parse_number(x = total)) %&gt;%  
-  # removing white spaces before and after a string
-  mutate(country = str_trim(string = country)) %&gt;%  
-* # creating region variable
-* # using countrycode function from countrycode package
-* # if you haven't done so,
+# converting columns to numeric 'dbl', which were character 'cha'
+  mutate(capture =
+           readr::parse_number(x = capture)) %&gt;%
+  mutate(aquaculture =
+           readr::parse_number(x = aquaculture)) %&gt;%
+  mutate(total =
+           readr::parse_number(x = total)) %&gt;%
+# removing white spaces before and after a string
+  mutate(country = str_trim(string = country)) %&gt;%
+# creating region variable
+# using countrycode function from countrycode package
+# if you haven't done so,
 * mutate(region =
 *          countrycode::countrycode(
 *            sourcevar = country,
 *            origin = "country.name",
 *            dest = "region"))
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-clean_wikipedia_fisheries-auto[
 
 ```
   # A tibble: 217 x 5
@@ -894,44 +976,47 @@ fisheries_2015_raw %&gt;%
   10 Bangladesh     1674770     2203554  3878324 Southern Asia     
   # … with 207 more rows
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.panel1-clean_wikipedia_fisheries-auto[
 
 ```r
-fisheries_2015_raw %&gt;%  
+fisheries_2015_raw %&gt;%
   as_tibble() %&gt;%  # show data in "tidyverse" way, as_tibble
-  # you may need to install the janitor package for this next step
-  # if you have not already done so
+# you may need to install the janitor package for this next step
+# if you have not already done so
   janitor::clean_names(case = "snake") %&gt;%  # snake is the default too
-  # converting columns to numeric 'dbl', which were character 'cha'
-  mutate(capture =  
-           readr::parse_number(x = capture)) %&gt;%  
-  mutate(aquaculture =  
-           readr::parse_number(x = aquaculture)) %&gt;%  
-  mutate(total =  
-           readr::parse_number(x = total)) %&gt;%  
-  # removing white spaces before and after a string
-  mutate(country = str_trim(string = country)) %&gt;%  
-  # creating region variable
-  # using countrycode function from countrycode package
-  # if you haven't done so,
-  mutate(region =  
-           countrycode::countrycode(  
-             sourcevar = country,  
-             origin = "country.name",  
-             dest = "region")) %&gt;%  
-* # country codes are useful for merging data
+# converting columns to numeric 'dbl', which were character 'cha'
+  mutate(capture =
+           readr::parse_number(x = capture)) %&gt;%
+  mutate(aquaculture =
+           readr::parse_number(x = aquaculture)) %&gt;%
+  mutate(total =
+           readr::parse_number(x = total)) %&gt;%
+# removing white spaces before and after a string
+  mutate(country = str_trim(string = country)) %&gt;%
+# creating region variable
+# using countrycode function from countrycode package
+# if you haven't done so,
+  mutate(region =
+           countrycode::countrycode(
+             sourcevar = country,
+             origin = "country.name",
+             dest = "region")) %&gt;%
+# country codes are useful for merging data
 * mutate(iso3c =
 *          countrycode::countrycode(
 *            sourcevar = country,
 *            origin = "country.name",
 *            dest = "iso3c"))
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-clean_wikipedia_fisheries-auto[
 
 ```
   # A tibble: 217 x 6
@@ -949,46 +1034,49 @@ fisheries_2015_raw %&gt;%
   10 Bangladesh     1674770     2203554  3878324 Southern Asia      BGD  
   # … with 207 more rows
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.panel1-clean_wikipedia_fisheries-auto[
 
 ```r
-fisheries_2015_raw %&gt;%  
+fisheries_2015_raw %&gt;%
   as_tibble() %&gt;%  # show data in "tidyverse" way, as_tibble
-  # you may need to install the janitor package for this next step
-  # if you have not already done so
+# you may need to install the janitor package for this next step
+# if you have not already done so
   janitor::clean_names(case = "snake") %&gt;%  # snake is the default too
-  # converting columns to numeric 'dbl', which were character 'cha'
-  mutate(capture =  
-           readr::parse_number(x = capture)) %&gt;%  
-  mutate(aquaculture =  
-           readr::parse_number(x = aquaculture)) %&gt;%  
-  mutate(total =  
-           readr::parse_number(x = total)) %&gt;%  
-  # removing white spaces before and after a string
-  mutate(country = str_trim(string = country)) %&gt;%  
-  # creating region variable
-  # using countrycode function from countrycode package
-  # if you haven't done so,
-  mutate(region =  
-           countrycode::countrycode(  
-             sourcevar = country,  
-             origin = "country.name",  
-             dest = "region")) %&gt;%  
-  # country codes are useful for merging data
-  mutate(iso3c =  
-           countrycode::countrycode(  
-             sourcevar = country,  
-             origin = "country.name",  
-             dest = "iso3c")) %&gt;%  
-* # one row is an aggregation - deleting this
+# converting columns to numeric 'dbl', which were character 'cha'
+  mutate(capture =
+           readr::parse_number(x = capture)) %&gt;%
+  mutate(aquaculture =
+           readr::parse_number(x = aquaculture)) %&gt;%
+  mutate(total =
+           readr::parse_number(x = total)) %&gt;%
+# removing white spaces before and after a string
+  mutate(country = str_trim(string = country)) %&gt;%
+# creating region variable
+# using countrycode function from countrycode package
+# if you haven't done so,
+  mutate(region =
+           countrycode::countrycode(
+             sourcevar = country,
+             origin = "country.name",
+             dest = "region")) %&gt;%
+# country codes are useful for merging data
+  mutate(iso3c =
+           countrycode::countrycode(
+             sourcevar = country,
+             origin = "country.name",
+             dest = "iso3c")) %&gt;%
+# one row is an aggregation - deleting this
 * filter(country != "Total (2015)")
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-clean_wikipedia_fisheries-auto[
 
 ```
   # A tibble: 216 x 6
@@ -1006,49 +1094,81 @@ fisheries_2015_raw %&gt;%
   10 Bangladesh     1674770     2203554  3878324 Southern Asia      BGD  
   # … with 206 more rows
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.panel1-clean_wikipedia_fisheries-auto[
 
 ```r
-fisheries_2015_raw %&gt;%  
+fisheries_2015_raw %&gt;%
   as_tibble() %&gt;%  # show data in "tidyverse" way, as_tibble
-  # you may need to install the janitor package for this next step
-  # if you have not already done so
+# you may need to install the janitor package for this next step
+# if you have not already done so
   janitor::clean_names(case = "snake") %&gt;%  # snake is the default too
-  # converting columns to numeric 'dbl', which were character 'cha'
-  mutate(capture =  
-           readr::parse_number(x = capture)) %&gt;%  
-  mutate(aquaculture =  
-           readr::parse_number(x = aquaculture)) %&gt;%  
-  mutate(total =  
-           readr::parse_number(x = total)) %&gt;%  
-  # removing white spaces before and after a string
-  mutate(country = str_trim(string = country)) %&gt;%  
-  # creating region variable
-  # using countrycode function from countrycode package
-  # if you haven't done so,
-  mutate(region =  
-           countrycode::countrycode(  
-             sourcevar = country,  
-             origin = "country.name",  
-             dest = "region")) %&gt;%  
-  # country codes are useful for merging data
-  mutate(iso3c =  
-           countrycode::countrycode(  
-             sourcevar = country,  
-             origin = "country.name",  
-             dest = "iso3c")) %&gt;%  
-  # one row is an aggregation - deleting this
-  filter(country != "Total (2015)") -&gt;  
+# converting columns to numeric 'dbl', which were character 'cha'
+  mutate(capture =
+           readr::parse_number(x = capture)) %&gt;%
+  mutate(aquaculture =
+           readr::parse_number(x = aquaculture)) %&gt;%
+  mutate(total =
+           readr::parse_number(x = total)) %&gt;%
+# removing white spaces before and after a string
+  mutate(country = str_trim(string = country)) %&gt;%
+# creating region variable
+# using countrycode function from countrycode package
+# if you haven't done so,
+  mutate(region =
+           countrycode::countrycode(
+             sourcevar = country,
+             origin = "country.name",
+             dest = "region")) %&gt;%
+# country codes are useful for merging data
+  mutate(iso3c =
+           countrycode::countrycode(
+             sourcevar = country,
+             origin = "country.name",
+             dest = "iso3c")) %&gt;%
+# one row is an aggregation - deleting this
+  filter(country != "Total (2015)") -&gt;
 *fisheries_2015
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-clean_wikipedia_fisheries-auto[
 
-]]
+]
+
+&lt;style&gt;
+.panel1-clean_wikipedia_fisheries-auto {
+  color: black;
+  width: 38.6060606060606%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel2-clean_wikipedia_fisheries-auto {
+  color: black;
+  width: 59.3939393939394%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-clean_wikipedia_fisheries-auto {
+  color: black;
+  width: NA%;
+  hight: 33%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
 
 ---
 
@@ -1184,146 +1304,156 @@ Now, starting with the object you created by scanning in the data and assigning 
 
 
 
-class: split-40
 count: false
-.column[.content[
+ 
+
+.panel1-wb_cleaning-auto[
 
 ```r
 *wb_percent_forest_raw
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-wb_cleaning-auto[
 
 ```
   # A tibble: 264 x 63
-     `Country Name` `Country Code` `Indicator Name` `Indicator Code` `1960`
-     &lt;chr&gt;          &lt;chr&gt;          &lt;chr&gt;            &lt;chr&gt;            &lt;lgl&gt; 
-   1 Aruba          ABW            Forest area (% … AG.LND.FRST.ZS   NA    
-   2 Afghanistan    AFG            Forest area (% … AG.LND.FRST.ZS   NA    
-   3 Angola         AGO            Forest area (% … AG.LND.FRST.ZS   NA    
-   4 Albania        ALB            Forest area (% … AG.LND.FRST.ZS   NA    
-   5 Andorra        AND            Forest area (% … AG.LND.FRST.ZS   NA    
-   6 Arab World     ARB            Forest area (% … AG.LND.FRST.ZS   NA    
-   7 United Arab E… ARE            Forest area (% … AG.LND.FRST.ZS   NA    
-   8 Argentina      ARG            Forest area (% … AG.LND.FRST.ZS   NA    
-   9 Armenia        ARM            Forest area (% … AG.LND.FRST.ZS   NA    
-  10 American Samoa ASM            Forest area (% … AG.LND.FRST.ZS   NA    
-  # … with 254 more rows, and 58 more variables: `1961` &lt;lgl&gt;, `1962` &lt;lgl&gt;,
-  #   `1963` &lt;lgl&gt;, `1964` &lt;lgl&gt;, `1965` &lt;lgl&gt;, `1966` &lt;lgl&gt;, `1967` &lt;lgl&gt;,
-  #   `1968` &lt;lgl&gt;, `1969` &lt;lgl&gt;, `1970` &lt;lgl&gt;, `1971` &lt;lgl&gt;, `1972` &lt;lgl&gt;,
-  #   `1973` &lt;lgl&gt;, `1974` &lt;lgl&gt;, `1975` &lt;lgl&gt;, `1976` &lt;lgl&gt;, `1977` &lt;lgl&gt;,
-  #   `1978` &lt;lgl&gt;, `1979` &lt;lgl&gt;, `1980` &lt;lgl&gt;, `1981` &lt;lgl&gt;, `1982` &lt;lgl&gt;,
-  #   `1983` &lt;lgl&gt;, `1984` &lt;lgl&gt;, `1985` &lt;lgl&gt;, `1986` &lt;lgl&gt;, `1987` &lt;lgl&gt;,
-  #   `1988` &lt;lgl&gt;, `1989` &lt;lgl&gt;, `1990` &lt;dbl&gt;, `1991` &lt;dbl&gt;, `1992` &lt;dbl&gt;,
-  #   `1993` &lt;dbl&gt;, `1994` &lt;dbl&gt;, `1995` &lt;dbl&gt;, `1996` &lt;dbl&gt;, `1997` &lt;dbl&gt;,
-  #   `1998` &lt;dbl&gt;, `1999` &lt;dbl&gt;, `2000` &lt;dbl&gt;, `2001` &lt;dbl&gt;, `2002` &lt;dbl&gt;,
-  #   `2003` &lt;dbl&gt;, `2004` &lt;dbl&gt;, `2005` &lt;dbl&gt;, `2006` &lt;dbl&gt;, `2007` &lt;dbl&gt;,
-  #   `2008` &lt;dbl&gt;, `2009` &lt;dbl&gt;, `2010` &lt;dbl&gt;, `2011` &lt;dbl&gt;, `2012` &lt;dbl&gt;,
-  #   `2013` &lt;dbl&gt;, `2014` &lt;dbl&gt;, `2015` &lt;dbl&gt;, `2016` &lt;dbl&gt;, `2017` &lt;lgl&gt;,
-  #   `2018` &lt;lgl&gt;
+     `Country Name` `Country Code` `Indicator Name` `Indicator Code` `1960` `1961`
+     &lt;chr&gt;          &lt;chr&gt;          &lt;chr&gt;            &lt;chr&gt;            &lt;lgl&gt;  &lt;lgl&gt; 
+   1 Aruba          ABW            Forest area (% … AG.LND.FRST.ZS   NA     NA    
+   2 Afghanistan    AFG            Forest area (% … AG.LND.FRST.ZS   NA     NA    
+   3 Angola         AGO            Forest area (% … AG.LND.FRST.ZS   NA     NA    
+   4 Albania        ALB            Forest area (% … AG.LND.FRST.ZS   NA     NA    
+   5 Andorra        AND            Forest area (% … AG.LND.FRST.ZS   NA     NA    
+   6 Arab World     ARB            Forest area (% … AG.LND.FRST.ZS   NA     NA    
+   7 United Arab E… ARE            Forest area (% … AG.LND.FRST.ZS   NA     NA    
+   8 Argentina      ARG            Forest area (% … AG.LND.FRST.ZS   NA     NA    
+   9 Armenia        ARM            Forest area (% … AG.LND.FRST.ZS   NA     NA    
+  10 American Samoa ASM            Forest area (% … AG.LND.FRST.ZS   NA     NA    
+  # … with 254 more rows, and 57 more variables: `1962` &lt;lgl&gt;, `1963` &lt;lgl&gt;,
+  #   `1964` &lt;lgl&gt;, `1965` &lt;lgl&gt;, `1966` &lt;lgl&gt;, `1967` &lt;lgl&gt;, `1968` &lt;lgl&gt;,
+  #   `1969` &lt;lgl&gt;, `1970` &lt;lgl&gt;, `1971` &lt;lgl&gt;, `1972` &lt;lgl&gt;, `1973` &lt;lgl&gt;,
+  #   `1974` &lt;lgl&gt;, `1975` &lt;lgl&gt;, `1976` &lt;lgl&gt;, `1977` &lt;lgl&gt;, `1978` &lt;lgl&gt;,
+  #   `1979` &lt;lgl&gt;, `1980` &lt;lgl&gt;, `1981` &lt;lgl&gt;, `1982` &lt;lgl&gt;, `1983` &lt;lgl&gt;,
+  #   `1984` &lt;lgl&gt;, `1985` &lt;lgl&gt;, `1986` &lt;lgl&gt;, `1987` &lt;lgl&gt;, `1988` &lt;lgl&gt;,
+  #   `1989` &lt;lgl&gt;, `1990` &lt;dbl&gt;, `1991` &lt;dbl&gt;, `1992` &lt;dbl&gt;, `1993` &lt;dbl&gt;,
+  #   `1994` &lt;dbl&gt;, `1995` &lt;dbl&gt;, `1996` &lt;dbl&gt;, `1997` &lt;dbl&gt;, `1998` &lt;dbl&gt;,
+  #   `1999` &lt;dbl&gt;, `2000` &lt;dbl&gt;, `2001` &lt;dbl&gt;, `2002` &lt;dbl&gt;, `2003` &lt;dbl&gt;,
+  #   `2004` &lt;dbl&gt;, `2005` &lt;dbl&gt;, `2006` &lt;dbl&gt;, `2007` &lt;dbl&gt;, `2008` &lt;dbl&gt;,
+  #   `2009` &lt;dbl&gt;, `2010` &lt;dbl&gt;, `2011` &lt;dbl&gt;, `2012` &lt;dbl&gt;, `2013` &lt;dbl&gt;,
+  #   `2014` &lt;dbl&gt;, `2015` &lt;dbl&gt;, `2016` &lt;dbl&gt;, `2017` &lt;lgl&gt;, `2018` &lt;lgl&gt;
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.panel1-wb_cleaning-auto[
 
 ```r
-wb_percent_forest_raw %&gt;%  
-* # change names to snake case
+wb_percent_forest_raw %&gt;%
+# change names to snake case
 * janitor::clean_names()
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-wb_cleaning-auto[
 
 ```
   # A tibble: 264 x 63
-     country_name country_code indicator_name indicator_code x1960 x1961
-     &lt;chr&gt;        &lt;chr&gt;        &lt;chr&gt;          &lt;chr&gt;          &lt;lgl&gt; &lt;lgl&gt;
-   1 Aruba        ABW          Forest area (… AG.LND.FRST.ZS NA    NA   
-   2 Afghanistan  AFG          Forest area (… AG.LND.FRST.ZS NA    NA   
-   3 Angola       AGO          Forest area (… AG.LND.FRST.ZS NA    NA   
-   4 Albania      ALB          Forest area (… AG.LND.FRST.ZS NA    NA   
-   5 Andorra      AND          Forest area (… AG.LND.FRST.ZS NA    NA   
-   6 Arab World   ARB          Forest area (… AG.LND.FRST.ZS NA    NA   
-   7 United Arab… ARE          Forest area (… AG.LND.FRST.ZS NA    NA   
-   8 Argentina    ARG          Forest area (… AG.LND.FRST.ZS NA    NA   
-   9 Armenia      ARM          Forest area (… AG.LND.FRST.ZS NA    NA   
-  10 American Sa… ASM          Forest area (… AG.LND.FRST.ZS NA    NA   
-  # … with 254 more rows, and 57 more variables: x1962 &lt;lgl&gt;, x1963 &lt;lgl&gt;,
-  #   x1964 &lt;lgl&gt;, x1965 &lt;lgl&gt;, x1966 &lt;lgl&gt;, x1967 &lt;lgl&gt;, x1968 &lt;lgl&gt;,
-  #   x1969 &lt;lgl&gt;, x1970 &lt;lgl&gt;, x1971 &lt;lgl&gt;, x1972 &lt;lgl&gt;, x1973 &lt;lgl&gt;,
-  #   x1974 &lt;lgl&gt;, x1975 &lt;lgl&gt;, x1976 &lt;lgl&gt;, x1977 &lt;lgl&gt;, x1978 &lt;lgl&gt;,
-  #   x1979 &lt;lgl&gt;, x1980 &lt;lgl&gt;, x1981 &lt;lgl&gt;, x1982 &lt;lgl&gt;, x1983 &lt;lgl&gt;,
-  #   x1984 &lt;lgl&gt;, x1985 &lt;lgl&gt;, x1986 &lt;lgl&gt;, x1987 &lt;lgl&gt;, x1988 &lt;lgl&gt;,
-  #   x1989 &lt;lgl&gt;, x1990 &lt;dbl&gt;, x1991 &lt;dbl&gt;, x1992 &lt;dbl&gt;, x1993 &lt;dbl&gt;,
-  #   x1994 &lt;dbl&gt;, x1995 &lt;dbl&gt;, x1996 &lt;dbl&gt;, x1997 &lt;dbl&gt;, x1998 &lt;dbl&gt;,
-  #   x1999 &lt;dbl&gt;, x2000 &lt;dbl&gt;, x2001 &lt;dbl&gt;, x2002 &lt;dbl&gt;, x2003 &lt;dbl&gt;,
-  #   x2004 &lt;dbl&gt;, x2005 &lt;dbl&gt;, x2006 &lt;dbl&gt;, x2007 &lt;dbl&gt;, x2008 &lt;dbl&gt;,
-  #   x2009 &lt;dbl&gt;, x2010 &lt;dbl&gt;, x2011 &lt;dbl&gt;, x2012 &lt;dbl&gt;, x2013 &lt;dbl&gt;,
-  #   x2014 &lt;dbl&gt;, x2015 &lt;dbl&gt;, x2016 &lt;dbl&gt;, x2017 &lt;lgl&gt;, x2018 &lt;lgl&gt;
+     country_name country_code indicator_name indicator_code x1960 x1961 x1962
+     &lt;chr&gt;        &lt;chr&gt;        &lt;chr&gt;          &lt;chr&gt;          &lt;lgl&gt; &lt;lgl&gt; &lt;lgl&gt;
+   1 Aruba        ABW          Forest area (… AG.LND.FRST.ZS NA    NA    NA   
+   2 Afghanistan  AFG          Forest area (… AG.LND.FRST.ZS NA    NA    NA   
+   3 Angola       AGO          Forest area (… AG.LND.FRST.ZS NA    NA    NA   
+   4 Albania      ALB          Forest area (… AG.LND.FRST.ZS NA    NA    NA   
+   5 Andorra      AND          Forest area (… AG.LND.FRST.ZS NA    NA    NA   
+   6 Arab World   ARB          Forest area (… AG.LND.FRST.ZS NA    NA    NA   
+   7 United Arab… ARE          Forest area (… AG.LND.FRST.ZS NA    NA    NA   
+   8 Argentina    ARG          Forest area (… AG.LND.FRST.ZS NA    NA    NA   
+   9 Armenia      ARM          Forest area (… AG.LND.FRST.ZS NA    NA    NA   
+  10 American Sa… ASM          Forest area (… AG.LND.FRST.ZS NA    NA    NA   
+  # … with 254 more rows, and 56 more variables: x1963 &lt;lgl&gt;, x1964 &lt;lgl&gt;,
+  #   x1965 &lt;lgl&gt;, x1966 &lt;lgl&gt;, x1967 &lt;lgl&gt;, x1968 &lt;lgl&gt;, x1969 &lt;lgl&gt;,
+  #   x1970 &lt;lgl&gt;, x1971 &lt;lgl&gt;, x1972 &lt;lgl&gt;, x1973 &lt;lgl&gt;, x1974 &lt;lgl&gt;,
+  #   x1975 &lt;lgl&gt;, x1976 &lt;lgl&gt;, x1977 &lt;lgl&gt;, x1978 &lt;lgl&gt;, x1979 &lt;lgl&gt;,
+  #   x1980 &lt;lgl&gt;, x1981 &lt;lgl&gt;, x1982 &lt;lgl&gt;, x1983 &lt;lgl&gt;, x1984 &lt;lgl&gt;,
+  #   x1985 &lt;lgl&gt;, x1986 &lt;lgl&gt;, x1987 &lt;lgl&gt;, x1988 &lt;lgl&gt;, x1989 &lt;lgl&gt;,
+  #   x1990 &lt;dbl&gt;, x1991 &lt;dbl&gt;, x1992 &lt;dbl&gt;, x1993 &lt;dbl&gt;, x1994 &lt;dbl&gt;,
+  #   x1995 &lt;dbl&gt;, x1996 &lt;dbl&gt;, x1997 &lt;dbl&gt;, x1998 &lt;dbl&gt;, x1999 &lt;dbl&gt;,
+  #   x2000 &lt;dbl&gt;, x2001 &lt;dbl&gt;, x2002 &lt;dbl&gt;, x2003 &lt;dbl&gt;, x2004 &lt;dbl&gt;,
+  #   x2005 &lt;dbl&gt;, x2006 &lt;dbl&gt;, x2007 &lt;dbl&gt;, x2008 &lt;dbl&gt;, x2009 &lt;dbl&gt;,
+  #   x2010 &lt;dbl&gt;, x2011 &lt;dbl&gt;, x2012 &lt;dbl&gt;, x2013 &lt;dbl&gt;, x2014 &lt;dbl&gt;,
+  #   x2015 &lt;dbl&gt;, x2016 &lt;dbl&gt;, x2017 &lt;lgl&gt;, x2018 &lt;lgl&gt;
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.panel1-wb_cleaning-auto[
 
 ```r
-wb_percent_forest_raw %&gt;%  
-  # change names to snake case
-  janitor::clean_names() %&gt;%  
-* # get rid of columns that are not variables
-* # indicator name and indicator code
+wb_percent_forest_raw %&gt;%
+# change names to snake case
+  janitor::clean_names() %&gt;%
+# get rid of columns that are not variables
+# indicator name and indicator code
 * select(-indicator_name, -indicator_code)
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-wb_cleaning-auto[
 
 ```
   # A tibble: 264 x 61
-     country_name country_code x1960 x1961 x1962 x1963 x1964 x1965 x1966
-     &lt;chr&gt;        &lt;chr&gt;        &lt;lgl&gt; &lt;lgl&gt; &lt;lgl&gt; &lt;lgl&gt; &lt;lgl&gt; &lt;lgl&gt; &lt;lgl&gt;
-   1 Aruba        ABW          NA    NA    NA    NA    NA    NA    NA   
-   2 Afghanistan  AFG          NA    NA    NA    NA    NA    NA    NA   
-   3 Angola       AGO          NA    NA    NA    NA    NA    NA    NA   
-   4 Albania      ALB          NA    NA    NA    NA    NA    NA    NA   
-   5 Andorra      AND          NA    NA    NA    NA    NA    NA    NA   
-   6 Arab World   ARB          NA    NA    NA    NA    NA    NA    NA   
-   7 United Arab… ARE          NA    NA    NA    NA    NA    NA    NA   
-   8 Argentina    ARG          NA    NA    NA    NA    NA    NA    NA   
-   9 Armenia      ARM          NA    NA    NA    NA    NA    NA    NA   
-  10 American Sa… ASM          NA    NA    NA    NA    NA    NA    NA   
-  # … with 254 more rows, and 52 more variables: x1967 &lt;lgl&gt;, x1968 &lt;lgl&gt;,
-  #   x1969 &lt;lgl&gt;, x1970 &lt;lgl&gt;, x1971 &lt;lgl&gt;, x1972 &lt;lgl&gt;, x1973 &lt;lgl&gt;,
-  #   x1974 &lt;lgl&gt;, x1975 &lt;lgl&gt;, x1976 &lt;lgl&gt;, x1977 &lt;lgl&gt;, x1978 &lt;lgl&gt;,
-  #   x1979 &lt;lgl&gt;, x1980 &lt;lgl&gt;, x1981 &lt;lgl&gt;, x1982 &lt;lgl&gt;, x1983 &lt;lgl&gt;,
-  #   x1984 &lt;lgl&gt;, x1985 &lt;lgl&gt;, x1986 &lt;lgl&gt;, x1987 &lt;lgl&gt;, x1988 &lt;lgl&gt;,
-  #   x1989 &lt;lgl&gt;, x1990 &lt;dbl&gt;, x1991 &lt;dbl&gt;, x1992 &lt;dbl&gt;, x1993 &lt;dbl&gt;,
-  #   x1994 &lt;dbl&gt;, x1995 &lt;dbl&gt;, x1996 &lt;dbl&gt;, x1997 &lt;dbl&gt;, x1998 &lt;dbl&gt;,
-  #   x1999 &lt;dbl&gt;, x2000 &lt;dbl&gt;, x2001 &lt;dbl&gt;, x2002 &lt;dbl&gt;, x2003 &lt;dbl&gt;,
-  #   x2004 &lt;dbl&gt;, x2005 &lt;dbl&gt;, x2006 &lt;dbl&gt;, x2007 &lt;dbl&gt;, x2008 &lt;dbl&gt;,
-  #   x2009 &lt;dbl&gt;, x2010 &lt;dbl&gt;, x2011 &lt;dbl&gt;, x2012 &lt;dbl&gt;, x2013 &lt;dbl&gt;,
-  #   x2014 &lt;dbl&gt;, x2015 &lt;dbl&gt;, x2016 &lt;dbl&gt;, x2017 &lt;lgl&gt;, x2018 &lt;lgl&gt;
+     country_name country_code x1960 x1961 x1962 x1963 x1964 x1965 x1966 x1967
+     &lt;chr&gt;        &lt;chr&gt;        &lt;lgl&gt; &lt;lgl&gt; &lt;lgl&gt; &lt;lgl&gt; &lt;lgl&gt; &lt;lgl&gt; &lt;lgl&gt; &lt;lgl&gt;
+   1 Aruba        ABW          NA    NA    NA    NA    NA    NA    NA    NA   
+   2 Afghanistan  AFG          NA    NA    NA    NA    NA    NA    NA    NA   
+   3 Angola       AGO          NA    NA    NA    NA    NA    NA    NA    NA   
+   4 Albania      ALB          NA    NA    NA    NA    NA    NA    NA    NA   
+   5 Andorra      AND          NA    NA    NA    NA    NA    NA    NA    NA   
+   6 Arab World   ARB          NA    NA    NA    NA    NA    NA    NA    NA   
+   7 United Arab… ARE          NA    NA    NA    NA    NA    NA    NA    NA   
+   8 Argentina    ARG          NA    NA    NA    NA    NA    NA    NA    NA   
+   9 Armenia      ARM          NA    NA    NA    NA    NA    NA    NA    NA   
+  10 American Sa… ASM          NA    NA    NA    NA    NA    NA    NA    NA   
+  # … with 254 more rows, and 51 more variables: x1968 &lt;lgl&gt;, x1969 &lt;lgl&gt;,
+  #   x1970 &lt;lgl&gt;, x1971 &lt;lgl&gt;, x1972 &lt;lgl&gt;, x1973 &lt;lgl&gt;, x1974 &lt;lgl&gt;,
+  #   x1975 &lt;lgl&gt;, x1976 &lt;lgl&gt;, x1977 &lt;lgl&gt;, x1978 &lt;lgl&gt;, x1979 &lt;lgl&gt;,
+  #   x1980 &lt;lgl&gt;, x1981 &lt;lgl&gt;, x1982 &lt;lgl&gt;, x1983 &lt;lgl&gt;, x1984 &lt;lgl&gt;,
+  #   x1985 &lt;lgl&gt;, x1986 &lt;lgl&gt;, x1987 &lt;lgl&gt;, x1988 &lt;lgl&gt;, x1989 &lt;lgl&gt;,
+  #   x1990 &lt;dbl&gt;, x1991 &lt;dbl&gt;, x1992 &lt;dbl&gt;, x1993 &lt;dbl&gt;, x1994 &lt;dbl&gt;,
+  #   x1995 &lt;dbl&gt;, x1996 &lt;dbl&gt;, x1997 &lt;dbl&gt;, x1998 &lt;dbl&gt;, x1999 &lt;dbl&gt;,
+  #   x2000 &lt;dbl&gt;, x2001 &lt;dbl&gt;, x2002 &lt;dbl&gt;, x2003 &lt;dbl&gt;, x2004 &lt;dbl&gt;,
+  #   x2005 &lt;dbl&gt;, x2006 &lt;dbl&gt;, x2007 &lt;dbl&gt;, x2008 &lt;dbl&gt;, x2009 &lt;dbl&gt;,
+  #   x2010 &lt;dbl&gt;, x2011 &lt;dbl&gt;, x2012 &lt;dbl&gt;, x2013 &lt;dbl&gt;, x2014 &lt;dbl&gt;,
+  #   x2015 &lt;dbl&gt;, x2016 &lt;dbl&gt;, x2017 &lt;lgl&gt;, x2018 &lt;lgl&gt;
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.panel1-wb_cleaning-auto[
 
 ```r
-wb_percent_forest_raw %&gt;%  
-  # change names to snake case
-  janitor::clean_names() %&gt;%  
-  # get rid of columns that are not variables
-  # indicator name and indicator code
-  select(-indicator_name, -indicator_code) %&gt;%  
-* # suppose you are interested only in 2000 to 2005
+wb_percent_forest_raw %&gt;%
+# change names to snake case
+  janitor::clean_names() %&gt;%
+# get rid of columns that are not variables
+# indicator name and indicator code
+  select(-indicator_name, -indicator_code) %&gt;%
+# suppose you are interested only in 2000 to 2005
 * select(country_name, country_code, x2000:x2005)
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-wb_cleaning-auto[
 
 ```
   # A tibble: 264 x 8
@@ -1341,29 +1471,32 @@ wb_percent_forest_raw %&gt;%
   10 American Samoa       ASM          90.2  90.1  89.9  89.8  89.5  89.4 
   # … with 254 more rows
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.panel1-wb_cleaning-auto[
 
 ```r
-wb_percent_forest_raw %&gt;%  
-  # change names to snake case
-  janitor::clean_names() %&gt;%  
-  # get rid of columns that are not variables
-  # indicator name and indicator code
-  select(-indicator_name, -indicator_code) %&gt;%  
-  # suppose you are interested only in 2000 to 2005
-  select(country_name, country_code, x2000:x2005) %&gt;%  
-* # data is "wide", but to use for analysis
-* # we transform it to "long"
+wb_percent_forest_raw %&gt;%
+# change names to snake case
+  janitor::clean_names() %&gt;%
+# get rid of columns that are not variables
+# indicator name and indicator code
+  select(-indicator_name, -indicator_code) %&gt;%
+# suppose you are interested only in 2000 to 2005
+  select(country_name, country_code, x2000:x2005) %&gt;%
+# data is "wide", but to use for analysis
+# we transform it to "long"
 * gather(key = "year",
 *        value = "percent_forest",
 *        x2000:x2005)
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-wb_cleaning-auto[
 
 ```
   # A tibble: 1,584 x 4
@@ -1381,30 +1514,33 @@ wb_percent_forest_raw %&gt;%
   10 American Samoa       ASM          x2000          90.2 
   # … with 1,574 more rows
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.panel1-wb_cleaning-auto[
 
 ```r
-wb_percent_forest_raw %&gt;%  
-  # change names to snake case
-  janitor::clean_names() %&gt;%  
-  # get rid of columns that are not variables
-  # indicator name and indicator code
-  select(-indicator_name, -indicator_code) %&gt;%  
-  # suppose you are interested only in 2000 to 2005
-  select(country_name, country_code, x2000:x2005) %&gt;%  
-  # data is "wide", but to use for analysis
-  # we transform it to "long"
-  gather(key = "year",  
-         value = "percent_forest",  
-         x2000:x2005) %&gt;%  
+wb_percent_forest_raw %&gt;%
+# change names to snake case
+  janitor::clean_names() %&gt;%
+# get rid of columns that are not variables
+# indicator name and indicator code
+  select(-indicator_name, -indicator_code) %&gt;%
+# suppose you are interested only in 2000 to 2005
+  select(country_name, country_code, x2000:x2005) %&gt;%
+# data is "wide", but to use for analysis
+# we transform it to "long"
+  gather(key = "year",
+         value = "percent_forest",
+         x2000:x2005) %&gt;%
 * mutate(year = str_remove(year, "x"))
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-wb_cleaning-auto[
 
 ```
   # A tibble: 1,584 x 4
@@ -1422,31 +1558,34 @@ wb_percent_forest_raw %&gt;%
   10 American Samoa       ASM          2000           90.2 
   # … with 1,574 more rows
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.panel1-wb_cleaning-auto[
 
 ```r
-wb_percent_forest_raw %&gt;%  
-  # change names to snake case
-  janitor::clean_names() %&gt;%  
-  # get rid of columns that are not variables
-  # indicator name and indicator code
-  select(-indicator_name, -indicator_code) %&gt;%  
-  # suppose you are interested only in 2000 to 2005
-  select(country_name, country_code, x2000:x2005) %&gt;%  
-  # data is "wide", but to use for analysis
-  # we transform it to "long"
-  gather(key = "year",  
-         value = "percent_forest",  
-         x2000:x2005) %&gt;%  
-  mutate(year = str_remove(year, "x")) %&gt;%  
+wb_percent_forest_raw %&gt;%
+# change names to snake case
+  janitor::clean_names() %&gt;%
+# get rid of columns that are not variables
+# indicator name and indicator code
+  select(-indicator_name, -indicator_code) %&gt;%
+# suppose you are interested only in 2000 to 2005
+  select(country_name, country_code, x2000:x2005) %&gt;%
+# data is "wide", but to use for analysis
+# we transform it to "long"
+  gather(key = "year",
+         value = "percent_forest",
+         x2000:x2005) %&gt;%
+  mutate(year = str_remove(year, "x")) %&gt;%
 * mutate(year = as.numeric(year))
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-wb_cleaning-auto[
 
 ```
   # A tibble: 1,584 x 4
@@ -1464,33 +1603,36 @@ wb_percent_forest_raw %&gt;%
   10 American Samoa       ASM           2000          90.2 
   # … with 1,574 more rows
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.panel1-wb_cleaning-auto[
 
 ```r
-wb_percent_forest_raw %&gt;%  
-  # change names to snake case
-  janitor::clean_names() %&gt;%  
-  # get rid of columns that are not variables
-  # indicator name and indicator code
-  select(-indicator_name, -indicator_code) %&gt;%  
-  # suppose you are interested only in 2000 to 2005
-  select(country_name, country_code, x2000:x2005) %&gt;%  
-  # data is "wide", but to use for analysis
-  # we transform it to "long"
-  gather(key = "year",  
-         value = "percent_forest",  
-         x2000:x2005) %&gt;%  
-  mutate(year = str_remove(year, "x")) %&gt;%  
-  mutate(year = as.numeric(year)) %&gt;%  
-* # reordering data if you like
+wb_percent_forest_raw %&gt;%
+# change names to snake case
+  janitor::clean_names() %&gt;%
+# get rid of columns that are not variables
+# indicator name and indicator code
+  select(-indicator_name, -indicator_code) %&gt;%
+# suppose you are interested only in 2000 to 2005
+  select(country_name, country_code, x2000:x2005) %&gt;%
+# data is "wide", but to use for analysis
+# we transform it to "long"
+  gather(key = "year",
+         value = "percent_forest",
+         x2000:x2005) %&gt;%
+  mutate(year = str_remove(year, "x")) %&gt;%
+  mutate(year = as.numeric(year)) %&gt;%
+# reordering data if you like
 * arrange(-percent_forest)
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-wb_cleaning-auto[
 
 ```
   # A tibble: 1,584 x 4
@@ -1508,35 +1650,38 @@ wb_percent_forest_raw %&gt;%
   10 Micronesia, Fed. Sts. FSM           2002           91.3
   # … with 1,574 more rows
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.panel1-wb_cleaning-auto[
 
 ```r
-wb_percent_forest_raw %&gt;%  
-  # change names to snake case
-  janitor::clean_names() %&gt;%  
-  # get rid of columns that are not variables
-  # indicator name and indicator code
-  select(-indicator_name, -indicator_code) %&gt;%  
-  # suppose you are interested only in 2000 to 2005
-  select(country_name, country_code, x2000:x2005) %&gt;%  
-  # data is "wide", but to use for analysis
-  # we transform it to "long"
-  gather(key = "year",  
-         value = "percent_forest",  
-         x2000:x2005) %&gt;%  
-  mutate(year = str_remove(year, "x")) %&gt;%  
-  mutate(year = as.numeric(year)) %&gt;%  
-  # reordering data if you like
-  arrange(-percent_forest) %&gt;%  
-* # rename variable
+wb_percent_forest_raw %&gt;%
+# change names to snake case
+  janitor::clean_names() %&gt;%
+# get rid of columns that are not variables
+# indicator name and indicator code
+  select(-indicator_name, -indicator_code) %&gt;%
+# suppose you are interested only in 2000 to 2005
+  select(country_name, country_code, x2000:x2005) %&gt;%
+# data is "wide", but to use for analysis
+# we transform it to "long"
+  gather(key = "year",
+         value = "percent_forest",
+         x2000:x2005) %&gt;%
+  mutate(year = str_remove(year, "x")) %&gt;%
+  mutate(year = as.numeric(year)) %&gt;%
+# reordering data if you like
+  arrange(-percent_forest) %&gt;%
+# rename variable
 * rename(wb_country_code = country_code)
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-wb_cleaning-auto[
 
 ```
   # A tibble: 1,584 x 4
@@ -1554,32 +1699,34 @@ wb_percent_forest_raw %&gt;%
   10 Micronesia, Fed. Sts. FSM              2002           91.3
   # … with 1,574 more rows
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.panel1-wb_cleaning-auto[
 
 ```r
-wb_percent_forest_raw %&gt;%  
-  # change names to snake case
-  janitor::clean_names() %&gt;%  
-  # get rid of columns that are not variables
-  # indicator name and indicator code
-  select(-indicator_name, -indicator_code) %&gt;%  
-  # suppose you are interested only in 2000 to 2005
-  select(country_name, country_code, x2000:x2005) %&gt;%  
-  # data is "wide", but to use for analysis
-  # we transform it to "long"
-  gather(key = "year",  
-         value = "percent_forest",  
-         x2000:x2005) %&gt;%  
-  mutate(year = str_remove(year, "x")) %&gt;%  
-  mutate(year = as.numeric(year)) %&gt;%  
-  # reordering data if you like
-  arrange(-percent_forest) %&gt;%  
-  # rename variable
-  rename(wb_country_code = country_code) %&gt;%  
+wb_percent_forest_raw %&gt;%
+# change names to snake case
+  janitor::clean_names() %&gt;%
+# get rid of columns that are not variables
+# indicator name and indicator code
+  select(-indicator_name, -indicator_code) %&gt;%
+# suppose you are interested only in 2000 to 2005
+  select(country_name, country_code, x2000:x2005) %&gt;%
+# data is "wide", but to use for analysis
+# we transform it to "long"
+  gather(key = "year",
+         value = "percent_forest",
+         x2000:x2005) %&gt;%
+  mutate(year = str_remove(year, "x")) %&gt;%
+  mutate(year = as.numeric(year)) %&gt;%
+# reordering data if you like
+  arrange(-percent_forest) %&gt;%
+# rename variable
+  rename(wb_country_code = country_code) %&gt;%
 * mutate(continent =
 *          countrycode::countrycode(
 *            sourcevar = wb_country_code,
@@ -1587,8 +1734,9 @@ wb_percent_forest_raw %&gt;%
 *            destination = "continent"
 *          ))
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-wb_cleaning-auto[
 
 ```
   # A tibble: 1,584 x 5
@@ -1606,44 +1754,76 @@ wb_percent_forest_raw %&gt;%
   10 Micronesia, Fed. Sts. FSM              2002           91.3 Oceania  
   # … with 1,574 more rows
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.panel1-wb_cleaning-auto[
 
 ```r
-wb_percent_forest_raw %&gt;%  
-  # change names to snake case
-  janitor::clean_names() %&gt;%  
-  # get rid of columns that are not variables
-  # indicator name and indicator code
-  select(-indicator_name, -indicator_code) %&gt;%  
-  # suppose you are interested only in 2000 to 2005
-  select(country_name, country_code, x2000:x2005) %&gt;%  
-  # data is "wide", but to use for analysis
-  # we transform it to "long"
-  gather(key = "year",  
-         value = "percent_forest",  
-         x2000:x2005) %&gt;%  
-  mutate(year = str_remove(year, "x")) %&gt;%  
-  mutate(year = as.numeric(year)) %&gt;%  
-  # reordering data if you like
-  arrange(-percent_forest) %&gt;%  
-  # rename variable
-  rename(wb_country_code = country_code) %&gt;%  
-  mutate(continent =  
-           countrycode::countrycode(  
-             sourcevar = wb_country_code,  
-             origin = "wb",  
-             destination = "continent"  
-           )) -&gt;  
+wb_percent_forest_raw %&gt;%
+# change names to snake case
+  janitor::clean_names() %&gt;%
+# get rid of columns that are not variables
+# indicator name and indicator code
+  select(-indicator_name, -indicator_code) %&gt;%
+# suppose you are interested only in 2000 to 2005
+  select(country_name, country_code, x2000:x2005) %&gt;%
+# data is "wide", but to use for analysis
+# we transform it to "long"
+  gather(key = "year",
+         value = "percent_forest",
+         x2000:x2005) %&gt;%
+  mutate(year = str_remove(year, "x")) %&gt;%
+  mutate(year = as.numeric(year)) %&gt;%
+# reordering data if you like
+  arrange(-percent_forest) %&gt;%
+# rename variable
+  rename(wb_country_code = country_code) %&gt;%
+  mutate(continent =
+           countrycode::countrycode(
+             sourcevar = wb_country_code,
+             origin = "wb",
+             destination = "continent"
+           )) -&gt;
 *wb_percent_forest
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-wb_cleaning-auto[
 
-]]
+]
+
+&lt;style&gt;
+.panel1-wb_cleaning-auto {
+  color: black;
+  width: 38.6060606060606%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel2-wb_cleaning-auto {
+  color: black;
+  width: 59.3939393939394%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-wb_cleaning-auto {
+  color: black;
+  width: NA%;
+  hight: 33%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
 
 ---
 
@@ -1693,42 +1873,50 @@ Countries can have many names.  Consider the United States.  You can call it the
 
 
 
-class: split-40
 count: false
-.column[.content[
+ 
+
+.panel1-countrycode-auto[
 
 ```r
 *library(gapminder)
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-countrycode-auto[
 
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.panel1-countrycode-auto[
 
 ```r
-library(gapminder)  
+library(gapminder)
 *library(countrycode)
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-countrycode-auto[
 
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.panel1-countrycode-auto[
 
 ```r
-library(gapminder)  
-library(countrycode)  
+library(gapminder)
+library(countrycode)
 *gapminder
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-countrycode-auto[
 
 ```
   # A tibble: 1,704 x 6
@@ -1746,20 +1934,23 @@ library(countrycode)
   10 Afghanistan Asia       1997    41.8 22227415      635.
   # … with 1,694 more rows
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.panel1-countrycode-auto[
 
 ```r
-library(gapminder)  
-library(countrycode)  
-gapminder %&gt;%  
+library(gapminder)
+library(countrycode)
+gapminder %&gt;%
 * distinct(country)
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-countrycode-auto[
 
 ```
   # A tibble: 142 x 1
@@ -1777,25 +1968,28 @@ gapminder %&gt;%
   10 Belgium    
   # … with 132 more rows
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.panel1-countrycode-auto[
 
 ```r
-library(gapminder)  
-library(countrycode)  
-gapminder %&gt;%  
-  distinct(country) %&gt;%  
+library(gapminder)
+library(countrycode)
+gapminder %&gt;%
+  distinct(country) %&gt;%
 * mutate(iso3c = countrycode(
 *   sourcevar = country,
 *   origin = "country.name",
 *   destination = "iso3c"
 *          ))
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-countrycode-auto[
 
 ```
   # A tibble: 142 x 2
@@ -1813,30 +2007,33 @@ gapminder %&gt;%
   10 Belgium     BEL  
   # … with 132 more rows
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.panel1-countrycode-auto[
 
 ```r
-library(gapminder)  
-library(countrycode)  
-gapminder %&gt;%  
-  distinct(country) %&gt;%  
-  mutate(iso3c = countrycode(  
-    sourcevar = country,  
-    origin = "country.name",  
-    destination = "iso3c"  
-           )) %&gt;%  
+library(gapminder)
+library(countrycode)
+gapminder %&gt;%
+  distinct(country) %&gt;%
+  mutate(iso3c = countrycode(
+    sourcevar = country,
+    origin = "country.name",
+    destination = "iso3c"
+           )) %&gt;%
 * mutate(cowc = countrycode(
 *   s = country,
 *   origin = "country.name",
 *   d = "cowc")
 *   )
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-countrycode-auto[
 
 ```
   # A tibble: 142 x 3
@@ -1854,35 +2051,38 @@ gapminder %&gt;%
   10 Belgium     BEL   BEL  
   # … with 132 more rows
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.panel1-countrycode-auto[
 
 ```r
-library(gapminder)  
-library(countrycode)  
-gapminder %&gt;%  
-  distinct(country) %&gt;%  
-  mutate(iso3c = countrycode(  
-    sourcevar = country,  
-    origin = "country.name",  
-    destination = "iso3c"  
-           )) %&gt;%  
-  mutate(cowc = countrycode(  
-    s = country,  
-    origin = "country.name",  
-    d = "cowc")  
-    ) %&gt;%  
+library(gapminder)
+library(countrycode)
+gapminder %&gt;%
+  distinct(country) %&gt;%
+  mutate(iso3c = countrycode(
+    sourcevar = country,
+    origin = "country.name",
+    destination = "iso3c"
+           )) %&gt;%
+  mutate(cowc = countrycode(
+    s = country,
+    origin = "country.name",
+    d = "cowc")
+    ) %&gt;%
 * mutate(cown = countrycode(
 *   s = cowc,
 *   origin = "cowc",
 *   d = "cown")
 *   )
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-countrycode-auto[
 
 ```
   # A tibble: 142 x 4
@@ -1900,40 +2100,43 @@ gapminder %&gt;%
   10 Belgium     BEL   BEL     211
   # … with 132 more rows
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.panel1-countrycode-auto[
 
 ```r
-library(gapminder)  
-library(countrycode)  
-gapminder %&gt;%  
-  distinct(country) %&gt;%  
-  mutate(iso3c = countrycode(  
-    sourcevar = country,  
-    origin = "country.name",  
-    destination = "iso3c"  
-           )) %&gt;%  
-  mutate(cowc = countrycode(  
-    s = country,  
-    origin = "country.name",  
-    d = "cowc")  
-    ) %&gt;%  
-  mutate(cown = countrycode(  
-    s = cowc,  
-    origin = "cowc",  
-    d = "cown")  
-    ) %&gt;%  
+library(gapminder)
+library(countrycode)
+gapminder %&gt;%
+  distinct(country) %&gt;%
+  mutate(iso3c = countrycode(
+    sourcevar = country,
+    origin = "country.name",
+    destination = "iso3c"
+           )) %&gt;%
+  mutate(cowc = countrycode(
+    s = country,
+    origin = "country.name",
+    d = "cowc")
+    ) %&gt;%
+  mutate(cown = countrycode(
+    s = cowc,
+    origin = "cowc",
+    d = "cown")
+    ) %&gt;%
 * mutate(eu28 = countrycode(
 *   s = country,
 *   origin = "country.name",
 *   d = "eu28")
 *   )
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-countrycode-auto[
 
 ```
   # A tibble: 142 x 5
@@ -1951,43 +2154,46 @@ gapminder %&gt;%
   10 Belgium     BEL   BEL     211 EU   
   # … with 132 more rows
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.panel1-countrycode-auto[
 
 ```r
-library(gapminder)  
-library(countrycode)  
-gapminder %&gt;%  
-  distinct(country) %&gt;%  
-  mutate(iso3c = countrycode(  
-    sourcevar = country,  
-    origin = "country.name",  
-    destination = "iso3c"  
-           )) %&gt;%  
-  mutate(cowc = countrycode(  
-    s = country,  
-    origin = "country.name",  
-    d = "cowc")  
-    ) %&gt;%  
-  mutate(cown = countrycode(  
-    s = cowc,  
-    origin = "cowc",  
-    d = "cown")  
-    ) %&gt;%  
-  mutate(eu28 = countrycode(  
-    s = country,  
-    origin = "country.name",  
-    d = "eu28")  
-    ) %&gt;%  
+library(gapminder)
+library(countrycode)
+gapminder %&gt;%
+  distinct(country) %&gt;%
+  mutate(iso3c = countrycode(
+    sourcevar = country,
+    origin = "country.name",
+    destination = "iso3c"
+           )) %&gt;%
+  mutate(cowc = countrycode(
+    s = country,
+    origin = "country.name",
+    d = "cowc")
+    ) %&gt;%
+  mutate(cown = countrycode(
+    s = cowc,
+    origin = "cowc",
+    d = "cown")
+    ) %&gt;%
+  mutate(eu28 = countrycode(
+    s = country,
+    origin = "country.name",
+    d = "eu28")
+    ) %&gt;%
 * mutate(eu28 = ifelse(
 *   is.na(eu28), "Not EU", "EU")
 *   )
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-countrycode-auto[
 
 ```
   # A tibble: 142 x 5
@@ -2005,7 +2211,36 @@ gapminder %&gt;%
   10 Belgium     BEL   BEL     211 EU    
   # … with 132 more rows
 ```
-]]
+]
+
+&lt;style&gt;
+.panel1-countrycode-auto {
+  color: black;
+  width: 38.6060606060606%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel2-countrycode-auto {
+  color: black;
+  width: 59.3939393939394%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-countrycode-auto {
+  color: black;
+  width: NA%;
+  hight: 33%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
 
 ---
 
@@ -2035,28 +2270,33 @@ holidays_2019
 
 
 
-class: split-40
 count: false
-.column[.content[
+ 
+
+.panel1-lubridate-auto[
 
 ```r
 *library(lubridate)
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-lubridate-auto[
 
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.panel1-lubridate-auto[
 
 ```r
-library(lubridate)  
+library(lubridate)
 *holidays_2019
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-lubridate-auto[
 
 ```
   # A tibble: 4 x 2
@@ -2067,19 +2307,22 @@ library(lubridate)
   3 January 24 Belly Laugh Day       
   4 February 2 Groundhog Day
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.panel1-lubridate-auto[
 
 ```r
-library(lubridate)  
-holidays_2019 %&gt;%  
+library(lubridate)
+holidays_2019 %&gt;%
 * mutate(date = paste0(date, ", 2019"))
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-lubridate-auto[
 
 ```
   # A tibble: 4 x 2
@@ -2090,20 +2333,23 @@ holidays_2019 %&gt;%
   3 January 24, 2019 Belly Laugh Day       
   4 February 2, 2019 Groundhog Day
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.panel1-lubridate-auto[
 
 ```r
-library(lubridate)  
-holidays_2019 %&gt;%  
-  mutate(date = paste0(date, ", 2019")) %&gt;%  
+library(lubridate)
+holidays_2019 %&gt;%
+  mutate(date = paste0(date, ", 2019")) %&gt;%
 * mutate(date = mdy(date))
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-lubridate-auto[
 
 ```
   # A tibble: 4 x 2
@@ -2114,21 +2360,24 @@ holidays_2019 %&gt;%
   3 2019-01-24 Belly Laugh Day       
   4 2019-02-02 Groundhog Day
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.panel1-lubridate-auto[
 
 ```r
-library(lubridate)  
-holidays_2019 %&gt;%  
-  mutate(date = paste0(date, ", 2019")) %&gt;%  
-  mutate(date = mdy(date)) %&gt;%  
+library(lubridate)
+holidays_2019 %&gt;%
+  mutate(date = paste0(date, ", 2019")) %&gt;%
+  mutate(date = mdy(date)) %&gt;%
 * mutate(day = day(date))
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-lubridate-auto[
 
 ```
   # A tibble: 4 x 3
@@ -2139,22 +2388,25 @@ holidays_2019 %&gt;%
   3 2019-01-24 Belly Laugh Day           24
   4 2019-02-02 Groundhog Day              2
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.panel1-lubridate-auto[
 
 ```r
-library(lubridate)  
-holidays_2019 %&gt;%  
-  mutate(date = paste0(date, ", 2019")) %&gt;%  
-  mutate(date = mdy(date)) %&gt;%  
-  mutate(day = day(date)) %&gt;%  
+library(lubridate)
+holidays_2019 %&gt;%
+  mutate(date = paste0(date, ", 2019")) %&gt;%
+  mutate(date = mdy(date)) %&gt;%
+  mutate(day = day(date)) %&gt;%
 * mutate(month = month(date))
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-lubridate-auto[
 
 ```
   # A tibble: 4 x 4
@@ -2165,23 +2417,26 @@ holidays_2019 %&gt;%
   3 2019-01-24 Belly Laugh Day           24     1
   4 2019-02-02 Groundhog Day              2     2
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.panel1-lubridate-auto[
 
 ```r
-library(lubridate)  
-holidays_2019 %&gt;%  
-  mutate(date = paste0(date, ", 2019")) %&gt;%  
-  mutate(date = mdy(date)) %&gt;%  
-  mutate(day = day(date)) %&gt;%  
-  mutate(month = month(date)) %&gt;%  
+library(lubridate)
+holidays_2019 %&gt;%
+  mutate(date = paste0(date, ", 2019")) %&gt;%
+  mutate(date = mdy(date)) %&gt;%
+  mutate(day = day(date)) %&gt;%
+  mutate(month = month(date)) %&gt;%
 * mutate(year = year(date))
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-lubridate-auto[
 
 ```
   # A tibble: 4 x 5
@@ -2192,24 +2447,27 @@ holidays_2019 %&gt;%
   3 2019-01-24 Belly Laugh Day           24     1  2019
   4 2019-02-02 Groundhog Day              2     2  2019
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.panel1-lubridate-auto[
 
 ```r
-library(lubridate)  
-holidays_2019 %&gt;%  
-  mutate(date = paste0(date, ", 2019")) %&gt;%  
-  mutate(date = mdy(date)) %&gt;%  
-  mutate(day = day(date)) %&gt;%  
-  mutate(month = month(date)) %&gt;%  
-  mutate(year = year(date)) %&gt;%  
+library(lubridate)
+holidays_2019 %&gt;%
+  mutate(date = paste0(date, ", 2019")) %&gt;%
+  mutate(date = mdy(date)) %&gt;%
+  mutate(day = day(date)) %&gt;%
+  mutate(month = month(date)) %&gt;%
+  mutate(year = year(date)) %&gt;%
 * mutate(day_of_week = weekdays(date))
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-lubridate-auto[
 
 ```
   # A tibble: 4 x 6
@@ -2220,26 +2478,29 @@ holidays_2019 %&gt;%
   3 2019-01-24 Belly Laugh Day           24     1  2019 Thursday   
   4 2019-02-02 Groundhog Day              2     2  2019 Saturday
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.panel1-lubridate-auto[
 
 ```r
-library(lubridate)  
-holidays_2019 %&gt;%  
-  mutate(date = paste0(date, ", 2019")) %&gt;%  
-  mutate(date = mdy(date)) %&gt;%  
-  mutate(day = day(date)) %&gt;%  
-  mutate(month = month(date)) %&gt;%  
-  mutate(year = year(date)) %&gt;%  
-  mutate(day_of_week = weekdays(date)) %&gt;%  
-* # making space for more manipulation
+library(lubridate)
+holidays_2019 %&gt;%
+  mutate(date = paste0(date, ", 2019")) %&gt;%
+  mutate(date = mdy(date)) %&gt;%
+  mutate(day = day(date)) %&gt;%
+  mutate(month = month(date)) %&gt;%
+  mutate(year = year(date)) %&gt;%
+  mutate(day_of_week = weekdays(date)) %&gt;%
+# making space for more manipulation
 * select(-holiday, -day_of_week)
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-lubridate-auto[
 
 ```
   # A tibble: 4 x 4
@@ -2250,27 +2511,30 @@ holidays_2019 %&gt;%
   3 2019-01-24    24     1  2019
   4 2019-02-02     2     2  2019
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.panel1-lubridate-auto[
 
 ```r
-library(lubridate)  
-holidays_2019 %&gt;%  
-  mutate(date = paste0(date, ", 2019")) %&gt;%  
-  mutate(date = mdy(date)) %&gt;%  
-  mutate(day = day(date)) %&gt;%  
-  mutate(month = month(date)) %&gt;%  
-  mutate(year = year(date)) %&gt;%  
-  mutate(day_of_week = weekdays(date)) %&gt;%  
-  # making space for more manipulation
-  select(-holiday, -day_of_week) %&gt;%  
+library(lubridate)
+holidays_2019 %&gt;%
+  mutate(date = paste0(date, ", 2019")) %&gt;%
+  mutate(date = mdy(date)) %&gt;%
+  mutate(day = day(date)) %&gt;%
+  mutate(month = month(date)) %&gt;%
+  mutate(year = year(date)) %&gt;%
+  mutate(day_of_week = weekdays(date)) %&gt;%
+# making space for more manipulation
+  select(-holiday, -day_of_week) %&gt;%
 * mutate(euro_ordering = paste(day, month, year, sep = "/"))
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-lubridate-auto[
 
 ```
   # A tibble: 4 x 5
@@ -2281,28 +2545,31 @@ holidays_2019 %&gt;%
   3 2019-01-24    24     1  2019 24/1/2019    
   4 2019-02-02     2     2  2019 2/2/2019
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.panel1-lubridate-auto[
 
 ```r
-library(lubridate)  
-holidays_2019 %&gt;%  
-  mutate(date = paste0(date, ", 2019")) %&gt;%  
-  mutate(date = mdy(date)) %&gt;%  
-  mutate(day = day(date)) %&gt;%  
-  mutate(month = month(date)) %&gt;%  
-  mutate(year = year(date)) %&gt;%  
-  mutate(day_of_week = weekdays(date)) %&gt;%  
-  # making space for more manipulation
-  select(-holiday, -day_of_week) %&gt;%  
-  mutate(euro_ordering = paste(day, month, year, sep = "/")) %&gt;%  
+library(lubridate)
+holidays_2019 %&gt;%
+  mutate(date = paste0(date, ", 2019")) %&gt;%
+  mutate(date = mdy(date)) %&gt;%
+  mutate(day = day(date)) %&gt;%
+  mutate(month = month(date)) %&gt;%
+  mutate(year = year(date)) %&gt;%
+  mutate(day_of_week = weekdays(date)) %&gt;%
+# making space for more manipulation
+  select(-holiday, -day_of_week) %&gt;%
+  mutate(euro_ordering = paste(day, month, year, sep = "/")) %&gt;%
 * mutate(date_0 = dmy(euro_ordering))
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-lubridate-auto[
 
 ```
   # A tibble: 4 x 6
@@ -2313,29 +2580,32 @@ holidays_2019 %&gt;%
   3 2019-01-24    24     1  2019 24/1/2019     2019-01-24
   4 2019-02-02     2     2  2019 2/2/2019      2019-02-02
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.panel1-lubridate-auto[
 
 ```r
-library(lubridate)  
-holidays_2019 %&gt;%  
-  mutate(date = paste0(date, ", 2019")) %&gt;%  
-  mutate(date = mdy(date)) %&gt;%  
-  mutate(day = day(date)) %&gt;%  
-  mutate(month = month(date)) %&gt;%  
-  mutate(year = year(date)) %&gt;%  
-  mutate(day_of_week = weekdays(date)) %&gt;%  
-  # making space for more manipulation
-  select(-holiday, -day_of_week) %&gt;%  
-  mutate(euro_ordering = paste(day, month, year, sep = "/")) %&gt;%  
-  mutate(date_0 = dmy(euro_ordering)) %&gt;%  
+library(lubridate)
+holidays_2019 %&gt;%
+  mutate(date = paste0(date, ", 2019")) %&gt;%
+  mutate(date = mdy(date)) %&gt;%
+  mutate(day = day(date)) %&gt;%
+  mutate(month = month(date)) %&gt;%
+  mutate(year = year(date)) %&gt;%
+  mutate(day_of_week = weekdays(date)) %&gt;%
+# making space for more manipulation
+  select(-holiday, -day_of_week) %&gt;%
+  mutate(euro_ordering = paste(day, month, year, sep = "/")) %&gt;%
+  mutate(date_0 = dmy(euro_ordering)) %&gt;%
 * mutate(since_jan_1 = date - ymd("2019-01-01"))
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-lubridate-auto[
 
 ```
   # A tibble: 4 x 7
@@ -2346,7 +2616,36 @@ holidays_2019 %&gt;%
   3 2019-01-24    24     1  2019 24/1/2019     2019-01-24 23 days    
   4 2019-02-02     2     2  2019 2/2/2019      2019-02-02 32 days
 ```
-]]
+]
+
+&lt;style&gt;
+.panel1-lubridate-auto {
+  color: black;
+  width: 38.6060606060606%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel2-lubridate-auto {
+  color: black;
+  width: 59.3939393939394%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-lubridate-auto {
+  color: black;
+  width: NA%;
+  hight: 33%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
 
 
 ---
@@ -2362,106 +2661,24 @@ Character manipulation is also referred to as "regular expressions", or "Regex".
 
 
 
-class: split-40
 count: false
-.column[.content[
+ 
+
+.panel1-stringr-rotate[
 
 ```r
-*library(stringr)
-```
-]]
-.column[.content[
-
-]]
----
-class: split-40
-count: false
-.column[.content[
-
-```r
-library(stringr)  
-*holidays_2019
-```
-]]
-.column[.content[
-
-```
-  # A tibble: 4 x 2
-    date       holiday               
-    &lt;chr&gt;      &lt;chr&gt;                 
-  1 January 1  New Year's Day        
-  2 January 21 Martin Luther King Day
-  3 January 24 Belly Laugh Day       
-  4 February 2 Groundhog Day
-```
-]]
----
-class: split-40
-count: false
-.column[.content[
-
-```r
-library(stringr)  
-holidays_2019 %&gt;%  
-* mutate(var_1 =
-*          str_detect(holiday, "u"))
-```
-]]
-.column[.content[
-
-```
-  # A tibble: 4 x 3
-    date       holiday                var_1
-    &lt;chr&gt;      &lt;chr&gt;                  &lt;lgl&gt;
-  1 January 1  New Year's Day         FALSE
-  2 January 21 Martin Luther King Day TRUE 
-  3 January 24 Belly Laugh Day        TRUE 
-  4 February 2 Groundhog Day          TRUE
-```
-]]
----
-class: split-40
-count: false
-.column[.content[
-
-```r
-library(stringr)  
-holidays_2019 %&gt;%  
-  mutate(var_1 =  
-           str_detect(holiday, "u")) %&gt;%  
-* mutate(var_1 =
-*          tolower(holiday))
-```
-]]
-.column[.content[
-
-```
-  # A tibble: 4 x 3
-    date       holiday                var_1                 
-    &lt;chr&gt;      &lt;chr&gt;                  &lt;chr&gt;                 
-  1 January 1  New Year's Day         new year's day        
-  2 January 21 Martin Luther King Day martin luther king day
-  3 January 24 Belly Laugh Day        belly laugh day       
-  4 February 2 Groundhog Day          groundhog day
-```
-]]
----
-class: split-40
-count: false
-.column[.content[
-
-```r
-library(stringr)  
-holidays_2019 %&gt;%  
-  mutate(var_1 =  
-           str_detect(holiday, "u")) %&gt;%  
-  mutate(var_1 =  
-           tolower(holiday)) %&gt;%  
-* mutate(var_1 =
+library(stringr)
+holidays_2019 %&gt;%
+  mutate(var_1 =
+           str_detect(holiday, "u")) %&gt;%
+  mutate(var_1 =
+           tolower(holiday)) %&gt;%
+  mutate(var_1 =
 *          str_replace(holiday, "u", "REPLACED"))
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-stringr-rotate[
 
 ```
   # A tibble: 4 x 3
@@ -2472,26 +2689,27 @@ holidays_2019 %&gt;%
   3 January 24 Belly Laugh Day        Belly LaREPLACEDgh Day       
   4 February 2 Groundhog Day          GroREPLACEDndhog Day
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.panel1-stringr-rotate[
 
 ```r
-library(stringr)  
-holidays_2019 %&gt;%  
-  mutate(var_1 =  
-           str_detect(holiday, "u")) %&gt;%  
-  mutate(var_1 =  
-           tolower(holiday)) %&gt;%  
-  mutate(var_1 =  
-           str_replace(holiday, "u", "REPLACED")) %&gt;%  
-* mutate(var_1 =
-*          str_replace(holiday, "^.", "REPLACED"))
+library(stringr)
+holidays_2019 %&gt;%
+  mutate(var_1 =
+           str_detect(holiday, "u")) %&gt;%
+  mutate(var_1 =
+           tolower(holiday)) %&gt;%
+  mutate(var_1 =
+*          str_replace(holiday, "^.", "REPLACED")) #ROTATE
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-stringr-rotate[
 
 ```
   # A tibble: 4 x 3
@@ -2502,28 +2720,27 @@ holidays_2019 %&gt;%
   3 January 24 Belly Laugh Day        REPLACEDelly Laugh Day       
   4 February 2 Groundhog Day          REPLACEDroundhog Day
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.panel1-stringr-rotate[
 
 ```r
-library(stringr)  
-holidays_2019 %&gt;%  
-  mutate(var_1 =  
-           str_detect(holiday, "u")) %&gt;%  
-  mutate(var_1 =  
-           tolower(holiday)) %&gt;%  
-  mutate(var_1 =  
-           str_replace(holiday, "u", "REPLACED")) %&gt;%  
-  mutate(var_1 =  
-           str_replace(holiday, "^.", "REPLACED")) %&gt;%  
-* mutate(var_1 =
-*          str_replace(holiday, ".$", "REPLACED"))
+library(stringr)
+holidays_2019 %&gt;%
+  mutate(var_1 =
+           str_detect(holiday, "u")) %&gt;%
+  mutate(var_1 =
+           tolower(holiday)) %&gt;%
+  mutate(var_1 =
+*          str_replace(holiday, ".$", "REPLACED")) #ROTATE
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-stringr-rotate[
 
 ```
   # A tibble: 4 x 3
@@ -2534,30 +2751,27 @@ holidays_2019 %&gt;%
   3 January 24 Belly Laugh Day        Belly Laugh DaREPLACED       
   4 February 2 Groundhog Day          Groundhog DaREPLACED
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.panel1-stringr-rotate[
 
 ```r
-library(stringr)  
-holidays_2019 %&gt;%  
-  mutate(var_1 =  
-           str_detect(holiday, "u")) %&gt;%  
-  mutate(var_1 =  
-           tolower(holiday)) %&gt;%  
-  mutate(var_1 =  
-           str_replace(holiday, "u", "REPLACED")) %&gt;%  
-  mutate(var_1 =  
-           str_replace(holiday, "^.", "REPLACED")) %&gt;%  
-  mutate(var_1 =  
-           str_replace(holiday, ".$", "REPLACED")) %&gt;%  
-* mutate(var_1 =
-*          str_count(holiday, "a"))
+library(stringr)
+holidays_2019 %&gt;%
+  mutate(var_1 =
+           str_detect(holiday, "u")) %&gt;%
+  mutate(var_1 =
+           tolower(holiday)) %&gt;%
+  mutate(var_1 =
+*          str_count(holiday, "a")) #ROTATE
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-stringr-rotate[
 
 ```
   # A tibble: 4 x 3
@@ -2568,32 +2782,27 @@ holidays_2019 %&gt;%
   3 January 24 Belly Laugh Day            2
   4 February 2 Groundhog Day              1
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.panel1-stringr-rotate[
 
 ```r
-library(stringr)  
-holidays_2019 %&gt;%  
-  mutate(var_1 =  
-           str_detect(holiday, "u")) %&gt;%  
-  mutate(var_1 =  
-           tolower(holiday)) %&gt;%  
-  mutate(var_1 =  
-           str_replace(holiday, "u", "REPLACED")) %&gt;%  
-  mutate(var_1 =  
-           str_replace(holiday, "^.", "REPLACED")) %&gt;%  
-  mutate(var_1 =  
-           str_replace(holiday, ".$", "REPLACED")) %&gt;%  
-  mutate(var_1 =  
-           str_count(holiday, "a")) %&gt;%  
-* mutate(var_1 =
-*          str_extract(holiday, ".....Day"))
+library(stringr)
+holidays_2019 %&gt;%
+  mutate(var_1 =
+           str_detect(holiday, "u")) %&gt;%
+  mutate(var_1 =
+           tolower(holiday)) %&gt;%
+  mutate(var_1 =
+*          str_extract(holiday, ".....Day")) #ROTATE
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-stringr-rotate[
 
 ```
   # A tibble: 4 x 3
@@ -2604,34 +2813,27 @@ holidays_2019 %&gt;%
   3 January 24 Belly Laugh Day        augh Day
   4 February 2 Groundhog Day          dhog Day
 ```
-]]
+]
+
 ---
-class: split-40
 count: false
-.column[.content[
+ 
+
+.panel1-stringr-rotate[
 
 ```r
-library(stringr)  
-holidays_2019 %&gt;%  
-  mutate(var_1 =  
-           str_detect(holiday, "u")) %&gt;%  
-  mutate(var_1 =  
-           tolower(holiday)) %&gt;%  
-  mutate(var_1 =  
-           str_replace(holiday, "u", "REPLACED")) %&gt;%  
-  mutate(var_1 =  
-           str_replace(holiday, "^.", "REPLACED")) %&gt;%  
-  mutate(var_1 =  
-           str_replace(holiday, ".$", "REPLACED")) %&gt;%  
-  mutate(var_1 =  
-           str_count(holiday, "a")) %&gt;%  
-  mutate(var_1 =  
-           str_extract(holiday, ".....Day")) %&gt;%  
-* mutate(var_1 =
-*          str_extract(holiday, "[[:PUNCT:]]"))
+library(stringr)
+holidays_2019 %&gt;%
+  mutate(var_1 =
+           str_detect(holiday, "u")) %&gt;%
+  mutate(var_1 =
+           tolower(holiday)) %&gt;%
+  mutate(var_1 =
+*          str_extract(holiday, "[[:PUNCT:]]")) #ROTATE
 ```
-]]
-.column[.content[
+]
+ 
+.panel2-stringr-rotate[
 
 ```
   # A tibble: 4 x 3
@@ -2642,7 +2844,36 @@ holidays_2019 %&gt;%
   3 January 24 Belly Laugh Day        &lt;NA&gt; 
   4 February 2 Groundhog Day          &lt;NA&gt;
 ```
-]]
+]
+
+&lt;style&gt;
+.panel1-stringr-rotate {
+  color: black;
+  width: 38.6060606060606%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel2-stringr-rotate {
+  color: black;
+  width: 59.3939393939394%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-stringr-rotate {
+  color: black;
+  width: NA%;
+  hight: 33%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
 
 
 
@@ -2728,8 +2959,10 @@ Garrett Grolemund, Hadley Wickham (2011). Dates
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({
-"ratio": "16:9",
-"highlightLines": true
+"ratio": "16:10",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
 });
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   window.dispatchEvent(new Event('resize'));

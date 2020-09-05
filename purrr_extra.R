@@ -1,9 +1,9 @@
 
 ---
-  # From purrr cheatsheet
+# From purrr cheatsheet
   
   
-  > List column workflow
+> List column workflow
 
 - Make a list column
 - Work with list column
