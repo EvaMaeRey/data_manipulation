@@ -44,7 +44,7 @@ background-size: cover
 
 count: false
  
-
+add tables
 .panel1-dbi-user[
 
 ```r
@@ -67,7 +67,7 @@ character(0)
 ---
 count: false
  
-
+add tables
 .panel1-dbi-user[
 
 ```r
@@ -97,7 +97,7 @@ character(0)
 ---
 count: false
  
-
+add tables
 .panel1-dbi-user[
 
 ```r
@@ -135,7 +135,7 @@ character(0)
 ---
 count: false
  
-
+add tables
 .panel1-dbi-user[
 
 ```r
@@ -153,7 +153,7 @@ library(gapminder)
 dbWriteTable(con, "gapminder", gapminder)
 dbListTables(con)
 
-*dbWriteTable(con, "mytibble",
+*dbWriteTable(con, "my_country_tibble",
 *            tibble::tibble(
 *              country = c("Germany", "Chile"),
 *              y = c(1,2)
@@ -177,59 +177,55 @@ character(0)
 ```
 
 ```
-[1] "gapminder" "mtcars"    "mytibble" 
+[1] "gapminder"         "mtcars"            "my_country_tibble"
 ```
 ]
 
+&lt;style&gt;
+.panel1-dbi-user {
+  color: black;
+  width: 38.6060606060606%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel2-dbi-user {
+  color: black;
+  width: 59.3939393939394%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-dbi-user {
+  color: black;
+  width: NA%;
+  hight: 33%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+
+
+
 ---
+
 count: false
  
 
-.panel1-dbi-user[
+.panel1-query-auto[
 
 ```r
-library(DBI)
-
-# Create an ephemeral in-memory RSQLite database
-con &lt;- dbConnect(RSQLite::SQLite(),
-                 dbname = ":memory:")
-dbListTables(con)
-
-dbWriteTable(con, "mtcars", mtcars)
-dbListTables(con)
-
-library(gapminder)
-dbWriteTable(con, "gapminder", gapminder)
-dbListTables(con)
-
-dbWriteTable(con, "mytibble",
-             tibble::tibble(
-               country = c("Germany", "Chile"),
-               y = c(1,2)
-               ))
-dbListTables(con)
-
 *dbListFields(con, "mtcars")
 ```
 ]
  
-.panel2-dbi-user[
-
-```
-character(0)
-```
-
-```
-[1] "mtcars"
-```
-
-```
-[1] "gapminder" "mtcars"   
-```
-
-```
-[1] "gapminder" "mtcars"    "mytibble" 
-```
+.panel2-query-auto[
 
 ```
  [1] "mpg"  "cyl"  "disp" "hp"   "drat" "wt"   "qsec" "vs"   "am"   "gear"
@@ -241,52 +237,15 @@ character(0)
 count: false
  
 
-.panel1-dbi-user[
+.panel1-query-auto[
 
 ```r
-library(DBI)
-
-# Create an ephemeral in-memory RSQLite database
-con &lt;- dbConnect(RSQLite::SQLite(),
-                 dbname = ":memory:")
-dbListTables(con)
-
-dbWriteTable(con, "mtcars", mtcars)
-dbListTables(con)
-
-library(gapminder)
-dbWriteTable(con, "gapminder", gapminder)
-dbListTables(con)
-
-dbWriteTable(con, "mytibble",
-             tibble::tibble(
-               country = c("Germany", "Chile"),
-               y = c(1,2)
-               ))
-dbListTables(con)
-
 dbListFields(con, "mtcars")
 *dbReadTable(con, "mtcars")
 ```
 ]
  
-.panel2-dbi-user[
-
-```
-character(0)
-```
-
-```
-[1] "mtcars"
-```
-
-```
-[1] "gapminder" "mtcars"   
-```
-
-```
-[1] "gapminder" "mtcars"    "mytibble" 
-```
+.panel2-query-auto[
 
 ```
  [1] "mpg"  "cyl"  "disp" "hp"   "drat" "wt"   "qsec" "vs"   "am"   "gear"
@@ -334,53 +293,16 @@ character(0)
 count: false
  
 
-.panel1-dbi-user[
+.panel1-query-auto[
 
 ```r
-library(DBI)
-
-# Create an ephemeral in-memory RSQLite database
-con &lt;- dbConnect(RSQLite::SQLite(),
-                 dbname = ":memory:")
-dbListTables(con)
-
-dbWriteTable(con, "mtcars", mtcars)
-dbListTables(con)
-
-library(gapminder)
-dbWriteTable(con, "gapminder", gapminder)
-dbListTables(con)
-
-dbWriteTable(con, "mytibble",
-             tibble::tibble(
-               country = c("Germany", "Chile"),
-               y = c(1,2)
-               ))
-dbListTables(con)
-
 dbListFields(con, "mtcars")
 dbReadTable(con, "mtcars") -&gt;
 * my_table
 ```
 ]
  
-.panel2-dbi-user[
-
-```
-character(0)
-```
-
-```
-[1] "mtcars"
-```
-
-```
-[1] "gapminder" "mtcars"   
-```
-
-```
-[1] "gapminder" "mtcars"    "mytibble" 
-```
+.panel2-query-auto[
 
 ```
  [1] "mpg"  "cyl"  "disp" "hp"   "drat" "wt"   "qsec" "vs"   "am"   "gear"
@@ -392,30 +314,9 @@ character(0)
 count: false
  
 
-.panel1-dbi-user[
+.panel1-query-auto[
 
 ```r
-library(DBI)
-
-# Create an ephemeral in-memory RSQLite database
-con &lt;- dbConnect(RSQLite::SQLite(),
-                 dbname = ":memory:")
-dbListTables(con)
-
-dbWriteTable(con, "mtcars", mtcars)
-dbListTables(con)
-
-library(gapminder)
-dbWriteTable(con, "gapminder", gapminder)
-dbListTables(con)
-
-dbWriteTable(con, "mytibble",
-             tibble::tibble(
-               country = c("Germany", "Chile"),
-               y = c(1,2)
-               ))
-dbListTables(con)
-
 dbListFields(con, "mtcars")
 dbReadTable(con, "mtcars") -&gt;
   my_table
@@ -427,23 +328,7 @@ dbReadTable(con, "mtcars") -&gt;
 ```
 ]
  
-.panel2-dbi-user[
-
-```
-character(0)
-```
-
-```
-[1] "mtcars"
-```
-
-```
-[1] "gapminder" "mtcars"   
-```
-
-```
-[1] "gapminder" "mtcars"    "mytibble" 
-```
+.panel2-query-auto[
 
 ```
  [1] "mpg"  "cyl"  "disp" "hp"   "drat" "wt"   "qsec" "vs"   "am"   "gear"
@@ -462,30 +347,9 @@ character(0)
 count: false
  
 
-.panel1-dbi-user[
+.panel1-query-auto[
 
 ```r
-library(DBI)
-
-# Create an ephemeral in-memory RSQLite database
-con &lt;- dbConnect(RSQLite::SQLite(),
-                 dbname = ":memory:")
-dbListTables(con)
-
-dbWriteTable(con, "mtcars", mtcars)
-dbListTables(con)
-
-library(gapminder)
-dbWriteTable(con, "gapminder", gapminder)
-dbListTables(con)
-
-dbWriteTable(con, "mytibble",
-             tibble::tibble(
-               country = c("Germany", "Chile"),
-               y = c(1,2)
-               ))
-dbListTables(con)
-
 dbListFields(con, "mtcars")
 dbReadTable(con, "mtcars") -&gt;
   my_table
@@ -498,23 +362,7 @@ dbSendQuery(
 ```
 ]
  
-.panel2-dbi-user[
-
-```
-character(0)
-```
-
-```
-[1] "mtcars"
-```
-
-```
-[1] "gapminder" "mtcars"   
-```
-
-```
-[1] "gapminder" "mtcars"    "mytibble" 
-```
+.panel2-query-auto[
 
 ```
  [1] "mpg"  "cyl"  "disp" "hp"   "drat" "wt"   "qsec" "vs"   "am"   "gear"
@@ -526,30 +374,9 @@ character(0)
 count: false
  
 
-.panel1-dbi-user[
+.panel1-query-auto[
 
 ```r
-library(DBI)
-
-# Create an ephemeral in-memory RSQLite database
-con &lt;- dbConnect(RSQLite::SQLite(),
-                 dbname = ":memory:")
-dbListTables(con)
-
-dbWriteTable(con, "mtcars", mtcars)
-dbListTables(con)
-
-library(gapminder)
-dbWriteTable(con, "gapminder", gapminder)
-dbListTables(con)
-
-dbWriteTable(con, "mytibble",
-             tibble::tibble(
-               country = c("Germany", "Chile"),
-               y = c(1,2)
-               ))
-dbListTables(con)
-
 dbListFields(con, "mtcars")
 dbReadTable(con, "mtcars") -&gt;
   my_table
@@ -564,23 +391,7 @@ query
 ```
 ]
  
-.panel2-dbi-user[
-
-```
-character(0)
-```
-
-```
-[1] "mtcars"
-```
-
-```
-[1] "gapminder" "mtcars"   
-```
-
-```
-[1] "gapminder" "mtcars"    "mytibble" 
-```
+.panel2-query-auto[
 
 ```
  [1] "mpg"  "cyl"  "disp" "hp"   "drat" "wt"   "qsec" "vs"   "am"   "gear"
@@ -607,30 +418,9 @@ character(0)
 count: false
  
 
-.panel1-dbi-user[
+.panel1-query-auto[
 
 ```r
-library(DBI)
-
-# Create an ephemeral in-memory RSQLite database
-con &lt;- dbConnect(RSQLite::SQLite(),
-                 dbname = ":memory:")
-dbListTables(con)
-
-dbWriteTable(con, "mtcars", mtcars)
-dbListTables(con)
-
-library(gapminder)
-dbWriteTable(con, "gapminder", gapminder)
-dbListTables(con)
-
-dbWriteTable(con, "mytibble",
-             tibble::tibble(
-               country = c("Germany", "Chile"),
-               y = c(1,2)
-               ))
-dbListTables(con)
-
 dbListFields(con, "mtcars")
 dbReadTable(con, "mtcars") -&gt;
   my_table
@@ -646,23 +436,7 @@ dbFetch(query) -&gt;
 ```
 ]
  
-.panel2-dbi-user[
-
-```
-character(0)
-```
-
-```
-[1] "mtcars"
-```
-
-```
-[1] "gapminder" "mtcars"   
-```
-
-```
-[1] "gapminder" "mtcars"    "mytibble" 
-```
+.panel2-query-auto[
 
 ```
  [1] "mpg"  "cyl"  "disp" "hp"   "drat" "wt"   "qsec" "vs"   "am"   "gear"
@@ -674,30 +448,9 @@ character(0)
 count: false
  
 
-.panel1-dbi-user[
+.panel1-query-auto[
 
 ```r
-library(DBI)
-
-# Create an ephemeral in-memory RSQLite database
-con &lt;- dbConnect(RSQLite::SQLite(),
-                 dbname = ":memory:")
-dbListTables(con)
-
-dbWriteTable(con, "mtcars", mtcars)
-dbListTables(con)
-
-library(gapminder)
-dbWriteTable(con, "gapminder", gapminder)
-dbListTables(con)
-
-dbWriteTable(con, "mytibble",
-             tibble::tibble(
-               country = c("Germany", "Chile"),
-               y = c(1,2)
-               ))
-dbListTables(con)
-
 dbListFields(con, "mtcars")
 dbReadTable(con, "mtcars") -&gt;
   my_table
@@ -714,23 +467,7 @@ dbFetch(query) -&gt;
 ```
 ]
  
-.panel2-dbi-user[
-
-```
-character(0)
-```
-
-```
-[1] "mtcars"
-```
-
-```
-[1] "gapminder" "mtcars"   
-```
-
-```
-[1] "gapminder" "mtcars"    "mytibble" 
-```
+.panel2-query-auto[
 
 ```
  [1] "mpg"  "cyl"  "disp" "hp"   "drat" "wt"   "qsec" "vs"   "am"   "gear"
@@ -742,30 +479,9 @@ character(0)
 count: false
  
 
-.panel1-dbi-user[
+.panel1-query-auto[
 
 ```r
-library(DBI)
-
-# Create an ephemeral in-memory RSQLite database
-con &lt;- dbConnect(RSQLite::SQLite(),
-                 dbname = ":memory:")
-dbListTables(con)
-
-dbWriteTable(con, "mtcars", mtcars)
-dbListTables(con)
-
-library(gapminder)
-dbWriteTable(con, "gapminder", gapminder)
-dbListTables(con)
-
-dbWriteTable(con, "mytibble",
-             tibble::tibble(
-               country = c("Germany", "Chile"),
-               y = c(1,2)
-               ))
-dbListTables(con)
-
 dbListFields(con, "mtcars")
 dbReadTable(con, "mtcars") -&gt;
   my_table
@@ -787,23 +503,7 @@ dbClearResult(query)
 ```
 ]
  
-.panel2-dbi-user[
-
-```
-character(0)
-```
-
-```
-[1] "mtcars"
-```
-
-```
-[1] "gapminder" "mtcars"   
-```
-
-```
-[1] "gapminder" "mtcars"    "mytibble" 
-```
+.panel2-query-auto[
 
 ```
  [1] "mpg"  "cyl"  "disp" "hp"   "drat" "wt"   "qsec" "vs"   "am"   "gear"
@@ -822,30 +522,9 @@ character(0)
 count: false
  
 
-.panel1-dbi-user[
+.panel1-query-auto[
 
 ```r
-library(DBI)
-
-# Create an ephemeral in-memory RSQLite database
-con &lt;- dbConnect(RSQLite::SQLite(),
-                 dbname = ":memory:")
-dbListTables(con)
-
-dbWriteTable(con, "mtcars", mtcars)
-dbListTables(con)
-
-library(gapminder)
-dbWriteTable(con, "gapminder", gapminder)
-dbListTables(con)
-
-dbWriteTable(con, "mytibble",
-             tibble::tibble(
-               country = c("Germany", "Chile"),
-               y = c(1,2)
-               ))
-dbListTables(con)
-
 dbListFields(con, "mtcars")
 dbReadTable(con, "mtcars") -&gt;
   my_table
@@ -868,23 +547,7 @@ dbSendQuery(
 ```
 ]
  
-.panel2-dbi-user[
-
-```
-character(0)
-```
-
-```
-[1] "mtcars"
-```
-
-```
-[1] "gapminder" "mtcars"   
-```
-
-```
-[1] "gapminder" "mtcars"    "mytibble" 
-```
+.panel2-query-auto[
 
 ```
  [1] "mpg"  "cyl"  "disp" "hp"   "drat" "wt"   "qsec" "vs"   "am"   "gear"
@@ -896,30 +559,9 @@ character(0)
 count: false
  
 
-.panel1-dbi-user[
+.panel1-query-auto[
 
 ```r
-library(DBI)
-
-# Create an ephemeral in-memory RSQLite database
-con &lt;- dbConnect(RSQLite::SQLite(),
-                 dbname = ":memory:")
-dbListTables(con)
-
-dbWriteTable(con, "mtcars", mtcars)
-dbListTables(con)
-
-library(gapminder)
-dbWriteTable(con, "gapminder", gapminder)
-dbListTables(con)
-
-dbWriteTable(con, "mytibble",
-             tibble::tibble(
-               country = c("Germany", "Chile"),
-               y = c(1,2)
-               ))
-dbListTables(con)
-
 dbListFields(con, "mtcars")
 dbReadTable(con, "mtcars") -&gt;
   my_table
@@ -948,23 +590,7 @@ res
 ```
 ]
  
-.panel2-dbi-user[
-
-```
-character(0)
-```
-
-```
-[1] "mtcars"
-```
-
-```
-[1] "gapminder" "mtcars"   
-```
-
-```
-[1] "gapminder" "mtcars"    "mytibble" 
-```
+.panel2-query-auto[
 
 ```
  [1] "mpg"  "cyl"  "disp" "hp"   "drat" "wt"   "qsec" "vs"   "am"   "gear"
@@ -982,30 +608,9 @@ character(0)
 count: false
  
 
-.panel1-dbi-user[
+.panel1-query-auto[
 
 ```r
-library(DBI)
-
-# Create an ephemeral in-memory RSQLite database
-con &lt;- dbConnect(RSQLite::SQLite(),
-                 dbname = ":memory:")
-dbListTables(con)
-
-dbWriteTable(con, "mtcars", mtcars)
-dbListTables(con)
-
-library(gapminder)
-dbWriteTable(con, "gapminder", gapminder)
-dbListTables(con)
-
-dbWriteTable(con, "mytibble",
-             tibble::tibble(
-               country = c("Germany", "Chile"),
-               y = c(1,2)
-               ))
-dbListTables(con)
-
 dbListFields(con, "mtcars")
 dbReadTable(con, "mtcars") -&gt;
   my_table
@@ -1036,23 +641,7 @@ while(!dbHasCompleted(res)){
 ```
 ]
  
-.panel2-dbi-user[
-
-```
-character(0)
-```
-
-```
-[1] "mtcars"
-```
-
-```
-[1] "gapminder" "mtcars"   
-```
-
-```
-[1] "gapminder" "mtcars"    "mytibble" 
-```
+.panel2-query-auto[
 
 ```
  [1] "mpg"  "cyl"  "disp" "hp"   "drat" "wt"   "qsec" "vs"   "am"   "gear"
@@ -1067,7 +656,7 @@ character(0)
 ]
 
 &lt;style&gt;
-.panel1-dbi-user {
+.panel1-query-auto {
   color: black;
   width: 38.6060606060606%;
   hight: 32%;
@@ -1075,7 +664,7 @@ character(0)
   padding-left: 1%;
   font-size: 80%
 }
-.panel2-dbi-user {
+.panel2-query-auto {
   color: black;
   width: 59.3939393939394%;
   hight: 32%;
@@ -1083,7 +672,1026 @@ character(0)
   padding-left: 1%;
   font-size: 80%
 }
-.panel3-dbi-user {
+.panel3-query-auto {
+  color: black;
+  width: NA%;
+  hight: 33%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+
+
+
+---
+
+# a real-ish data problem
+
+--
+
+### unvotes is a package that contains three related data frames. 
+
+--
+
+&gt; This package provides the voting history of countries in the United Nations General Assembly, along with information such as date, description, and topics for each vote.
+
+--
+
+### let's see if we can't get these into a database.
+
+---
+
+count: false
+ 
+Three data frames
+.panel1-unvotes-rotate[
+
+```r
+library(unvotes)
+*un_roll_call_issues
+```
+]
+ 
+.panel2-unvotes-rotate[
+
+```
+# A tibble: 5,281 x 3
+    rcid short_name issue               
+   &lt;int&gt; &lt;chr&gt;      &lt;chr&gt;               
+ 1  3372 me         Palestinian conflict
+ 2  3658 me         Palestinian conflict
+ 3  3692 me         Palestinian conflict
+ 4  2901 me         Palestinian conflict
+ 5  3020 me         Palestinian conflict
+ 6  3217 me         Palestinian conflict
+ 7  3298 me         Palestinian conflict
+ 8  3429 me         Palestinian conflict
+ 9  3558 me         Palestinian conflict
+10  3625 me         Palestinian conflict
+# … with 5,271 more rows
+```
+]
+
+---
+count: false
+ 
+Three data frames
+.panel1-unvotes-rotate[
+
+```r
+library(unvotes)
+*un_roll_calls
+```
+]
+ 
+.panel2-unvotes-rotate[
+
+```
+# A tibble: 5,429 x 9
+    rcid session importantvote date       unres  amend  para short   descr      
+   &lt;int&gt;   &lt;dbl&gt;         &lt;dbl&gt; &lt;date&gt;     &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;      
+ 1     3       1             0 1946-01-01 R/1/66     1     0 AMENDM… "TO ADOPT …
+ 2     4       1             0 1946-01-02 R/1/79     0     0 SECURI… "TO ADOPT …
+ 3     5       1             0 1946-01-04 R/1/98     0     0 VOTING… "TO ADOPT …
+ 4     6       1             0 1946-01-04 R/1/1…     0     0 DECLAR… "TO ADOPT …
+ 5     7       1             0 1946-01-02 R/1/2…     1     0 GENERA… "TO ADOPT …
+ 6     8       1             0 1946-01-05 R/1/2…     1     0 ECOSOC… "TO ADOPT …
+ 7     9       1             0 1946-02-05 R/1/3…     0     0 POST-W… "TO OPEN T…
+ 8    10       1             0 1946-02-05 R/1/3…     1     1 U.N. M… "TO ADOPT …
+ 9    11       1             0 1946-02-05 R/1/3…     0     0 TRUSTE… "TO ADOPT …
+10    12       1             0 1946-02-06 R/1/3…     1     1 COUNCI… "TO ADOPT …
+# … with 5,419 more rows
+```
+]
+
+---
+count: false
+ 
+Three data frames
+.panel1-unvotes-rotate[
+
+```r
+library(unvotes)
+*un_votes
+```
+]
+ 
+.panel2-unvotes-rotate[
+
+```
+# A tibble: 738,764 x 4
+    rcid country                  country_code vote 
+   &lt;int&gt; &lt;chr&gt;                    &lt;chr&gt;        &lt;fct&gt;
+ 1     3 United States of America US           yes  
+ 2     3 Canada                   CA           no   
+ 3     3 Cuba                     CU           yes  
+ 4     3 Haiti                    HT           yes  
+ 5     3 Dominican Republic       DO           yes  
+ 6     3 Mexico                   MX           yes  
+ 7     3 Guatemala                GT           yes  
+ 8     3 Honduras                 HN           yes  
+ 9     3 El Salvador              SV           yes  
+10     3 Nicaragua                NI           yes  
+# … with 738,754 more rows
+```
+]
+
+&lt;style&gt;
+.panel1-unvotes-rotate {
+  color: black;
+  width: 38.6060606060606%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel2-unvotes-rotate {
+  color: black;
+  width: 59.3939393939394%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-unvotes-rotate {
+  color: black;
+  width: NA%;
+  hight: 33%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+
+
+
+---
+
+# Cleaning and building dictionaries, meta data
+
+---
+
+count: false
+ 
+
+.panel1-issues-auto[
+
+```r
+*unvotes::un_roll_call_issues
+```
+]
+ 
+.panel2-issues-auto[
+
+```
+# A tibble: 5,281 x 3
+    rcid short_name issue               
+   &lt;int&gt; &lt;chr&gt;      &lt;chr&gt;               
+ 1  3372 me         Palestinian conflict
+ 2  3658 me         Palestinian conflict
+ 3  3692 me         Palestinian conflict
+ 4  2901 me         Palestinian conflict
+ 5  3020 me         Palestinian conflict
+ 6  3217 me         Palestinian conflict
+ 7  3298 me         Palestinian conflict
+ 8  3429 me         Palestinian conflict
+ 9  3558 me         Palestinian conflict
+10  3625 me         Palestinian conflict
+# … with 5,271 more rows
+```
+]
+
+---
+count: false
+ 
+
+.panel1-issues-auto[
+
+```r
+unvotes::un_roll_call_issues %&gt;%
+* distinct(short_name, issue)
+```
+]
+ 
+.panel2-issues-auto[
+
+```
+# A tibble: 6 x 2
+  short_name issue                               
+  &lt;chr&gt;      &lt;chr&gt;                               
+1 me         Palestinian conflict                
+2 nu         Nuclear weapons and nuclear material
+3 di         Arms control and disarmament        
+4 hr         Human rights                        
+5 co         Colonialism                         
+6 ec         Economic development                
+```
+]
+
+---
+count: false
+ 
+
+.panel1-issues-auto[
+
+```r
+unvotes::un_roll_call_issues %&gt;%
+  distinct(short_name, issue) %&gt;%
+* rename(definition = issue)
+```
+]
+ 
+.panel2-issues-auto[
+
+```
+# A tibble: 6 x 2
+  short_name definition                          
+  &lt;chr&gt;      &lt;chr&gt;                               
+1 me         Palestinian conflict                
+2 nu         Nuclear weapons and nuclear material
+3 di         Arms control and disarmament        
+4 hr         Human rights                        
+5 co         Colonialism                         
+6 ec         Economic development                
+```
+]
+
+---
+count: false
+ 
+
+.panel1-issues-auto[
+
+```r
+unvotes::un_roll_call_issues %&gt;%
+  distinct(short_name, issue) %&gt;%
+  rename(definition = issue) %&gt;%
+* rename(issue = short_name)
+```
+]
+ 
+.panel2-issues-auto[
+
+```
+# A tibble: 6 x 2
+  issue definition                          
+  &lt;chr&gt; &lt;chr&gt;                               
+1 me    Palestinian conflict                
+2 nu    Nuclear weapons and nuclear material
+3 di    Arms control and disarmament        
+4 hr    Human rights                        
+5 co    Colonialism                         
+6 ec    Economic development                
+```
+]
+
+---
+count: false
+ 
+
+.panel1-issues-auto[
+
+```r
+unvotes::un_roll_call_issues %&gt;%
+  distinct(short_name, issue) %&gt;%
+  rename(definition = issue) %&gt;%
+  rename(issue = short_name) %&gt;%
+* arrange(issue)
+```
+]
+ 
+.panel2-issues-auto[
+
+```
+# A tibble: 6 x 2
+  issue definition                          
+  &lt;chr&gt; &lt;chr&gt;                               
+1 co    Colonialism                         
+2 di    Arms control and disarmament        
+3 ec    Economic development                
+4 hr    Human rights                        
+5 me    Palestinian conflict                
+6 nu    Nuclear weapons and nuclear material
+```
+]
+
+---
+count: false
+ 
+
+.panel1-issues-auto[
+
+```r
+unvotes::un_roll_call_issues %&gt;%
+  distinct(short_name, issue) %&gt;%
+  rename(definition = issue) %&gt;%
+  rename(issue = short_name) %&gt;%
+  arrange(issue) -&gt;
+*dict_issue
+```
+]
+ 
+.panel2-issues-auto[
+
+]
+
+---
+count: false
+ 
+
+.panel1-issues-auto[
+
+```r
+unvotes::un_roll_call_issues %&gt;%
+  distinct(short_name, issue) %&gt;%
+  rename(definition = issue) %&gt;%
+  rename(issue = short_name) %&gt;%
+  arrange(issue) -&gt;
+dict_issue
+
+*unvotes::un_roll_call_issues
+```
+]
+ 
+.panel2-issues-auto[
+
+```
+# A tibble: 5,281 x 3
+    rcid short_name issue               
+   &lt;int&gt; &lt;chr&gt;      &lt;chr&gt;               
+ 1  3372 me         Palestinian conflict
+ 2  3658 me         Palestinian conflict
+ 3  3692 me         Palestinian conflict
+ 4  2901 me         Palestinian conflict
+ 5  3020 me         Palestinian conflict
+ 6  3217 me         Palestinian conflict
+ 7  3298 me         Palestinian conflict
+ 8  3429 me         Palestinian conflict
+ 9  3558 me         Palestinian conflict
+10  3625 me         Palestinian conflict
+# … with 5,271 more rows
+```
+]
+
+---
+count: false
+ 
+
+.panel1-issues-auto[
+
+```r
+unvotes::un_roll_call_issues %&gt;%
+  distinct(short_name, issue) %&gt;%
+  rename(definition = issue) %&gt;%
+  rename(issue = short_name) %&gt;%
+  arrange(issue) -&gt;
+dict_issue
+
+unvotes::un_roll_call_issues %&gt;%
+* rename(id_rollcall = rcid)
+```
+]
+ 
+.panel2-issues-auto[
+
+```
+# A tibble: 5,281 x 3
+   id_rollcall short_name issue               
+         &lt;int&gt; &lt;chr&gt;      &lt;chr&gt;               
+ 1        3372 me         Palestinian conflict
+ 2        3658 me         Palestinian conflict
+ 3        3692 me         Palestinian conflict
+ 4        2901 me         Palestinian conflict
+ 5        3020 me         Palestinian conflict
+ 6        3217 me         Palestinian conflict
+ 7        3298 me         Palestinian conflict
+ 8        3429 me         Palestinian conflict
+ 9        3558 me         Palestinian conflict
+10        3625 me         Palestinian conflict
+# … with 5,271 more rows
+```
+]
+
+---
+count: false
+ 
+
+.panel1-issues-auto[
+
+```r
+unvotes::un_roll_call_issues %&gt;%
+  distinct(short_name, issue) %&gt;%
+  rename(definition = issue) %&gt;%
+  rename(issue = short_name) %&gt;%
+  arrange(issue) -&gt;
+dict_issue
+
+unvotes::un_roll_call_issues %&gt;%
+  rename(id_rollcall = rcid) %&gt;%
+* select(-issue)
+```
+]
+ 
+.panel2-issues-auto[
+
+```
+# A tibble: 5,281 x 2
+   id_rollcall short_name
+         &lt;int&gt; &lt;chr&gt;     
+ 1        3372 me        
+ 2        3658 me        
+ 3        3692 me        
+ 4        2901 me        
+ 5        3020 me        
+ 6        3217 me        
+ 7        3298 me        
+ 8        3429 me        
+ 9        3558 me        
+10        3625 me        
+# … with 5,271 more rows
+```
+]
+
+---
+count: false
+ 
+
+.panel1-issues-auto[
+
+```r
+unvotes::un_roll_call_issues %&gt;%
+  distinct(short_name, issue) %&gt;%
+  rename(definition = issue) %&gt;%
+  rename(issue = short_name) %&gt;%
+  arrange(issue) -&gt;
+dict_issue
+
+unvotes::un_roll_call_issues %&gt;%
+  rename(id_rollcall = rcid) %&gt;%
+  select(-issue) %&gt;%
+* rename(cat_issue = short_name)
+```
+]
+ 
+.panel2-issues-auto[
+
+```
+# A tibble: 5,281 x 2
+   id_rollcall cat_issue
+         &lt;int&gt; &lt;chr&gt;    
+ 1        3372 me       
+ 2        3658 me       
+ 3        3692 me       
+ 4        2901 me       
+ 5        3020 me       
+ 6        3217 me       
+ 7        3298 me       
+ 8        3429 me       
+ 9        3558 me       
+10        3625 me       
+# … with 5,271 more rows
+```
+]
+
+---
+count: false
+ 
+
+.panel1-issues-auto[
+
+```r
+unvotes::un_roll_call_issues %&gt;%
+  distinct(short_name, issue) %&gt;%
+  rename(definition = issue) %&gt;%
+  rename(issue = short_name) %&gt;%
+  arrange(issue) -&gt;
+dict_issue
+
+unvotes::un_roll_call_issues %&gt;%
+  rename(id_rollcall = rcid) %&gt;%
+  select(-issue) %&gt;%
+  rename(cat_issue = short_name) %&gt;%
+* arrange(id_rollcall)
+```
+]
+ 
+.panel2-issues-auto[
+
+```
+# A tibble: 5,281 x 2
+   id_rollcall cat_issue
+         &lt;int&gt; &lt;chr&gt;    
+ 1           6 hr       
+ 2           8 ec       
+ 3          11 co       
+ 4          18 ec       
+ 5          19 ec       
+ 6          24 ec       
+ 7          26 co       
+ 8          27 co       
+ 9          28 co       
+10          29 co       
+# … with 5,271 more rows
+```
+]
+
+---
+count: false
+ 
+
+.panel1-issues-auto[
+
+```r
+unvotes::un_roll_call_issues %&gt;%
+  distinct(short_name, issue) %&gt;%
+  rename(definition = issue) %&gt;%
+  rename(issue = short_name) %&gt;%
+  arrange(issue) -&gt;
+dict_issue
+
+unvotes::un_roll_call_issues %&gt;%
+  rename(id_rollcall = rcid) %&gt;%
+  select(-issue) %&gt;%
+  rename(cat_issue = short_name) %&gt;%
+  arrange(id_rollcall) -&gt;
+*tbl_un_roll_call_issues
+```
+]
+ 
+.panel2-issues-auto[
+
+]
+
+&lt;style&gt;
+.panel1-issues-auto {
+  color: black;
+  width: 38.6060606060606%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel2-issues-auto {
+  color: black;
+  width: 59.3939393939394%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-issues-auto {
+  color: black;
+  width: NA%;
+  hight: 33%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+
+
+
+---
+
+count: false
+ 
+
+.panel1-votes-auto[
+
+```r
+*unvotes::un_votes
+```
+]
+ 
+.panel2-votes-auto[
+
+```
+# A tibble: 738,764 x 4
+    rcid country                  country_code vote 
+   &lt;int&gt; &lt;chr&gt;                    &lt;chr&gt;        &lt;fct&gt;
+ 1     3 United States of America US           yes  
+ 2     3 Canada                   CA           no   
+ 3     3 Cuba                     CU           yes  
+ 4     3 Haiti                    HT           yes  
+ 5     3 Dominican Republic       DO           yes  
+ 6     3 Mexico                   MX           yes  
+ 7     3 Guatemala                GT           yes  
+ 8     3 Honduras                 HN           yes  
+ 9     3 El Salvador              SV           yes  
+10     3 Nicaragua                NI           yes  
+# … with 738,754 more rows
+```
+]
+
+---
+count: false
+ 
+
+.panel1-votes-auto[
+
+```r
+unvotes::un_votes %&gt;%
+* distinct(country, country_code)
+```
+]
+ 
+.panel2-votes-auto[
+
+```
+# A tibble: 200 x 2
+   country                  country_code
+   &lt;chr&gt;                    &lt;chr&gt;       
+ 1 United States of America US          
+ 2 Canada                   CA          
+ 3 Cuba                     CU          
+ 4 Haiti                    HT          
+ 5 Dominican Republic       DO          
+ 6 Mexico                   MX          
+ 7 Guatemala                GT          
+ 8 Honduras                 HN          
+ 9 El Salvador              SV          
+10 Nicaragua                NI          
+# … with 190 more rows
+```
+]
+
+---
+count: false
+ 
+
+.panel1-votes-auto[
+
+```r
+unvotes::un_votes %&gt;%
+  distinct(country, country_code) %&gt;%
+* rename(id_country_code = country_code)
+```
+]
+ 
+.panel2-votes-auto[
+
+```
+# A tibble: 200 x 2
+   country                  id_country_code
+   &lt;chr&gt;                    &lt;chr&gt;          
+ 1 United States of America US             
+ 2 Canada                   CA             
+ 3 Cuba                     CU             
+ 4 Haiti                    HT             
+ 5 Dominican Republic       DO             
+ 6 Mexico                   MX             
+ 7 Guatemala                GT             
+ 8 Honduras                 HN             
+ 9 El Salvador              SV             
+10 Nicaragua                NI             
+# … with 190 more rows
+```
+]
+
+---
+count: false
+ 
+
+.panel1-votes-auto[
+
+```r
+unvotes::un_votes %&gt;%
+  distinct(country, country_code) %&gt;%
+  rename(id_country_code = country_code) %&gt;%
+* select(id_country_code, country)
+```
+]
+ 
+.panel2-votes-auto[
+
+```
+# A tibble: 200 x 2
+   id_country_code country                 
+   &lt;chr&gt;           &lt;chr&gt;                   
+ 1 US              United States of America
+ 2 CA              Canada                  
+ 3 CU              Cuba                    
+ 4 HT              Haiti                   
+ 5 DO              Dominican Republic      
+ 6 MX              Mexico                  
+ 7 GT              Guatemala               
+ 8 HN              Honduras                
+ 9 SV              El Salvador             
+10 NI              Nicaragua               
+# … with 190 more rows
+```
+]
+
+---
+count: false
+ 
+
+.panel1-votes-auto[
+
+```r
+unvotes::un_votes %&gt;%
+  distinct(country, country_code) %&gt;%
+  rename(id_country_code = country_code) %&gt;%
+  select(id_country_code, country) %&gt;%
+* arrange(id_country_code)
+```
+]
+ 
+.panel2-votes-auto[
+
+```
+# A tibble: 200 x 2
+   id_country_code country             
+   &lt;chr&gt;           &lt;chr&gt;               
+ 1 AD              Andorra             
+ 2 AE              United Arab Emirates
+ 3 AF              Afghanistan         
+ 4 AG              Antigua and Barbuda 
+ 5 AL              Albania             
+ 6 AM              Armenia             
+ 7 AO              Angola              
+ 8 AR              Argentina           
+ 9 AT              Austria             
+10 AU              Australia           
+# … with 190 more rows
+```
+]
+
+---
+count: false
+ 
+
+.panel1-votes-auto[
+
+```r
+unvotes::un_votes %&gt;%
+  distinct(country, country_code) %&gt;%
+  rename(id_country_code = country_code) %&gt;%
+  select(id_country_code, country) %&gt;%
+  arrange(id_country_code) -&gt;
+*dict_country
+```
+]
+ 
+.panel2-votes-auto[
+
+]
+
+---
+count: false
+ 
+
+.panel1-votes-auto[
+
+```r
+unvotes::un_votes %&gt;%
+  distinct(country, country_code) %&gt;%
+  rename(id_country_code = country_code) %&gt;%
+  select(id_country_code, country) %&gt;%
+  arrange(id_country_code) -&gt;
+dict_country
+
+*unvotes::un_votes
+```
+]
+ 
+.panel2-votes-auto[
+
+```
+# A tibble: 738,764 x 4
+    rcid country                  country_code vote 
+   &lt;int&gt; &lt;chr&gt;                    &lt;chr&gt;        &lt;fct&gt;
+ 1     3 United States of America US           yes  
+ 2     3 Canada                   CA           no   
+ 3     3 Cuba                     CU           yes  
+ 4     3 Haiti                    HT           yes  
+ 5     3 Dominican Republic       DO           yes  
+ 6     3 Mexico                   MX           yes  
+ 7     3 Guatemala                GT           yes  
+ 8     3 Honduras                 HN           yes  
+ 9     3 El Salvador              SV           yes  
+10     3 Nicaragua                NI           yes  
+# … with 738,754 more rows
+```
+]
+
+---
+count: false
+ 
+
+.panel1-votes-auto[
+
+```r
+unvotes::un_votes %&gt;%
+  distinct(country, country_code) %&gt;%
+  rename(id_country_code = country_code) %&gt;%
+  select(id_country_code, country) %&gt;%
+  arrange(id_country_code) -&gt;
+dict_country
+
+unvotes::un_votes %&gt;%
+* rename(id_rollcall = rcid)
+```
+]
+ 
+.panel2-votes-auto[
+
+```
+# A tibble: 738,764 x 4
+   id_rollcall country                  country_code vote 
+         &lt;int&gt; &lt;chr&gt;                    &lt;chr&gt;        &lt;fct&gt;
+ 1           3 United States of America US           yes  
+ 2           3 Canada                   CA           no   
+ 3           3 Cuba                     CU           yes  
+ 4           3 Haiti                    HT           yes  
+ 5           3 Dominican Republic       DO           yes  
+ 6           3 Mexico                   MX           yes  
+ 7           3 Guatemala                GT           yes  
+ 8           3 Honduras                 HN           yes  
+ 9           3 El Salvador              SV           yes  
+10           3 Nicaragua                NI           yes  
+# … with 738,754 more rows
+```
+]
+
+---
+count: false
+ 
+
+.panel1-votes-auto[
+
+```r
+unvotes::un_votes %&gt;%
+  distinct(country, country_code) %&gt;%
+  rename(id_country_code = country_code) %&gt;%
+  select(id_country_code, country) %&gt;%
+  arrange(id_country_code) -&gt;
+dict_country
+
+unvotes::un_votes %&gt;%
+  rename(id_rollcall = rcid) %&gt;%
+* rename(id_country_cow = country_code)
+```
+]
+ 
+.panel2-votes-auto[
+
+```
+# A tibble: 738,764 x 4
+   id_rollcall country                  id_country_cow vote 
+         &lt;int&gt; &lt;chr&gt;                    &lt;chr&gt;          &lt;fct&gt;
+ 1           3 United States of America US             yes  
+ 2           3 Canada                   CA             no   
+ 3           3 Cuba                     CU             yes  
+ 4           3 Haiti                    HT             yes  
+ 5           3 Dominican Republic       DO             yes  
+ 6           3 Mexico                   MX             yes  
+ 7           3 Guatemala                GT             yes  
+ 8           3 Honduras                 HN             yes  
+ 9           3 El Salvador              SV             yes  
+10           3 Nicaragua                NI             yes  
+# … with 738,754 more rows
+```
+]
+
+---
+count: false
+ 
+
+.panel1-votes-auto[
+
+```r
+unvotes::un_votes %&gt;%
+  distinct(country, country_code) %&gt;%
+  rename(id_country_code = country_code) %&gt;%
+  select(id_country_code, country) %&gt;%
+  arrange(id_country_code) -&gt;
+dict_country
+
+unvotes::un_votes %&gt;%
+  rename(id_rollcall = rcid) %&gt;%
+  rename(id_country_cow = country_code) %&gt;%
+* rename(cat_vote = vote)
+```
+]
+ 
+.panel2-votes-auto[
+
+```
+# A tibble: 738,764 x 4
+   id_rollcall country                  id_country_cow cat_vote
+         &lt;int&gt; &lt;chr&gt;                    &lt;chr&gt;          &lt;fct&gt;   
+ 1           3 United States of America US             yes     
+ 2           3 Canada                   CA             no      
+ 3           3 Cuba                     CU             yes     
+ 4           3 Haiti                    HT             yes     
+ 5           3 Dominican Republic       DO             yes     
+ 6           3 Mexico                   MX             yes     
+ 7           3 Guatemala                GT             yes     
+ 8           3 Honduras                 HN             yes     
+ 9           3 El Salvador              SV             yes     
+10           3 Nicaragua                NI             yes     
+# … with 738,754 more rows
+```
+]
+
+---
+count: false
+ 
+
+.panel1-votes-auto[
+
+```r
+unvotes::un_votes %&gt;%
+  distinct(country, country_code) %&gt;%
+  rename(id_country_code = country_code) %&gt;%
+  select(id_country_code, country) %&gt;%
+  arrange(id_country_code) -&gt;
+dict_country
+
+unvotes::un_votes %&gt;%
+  rename(id_rollcall = rcid) %&gt;%
+  rename(id_country_cow = country_code) %&gt;%
+  rename(cat_vote = vote) %&gt;%
+* select(-country)
+```
+]
+ 
+.panel2-votes-auto[
+
+```
+# A tibble: 738,764 x 3
+   id_rollcall id_country_cow cat_vote
+         &lt;int&gt; &lt;chr&gt;          &lt;fct&gt;   
+ 1           3 US             yes     
+ 2           3 CA             no      
+ 3           3 CU             yes     
+ 4           3 HT             yes     
+ 5           3 DO             yes     
+ 6           3 MX             yes     
+ 7           3 GT             yes     
+ 8           3 HN             yes     
+ 9           3 SV             yes     
+10           3 NI             yes     
+# … with 738,754 more rows
+```
+]
+
+---
+count: false
+ 
+
+.panel1-votes-auto[
+
+```r
+unvotes::un_votes %&gt;%
+  distinct(country, country_code) %&gt;%
+  rename(id_country_code = country_code) %&gt;%
+  select(id_country_code, country) %&gt;%
+  arrange(id_country_code) -&gt;
+dict_country
+
+unvotes::un_votes %&gt;%
+  rename(id_rollcall = rcid) %&gt;%
+  rename(id_country_cow = country_code) %&gt;%
+  rename(cat_vote = vote) %&gt;%
+  select(-country) -&gt;
+*tbl_un_votes
+```
+]
+ 
+.panel2-votes-auto[
+
+]
+
+&lt;style&gt;
+.panel1-votes-auto {
+  color: black;
+  width: 38.6060606060606%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel2-votes-auto {
+  color: black;
+  width: 59.3939393939394%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-votes-auto {
   color: black;
   width: NA%;
   hight: 33%;
@@ -1098,6 +1706,1041 @@ character(0)
 
 
 ---
+
+count: false
+ 
+
+.panel1-rollcalls-auto[
+
+```r
+*unvotes::un_roll_calls
+```
+]
+ 
+.panel2-rollcalls-auto[
+
+```
+# A tibble: 5,429 x 9
+    rcid session importantvote date       unres  amend  para short   descr      
+   &lt;int&gt;   &lt;dbl&gt;         &lt;dbl&gt; &lt;date&gt;     &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;      
+ 1     3       1             0 1946-01-01 R/1/66     1     0 AMENDM… "TO ADOPT …
+ 2     4       1             0 1946-01-02 R/1/79     0     0 SECURI… "TO ADOPT …
+ 3     5       1             0 1946-01-04 R/1/98     0     0 VOTING… "TO ADOPT …
+ 4     6       1             0 1946-01-04 R/1/1…     0     0 DECLAR… "TO ADOPT …
+ 5     7       1             0 1946-01-02 R/1/2…     1     0 GENERA… "TO ADOPT …
+ 6     8       1             0 1946-01-05 R/1/2…     1     0 ECOSOC… "TO ADOPT …
+ 7     9       1             0 1946-02-05 R/1/3…     0     0 POST-W… "TO OPEN T…
+ 8    10       1             0 1946-02-05 R/1/3…     1     1 U.N. M… "TO ADOPT …
+ 9    11       1             0 1946-02-05 R/1/3…     0     0 TRUSTE… "TO ADOPT …
+10    12       1             0 1946-02-06 R/1/3…     1     1 COUNCI… "TO ADOPT …
+# … with 5,419 more rows
+```
+]
+
+---
+count: false
+ 
+
+.panel1-rollcalls-auto[
+
+```r
+unvotes::un_roll_calls %&gt;%
+* rename(id_rollcall = rcid)
+```
+]
+ 
+.panel2-rollcalls-auto[
+
+```
+# A tibble: 5,429 x 9
+   id_rollcall session importantvote date       unres  amend  para short descr  
+         &lt;int&gt;   &lt;dbl&gt;         &lt;dbl&gt; &lt;date&gt;     &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  
+ 1           3       1             0 1946-01-01 R/1/66     1     0 AMEN… "TO AD…
+ 2           4       1             0 1946-01-02 R/1/79     0     0 SECU… "TO AD…
+ 3           5       1             0 1946-01-04 R/1/98     0     0 VOTI… "TO AD…
+ 4           6       1             0 1946-01-04 R/1/1…     0     0 DECL… "TO AD…
+ 5           7       1             0 1946-01-02 R/1/2…     1     0 GENE… "TO AD…
+ 6           8       1             0 1946-01-05 R/1/2…     1     0 ECOS… "TO AD…
+ 7           9       1             0 1946-02-05 R/1/3…     0     0 POST… "TO OP…
+ 8          10       1             0 1946-02-05 R/1/3…     1     1 U.N.… "TO AD…
+ 9          11       1             0 1946-02-05 R/1/3…     0     0 TRUS… "TO AD…
+10          12       1             0 1946-02-06 R/1/3…     1     1 COUN… "TO AD…
+# … with 5,419 more rows
+```
+]
+
+---
+count: false
+ 
+
+.panel1-rollcalls-auto[
+
+```r
+unvotes::un_roll_calls %&gt;%
+  rename(id_rollcall = rcid) %&gt;%
+* rename(dt_vote = date)
+```
+]
+ 
+.panel2-rollcalls-auto[
+
+```
+# A tibble: 5,429 x 9
+   id_rollcall session importantvote dt_vote    unres  amend  para short descr  
+         &lt;int&gt;   &lt;dbl&gt;         &lt;dbl&gt; &lt;date&gt;     &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  
+ 1           3       1             0 1946-01-01 R/1/66     1     0 AMEN… "TO AD…
+ 2           4       1             0 1946-01-02 R/1/79     0     0 SECU… "TO AD…
+ 3           5       1             0 1946-01-04 R/1/98     0     0 VOTI… "TO AD…
+ 4           6       1             0 1946-01-04 R/1/1…     0     0 DECL… "TO AD…
+ 5           7       1             0 1946-01-02 R/1/2…     1     0 GENE… "TO AD…
+ 6           8       1             0 1946-01-05 R/1/2…     1     0 ECOS… "TO AD…
+ 7           9       1             0 1946-02-05 R/1/3…     0     0 POST… "TO OP…
+ 8          10       1             0 1946-02-05 R/1/3…     1     1 U.N.… "TO AD…
+ 9          11       1             0 1946-02-05 R/1/3…     0     0 TRUS… "TO AD…
+10          12       1             0 1946-02-06 R/1/3…     1     1 COUN… "TO AD…
+# … with 5,419 more rows
+```
+]
+
+---
+count: false
+ 
+
+.panel1-rollcalls-auto[
+
+```r
+unvotes::un_roll_calls %&gt;%
+  rename(id_rollcall = rcid) %&gt;%
+  rename(dt_vote = date) %&gt;%
+* rename(ind_importantvote = importantvote)
+```
+]
+ 
+.panel2-rollcalls-auto[
+
+```
+# A tibble: 5,429 x 9
+   id_rollcall session ind_importantvo… dt_vote    unres amend  para short descr
+         &lt;int&gt;   &lt;dbl&gt;            &lt;dbl&gt; &lt;date&gt;     &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;
+ 1           3       1                0 1946-01-01 R/1/…     1     0 AMEN… "TO …
+ 2           4       1                0 1946-01-02 R/1/…     0     0 SECU… "TO …
+ 3           5       1                0 1946-01-04 R/1/…     0     0 VOTI… "TO …
+ 4           6       1                0 1946-01-04 R/1/…     0     0 DECL… "TO …
+ 5           7       1                0 1946-01-02 R/1/…     1     0 GENE… "TO …
+ 6           8       1                0 1946-01-05 R/1/…     1     0 ECOS… "TO …
+ 7           9       1                0 1946-02-05 R/1/…     0     0 POST… "TO …
+ 8          10       1                0 1946-02-05 R/1/…     1     1 U.N.… "TO …
+ 9          11       1                0 1946-02-05 R/1/…     0     0 TRUS… "TO …
+10          12       1                0 1946-02-06 R/1/…     1     1 COUN… "TO …
+# … with 5,419 more rows
+```
+]
+
+---
+count: false
+ 
+
+.panel1-rollcalls-auto[
+
+```r
+unvotes::un_roll_calls %&gt;%
+  rename(id_rollcall = rcid) %&gt;%
+  rename(dt_vote = date) %&gt;%
+  rename(ind_importantvote = importantvote) %&gt;%
+* rename(ind_amendment = amend)
+```
+]
+ 
+.panel2-rollcalls-auto[
+
+```
+# A tibble: 5,429 x 9
+   id_rollcall session ind_importantvo… dt_vote    unres ind_amendment  para
+         &lt;int&gt;   &lt;dbl&gt;            &lt;dbl&gt; &lt;date&gt;     &lt;chr&gt;         &lt;dbl&gt; &lt;dbl&gt;
+ 1           3       1                0 1946-01-01 R/1/…             1     0
+ 2           4       1                0 1946-01-02 R/1/…             0     0
+ 3           5       1                0 1946-01-04 R/1/…             0     0
+ 4           6       1                0 1946-01-04 R/1/…             0     0
+ 5           7       1                0 1946-01-02 R/1/…             1     0
+ 6           8       1                0 1946-01-05 R/1/…             1     0
+ 7           9       1                0 1946-02-05 R/1/…             0     0
+ 8          10       1                0 1946-02-05 R/1/…             1     1
+ 9          11       1                0 1946-02-05 R/1/…             0     0
+10          12       1                0 1946-02-06 R/1/…             1     1
+# … with 5,419 more rows, and 2 more variables: short &lt;chr&gt;, descr &lt;chr&gt;
+```
+]
+
+---
+count: false
+ 
+
+.panel1-rollcalls-auto[
+
+```r
+unvotes::un_roll_calls %&gt;%
+  rename(id_rollcall = rcid) %&gt;%
+  rename(dt_vote = date) %&gt;%
+  rename(ind_importantvote = importantvote) %&gt;%
+  rename(ind_amendment = amend) -&gt;
+*tbl_un_roll_calls
+```
+]
+ 
+.panel2-rollcalls-auto[
+
+]
+
+&lt;style&gt;
+.panel1-rollcalls-auto {
+  color: black;
+  width: 38.6060606060606%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel2-rollcalls-auto {
+  color: black;
+  width: 59.3939393939394%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-rollcalls-auto {
+  color: black;
+  width: NA%;
+  hight: 33%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+
+
+---
+
+# Long form for variable name descriptions
+
+---
+
+count: false
+ 
+
+.panel1-define_vars-auto[
+
+```r
+*list(tbl_un_roll_calls,
+*    tbl_un_votes,
+*    dict_country,
+*    tbl_un_roll_call_issues,
+*    dict_issue)
+```
+]
+ 
+.panel2-define_vars-auto[
+
+```
+[[1]]
+# A tibble: 5,429 x 9
+   id_rollcall session ind_importantvo… dt_vote    unres ind_amendment  para
+         &lt;int&gt;   &lt;dbl&gt;            &lt;dbl&gt; &lt;date&gt;     &lt;chr&gt;         &lt;dbl&gt; &lt;dbl&gt;
+ 1           3       1                0 1946-01-01 R/1/…             1     0
+ 2           4       1                0 1946-01-02 R/1/…             0     0
+ 3           5       1                0 1946-01-04 R/1/…             0     0
+ 4           6       1                0 1946-01-04 R/1/…             0     0
+ 5           7       1                0 1946-01-02 R/1/…             1     0
+ 6           8       1                0 1946-01-05 R/1/…             1     0
+ 7           9       1                0 1946-02-05 R/1/…             0     0
+ 8          10       1                0 1946-02-05 R/1/…             1     1
+ 9          11       1                0 1946-02-05 R/1/…             0     0
+10          12       1                0 1946-02-06 R/1/…             1     1
+# … with 5,419 more rows, and 2 more variables: short &lt;chr&gt;, descr &lt;chr&gt;
+
+[[2]]
+# A tibble: 738,764 x 3
+   id_rollcall id_country_cow cat_vote
+         &lt;int&gt; &lt;chr&gt;          &lt;fct&gt;   
+ 1           3 US             yes     
+ 2           3 CA             no      
+ 3           3 CU             yes     
+ 4           3 HT             yes     
+ 5           3 DO             yes     
+ 6           3 MX             yes     
+ 7           3 GT             yes     
+ 8           3 HN             yes     
+ 9           3 SV             yes     
+10           3 NI             yes     
+# … with 738,754 more rows
+
+[[3]]
+# A tibble: 200 x 2
+   id_country_code country             
+   &lt;chr&gt;           &lt;chr&gt;               
+ 1 AD              Andorra             
+ 2 AE              United Arab Emirates
+ 3 AF              Afghanistan         
+ 4 AG              Antigua and Barbuda 
+ 5 AL              Albania             
+ 6 AM              Armenia             
+ 7 AO              Angola              
+ 8 AR              Argentina           
+ 9 AT              Austria             
+10 AU              Australia           
+# … with 190 more rows
+
+[[4]]
+# A tibble: 5,281 x 2
+   id_rollcall cat_issue
+         &lt;int&gt; &lt;chr&gt;    
+ 1           6 hr       
+ 2           8 ec       
+ 3          11 co       
+ 4          18 ec       
+ 5          19 ec       
+ 6          24 ec       
+ 7          26 co       
+ 8          27 co       
+ 9          28 co       
+10          29 co       
+# … with 5,271 more rows
+
+[[5]]
+# A tibble: 6 x 2
+  issue definition                          
+  &lt;chr&gt; &lt;chr&gt;                               
+1 co    Colonialism                         
+2 di    Arms control and disarmament        
+3 ec    Economic development                
+4 hr    Human rights                        
+5 me    Palestinian conflict                
+6 nu    Nuclear weapons and nuclear material
+```
+]
+
+---
+count: false
+ 
+
+.panel1-define_vars-auto[
+
+```r
+list(tbl_un_roll_calls,
+     tbl_un_votes,
+     dict_country,
+     tbl_un_roll_call_issues,
+     dict_issue) %&gt;%
+* tibble(tables = .)
+```
+]
+ 
+.panel2-define_vars-auto[
+
+```
+# A tibble: 5 x 1
+  tables                
+  &lt;list&gt;                
+1 &lt;tibble [5,429 × 9]&gt;  
+2 &lt;tibble [738,764 × 3]&gt;
+3 &lt;tibble [200 × 2]&gt;    
+4 &lt;tibble [5,281 × 2]&gt;  
+5 &lt;tibble [6 × 2]&gt;      
+```
+]
+
+---
+count: false
+ 
+
+.panel1-define_vars-auto[
+
+```r
+list(tbl_un_roll_calls,
+     tbl_un_votes,
+     dict_country,
+     tbl_un_roll_call_issues,
+     dict_issue) %&gt;%
+  tibble(tables = .) %&gt;%
+* mutate(col_name = map(tables, names))
+```
+]
+ 
+.panel2-define_vars-auto[
+
+```
+# A tibble: 5 x 2
+  tables                 col_name 
+  &lt;list&gt;                 &lt;list&gt;   
+1 &lt;tibble [5,429 × 9]&gt;   &lt;chr [9]&gt;
+2 &lt;tibble [738,764 × 3]&gt; &lt;chr [3]&gt;
+3 &lt;tibble [200 × 2]&gt;     &lt;chr [2]&gt;
+4 &lt;tibble [5,281 × 2]&gt;   &lt;chr [2]&gt;
+5 &lt;tibble [6 × 2]&gt;       &lt;chr [2]&gt;
+```
+]
+
+---
+count: false
+ 
+
+.panel1-define_vars-auto[
+
+```r
+list(tbl_un_roll_calls,
+     tbl_un_votes,
+     dict_country,
+     tbl_un_roll_call_issues,
+     dict_issue) %&gt;%
+  tibble(tables = .) %&gt;%
+  mutate(col_name = map(tables, names)) %&gt;%
+* select(-tables)
+```
+]
+ 
+.panel2-define_vars-auto[
+
+```
+# A tibble: 5 x 1
+  col_name 
+  &lt;list&gt;   
+1 &lt;chr [9]&gt;
+2 &lt;chr [3]&gt;
+3 &lt;chr [2]&gt;
+4 &lt;chr [2]&gt;
+5 &lt;chr [2]&gt;
+```
+]
+
+---
+count: false
+ 
+
+.panel1-define_vars-auto[
+
+```r
+list(tbl_un_roll_calls,
+     tbl_un_votes,
+     dict_country,
+     tbl_un_roll_call_issues,
+     dict_issue) %&gt;%
+  tibble(tables = .) %&gt;%
+  mutate(col_name = map(tables, names)) %&gt;%
+  select(-tables) %&gt;%
+* unnest()
+```
+]
+ 
+.panel2-define_vars-auto[
+
+```
+# A tibble: 18 x 1
+   col_name         
+   &lt;chr&gt;            
+ 1 id_rollcall      
+ 2 session          
+ 3 ind_importantvote
+ 4 dt_vote          
+ 5 unres            
+ 6 ind_amendment    
+ 7 para             
+ 8 short            
+ 9 descr            
+10 id_rollcall      
+11 id_country_cow   
+12 cat_vote         
+13 id_country_code  
+14 country          
+15 id_rollcall      
+16 cat_issue        
+17 issue            
+18 definition       
+```
+]
+
+---
+count: false
+ 
+
+.panel1-define_vars-auto[
+
+```r
+list(tbl_un_roll_calls,
+     tbl_un_votes,
+     dict_country,
+     tbl_un_roll_call_issues,
+     dict_issue) %&gt;%
+  tibble(tables = .) %&gt;%
+  mutate(col_name = map(tables, names)) %&gt;%
+  select(-tables) %&gt;%
+  unnest() %&gt;%
+* distinct()
+```
+]
+ 
+.panel2-define_vars-auto[
+
+```
+# A tibble: 16 x 1
+   col_name         
+   &lt;chr&gt;            
+ 1 id_rollcall      
+ 2 session          
+ 3 ind_importantvote
+ 4 dt_vote          
+ 5 unres            
+ 6 ind_amendment    
+ 7 para             
+ 8 short            
+ 9 descr            
+10 id_country_cow   
+11 cat_vote         
+12 id_country_code  
+13 country          
+14 cat_issue        
+15 issue            
+16 definition       
+```
+]
+
+---
+count: false
+ 
+
+.panel1-define_vars-auto[
+
+```r
+list(tbl_un_roll_calls,
+     tbl_un_votes,
+     dict_country,
+     tbl_un_roll_call_issues,
+     dict_issue) %&gt;%
+  tibble(tables = .) %&gt;%
+  mutate(col_name = map(tables, names)) %&gt;%
+  select(-tables) %&gt;%
+  unnest() %&gt;%
+  distinct() %&gt;%
+* arrange(col_name)
+```
+]
+ 
+.panel2-define_vars-auto[
+
+```
+# A tibble: 16 x 1
+   col_name         
+   &lt;chr&gt;            
+ 1 cat_issue        
+ 2 cat_vote         
+ 3 country          
+ 4 definition       
+ 5 descr            
+ 6 dt_vote          
+ 7 id_country_code  
+ 8 id_country_cow   
+ 9 id_rollcall      
+10 ind_amendment    
+11 ind_importantvote
+12 issue            
+13 para             
+14 session          
+15 short            
+16 unres            
+```
+]
+
+&lt;style&gt;
+.panel1-define_vars-auto {
+  color: black;
+  width: 38.6060606060606%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel2-define_vars-auto {
+  color: black;
+  width: 59.3939393939394%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-define_vars-auto {
+  color: black;
+  width: NA%;
+  hight: 33%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+
+
+---
+
+count: false
+ 
+
+.panel1-bespoke-auto[
+
+```r
+* tribble(~., ~definition,
+*"cat_issue", "short form for un issue",
+*"cat_vote", "un vote",
+*"country", "country name",
+*"definition", "explanation of variable or category",
+*"descr", "long form description of resolution from UN",
+*"dt_vote", "date of vote",
+*"id_country_code", "country code from correlates of war database",
+*"id_country_cow", "country code from correlates of war database",
+*"id_rollcall", "UN general assembly roll call id number, based on when vote happened",
+*"ind_amendment", "indicator variable, whether the vote was on an amendment; coded only until 1985",
+*"ind_importantvote", "indicator variable for whether vote was de",
+*"issue", "which issue area",
+*"para", "Whether the vote was only on a paragraph and not a resolution; coded only until 1985",
+*"session", "",
+*"short", "Short description from ...",
+*"unres", "Resolution code")
+```
+]
+ 
+.panel2-bespoke-auto[
+
+```
+# A tibble: 16 x 2
+   .               definition                                                   
+   &lt;chr&gt;           &lt;chr&gt;                                                        
+ 1 cat_issue       "short form for un issue"                                    
+ 2 cat_vote        "un vote"                                                    
+ 3 country         "country name"                                               
+ 4 definition      "explanation of variable or category"                        
+ 5 descr           "long form description of resolution from UN"                
+ 6 dt_vote         "date of vote"                                               
+ 7 id_country_code "country code from correlates of war database"               
+ 8 id_country_cow  "country code from correlates of war database"               
+ 9 id_rollcall     "UN general assembly roll call id number, based on when vote…
+10 ind_amendment   "indicator variable, whether the vote was on an amendment; c…
+11 ind_importantv… "indicator variable for whether vote was de"                 
+12 issue           "which issue area"                                           
+13 para            "Whether the vote was only on a paragraph and not a resoluti…
+14 session         ""                                                           
+15 short           "Short description from ..."                                 
+16 unres           "Resolution code"                                            
+```
+]
+
+---
+count: false
+ 
+
+.panel1-bespoke-auto[
+
+```r
+  tribble(~., ~definition,
+"cat_issue", "short form for un issue",
+"cat_vote", "un vote",
+"country", "country name",
+"definition", "explanation of variable or category",
+"descr", "long form description of resolution from UN",
+"dt_vote", "date of vote",
+"id_country_code", "country code from correlates of war database",
+"id_country_cow", "country code from correlates of war database",
+"id_rollcall", "UN general assembly roll call id number, based on when vote happened",
+"ind_amendment", "indicator variable, whether the vote was on an amendment; coded only until 1985",
+"ind_importantvote", "indicator variable for whether vote was de",
+"issue", "which issue area",
+"para", "Whether the vote was only on a paragraph and not a resolution; coded only until 1985",
+"session", "",
+"short", "Short description from ...",
+"unres", "Resolution code") -&gt;
+* variable_definitions
+```
+]
+ 
+.panel2-bespoke-auto[
+
+]
+
+&lt;style&gt;
+.panel1-bespoke-auto {
+  color: black;
+  width: 38.6060606060606%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel2-bespoke-auto {
+  color: black;
+  width: 59.3939393939394%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-bespoke-auto {
+  color: black;
+  width: NA%;
+  hight: 33%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+
+
+---
+
+# Put it all together...
+
+---
+
+count: false
+ 
+
+.panel1-together-auto[
+
+```r
+*library(DBI)
+```
+]
+ 
+.panel2-together-auto[
+
+]
+
+---
+count: false
+ 
+
+.panel1-together-auto[
+
+```r
+library(DBI)
+
+# Create an ephemeral in-memory RSQLite database
+*con &lt;- dbConnect(RSQLite::SQLite(),
+*                dbname = ":memory:")
+```
+]
+ 
+.panel2-together-auto[
+
+]
+
+---
+count: false
+ 
+
+.panel1-together-auto[
+
+```r
+library(DBI)
+
+# Create an ephemeral in-memory RSQLite database
+con &lt;- dbConnect(RSQLite::SQLite(),
+                 dbname = ":memory:")
+
+*dbListTables(con)
+```
+]
+ 
+.panel2-together-auto[
+
+```
+character(0)
+```
+]
+
+---
+count: false
+ 
+
+.panel1-together-auto[
+
+```r
+library(DBI)
+
+# Create an ephemeral in-memory RSQLite database
+con &lt;- dbConnect(RSQLite::SQLite(),
+                 dbname = ":memory:")
+
+dbListTables(con)
+
+*dbWriteTable(con, "tbl_un_roll_calls", tbl_un_roll_calls)
+```
+]
+ 
+.panel2-together-auto[
+
+```
+character(0)
+```
+]
+
+---
+count: false
+ 
+
+.panel1-together-auto[
+
+```r
+library(DBI)
+
+# Create an ephemeral in-memory RSQLite database
+con &lt;- dbConnect(RSQLite::SQLite(),
+                 dbname = ":memory:")
+
+dbListTables(con)
+
+dbWriteTable(con, "tbl_un_roll_calls", tbl_un_roll_calls)
+*dbWriteTable(con, "tbl_un_roll_call_issues", tbl_un_roll_call_issues)
+```
+]
+ 
+.panel2-together-auto[
+
+```
+character(0)
+```
+]
+
+---
+count: false
+ 
+
+.panel1-together-auto[
+
+```r
+library(DBI)
+
+# Create an ephemeral in-memory RSQLite database
+con &lt;- dbConnect(RSQLite::SQLite(),
+                 dbname = ":memory:")
+
+dbListTables(con)
+
+dbWriteTable(con, "tbl_un_roll_calls", tbl_un_roll_calls)
+dbWriteTable(con, "tbl_un_roll_call_issues", tbl_un_roll_call_issues)
+*dbWriteTable(con, "tbl_un_votes", tbl_un_votes)
+```
+]
+ 
+.panel2-together-auto[
+
+```
+character(0)
+```
+]
+
+---
+count: false
+ 
+
+.panel1-together-auto[
+
+```r
+library(DBI)
+
+# Create an ephemeral in-memory RSQLite database
+con &lt;- dbConnect(RSQLite::SQLite(),
+                 dbname = ":memory:")
+
+dbListTables(con)
+
+dbWriteTable(con, "tbl_un_roll_calls", tbl_un_roll_calls)
+dbWriteTable(con, "tbl_un_roll_call_issues", tbl_un_roll_call_issues)
+dbWriteTable(con, "tbl_un_votes", tbl_un_votes)
+*dbWriteTable(con, "dict_issue", dict_issue)
+```
+]
+ 
+.panel2-together-auto[
+
+```
+character(0)
+```
+]
+
+---
+count: false
+ 
+
+.panel1-together-auto[
+
+```r
+library(DBI)
+
+# Create an ephemeral in-memory RSQLite database
+con &lt;- dbConnect(RSQLite::SQLite(),
+                 dbname = ":memory:")
+
+dbListTables(con)
+
+dbWriteTable(con, "tbl_un_roll_calls", tbl_un_roll_calls)
+dbWriteTable(con, "tbl_un_roll_call_issues", tbl_un_roll_call_issues)
+dbWriteTable(con, "tbl_un_votes", tbl_un_votes)
+dbWriteTable(con, "dict_issue", dict_issue)
+*dbWriteTable(con, "dict_country", dict_country)
+```
+]
+ 
+.panel2-together-auto[
+
+```
+character(0)
+```
+]
+
+---
+count: false
+ 
+
+.panel1-together-auto[
+
+```r
+library(DBI)
+
+# Create an ephemeral in-memory RSQLite database
+con &lt;- dbConnect(RSQLite::SQLite(),
+                 dbname = ":memory:")
+
+dbListTables(con)
+
+dbWriteTable(con, "tbl_un_roll_calls", tbl_un_roll_calls)
+dbWriteTable(con, "tbl_un_roll_call_issues", tbl_un_roll_call_issues)
+dbWriteTable(con, "tbl_un_votes", tbl_un_votes)
+dbWriteTable(con, "dict_issue", dict_issue)
+dbWriteTable(con, "dict_country", dict_country)
+*dbWriteTable(con, "variable_definitions", variable_definitions)
+```
+]
+ 
+.panel2-together-auto[
+
+```
+character(0)
+```
+]
+
+---
+count: false
+ 
+
+.panel1-together-auto[
+
+```r
+library(DBI)
+
+# Create an ephemeral in-memory RSQLite database
+con &lt;- dbConnect(RSQLite::SQLite(),
+                 dbname = ":memory:")
+
+dbListTables(con)
+
+dbWriteTable(con, "tbl_un_roll_calls", tbl_un_roll_calls)
+dbWriteTable(con, "tbl_un_roll_call_issues", tbl_un_roll_call_issues)
+dbWriteTable(con, "tbl_un_votes", tbl_un_votes)
+dbWriteTable(con, "dict_issue", dict_issue)
+dbWriteTable(con, "dict_country", dict_country)
+dbWriteTable(con, "variable_definitions", variable_definitions)
+
+*dbListTables(con)
+```
+]
+ 
+.panel2-together-auto[
+
+```
+character(0)
+```
+
+```
+[1] "dict_country"            "dict_issue"             
+[3] "tbl_un_roll_call_issues" "tbl_un_roll_calls"      
+[5] "tbl_un_votes"            "variable_definitions"   
+```
+]
+
+---
+count: false
+ 
+
+.panel1-together-auto[
+
+```r
+library(DBI)
+
+# Create an ephemeral in-memory RSQLite database
+con &lt;- dbConnect(RSQLite::SQLite(),
+                 dbname = ":memory:")
+
+dbListTables(con)
+
+dbWriteTable(con, "tbl_un_roll_calls", tbl_un_roll_calls)
+dbWriteTable(con, "tbl_un_roll_call_issues", tbl_un_roll_call_issues)
+dbWriteTable(con, "tbl_un_votes", tbl_un_votes)
+dbWriteTable(con, "dict_issue", dict_issue)
+dbWriteTable(con, "dict_country", dict_country)
+dbWriteTable(con, "variable_definitions", variable_definitions)
+
+dbListTables(con)
+```
+]
+ 
+.panel2-together-auto[
+
+```
+character(0)
+```
+
+```
+[1] "dict_country"            "dict_issue"             
+[3] "tbl_un_roll_call_issues" "tbl_un_roll_calls"      
+[5] "tbl_un_votes"            "variable_definitions"   
+```
+]
+
+&lt;style&gt;
+.panel1-together-auto {
+  color: black;
+  width: 38.6060606060606%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel2-together-auto {
+  color: black;
+  width: 59.3939393939394%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-together-auto {
+  color: black;
+  width: NA%;
+  hight: 33%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+
 
 
 

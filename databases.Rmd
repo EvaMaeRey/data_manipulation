@@ -51,11 +51,12 @@ background-size: cover
 ---
 
 ```{r, include = F}
-knitr::opts_chunk$set(cache = F, comment = "")
+knitr::opts_chunk$set(cache = F, comment = "", message = F, warning = F)
 library(flipbookr)
+library(tidyverse)
 ```
 
-`r chunk_reveal("dbi", break_type = "user")`
+`r chunk_reveal("dbi", break_type = "user", title = "add tables")`
 
 ```{r dbi, include=FALSE}
 library(DBI)
@@ -72,13 +73,20 @@ library(gapminder)
 dbWriteTable(con, "gapminder", gapminder)
 dbListTables(con) #BREAK
 
-dbWriteTable(con, "mytibble", 
+dbWriteTable(con, "my_country_tibble", 
              tibble::tibble(
                country = c("Germany", "Chile"), 
                y = c(1,2)
                ))
 dbListTables(con) #BREAK
+```
 
+
+---
+
+`r chunk_reveal("query")`
+
+```{r query, include = F}
 dbListFields(con, "mtcars") #BREAK
 dbReadTable(con, "mtcars") -> #BREAK
   my_table #BREAK
@@ -108,7 +116,168 @@ while(!dbHasCompleted(res)){
 dbClearResult(res)
 ```
 
+
 ---
+
+# a real-ish data problem
+
+--
+
+### unvotes is a package that contains three related data frames. 
+
+--
+
+> This package provides the voting history of countries in the United Nations General Assembly, along with information such as date, description, and topics for each vote.
+
+--
+
+### let's see if we can't get these into a database.
+
+---
+
+`r chunk_reveal("unvotes", break_type = "rotate", title = "Three data frames")`
+
+```{r unvotes, include=F}
+library(unvotes)
+un_roll_call_issues #ROTATE
+un_roll_calls #ROTATE
+un_votes #ROTATE
+```
+
+
+---
+
+# Cleaning and building dictionaries, meta data
+
+---
+
+`r chunk_reveal("issues")`
+
+```{r issues, include = F}
+unvotes::un_roll_call_issues %>% 
+  distinct(short_name, issue) %>% 
+  rename(definition = issue) %>% 
+  rename(issue = short_name) %>% 
+  arrange(issue) ->
+dict_issue
+
+unvotes::un_roll_call_issues %>% 
+  rename(id_rollcall = rcid) %>% 
+  select(-issue) %>% 
+  rename(cat_issue = short_name) %>% 
+  arrange(id_rollcall) ->
+tbl_un_roll_call_issues
+```
+
+
+---
+
+`r chunk_reveal("votes")`
+
+```{r votes, include = F}  
+unvotes::un_votes %>% 
+  distinct(country, country_code) %>% 
+  rename(id_country_code = country_code) %>% 
+  select(id_country_code, country) %>% 
+  arrange(id_country_code) ->
+dict_country
+  
+unvotes::un_votes %>% 
+  rename(id_rollcall = rcid) %>% 
+  rename(id_country_cow = country_code) %>% 
+  rename(cat_vote = vote) %>% 
+  select(-country) ->
+tbl_un_votes
+```
+
+---
+
+`r chunk_reveal("rollcalls")`
+
+```{r rollcalls, include=F}
+unvotes::un_roll_calls %>% 
+  rename(id_rollcall = rcid) %>% 
+  rename(dt_vote = date) %>% 
+  rename(ind_importantvote = importantvote) %>% 
+  rename(ind_amendment = amend) ->
+tbl_un_roll_calls
+```
+
+---
+
+# Long form for variable name descriptions
+
+---
+
+`r chunk_reveal("define_vars")`
+
+```{r define_vars, include = F}
+list(tbl_un_roll_calls, 
+     tbl_un_votes,
+     dict_country, 
+     tbl_un_roll_call_issues,
+     dict_issue) %>% 
+  tibble(tables = .) %>% 
+  mutate(col_name = map(tables, names)) %>% 
+  select(-tables) %>% 
+  unnest() %>% 
+  distinct() %>% 
+  arrange(col_name)
+```
+
+---
+
+`r chunk_reveal("bespoke")`
+
+```{r bespoke, include = F}
+  tribble(~., ~definition,
+"cat_issue", "short form for un issue",
+"cat_vote", "un vote",
+"country", "country name",
+"definition", "explanation of variable or category",
+"descr", "long form description of resolution from UN",
+"dt_vote", "date of vote",
+"id_country_code", "country code from correlates of war database",
+"id_country_cow", "country code from correlates of war database",			
+"id_rollcall", "UN general assembly roll call id number, based on when vote happened",
+"ind_amendment", "indicator variable, whether the vote was on an amendment; coded only until 1985",
+"ind_importantvote", "indicator variable for whether vote was de",
+"issue", "which issue area", 
+"para", "Whether the vote was only on a paragraph and not a resolution; coded only until 1985",
+"session", "", 
+"short", "Short description from ...",
+"unres", "Resolution code") ->
+  variable_definitions
+```
+
+---
+
+# Put it all together...
+
+---
+
+`r chunk_reveal("together")`
+
+```{r together, include = F}
+library(DBI)
+
+# Create an ephemeral in-memory RSQLite database
+con <- dbConnect(RSQLite::SQLite(), 
+                 dbname = ":memory:")
+
+dbListTables(con) 
+
+dbWriteTable(con, "tbl_un_roll_calls", tbl_un_roll_calls)
+dbWriteTable(con, "tbl_un_roll_call_issues", tbl_un_roll_call_issues)
+dbWriteTable(con, "tbl_un_votes", tbl_un_votes)
+dbWriteTable(con, "dict_issue", dict_issue)
+dbWriteTable(con, "dict_country", dict_country)
+dbWriteTable(con, "variable_definitions", variable_definitions)
+
+dbListTables(con) 
+
+
+```
 
 
 
