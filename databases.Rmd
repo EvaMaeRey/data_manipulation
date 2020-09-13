@@ -119,7 +119,7 @@ dbClearResult(res)
 
 ---
 
-# a real-ish data problem
+# Real relational data
 
 --
 
@@ -155,18 +155,23 @@ un_votes #ROTATE
 
 ```{r issues, include = F}
 unvotes::un_roll_call_issues %>% 
-  distinct(short_name, issue) %>% 
-  rename(definition = issue) %>% 
-  rename(issue = short_name) %>% 
-  arrange(issue) ->
-dict_issue
+  select(-issue) %>% 
+  mutate(is_true = 1) %>% 
+  mutate(short_name = paste0("ind_issue_", 
+                             short_name)) %>% 
+  pivot_wider(names_from = short_name,
+              values_from = is_true) %>% 
+  mutate_all(~replace(., is.na(.), 0)) %>% 
+  rename(id_rollcall = rcid) ->
+rcid_issue_indicator_columns
 
 unvotes::un_roll_call_issues %>% 
-  rename(id_rollcall = rcid) %>% 
-  select(-issue) %>% 
-  rename(cat_issue = short_name) %>% 
-  arrange(id_rollcall) ->
-tbl_un_roll_call_issues
+  distinct(issue, short_name) %>% 
+  mutate(short_name = paste0("ind_issue_", 
+                             short_name)) %>% 
+  rename(col_name = short_name) %>% 
+  rename(definition = issue) ->
+col_definitions_roll_call_issues
 ```
 
 
@@ -199,7 +204,9 @@ unvotes::un_roll_calls %>%
   rename(id_rollcall = rcid) %>% 
   rename(dt_vote = date) %>% 
   rename(ind_importantvote = importantvote) %>% 
-  rename(ind_amendment = amend) ->
+  rename(ind_amendment = amend) %>% 
+  rename(ind_paragraph_vote = para) %>% 
+  full_join(rcid_issue_indicator_columns) ->
 tbl_un_roll_calls
 ```
 
@@ -214,9 +221,7 @@ tbl_un_roll_calls
 ```{r define_vars, include = F}
 list(tbl_un_roll_calls, 
      tbl_un_votes,
-     dict_country, 
-     tbl_un_roll_call_issues,
-     dict_issue) %>% 
+     dict_country) %>% 
   tibble(tables = .) %>% 
   mutate(col_name = map(tables, names)) %>% 
   select(-tables) %>% 
@@ -230,8 +235,7 @@ list(tbl_un_roll_calls,
 `r chunk_reveal("bespoke")`
 
 ```{r bespoke, include = F}
-  tribble(~., ~definition,
-"cat_issue", "short form for un issue",
+tribble(~col_name, ~definition,
 "cat_vote", "un vote",
 "country", "country name",
 "definition", "explanation of variable or category",
@@ -243,11 +247,24 @@ list(tbl_un_roll_calls,
 "ind_amendment", "indicator variable, whether the vote was on an amendment; coded only until 1985",
 "ind_importantvote", "indicator variable for whether vote was de",
 "issue", "which issue area", 
-"para", "Whether the vote was only on a paragraph and not a resolution; coded only until 1985",
+"ind_paragraph_vote", "Whether the vote was only on a paragraph and not a resolution; coded only until 1985",
 "session", "", 
 "short", "Short description from ...",
-"unres", "Resolution code") ->
-  variable_definitions
+"unres", "Resolution code") %>% 
+  bind_rows(col_definitions_roll_call_issues) %>% 
+  arrange(col_name) ->
+variable_definitions
+```
+
+---
+
+```{r}
+tribble(~table, ~definition,
+"tbl_un_roll_calls", "a table of information about each roll call vote, including the date, description, and relevant resolution that was voted on, whether topic was one of six issues",
+"tbl_un_votes", "table with the history of each country’s vote, one row for each country/vote pair"
+) ->
+  provenance_tables
+
 ```
 
 ---
@@ -268,14 +285,12 @@ con <- dbConnect(RSQLite::SQLite(),
 dbListTables(con) 
 
 dbWriteTable(con, "tbl_un_roll_calls", tbl_un_roll_calls)
-dbWriteTable(con, "tbl_un_roll_call_issues", tbl_un_roll_call_issues)
 dbWriteTable(con, "tbl_un_votes", tbl_un_votes)
-dbWriteTable(con, "dict_issue", dict_issue)
 dbWriteTable(con, "dict_country", dict_country)
 dbWriteTable(con, "variable_definitions", variable_definitions)
+dbWriteTable(con, "provenance_tables", provenance_tables)
 
 dbListTables(con) 
-
 
 ```
 

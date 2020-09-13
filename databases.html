@@ -689,7 +689,7 @@ while(!dbHasCompleted(res)){
 
 ---
 
-# a real-ish data problem
+# Real relational data
 
 --
 
@@ -876,22 +876,27 @@ count: false
 
 ```r
 unvotes::un_roll_call_issues %&gt;%
-* distinct(short_name, issue)
+* select(-issue)
 ```
 ]
  
 .panel2-issues-auto[
 
 ```
-# A tibble: 6 x 2
-  short_name issue                               
-  &lt;chr&gt;      &lt;chr&gt;                               
-1 me         Palestinian conflict                
-2 nu         Nuclear weapons and nuclear material
-3 di         Arms control and disarmament        
-4 hr         Human rights                        
-5 co         Colonialism                         
-6 ec         Economic development                
+# A tibble: 5,281 x 2
+    rcid short_name
+   &lt;int&gt; &lt;chr&gt;     
+ 1  3372 me        
+ 2  3658 me        
+ 3  3692 me        
+ 4  2901 me        
+ 5  3020 me        
+ 6  3217 me        
+ 7  3298 me        
+ 8  3429 me        
+ 9  3558 me        
+10  3625 me        
+# … with 5,271 more rows
 ```
 ]
 
@@ -903,23 +908,28 @@ count: false
 
 ```r
 unvotes::un_roll_call_issues %&gt;%
-  distinct(short_name, issue) %&gt;%
-* rename(definition = issue)
+  select(-issue) %&gt;%
+* mutate(is_true = 1)
 ```
 ]
  
 .panel2-issues-auto[
 
 ```
-# A tibble: 6 x 2
-  short_name definition                          
-  &lt;chr&gt;      &lt;chr&gt;                               
-1 me         Palestinian conflict                
-2 nu         Nuclear weapons and nuclear material
-3 di         Arms control and disarmament        
-4 hr         Human rights                        
-5 co         Colonialism                         
-6 ec         Economic development                
+# A tibble: 5,281 x 3
+    rcid short_name is_true
+   &lt;int&gt; &lt;chr&gt;        &lt;dbl&gt;
+ 1  3372 me               1
+ 2  3658 me               1
+ 3  3692 me               1
+ 4  2901 me               1
+ 5  3020 me               1
+ 6  3217 me               1
+ 7  3298 me               1
+ 8  3429 me               1
+ 9  3558 me               1
+10  3625 me               1
+# … with 5,271 more rows
 ```
 ]
 
@@ -931,24 +941,30 @@ count: false
 
 ```r
 unvotes::un_roll_call_issues %&gt;%
-  distinct(short_name, issue) %&gt;%
-  rename(definition = issue) %&gt;%
-* rename(issue = short_name)
+  select(-issue) %&gt;%
+  mutate(is_true = 1) %&gt;%
+* mutate(short_name = paste0("ind_issue_",
+*                            short_name))
 ```
 ]
  
 .panel2-issues-auto[
 
 ```
-# A tibble: 6 x 2
-  issue definition                          
-  &lt;chr&gt; &lt;chr&gt;                               
-1 me    Palestinian conflict                
-2 nu    Nuclear weapons and nuclear material
-3 di    Arms control and disarmament        
-4 hr    Human rights                        
-5 co    Colonialism                         
-6 ec    Economic development                
+# A tibble: 5,281 x 3
+    rcid short_name   is_true
+   &lt;int&gt; &lt;chr&gt;          &lt;dbl&gt;
+ 1  3372 ind_issue_me       1
+ 2  3658 ind_issue_me       1
+ 3  3692 ind_issue_me       1
+ 4  2901 ind_issue_me       1
+ 5  3020 ind_issue_me       1
+ 6  3217 ind_issue_me       1
+ 7  3298 ind_issue_me       1
+ 8  3429 ind_issue_me       1
+ 9  3558 ind_issue_me       1
+10  3625 ind_issue_me       1
+# … with 5,271 more rows
 ```
 ]
 
@@ -960,25 +976,32 @@ count: false
 
 ```r
 unvotes::un_roll_call_issues %&gt;%
-  distinct(short_name, issue) %&gt;%
-  rename(definition = issue) %&gt;%
-  rename(issue = short_name) %&gt;%
-* arrange(issue)
+  select(-issue) %&gt;%
+  mutate(is_true = 1) %&gt;%
+  mutate(short_name = paste0("ind_issue_",
+                             short_name)) %&gt;%
+* pivot_wider(names_from = short_name,
+*             values_from = is_true)
 ```
 ]
  
 .panel2-issues-auto[
 
 ```
-# A tibble: 6 x 2
-  issue definition                          
-  &lt;chr&gt; &lt;chr&gt;                               
-1 co    Colonialism                         
-2 di    Arms control and disarmament        
-3 ec    Economic development                
-4 hr    Human rights                        
-5 me    Palestinian conflict                
-6 nu    Nuclear weapons and nuclear material
+# A tibble: 3,927 x 7
+    rcid ind_issue_me ind_issue_nu ind_issue_di ind_issue_hr ind_issue_co
+   &lt;int&gt;        &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt;
+ 1  3372            1           NA           NA           NA           NA
+ 2  3658            1           NA           NA           NA           NA
+ 3  3692            1           NA           NA           NA            1
+ 4  2901            1           NA           NA           NA           NA
+ 5  3020            1           NA           NA           NA           NA
+ 6  3217            1           NA           NA           NA           NA
+ 7  3298            1           NA           NA           NA           NA
+ 8  3429            1           NA           NA           NA           NA
+ 9  3558            1           NA           NA           NA           NA
+10  3625            1           NA           NA           NA           NA
+# … with 3,917 more rows, and 1 more variable: ind_issue_ec &lt;dbl&gt;
 ```
 ]
 
@@ -990,11 +1013,92 @@ count: false
 
 ```r
 unvotes::un_roll_call_issues %&gt;%
-  distinct(short_name, issue) %&gt;%
-  rename(definition = issue) %&gt;%
-  rename(issue = short_name) %&gt;%
-  arrange(issue) -&gt;
-*dict_issue
+  select(-issue) %&gt;%
+  mutate(is_true = 1) %&gt;%
+  mutate(short_name = paste0("ind_issue_",
+                             short_name)) %&gt;%
+  pivot_wider(names_from = short_name,
+              values_from = is_true) %&gt;%
+* mutate_all(~replace(., is.na(.), 0))
+```
+]
+ 
+.panel2-issues-auto[
+
+```
+# A tibble: 3,927 x 7
+    rcid ind_issue_me ind_issue_nu ind_issue_di ind_issue_hr ind_issue_co
+   &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt;
+ 1  3372            1            0            0            0            0
+ 2  3658            1            0            0            0            0
+ 3  3692            1            0            0            0            1
+ 4  2901            1            0            0            0            0
+ 5  3020            1            0            0            0            0
+ 6  3217            1            0            0            0            0
+ 7  3298            1            0            0            0            0
+ 8  3429            1            0            0            0            0
+ 9  3558            1            0            0            0            0
+10  3625            1            0            0            0            0
+# … with 3,917 more rows, and 1 more variable: ind_issue_ec &lt;dbl&gt;
+```
+]
+
+---
+count: false
+ 
+
+.panel1-issues-auto[
+
+```r
+unvotes::un_roll_call_issues %&gt;%
+  select(-issue) %&gt;%
+  mutate(is_true = 1) %&gt;%
+  mutate(short_name = paste0("ind_issue_",
+                             short_name)) %&gt;%
+  pivot_wider(names_from = short_name,
+              values_from = is_true) %&gt;%
+  mutate_all(~replace(., is.na(.), 0)) %&gt;%
+* rename(id_rollcall = rcid)
+```
+]
+ 
+.panel2-issues-auto[
+
+```
+# A tibble: 3,927 x 7
+   id_rollcall ind_issue_me ind_issue_nu ind_issue_di ind_issue_hr ind_issue_co
+         &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt;
+ 1        3372            1            0            0            0            0
+ 2        3658            1            0            0            0            0
+ 3        3692            1            0            0            0            1
+ 4        2901            1            0            0            0            0
+ 5        3020            1            0            0            0            0
+ 6        3217            1            0            0            0            0
+ 7        3298            1            0            0            0            0
+ 8        3429            1            0            0            0            0
+ 9        3558            1            0            0            0            0
+10        3625            1            0            0            0            0
+# … with 3,917 more rows, and 1 more variable: ind_issue_ec &lt;dbl&gt;
+```
+]
+
+---
+count: false
+ 
+
+.panel1-issues-auto[
+
+```r
+unvotes::un_roll_call_issues %&gt;%
+  select(-issue) %&gt;%
+  mutate(is_true = 1) %&gt;%
+  mutate(short_name = paste0("ind_issue_",
+                             short_name)) %&gt;%
+  pivot_wider(names_from = short_name,
+              values_from = is_true) %&gt;%
+  mutate_all(~replace(., is.na(.), 0)) %&gt;%
+  rename(id_rollcall = rcid) -&gt;
+*rcid_issue_indicator_columns
 ```
 ]
  
@@ -1010,11 +1114,15 @@ count: false
 
 ```r
 unvotes::un_roll_call_issues %&gt;%
-  distinct(short_name, issue) %&gt;%
-  rename(definition = issue) %&gt;%
-  rename(issue = short_name) %&gt;%
-  arrange(issue) -&gt;
-dict_issue
+  select(-issue) %&gt;%
+  mutate(is_true = 1) %&gt;%
+  mutate(short_name = paste0("ind_issue_",
+                             short_name)) %&gt;%
+  pivot_wider(names_from = short_name,
+              values_from = is_true) %&gt;%
+  mutate_all(~replace(., is.na(.), 0)) %&gt;%
+  rename(id_rollcall = rcid) -&gt;
+rcid_issue_indicator_columns
 
 *unvotes::un_roll_call_issues
 ```
@@ -1048,115 +1156,33 @@ count: false
 
 ```r
 unvotes::un_roll_call_issues %&gt;%
-  distinct(short_name, issue) %&gt;%
-  rename(definition = issue) %&gt;%
-  rename(issue = short_name) %&gt;%
-  arrange(issue) -&gt;
-dict_issue
-
-unvotes::un_roll_call_issues %&gt;%
-* rename(id_rollcall = rcid)
-```
-]
- 
-.panel2-issues-auto[
-
-```
-# A tibble: 5,281 x 3
-   id_rollcall short_name issue               
-         &lt;int&gt; &lt;chr&gt;      &lt;chr&gt;               
- 1        3372 me         Palestinian conflict
- 2        3658 me         Palestinian conflict
- 3        3692 me         Palestinian conflict
- 4        2901 me         Palestinian conflict
- 5        3020 me         Palestinian conflict
- 6        3217 me         Palestinian conflict
- 7        3298 me         Palestinian conflict
- 8        3429 me         Palestinian conflict
- 9        3558 me         Palestinian conflict
-10        3625 me         Palestinian conflict
-# … with 5,271 more rows
-```
-]
-
----
-count: false
- 
-
-.panel1-issues-auto[
-
-```r
-unvotes::un_roll_call_issues %&gt;%
-  distinct(short_name, issue) %&gt;%
-  rename(definition = issue) %&gt;%
-  rename(issue = short_name) %&gt;%
-  arrange(issue) -&gt;
-dict_issue
-
-unvotes::un_roll_call_issues %&gt;%
-  rename(id_rollcall = rcid) %&gt;%
-* select(-issue)
-```
-]
- 
-.panel2-issues-auto[
-
-```
-# A tibble: 5,281 x 2
-   id_rollcall short_name
-         &lt;int&gt; &lt;chr&gt;     
- 1        3372 me        
- 2        3658 me        
- 3        3692 me        
- 4        2901 me        
- 5        3020 me        
- 6        3217 me        
- 7        3298 me        
- 8        3429 me        
- 9        3558 me        
-10        3625 me        
-# … with 5,271 more rows
-```
-]
-
----
-count: false
- 
-
-.panel1-issues-auto[
-
-```r
-unvotes::un_roll_call_issues %&gt;%
-  distinct(short_name, issue) %&gt;%
-  rename(definition = issue) %&gt;%
-  rename(issue = short_name) %&gt;%
-  arrange(issue) -&gt;
-dict_issue
-
-unvotes::un_roll_call_issues %&gt;%
-  rename(id_rollcall = rcid) %&gt;%
   select(-issue) %&gt;%
-* rename(cat_issue = short_name)
+  mutate(is_true = 1) %&gt;%
+  mutate(short_name = paste0("ind_issue_",
+                             short_name)) %&gt;%
+  pivot_wider(names_from = short_name,
+              values_from = is_true) %&gt;%
+  mutate_all(~replace(., is.na(.), 0)) %&gt;%
+  rename(id_rollcall = rcid) -&gt;
+rcid_issue_indicator_columns
+
+unvotes::un_roll_call_issues %&gt;%
+* distinct(issue, short_name)
 ```
 ]
  
 .panel2-issues-auto[
 
 ```
-# A tibble: 5,281 x 2
-   id_rollcall cat_issue
-         &lt;int&gt; &lt;chr&gt;    
- 1        3372 me       
- 2        3658 me       
- 3        3692 me       
- 4        2901 me       
- 5        3020 me       
- 6        3217 me       
- 7        3298 me       
- 8        3429 me       
- 9        3558 me       
-10        3625 me       
-# … with 5,271 more rows
+# A tibble: 6 x 2
+  short_name issue                               
+  &lt;chr&gt;      &lt;chr&gt;                               
+1 me         Palestinian conflict                
+2 nu         Nuclear weapons and nuclear material
+3 di         Arms control and disarmament        
+4 hr         Human rights                        
+5 co         Colonialism                         
+6 ec         Economic development                
 ```
 ]
 
@@ -1168,37 +1194,35 @@ count: false
 
 ```r
 unvotes::un_roll_call_issues %&gt;%
-  distinct(short_name, issue) %&gt;%
-  rename(definition = issue) %&gt;%
-  rename(issue = short_name) %&gt;%
-  arrange(issue) -&gt;
-dict_issue
+  select(-issue) %&gt;%
+  mutate(is_true = 1) %&gt;%
+  mutate(short_name = paste0("ind_issue_",
+                             short_name)) %&gt;%
+  pivot_wider(names_from = short_name,
+              values_from = is_true) %&gt;%
+  mutate_all(~replace(., is.na(.), 0)) %&gt;%
+  rename(id_rollcall = rcid) -&gt;
+rcid_issue_indicator_columns
 
 unvotes::un_roll_call_issues %&gt;%
-  rename(id_rollcall = rcid) %&gt;%
-  select(-issue) %&gt;%
-  rename(cat_issue = short_name) %&gt;%
-* arrange(id_rollcall)
+  distinct(issue, short_name) %&gt;%
+* mutate(short_name = paste0("ind_issue_",
+*                            short_name))
 ```
 ]
  
 .panel2-issues-auto[
 
 ```
-# A tibble: 5,281 x 2
-   id_rollcall cat_issue
-         &lt;int&gt; &lt;chr&gt;    
- 1           6 hr       
- 2           8 ec       
- 3          11 co       
- 4          18 ec       
- 5          19 ec       
- 6          24 ec       
- 7          26 co       
- 8          27 co       
- 9          28 co       
-10          29 co       
-# … with 5,271 more rows
+# A tibble: 6 x 2
+  short_name   issue                               
+  &lt;chr&gt;        &lt;chr&gt;                               
+1 ind_issue_me Palestinian conflict                
+2 ind_issue_nu Nuclear weapons and nuclear material
+3 ind_issue_di Arms control and disarmament        
+4 ind_issue_hr Human rights                        
+5 ind_issue_co Colonialism                         
+6 ind_issue_ec Economic development                
 ```
 ]
 
@@ -1210,18 +1234,106 @@ count: false
 
 ```r
 unvotes::un_roll_call_issues %&gt;%
-  distinct(short_name, issue) %&gt;%
-  rename(definition = issue) %&gt;%
-  rename(issue = short_name) %&gt;%
-  arrange(issue) -&gt;
-dict_issue
+  select(-issue) %&gt;%
+  mutate(is_true = 1) %&gt;%
+  mutate(short_name = paste0("ind_issue_",
+                             short_name)) %&gt;%
+  pivot_wider(names_from = short_name,
+              values_from = is_true) %&gt;%
+  mutate_all(~replace(., is.na(.), 0)) %&gt;%
+  rename(id_rollcall = rcid) -&gt;
+rcid_issue_indicator_columns
 
 unvotes::un_roll_call_issues %&gt;%
-  rename(id_rollcall = rcid) %&gt;%
+  distinct(issue, short_name) %&gt;%
+  mutate(short_name = paste0("ind_issue_",
+                             short_name)) %&gt;%
+* rename(col_name = short_name)
+```
+]
+ 
+.panel2-issues-auto[
+
+```
+# A tibble: 6 x 2
+  col_name     issue                               
+  &lt;chr&gt;        &lt;chr&gt;                               
+1 ind_issue_me Palestinian conflict                
+2 ind_issue_nu Nuclear weapons and nuclear material
+3 ind_issue_di Arms control and disarmament        
+4 ind_issue_hr Human rights                        
+5 ind_issue_co Colonialism                         
+6 ind_issue_ec Economic development                
+```
+]
+
+---
+count: false
+ 
+
+.panel1-issues-auto[
+
+```r
+unvotes::un_roll_call_issues %&gt;%
   select(-issue) %&gt;%
-  rename(cat_issue = short_name) %&gt;%
-  arrange(id_rollcall) -&gt;
-*tbl_un_roll_call_issues
+  mutate(is_true = 1) %&gt;%
+  mutate(short_name = paste0("ind_issue_",
+                             short_name)) %&gt;%
+  pivot_wider(names_from = short_name,
+              values_from = is_true) %&gt;%
+  mutate_all(~replace(., is.na(.), 0)) %&gt;%
+  rename(id_rollcall = rcid) -&gt;
+rcid_issue_indicator_columns
+
+unvotes::un_roll_call_issues %&gt;%
+  distinct(issue, short_name) %&gt;%
+  mutate(short_name = paste0("ind_issue_",
+                             short_name)) %&gt;%
+  rename(col_name = short_name) %&gt;%
+* rename(definition = issue)
+```
+]
+ 
+.panel2-issues-auto[
+
+```
+# A tibble: 6 x 2
+  col_name     definition                          
+  &lt;chr&gt;        &lt;chr&gt;                               
+1 ind_issue_me Palestinian conflict                
+2 ind_issue_nu Nuclear weapons and nuclear material
+3 ind_issue_di Arms control and disarmament        
+4 ind_issue_hr Human rights                        
+5 ind_issue_co Colonialism                         
+6 ind_issue_ec Economic development                
+```
+]
+
+---
+count: false
+ 
+
+.panel1-issues-auto[
+
+```r
+unvotes::un_roll_call_issues %&gt;%
+  select(-issue) %&gt;%
+  mutate(is_true = 1) %&gt;%
+  mutate(short_name = paste0("ind_issue_",
+                             short_name)) %&gt;%
+  pivot_wider(names_from = short_name,
+              values_from = is_true) %&gt;%
+  mutate_all(~replace(., is.na(.), 0)) %&gt;%
+  rename(id_rollcall = rcid) -&gt;
+rcid_issue_indicator_columns
+
+unvotes::un_roll_call_issues %&gt;%
+  distinct(issue, short_name) %&gt;%
+  mutate(short_name = paste0("ind_issue_",
+                             short_name)) %&gt;%
+  rename(col_name = short_name) %&gt;%
+  rename(definition = issue) -&gt;
+*col_definitions_roll_call_issues
 ```
 ]
  
@@ -1882,7 +1994,86 @@ unvotes::un_roll_calls %&gt;%
   rename(id_rollcall = rcid) %&gt;%
   rename(dt_vote = date) %&gt;%
   rename(ind_importantvote = importantvote) %&gt;%
-  rename(ind_amendment = amend) -&gt;
+  rename(ind_amendment = amend) %&gt;%
+* rename(ind_paragraph_vote = para)
+```
+]
+ 
+.panel2-rollcalls-auto[
+
+```
+# A tibble: 5,429 x 9
+   id_rollcall session ind_importantvo… dt_vote    unres ind_amendment
+         &lt;int&gt;   &lt;dbl&gt;            &lt;dbl&gt; &lt;date&gt;     &lt;chr&gt;         &lt;dbl&gt;
+ 1           3       1                0 1946-01-01 R/1/…             1
+ 2           4       1                0 1946-01-02 R/1/…             0
+ 3           5       1                0 1946-01-04 R/1/…             0
+ 4           6       1                0 1946-01-04 R/1/…             0
+ 5           7       1                0 1946-01-02 R/1/…             1
+ 6           8       1                0 1946-01-05 R/1/…             1
+ 7           9       1                0 1946-02-05 R/1/…             0
+ 8          10       1                0 1946-02-05 R/1/…             1
+ 9          11       1                0 1946-02-05 R/1/…             0
+10          12       1                0 1946-02-06 R/1/…             1
+# … with 5,419 more rows, and 3 more variables: ind_paragraph_vote &lt;dbl&gt;,
+#   short &lt;chr&gt;, descr &lt;chr&gt;
+```
+]
+
+---
+count: false
+ 
+
+.panel1-rollcalls-auto[
+
+```r
+unvotes::un_roll_calls %&gt;%
+  rename(id_rollcall = rcid) %&gt;%
+  rename(dt_vote = date) %&gt;%
+  rename(ind_importantvote = importantvote) %&gt;%
+  rename(ind_amendment = amend) %&gt;%
+  rename(ind_paragraph_vote = para) %&gt;%
+* full_join(rcid_issue_indicator_columns)
+```
+]
+ 
+.panel2-rollcalls-auto[
+
+```
+# A tibble: 5,429 x 15
+   id_rollcall session ind_importantvo… dt_vote    unres ind_amendment
+         &lt;dbl&gt;   &lt;dbl&gt;            &lt;dbl&gt; &lt;date&gt;     &lt;chr&gt;         &lt;dbl&gt;
+ 1           3       1                0 1946-01-01 R/1/…             1
+ 2           4       1                0 1946-01-02 R/1/…             0
+ 3           5       1                0 1946-01-04 R/1/…             0
+ 4           6       1                0 1946-01-04 R/1/…             0
+ 5           7       1                0 1946-01-02 R/1/…             1
+ 6           8       1                0 1946-01-05 R/1/…             1
+ 7           9       1                0 1946-02-05 R/1/…             0
+ 8          10       1                0 1946-02-05 R/1/…             1
+ 9          11       1                0 1946-02-05 R/1/…             0
+10          12       1                0 1946-02-06 R/1/…             1
+# … with 5,419 more rows, and 9 more variables: ind_paragraph_vote &lt;dbl&gt;,
+#   short &lt;chr&gt;, descr &lt;chr&gt;, ind_issue_me &lt;dbl&gt;, ind_issue_nu &lt;dbl&gt;,
+#   ind_issue_di &lt;dbl&gt;, ind_issue_hr &lt;dbl&gt;, ind_issue_co &lt;dbl&gt;,
+#   ind_issue_ec &lt;dbl&gt;
+```
+]
+
+---
+count: false
+ 
+
+.panel1-rollcalls-auto[
+
+```r
+unvotes::un_roll_calls %&gt;%
+  rename(id_rollcall = rcid) %&gt;%
+  rename(dt_vote = date) %&gt;%
+  rename(ind_importantvote = importantvote) %&gt;%
+  rename(ind_amendment = amend) %&gt;%
+  rename(ind_paragraph_vote = para) %&gt;%
+  full_join(rcid_issue_indicator_columns) -&gt;
 *tbl_un_roll_calls
 ```
 ]
@@ -1936,9 +2127,7 @@ count: false
 ```r
 *list(tbl_un_roll_calls,
 *    tbl_un_votes,
-*    dict_country,
-*    tbl_un_roll_call_issues,
-*    dict_issue)
+*    dict_country)
 ```
 ]
  
@@ -1946,20 +2135,23 @@ count: false
 
 ```
 [[1]]
-# A tibble: 5,429 x 9
-   id_rollcall session ind_importantvo… dt_vote    unres ind_amendment  para
-         &lt;int&gt;   &lt;dbl&gt;            &lt;dbl&gt; &lt;date&gt;     &lt;chr&gt;         &lt;dbl&gt; &lt;dbl&gt;
- 1           3       1                0 1946-01-01 R/1/…             1     0
- 2           4       1                0 1946-01-02 R/1/…             0     0
- 3           5       1                0 1946-01-04 R/1/…             0     0
- 4           6       1                0 1946-01-04 R/1/…             0     0
- 5           7       1                0 1946-01-02 R/1/…             1     0
- 6           8       1                0 1946-01-05 R/1/…             1     0
- 7           9       1                0 1946-02-05 R/1/…             0     0
- 8          10       1                0 1946-02-05 R/1/…             1     1
- 9          11       1                0 1946-02-05 R/1/…             0     0
-10          12       1                0 1946-02-06 R/1/…             1     1
-# … with 5,419 more rows, and 2 more variables: short &lt;chr&gt;, descr &lt;chr&gt;
+# A tibble: 5,429 x 15
+   id_rollcall session ind_importantvo… dt_vote    unres ind_amendment
+         &lt;dbl&gt;   &lt;dbl&gt;            &lt;dbl&gt; &lt;date&gt;     &lt;chr&gt;         &lt;dbl&gt;
+ 1           3       1                0 1946-01-01 R/1/…             1
+ 2           4       1                0 1946-01-02 R/1/…             0
+ 3           5       1                0 1946-01-04 R/1/…             0
+ 4           6       1                0 1946-01-04 R/1/…             0
+ 5           7       1                0 1946-01-02 R/1/…             1
+ 6           8       1                0 1946-01-05 R/1/…             1
+ 7           9       1                0 1946-02-05 R/1/…             0
+ 8          10       1                0 1946-02-05 R/1/…             1
+ 9          11       1                0 1946-02-05 R/1/…             0
+10          12       1                0 1946-02-06 R/1/…             1
+# … with 5,419 more rows, and 9 more variables: ind_paragraph_vote &lt;dbl&gt;,
+#   short &lt;chr&gt;, descr &lt;chr&gt;, ind_issue_me &lt;dbl&gt;, ind_issue_nu &lt;dbl&gt;,
+#   ind_issue_di &lt;dbl&gt;, ind_issue_hr &lt;dbl&gt;, ind_issue_co &lt;dbl&gt;,
+#   ind_issue_ec &lt;dbl&gt;
 
 [[2]]
 # A tibble: 738,764 x 3
@@ -1992,33 +2184,6 @@ count: false
  9 AT              Austria             
 10 AU              Australia           
 # … with 190 more rows
-
-[[4]]
-# A tibble: 5,281 x 2
-   id_rollcall cat_issue
-         &lt;int&gt; &lt;chr&gt;    
- 1           6 hr       
- 2           8 ec       
- 3          11 co       
- 4          18 ec       
- 5          19 ec       
- 6          24 ec       
- 7          26 co       
- 8          27 co       
- 9          28 co       
-10          29 co       
-# … with 5,271 more rows
-
-[[5]]
-# A tibble: 6 x 2
-  issue definition                          
-  &lt;chr&gt; &lt;chr&gt;                               
-1 co    Colonialism                         
-2 di    Arms control and disarmament        
-3 ec    Economic development                
-4 hr    Human rights                        
-5 me    Palestinian conflict                
-6 nu    Nuclear weapons and nuclear material
 ```
 ]
 
@@ -2031,9 +2196,7 @@ count: false
 ```r
 list(tbl_un_roll_calls,
      tbl_un_votes,
-     dict_country,
-     tbl_un_roll_call_issues,
-     dict_issue) %&gt;%
+     dict_country) %&gt;%
 * tibble(tables = .)
 ```
 ]
@@ -2041,14 +2204,12 @@ list(tbl_un_roll_calls,
 .panel2-define_vars-auto[
 
 ```
-# A tibble: 5 x 1
+# A tibble: 3 x 1
   tables                
   &lt;list&gt;                
-1 &lt;tibble [5,429 × 9]&gt;  
+1 &lt;tibble [5,429 × 15]&gt; 
 2 &lt;tibble [738,764 × 3]&gt;
 3 &lt;tibble [200 × 2]&gt;    
-4 &lt;tibble [5,281 × 2]&gt;  
-5 &lt;tibble [6 × 2]&gt;      
 ```
 ]
 
@@ -2061,9 +2222,7 @@ count: false
 ```r
 list(tbl_un_roll_calls,
      tbl_un_votes,
-     dict_country,
-     tbl_un_roll_call_issues,
-     dict_issue) %&gt;%
+     dict_country) %&gt;%
   tibble(tables = .) %&gt;%
 * mutate(col_name = map(tables, names))
 ```
@@ -2072,14 +2231,12 @@ list(tbl_un_roll_calls,
 .panel2-define_vars-auto[
 
 ```
-# A tibble: 5 x 2
-  tables                 col_name 
-  &lt;list&gt;                 &lt;list&gt;   
-1 &lt;tibble [5,429 × 9]&gt;   &lt;chr [9]&gt;
-2 &lt;tibble [738,764 × 3]&gt; &lt;chr [3]&gt;
-3 &lt;tibble [200 × 2]&gt;     &lt;chr [2]&gt;
-4 &lt;tibble [5,281 × 2]&gt;   &lt;chr [2]&gt;
-5 &lt;tibble [6 × 2]&gt;       &lt;chr [2]&gt;
+# A tibble: 3 x 2
+  tables                 col_name  
+  &lt;list&gt;                 &lt;list&gt;    
+1 &lt;tibble [5,429 × 15]&gt;  &lt;chr [15]&gt;
+2 &lt;tibble [738,764 × 3]&gt; &lt;chr [3]&gt; 
+3 &lt;tibble [200 × 2]&gt;     &lt;chr [2]&gt; 
 ```
 ]
 
@@ -2092,9 +2249,7 @@ count: false
 ```r
 list(tbl_un_roll_calls,
      tbl_un_votes,
-     dict_country,
-     tbl_un_roll_call_issues,
-     dict_issue) %&gt;%
+     dict_country) %&gt;%
   tibble(tables = .) %&gt;%
   mutate(col_name = map(tables, names)) %&gt;%
 * select(-tables)
@@ -2104,14 +2259,12 @@ list(tbl_un_roll_calls,
 .panel2-define_vars-auto[
 
 ```
-# A tibble: 5 x 1
-  col_name 
-  &lt;list&gt;   
-1 &lt;chr [9]&gt;
-2 &lt;chr [3]&gt;
-3 &lt;chr [2]&gt;
-4 &lt;chr [2]&gt;
-5 &lt;chr [2]&gt;
+# A tibble: 3 x 1
+  col_name  
+  &lt;list&gt;    
+1 &lt;chr [15]&gt;
+2 &lt;chr [3]&gt; 
+3 &lt;chr [2]&gt; 
 ```
 ]
 
@@ -2124,9 +2277,7 @@ count: false
 ```r
 list(tbl_un_roll_calls,
      tbl_un_votes,
-     dict_country,
-     tbl_un_roll_call_issues,
-     dict_issue) %&gt;%
+     dict_country) %&gt;%
   tibble(tables = .) %&gt;%
   mutate(col_name = map(tables, names)) %&gt;%
   select(-tables) %&gt;%
@@ -2137,27 +2288,29 @@ list(tbl_un_roll_calls,
 .panel2-define_vars-auto[
 
 ```
-# A tibble: 18 x 1
-   col_name         
-   &lt;chr&gt;            
- 1 id_rollcall      
- 2 session          
- 3 ind_importantvote
- 4 dt_vote          
- 5 unres            
- 6 ind_amendment    
- 7 para             
- 8 short            
- 9 descr            
-10 id_rollcall      
-11 id_country_cow   
-12 cat_vote         
-13 id_country_code  
-14 country          
-15 id_rollcall      
-16 cat_issue        
-17 issue            
-18 definition       
+# A tibble: 20 x 1
+   col_name          
+   &lt;chr&gt;             
+ 1 id_rollcall       
+ 2 session           
+ 3 ind_importantvote 
+ 4 dt_vote           
+ 5 unres             
+ 6 ind_amendment     
+ 7 ind_paragraph_vote
+ 8 short             
+ 9 descr             
+10 ind_issue_me      
+11 ind_issue_nu      
+12 ind_issue_di      
+13 ind_issue_hr      
+14 ind_issue_co      
+15 ind_issue_ec      
+16 id_rollcall       
+17 id_country_cow    
+18 cat_vote          
+19 id_country_code   
+20 country           
 ```
 ]
 
@@ -2170,9 +2323,7 @@ count: false
 ```r
 list(tbl_un_roll_calls,
      tbl_un_votes,
-     dict_country,
-     tbl_un_roll_call_issues,
-     dict_issue) %&gt;%
+     dict_country) %&gt;%
   tibble(tables = .) %&gt;%
   mutate(col_name = map(tables, names)) %&gt;%
   select(-tables) %&gt;%
@@ -2184,25 +2335,28 @@ list(tbl_un_roll_calls,
 .panel2-define_vars-auto[
 
 ```
-# A tibble: 16 x 1
-   col_name         
-   &lt;chr&gt;            
- 1 id_rollcall      
- 2 session          
- 3 ind_importantvote
- 4 dt_vote          
- 5 unres            
- 6 ind_amendment    
- 7 para             
- 8 short            
- 9 descr            
-10 id_country_cow   
-11 cat_vote         
-12 id_country_code  
-13 country          
-14 cat_issue        
-15 issue            
-16 definition       
+# A tibble: 19 x 1
+   col_name          
+   &lt;chr&gt;             
+ 1 id_rollcall       
+ 2 session           
+ 3 ind_importantvote 
+ 4 dt_vote           
+ 5 unres             
+ 6 ind_amendment     
+ 7 ind_paragraph_vote
+ 8 short             
+ 9 descr             
+10 ind_issue_me      
+11 ind_issue_nu      
+12 ind_issue_di      
+13 ind_issue_hr      
+14 ind_issue_co      
+15 ind_issue_ec      
+16 id_country_cow    
+17 cat_vote          
+18 id_country_code   
+19 country           
 ```
 ]
 
@@ -2215,9 +2369,7 @@ count: false
 ```r
 list(tbl_un_roll_calls,
      tbl_un_votes,
-     dict_country,
-     tbl_un_roll_call_issues,
-     dict_issue) %&gt;%
+     dict_country) %&gt;%
   tibble(tables = .) %&gt;%
   mutate(col_name = map(tables, names)) %&gt;%
   select(-tables) %&gt;%
@@ -2230,25 +2382,28 @@ list(tbl_un_roll_calls,
 .panel2-define_vars-auto[
 
 ```
-# A tibble: 16 x 1
-   col_name         
-   &lt;chr&gt;            
- 1 cat_issue        
- 2 cat_vote         
- 3 country          
- 4 definition       
- 5 descr            
- 6 dt_vote          
- 7 id_country_code  
- 8 id_country_cow   
- 9 id_rollcall      
-10 ind_amendment    
-11 ind_importantvote
-12 issue            
-13 para             
-14 session          
-15 short            
-16 unres            
+# A tibble: 19 x 1
+   col_name          
+   &lt;chr&gt;             
+ 1 cat_vote          
+ 2 country           
+ 3 descr             
+ 4 dt_vote           
+ 5 id_country_code   
+ 6 id_country_cow    
+ 7 id_rollcall       
+ 8 ind_amendment     
+ 9 ind_importantvote 
+10 ind_issue_co      
+11 ind_issue_di      
+12 ind_issue_ec      
+13 ind_issue_hr      
+14 ind_issue_me      
+15 ind_issue_nu      
+16 ind_paragraph_vote
+17 session           
+18 short             
+19 unres             
 ```
 ]
 
@@ -2291,8 +2446,7 @@ count: false
 .panel1-bespoke-auto[
 
 ```r
-* tribble(~., ~definition,
-*"cat_issue", "short form for un issue",
+*tribble(~col_name, ~definition,
 *"cat_vote", "un vote",
 *"country", "country name",
 *"definition", "explanation of variable or category",
@@ -2304,7 +2458,7 @@ count: false
 *"ind_amendment", "indicator variable, whether the vote was on an amendment; coded only until 1985",
 *"ind_importantvote", "indicator variable for whether vote was de",
 *"issue", "which issue area",
-*"para", "Whether the vote was only on a paragraph and not a resolution; coded only until 1985",
+*"ind_paragraph_vote", "Whether the vote was only on a paragraph and not a resolution; coded only until 1985",
 *"session", "",
 *"short", "Short description from ...",
 *"unres", "Resolution code")
@@ -2314,25 +2468,24 @@ count: false
 .panel2-bespoke-auto[
 
 ```
-# A tibble: 16 x 2
-   .               definition                                                   
-   &lt;chr&gt;           &lt;chr&gt;                                                        
- 1 cat_issue       "short form for un issue"                                    
- 2 cat_vote        "un vote"                                                    
- 3 country         "country name"                                               
- 4 definition      "explanation of variable or category"                        
- 5 descr           "long form description of resolution from UN"                
- 6 dt_vote         "date of vote"                                               
- 7 id_country_code "country code from correlates of war database"               
- 8 id_country_cow  "country code from correlates of war database"               
- 9 id_rollcall     "UN general assembly roll call id number, based on when vote…
-10 ind_amendment   "indicator variable, whether the vote was on an amendment; c…
-11 ind_importantv… "indicator variable for whether vote was de"                 
-12 issue           "which issue area"                                           
-13 para            "Whether the vote was only on a paragraph and not a resoluti…
-14 session         ""                                                           
-15 short           "Short description from ..."                                 
-16 unres           "Resolution code"                                            
+# A tibble: 15 x 2
+   col_name         definition                                                  
+   &lt;chr&gt;            &lt;chr&gt;                                                       
+ 1 cat_vote         "un vote"                                                   
+ 2 country          "country name"                                              
+ 3 definition       "explanation of variable or category"                       
+ 4 descr            "long form description of resolution from UN"               
+ 5 dt_vote          "date of vote"                                              
+ 6 id_country_code  "country code from correlates of war database"              
+ 7 id_country_cow   "country code from correlates of war database"              
+ 8 id_rollcall      "UN general assembly roll call id number, based on when vot…
+ 9 ind_amendment    "indicator variable, whether the vote was on an amendment; …
+10 ind_importantvo… "indicator variable for whether vote was de"                
+11 issue            "which issue area"                                          
+12 ind_paragraph_v… "Whether the vote was only on a paragraph and not a resolut…
+13 session          ""                                                          
+14 short            "Short description from ..."                                
+15 unres            "Resolution code"                                           
 ```
 ]
 
@@ -2343,8 +2496,7 @@ count: false
 .panel1-bespoke-auto[
 
 ```r
-  tribble(~., ~definition,
-"cat_issue", "short form for un issue",
+tribble(~col_name, ~definition,
 "cat_vote", "un vote",
 "country", "country name",
 "definition", "explanation of variable or category",
@@ -2356,11 +2508,108 @@ count: false
 "ind_amendment", "indicator variable, whether the vote was on an amendment; coded only until 1985",
 "ind_importantvote", "indicator variable for whether vote was de",
 "issue", "which issue area",
-"para", "Whether the vote was only on a paragraph and not a resolution; coded only until 1985",
+"ind_paragraph_vote", "Whether the vote was only on a paragraph and not a resolution; coded only until 1985",
 "session", "",
 "short", "Short description from ...",
-"unres", "Resolution code") -&gt;
-* variable_definitions
+"unres", "Resolution code") %&gt;%
+* bind_rows(col_definitions_roll_call_issues)
+```
+]
+ 
+.panel2-bespoke-auto[
+
+```
+# A tibble: 21 x 2
+   col_name        definition                                                   
+   &lt;chr&gt;           &lt;chr&gt;                                                        
+ 1 cat_vote        un vote                                                      
+ 2 country         country name                                                 
+ 3 definition      explanation of variable or category                          
+ 4 descr           long form description of resolution from UN                  
+ 5 dt_vote         date of vote                                                 
+ 6 id_country_code country code from correlates of war database                 
+ 7 id_country_cow  country code from correlates of war database                 
+ 8 id_rollcall     UN general assembly roll call id number, based on when vote …
+ 9 ind_amendment   indicator variable, whether the vote was on an amendment; co…
+10 ind_importantv… indicator variable for whether vote was de                   
+# … with 11 more rows
+```
+]
+
+---
+count: false
+ 
+
+.panel1-bespoke-auto[
+
+```r
+tribble(~col_name, ~definition,
+"cat_vote", "un vote",
+"country", "country name",
+"definition", "explanation of variable or category",
+"descr", "long form description of resolution from UN",
+"dt_vote", "date of vote",
+"id_country_code", "country code from correlates of war database",
+"id_country_cow", "country code from correlates of war database",
+"id_rollcall", "UN general assembly roll call id number, based on when vote happened",
+"ind_amendment", "indicator variable, whether the vote was on an amendment; coded only until 1985",
+"ind_importantvote", "indicator variable for whether vote was de",
+"issue", "which issue area",
+"ind_paragraph_vote", "Whether the vote was only on a paragraph and not a resolution; coded only until 1985",
+"session", "",
+"short", "Short description from ...",
+"unres", "Resolution code") %&gt;%
+  bind_rows(col_definitions_roll_call_issues) %&gt;%
+* arrange(col_name)
+```
+]
+ 
+.panel2-bespoke-auto[
+
+```
+# A tibble: 21 x 2
+   col_name        definition                                                   
+   &lt;chr&gt;           &lt;chr&gt;                                                        
+ 1 cat_vote        un vote                                                      
+ 2 country         country name                                                 
+ 3 definition      explanation of variable or category                          
+ 4 descr           long form description of resolution from UN                  
+ 5 dt_vote         date of vote                                                 
+ 6 id_country_code country code from correlates of war database                 
+ 7 id_country_cow  country code from correlates of war database                 
+ 8 id_rollcall     UN general assembly roll call id number, based on when vote …
+ 9 ind_amendment   indicator variable, whether the vote was on an amendment; co…
+10 ind_importantv… indicator variable for whether vote was de                   
+# … with 11 more rows
+```
+]
+
+---
+count: false
+ 
+
+.panel1-bespoke-auto[
+
+```r
+tribble(~col_name, ~definition,
+"cat_vote", "un vote",
+"country", "country name",
+"definition", "explanation of variable or category",
+"descr", "long form description of resolution from UN",
+"dt_vote", "date of vote",
+"id_country_code", "country code from correlates of war database",
+"id_country_cow", "country code from correlates of war database",
+"id_rollcall", "UN general assembly roll call id number, based on when vote happened",
+"ind_amendment", "indicator variable, whether the vote was on an amendment; coded only until 1985",
+"ind_importantvote", "indicator variable for whether vote was de",
+"issue", "which issue area",
+"ind_paragraph_vote", "Whether the vote was only on a paragraph and not a resolution; coded only until 1985",
+"session", "",
+"short", "Short description from ...",
+"unres", "Resolution code") %&gt;%
+  bind_rows(col_definitions_roll_call_issues) %&gt;%
+  arrange(col_name) -&gt;
+*variable_definitions
 ```
 ]
  
@@ -2398,6 +2647,17 @@ count: false
 
 
 
+
+---
+
+
+```r
+tribble(~table, ~definition,
+"tbl_un_roll_calls", "a table of information about each roll call vote, including the date, description, and relevant resolution that was voted on, whether topic was one of six issues",
+"tbl_un_votes", "table with the history of each country’s vote, one row for each country/vote pair"
+) -&gt;
+  provenance_tables
+```
 
 ---
 
@@ -2504,34 +2764,6 @@ con &lt;- dbConnect(RSQLite::SQLite(),
 dbListTables(con)
 
 dbWriteTable(con, "tbl_un_roll_calls", tbl_un_roll_calls)
-*dbWriteTable(con, "tbl_un_roll_call_issues", tbl_un_roll_call_issues)
-```
-]
- 
-.panel2-together-auto[
-
-```
-character(0)
-```
-]
-
----
-count: false
- 
-
-.panel1-together-auto[
-
-```r
-library(DBI)
-
-# Create an ephemeral in-memory RSQLite database
-con &lt;- dbConnect(RSQLite::SQLite(),
-                 dbname = ":memory:")
-
-dbListTables(con)
-
-dbWriteTable(con, "tbl_un_roll_calls", tbl_un_roll_calls)
-dbWriteTable(con, "tbl_un_roll_call_issues", tbl_un_roll_call_issues)
 *dbWriteTable(con, "tbl_un_votes", tbl_un_votes)
 ```
 ]
@@ -2559,38 +2791,7 @@ con &lt;- dbConnect(RSQLite::SQLite(),
 dbListTables(con)
 
 dbWriteTable(con, "tbl_un_roll_calls", tbl_un_roll_calls)
-dbWriteTable(con, "tbl_un_roll_call_issues", tbl_un_roll_call_issues)
 dbWriteTable(con, "tbl_un_votes", tbl_un_votes)
-*dbWriteTable(con, "dict_issue", dict_issue)
-```
-]
- 
-.panel2-together-auto[
-
-```
-character(0)
-```
-]
-
----
-count: false
- 
-
-.panel1-together-auto[
-
-```r
-library(DBI)
-
-# Create an ephemeral in-memory RSQLite database
-con &lt;- dbConnect(RSQLite::SQLite(),
-                 dbname = ":memory:")
-
-dbListTables(con)
-
-dbWriteTable(con, "tbl_un_roll_calls", tbl_un_roll_calls)
-dbWriteTable(con, "tbl_un_roll_call_issues", tbl_un_roll_call_issues)
-dbWriteTable(con, "tbl_un_votes", tbl_un_votes)
-dbWriteTable(con, "dict_issue", dict_issue)
 *dbWriteTable(con, "dict_country", dict_country)
 ```
 ]
@@ -2618,9 +2819,7 @@ con &lt;- dbConnect(RSQLite::SQLite(),
 dbListTables(con)
 
 dbWriteTable(con, "tbl_un_roll_calls", tbl_un_roll_calls)
-dbWriteTable(con, "tbl_un_roll_call_issues", tbl_un_roll_call_issues)
 dbWriteTable(con, "tbl_un_votes", tbl_un_votes)
-dbWriteTable(con, "dict_issue", dict_issue)
 dbWriteTable(con, "dict_country", dict_country)
 *dbWriteTable(con, "variable_definitions", variable_definitions)
 ```
@@ -2649,13 +2848,10 @@ con &lt;- dbConnect(RSQLite::SQLite(),
 dbListTables(con)
 
 dbWriteTable(con, "tbl_un_roll_calls", tbl_un_roll_calls)
-dbWriteTable(con, "tbl_un_roll_call_issues", tbl_un_roll_call_issues)
 dbWriteTable(con, "tbl_un_votes", tbl_un_votes)
-dbWriteTable(con, "dict_issue", dict_issue)
 dbWriteTable(con, "dict_country", dict_country)
 dbWriteTable(con, "variable_definitions", variable_definitions)
-
-*dbListTables(con)
+*dbWriteTable(con, "provenance_tables", provenance_tables)
 ```
 ]
  
@@ -2663,12 +2859,6 @@ dbWriteTable(con, "variable_definitions", variable_definitions)
 
 ```
 character(0)
-```
-
-```
-[1] "dict_country"            "dict_issue"             
-[3] "tbl_un_roll_call_issues" "tbl_un_roll_calls"      
-[5] "tbl_un_votes"            "variable_definitions"   
 ```
 ]
 
@@ -2688,11 +2878,47 @@ con &lt;- dbConnect(RSQLite::SQLite(),
 dbListTables(con)
 
 dbWriteTable(con, "tbl_un_roll_calls", tbl_un_roll_calls)
-dbWriteTable(con, "tbl_un_roll_call_issues", tbl_un_roll_call_issues)
 dbWriteTable(con, "tbl_un_votes", tbl_un_votes)
-dbWriteTable(con, "dict_issue", dict_issue)
 dbWriteTable(con, "dict_country", dict_country)
 dbWriteTable(con, "variable_definitions", variable_definitions)
+dbWriteTable(con, "provenance_tables", provenance_tables)
+
+*dbListTables(con)
+```
+]
+ 
+.panel2-together-auto[
+
+```
+character(0)
+```
+
+```
+[1] "dict_country"         "provenance_tables"    "tbl_un_roll_calls"   
+[4] "tbl_un_votes"         "variable_definitions"
+```
+]
+
+---
+count: false
+ 
+
+.panel1-together-auto[
+
+```r
+library(DBI)
+
+# Create an ephemeral in-memory RSQLite database
+con &lt;- dbConnect(RSQLite::SQLite(),
+                 dbname = ":memory:")
+
+dbListTables(con)
+
+dbWriteTable(con, "tbl_un_roll_calls", tbl_un_roll_calls)
+dbWriteTable(con, "tbl_un_votes", tbl_un_votes)
+dbWriteTable(con, "dict_country", dict_country)
+dbWriteTable(con, "variable_definitions", variable_definitions)
+dbWriteTable(con, "provenance_tables", provenance_tables)
 
 dbListTables(con)
 ```
@@ -2705,9 +2931,8 @@ character(0)
 ```
 
 ```
-[1] "dict_country"            "dict_issue"             
-[3] "tbl_un_roll_call_issues" "tbl_un_roll_calls"      
-[5] "tbl_un_votes"            "variable_definitions"   
+[1] "dict_country"         "provenance_tables"    "tbl_un_roll_calls"   
+[4] "tbl_un_votes"         "variable_definitions"
 ```
 ]
 
