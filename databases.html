@@ -2688,7 +2688,6 @@ count: false
 ```r
 library(DBI)
 
-# Create an ephemeral in-memory RSQLite database
 *con &lt;- dbConnect(RSQLite::SQLite(),
 *                dbname = ":memory:")
 ```
@@ -2707,7 +2706,6 @@ count: false
 ```r
 library(DBI)
 
-# Create an ephemeral in-memory RSQLite database
 con &lt;- dbConnect(RSQLite::SQLite(),
                  dbname = ":memory:")
 
@@ -2731,7 +2729,6 @@ count: false
 ```r
 library(DBI)
 
-# Create an ephemeral in-memory RSQLite database
 con &lt;- dbConnect(RSQLite::SQLite(),
                  dbname = ":memory:")
 
@@ -2757,7 +2754,6 @@ count: false
 ```r
 library(DBI)
 
-# Create an ephemeral in-memory RSQLite database
 con &lt;- dbConnect(RSQLite::SQLite(),
                  dbname = ":memory:")
 
@@ -2784,7 +2780,6 @@ count: false
 ```r
 library(DBI)
 
-# Create an ephemeral in-memory RSQLite database
 con &lt;- dbConnect(RSQLite::SQLite(),
                  dbname = ":memory:")
 
@@ -2812,7 +2807,6 @@ count: false
 ```r
 library(DBI)
 
-# Create an ephemeral in-memory RSQLite database
 con &lt;- dbConnect(RSQLite::SQLite(),
                  dbname = ":memory:")
 
@@ -2841,7 +2835,6 @@ count: false
 ```r
 library(DBI)
 
-# Create an ephemeral in-memory RSQLite database
 con &lt;- dbConnect(RSQLite::SQLite(),
                  dbname = ":memory:")
 
@@ -2871,7 +2864,6 @@ count: false
 ```r
 library(DBI)
 
-# Create an ephemeral in-memory RSQLite database
 con &lt;- dbConnect(RSQLite::SQLite(),
                  dbname = ":memory:")
 
@@ -2908,7 +2900,6 @@ count: false
 ```r
 library(DBI)
 
-# Create an ephemeral in-memory RSQLite database
 con &lt;- dbConnect(RSQLite::SQLite(),
                  dbname = ":memory:")
 
@@ -2967,8 +2958,544 @@ character(0)
 
 
 
+---
 
 
+```r
+res &lt;- dbSendQuery(con, 
+                   "SELECT * FROM tbl_un_votes WHERE id_rollcall = 3")
+dbFetch(res)
+```
+
+```
+   id_rollcall id_country_cow cat_vote
+1            3             US      yes
+2            3             CA       no
+3            3             CU      yes
+4            3             HT      yes
+5            3             DO      yes
+6            3             MX      yes
+7            3             GT      yes
+8            3             HN      yes
+9            3             SV      yes
+10           3             NI      yes
+11           3             CR      yes
+12           3             PA      yes
+13           3             CO      yes
+14           3             VE      yes
+15           3             EC      yes
+16           3             PE      yes
+17           3             BR      yes
+18           3             BO      yes
+19           3             PY      yes
+20           3             CL      yes
+21           3             AR      yes
+22           3             UY      yes
+23           3             GB       no
+24           3             NL       no
+25           3             BE      yes
+26           3             LU       no
+27           3             FR       no
+28           3             PL      yes
+29           3             CS      yes
+30           3             YU       no
+31           3             GR       no
+32           3             RU       no
+33           3             UA       no
+34           3             BY       no
+35           3             NO       no
+36           3             DK       no
+37           3             LR       no
+38           3             ET      yes
+39           3             ZA       no
+40           3             IR      yes
+41           3             TR      yes
+42           3             IQ  abstain
+43           3             EG  abstain
+44           3             SY      yes
+45           3             LB  abstain
+46           3             SA  abstain
+47           3             TW       no
+48           3             IN       no
+49           3             PH      yes
+50           3             AU       no
+51           3             NZ       no
+```
+
+
+
+
+---
+
+
+count: false
+ 
+## dplyr type manipulation
+.panel1-test-auto[
+
+```r
+*tbl(con, "tbl_un_votes")
+```
+]
+ 
+.panel2-test-auto[
+
+```
+# Source:   table&lt;tbl_un_votes&gt; [?? x 3]
+# Database: sqlite 3.30.1 [:memory:]
+   id_rollcall id_country_cow cat_vote
+         &lt;int&gt; &lt;chr&gt;          &lt;chr&gt;   
+ 1           3 US             yes     
+ 2           3 CA             no      
+ 3           3 CU             yes     
+ 4           3 HT             yes     
+ 5           3 DO             yes     
+ 6           3 MX             yes     
+ 7           3 GT             yes     
+ 8           3 HN             yes     
+ 9           3 SV             yes     
+10           3 NI             yes     
+# … with more rows
+```
+]
+
+---
+count: false
+ 
+## dplyr type manipulation
+.panel1-test-auto[
+
+```r
+tbl(con, "tbl_un_votes")  %&gt;%
+* group_by(id_country_cow)
+```
+]
+ 
+.panel2-test-auto[
+
+```
+# Source:   table&lt;tbl_un_votes&gt; [?? x 3]
+# Database: sqlite 3.30.1 [:memory:]
+# Groups:   id_country_cow
+   id_rollcall id_country_cow cat_vote
+         &lt;int&gt; &lt;chr&gt;          &lt;chr&gt;   
+ 1           3 US             yes     
+ 2           3 CA             no      
+ 3           3 CU             yes     
+ 4           3 HT             yes     
+ 5           3 DO             yes     
+ 6           3 MX             yes     
+ 7           3 GT             yes     
+ 8           3 HN             yes     
+ 9           3 SV             yes     
+10           3 NI             yes     
+# … with more rows
+```
+]
+
+---
+count: false
+ 
+## dplyr type manipulation
+.panel1-test-auto[
+
+```r
+tbl(con, "tbl_un_votes")  %&gt;%
+  group_by(id_country_cow) %&gt;%
+* mutate(ind_vote_yes = cat_vote == "yes")
+```
+]
+ 
+.panel2-test-auto[
+
+```
+# Source:   lazy query [?? x 4]
+# Database: sqlite 3.30.1 [:memory:]
+# Groups:   id_country_cow
+   id_rollcall id_country_cow cat_vote ind_vote_yes
+         &lt;int&gt; &lt;chr&gt;          &lt;chr&gt;           &lt;int&gt;
+ 1           3 US             yes                 1
+ 2           3 CA             no                  0
+ 3           3 CU             yes                 1
+ 4           3 HT             yes                 1
+ 5           3 DO             yes                 1
+ 6           3 MX             yes                 1
+ 7           3 GT             yes                 1
+ 8           3 HN             yes                 1
+ 9           3 SV             yes                 1
+10           3 NI             yes                 1
+# … with more rows
+```
+]
+
+---
+count: false
+ 
+## dplyr type manipulation
+.panel1-test-auto[
+
+```r
+tbl(con, "tbl_un_votes")  %&gt;%
+  group_by(id_country_cow) %&gt;%
+  mutate(ind_vote_yes = cat_vote == "yes") %&gt;%
+* summarise(prop_yes = mean(ind_vote_yes))
+```
+]
+ 
+.panel2-test-auto[
+
+```
+# Source:   lazy query [?? x 2]
+# Database: sqlite 3.30.1 [:memory:]
+   id_country_cow prop_yes
+   &lt;chr&gt;             &lt;dbl&gt;
+ 1 &lt;NA&gt;              0.659
+ 2 AD                0.645
+ 3 AE                0.941
+ 4 AF                0.842
+ 5 AG                0.919
+ 6 AL                0.716
+ 7 AM                0.759
+ 8 AO                0.922
+ 9 AR                0.779
+10 AT                0.633
+# … with more rows
+```
+]
+
+---
+count: false
+ 
+## dplyr type manipulation
+.panel1-test-auto[
+
+```r
+tbl(con, "tbl_un_votes")  %&gt;%
+  group_by(id_country_cow) %&gt;%
+  mutate(ind_vote_yes = cat_vote == "yes") %&gt;%
+  summarise(prop_yes = mean(ind_vote_yes)) %&gt;%
+* filter(prop_yes &gt; .7)
+```
+]
+ 
+.panel2-test-auto[
+
+```
+# Source:   lazy query [?? x 2]
+# Database: sqlite 3.30.1 [:memory:]
+   id_country_cow prop_yes
+   &lt;chr&gt;             &lt;dbl&gt;
+ 1 AE                0.941
+ 2 AF                0.842
+ 3 AG                0.919
+ 4 AL                0.716
+ 5 AM                0.759
+ 6 AO                0.922
+ 7 AR                0.779
+ 8 AZ                0.868
+ 9 BB                0.909
+10 BD                0.938
+# … with more rows
+```
+]
+
+---
+count: false
+ 
+## dplyr type manipulation
+.panel1-test-auto[
+
+```r
+tbl(con, "tbl_un_votes")  %&gt;%
+  group_by(id_country_cow) %&gt;%
+  mutate(ind_vote_yes = cat_vote == "yes") %&gt;%
+  summarise(prop_yes = mean(ind_vote_yes)) %&gt;%
+  filter(prop_yes &gt; .7) %&gt;%
+* collect()
+```
+]
+ 
+.panel2-test-auto[
+
+```
+# A tibble: 145 x 2
+   id_country_cow prop_yes
+   &lt;chr&gt;             &lt;dbl&gt;
+ 1 AE                0.941
+ 2 AF                0.842
+ 3 AG                0.919
+ 4 AL                0.716
+ 5 AM                0.759
+ 6 AO                0.922
+ 7 AR                0.779
+ 8 AZ                0.868
+ 9 BB                0.909
+10 BD                0.938
+# … with 135 more rows
+```
+]
+
+&lt;style&gt;
+.panel1-test-auto {
+  color: black;
+  width: 38.6060606060606%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel2-test-auto {
+  color: black;
+  width: 59.3939393939394%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-test-auto {
+  color: black;
+  width: NA%;
+  hight: 33%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+
+
+
+
+---
+
+
+count: false
+ 
+## translation to underlying sql syntax
+.panel1-query_translation-auto[
+
+```r
+*q1 &lt;- tbl(con, "tbl_un_votes")
+
+q1  %&gt;%
+show_query()
+```
+]
+ 
+.panel2-query_translation-auto[
+
+```
+&lt;SQL&gt;
+SELECT *
+FROM `tbl_un_votes`
+```
+]
+
+---
+count: false
+ 
+## translation to underlying sql syntax
+.panel1-query_translation-auto[
+
+```r
+q1 &lt;- tbl(con, "tbl_un_votes") %&gt;%
+* group_by(id_country_cow)
+
+q1  %&gt;%
+show_query()
+```
+]
+ 
+.panel2-query_translation-auto[
+
+```
+&lt;SQL&gt;
+SELECT *
+FROM `tbl_un_votes`
+```
+]
+
+---
+count: false
+ 
+## translation to underlying sql syntax
+.panel1-query_translation-auto[
+
+```r
+q1 &lt;- tbl(con, "tbl_un_votes") %&gt;%
+  group_by(id_country_cow) %&gt;%
+* mutate(ind_vote_yes = cat_vote == "yes")
+
+q1  %&gt;%
+show_query()
+```
+]
+ 
+.panel2-query_translation-auto[
+
+```
+&lt;SQL&gt;
+SELECT `id_rollcall`, `id_country_cow`, `cat_vote`, `cat_vote` = 'yes' AS `ind_vote_yes`
+FROM `tbl_un_votes`
+```
+]
+
+---
+count: false
+ 
+## translation to underlying sql syntax
+.panel1-query_translation-auto[
+
+```r
+q1 &lt;- tbl(con, "tbl_un_votes") %&gt;%
+  group_by(id_country_cow) %&gt;%
+  mutate(ind_vote_yes = cat_vote == "yes") %&gt;%
+* summarise(prop_yes = mean(ind_vote_yes))
+
+q1  %&gt;%
+show_query()
+```
+]
+ 
+.panel2-query_translation-auto[
+
+```
+&lt;SQL&gt;
+SELECT `id_country_cow`, AVG(`ind_vote_yes`) AS `prop_yes`
+FROM (SELECT `id_rollcall`, `id_country_cow`, `cat_vote`, `cat_vote` = 'yes' AS `ind_vote_yes`
+FROM `tbl_un_votes`)
+GROUP BY `id_country_cow`
+```
+]
+
+---
+count: false
+ 
+## translation to underlying sql syntax
+.panel1-query_translation-auto[
+
+```r
+q1 &lt;- tbl(con, "tbl_un_votes") %&gt;%
+  group_by(id_country_cow) %&gt;%
+  mutate(ind_vote_yes = cat_vote == "yes") %&gt;%
+  summarise(prop_yes = mean(ind_vote_yes)) %&gt;%
+* filter(prop_yes &gt; .7)
+
+q1  %&gt;%
+show_query()
+```
+]
+ 
+.panel2-query_translation-auto[
+
+```
+&lt;SQL&gt;
+SELECT *
+FROM (SELECT `id_country_cow`, AVG(`ind_vote_yes`) AS `prop_yes`
+FROM (SELECT `id_rollcall`, `id_country_cow`, `cat_vote`, `cat_vote` = 'yes' AS `ind_vote_yes`
+FROM `tbl_un_votes`)
+GROUP BY `id_country_cow`)
+WHERE (`prop_yes` &gt; 0.7)
+```
+]
+
+---
+count: false
+ 
+## translation to underlying sql syntax
+.panel1-query_translation-auto[
+
+```r
+q1 &lt;- tbl(con, "tbl_un_votes") %&gt;%
+  group_by(id_country_cow) %&gt;%
+  mutate(ind_vote_yes = cat_vote == "yes") %&gt;%
+  summarise(prop_yes = mean(ind_vote_yes)) %&gt;%
+  filter(prop_yes &gt; .7) %&gt;%
+* arrange(-prop_yes)
+
+q1  %&gt;%
+show_query()
+```
+]
+ 
+.panel2-query_translation-auto[
+
+```
+&lt;SQL&gt;
+SELECT *
+FROM (SELECT `id_country_cow`, AVG(`ind_vote_yes`) AS `prop_yes`
+FROM (SELECT `id_rollcall`, `id_country_cow`, `cat_vote`, `cat_vote` = 'yes' AS `ind_vote_yes`
+FROM `tbl_un_votes`)
+GROUP BY `id_country_cow`)
+WHERE (`prop_yes` &gt; 0.7)
+ORDER BY -`prop_yes`
+```
+]
+
+&lt;style&gt;
+.panel1-query_translation-auto {
+  color: black;
+  width: 38.6060606060606%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel2-query_translation-auto {
+  color: black;
+  width: 59.3939393939394%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-query_translation-auto {
+  color: black;
+  width: NA%;
+  hight: 33%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+
+
+
+
+
+
+---
+
+
+
+```r
+library(DBI)
+library(dplyr)
+library(dbplyr)
+library(odbc)
+con &lt;- dbConnect(odbc::odbc(), "Oracle DB")
+```
+
+
+```sql
+SELECT "month_idx", "year", "month", SUM(CASE WHEN ("term_deposit" = 'yes') THEN (1.0) ELSE (0.0) END) AS "subscribe",
+COUNT(*) AS "total"
+FROM ("bank") 
+GROUP BY "month_idx", "year", "month"
+```
+
+
+
+
+
+
+
+---
 
 
 &lt;style type="text/css"&gt;

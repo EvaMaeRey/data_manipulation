@@ -14,8 +14,8 @@ output:
       countIncrementalSlides: false
 ---
 
-```{r xaringanExtra-share-again, echo=FALSE}
-#xaringanExtra::use_share_again()
+```{r xaringanExtra-share-again, echo=FALSE, message=F, warning=F}
+library(tidyverse)
 ```
 
 ```{r, eval = F, echo = F}
@@ -278,7 +278,6 @@ tribble(~table, ~definition,
 ```{r together, include = F}
 library(DBI)
 
-# Create an ephemeral in-memory RSQLite database
 con <- dbConnect(RSQLite::SQLite(), 
                  dbname = ":memory:")
 
@@ -294,8 +293,78 @@ dbListTables(con)
 
 ```
 
+---
+
+```{r}
+res <- dbSendQuery(con, 
+                   "SELECT * FROM tbl_un_votes WHERE id_rollcall = 3")
+dbFetch(res)
+```
 
 
+
+
+---
+
+
+`r chunk_reveal("test", title = "## dplyr type manipulation")`
+
+```{r test, include = F}
+tbl(con, "tbl_un_votes")  %>% 
+  group_by(id_country_cow) %>%
+  mutate(ind_vote_yes = cat_vote == "yes") %>% 
+  summarise(prop_yes = mean(ind_vote_yes)) %>% 
+  filter(prop_yes > .7) %>% 
+  collect()
+```
+
+
+
+---
+
+
+`r chunk_reveal("query_translation", table_formatting = "show_query()", left_assign = T, title = "## translation to underlying sql syntax")`
+
+```{r query_translation, include = F}
+q1 <- tbl(con, "tbl_un_votes") %>%
+  group_by(id_country_cow) %>%
+  mutate(ind_vote_yes = cat_vote == "yes") %>% 
+  summarise(prop_yes = mean(ind_vote_yes)) %>% 
+  filter(prop_yes > .7) %>% 
+  arrange(-prop_yes)
+```
+
+
+
+
+
+---
+
+
+```{r, eval = F}
+library(DBI)
+library(dplyr)
+library(dbplyr)
+library(odbc)
+con <- dbConnect(odbc::odbc(), "Oracle DB")
+```
+
+```{sql, eval = F, connection=con, output.var = "mydataframe"}
+SELECT "month_idx", "year", "month", SUM(CASE WHEN ("term_deposit" = 'yes') THEN (1.0) ELSE (0.0) END) AS "subscribe",
+COUNT(*) AS "total"
+FROM ("bank") 
+GROUP BY "month_idx", "year", "month"
+```
+
+```{r}
+
+```
+
+
+
+
+
+---
 
 
 ```{css, eval = TRUE, echo = FALSE}
