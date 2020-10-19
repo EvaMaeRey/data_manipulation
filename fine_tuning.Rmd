@@ -1,7 +1,7 @@
 ---
 title: "How to Style"
 subtitle: "Thematic adjustments"
-author: "Reynolds Flipbook (code movies) Lab"
+author: "Flipbook (code movies) Lab"
 output:
   xaringan::moon_reader:
     seal: TRUE

@@ -17,7 +17,7 @@ How we get this done:
 4. embed the flipbook upon knitting the working .Rmd to .html
 
 
-```{r setup, include = F}
+```{r setup, include = T}
 # This is the recommended set up for flipbooks
 # you might think about setting cache to TRUE as you gain practice --- building flipbooks from scratch can be time consuming
 options(knitr.duplicate.label = "allow")
@@ -31,7 +31,7 @@ library(tidyverse)
 
 # This is a plot: 
 
-```{r my_code, echo = F}
+```{r my_code, echo = T}
 cars %>% 
   ggplot() +
   aes(x = dist) +
@@ -46,7 +46,7 @@ g; g
 
 # How can we build it with ggplot2:
 
-```{r, echo=F}
+```{r, echo=T}
 build_instant_flipbook(chunk_name = "my_code", 
                        use_share_again = T,
                        font_size = 120)
@@ -56,7 +56,7 @@ build_instant_flipbook(chunk_name = "my_code",
 
 # Styling plot:
 
-```{r fine_tuning, echo = F}
+```{r fine_tuning, echo = T}
 g + 
   theme_minimal(base_size = 12) +
   aes(size = dist) +
@@ -74,7 +74,7 @@ g +
 
 # How we style: 
 
-```{r, echo=F}
+```{r, echo=T}
 build_instant_flipbook(chunk_name = "fine_tuning", 
                        use_share_again = T, 
                        use_embed_xaringan = T,
@@ -82,7 +82,7 @@ build_instant_flipbook(chunk_name = "fine_tuning",
                        title_page = T,
                        title = "How to Style",
                        subtitle = "Thematic adjustments",
-                       author = "Reynolds Flipbook (code movies) Lab")
+                       author = "Flipbook (code movies) Lab")
 ```
 
 
