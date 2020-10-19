@@ -356,9 +356,6 @@ FROM ("bank")
 GROUP BY "month_idx", "year", "month"
 ```
 
-```{r}
-
-```
 
 
 
